@@ -1,7 +1,7 @@
 'use client';
 import styled from 'styled-components';
 
-const Section = styled.section`
+const UpcomingShowsSection = styled.section`
   background: #f0f0f0;
   height: 100vh;
   width: 75%;
@@ -20,10 +20,10 @@ const Title = styled.h2`
 
 export default function UpcomingShows () {
   return (
-    <Section>
+    <UpcomingShowsSection>
       <Title>Upcoming Events</Title>
       {/* Add your upcoming events content here */}
       <p>Stay tuned for our next events!</p>
-    </Section>
+    </UpcomingShowsSection>
   );
 }
