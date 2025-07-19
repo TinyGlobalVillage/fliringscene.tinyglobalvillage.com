@@ -1,34 +1,23 @@
 'use client';
 
 import styled from 'styled-components';
+import Navbar from '../_pageComponents/00_navBar/NavBar';
+import AboveTheFold from '../_pageComponents/01_homePage/01_AboveTheFold';
 
 const HeroSection = styled.section`
   height: 100vh;
   background-color: #000; /* fallback in case image is slow to load */
-  background-image: url('/images/backgrounds/void.png');
+  background-image: url('/images/backgrounds/alt-wood-panels.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 `;
 
-const MainContent = styled.main`
-  color: #00ffff;
-  text-align: center;
-  padding-top: 20vh;
-`;
-
 export default function Home() {
   return (
     <HeroSection>
-      <MainContent>
-        <h1>
-          🚧 Welcome to the Temporary Gateway for fliringscene.tinyglobalvillage.com 🚧
-        </h1>
-        <p>
-          This website is currently under construction.
-        </p>
-        <p>Please check back soon!!</p>
-      </MainContent>
+        <Navbar />
+        <AboveTheFold/>
     </HeroSection>
   );
 }
