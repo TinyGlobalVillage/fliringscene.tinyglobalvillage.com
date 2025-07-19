@@ -1,10 +1,16 @@
 'use client';
-
 import styled from 'styled-components';
-import Navbar from '../_pageComponents/00_navBar/NavBar';
-import AboveTheFold from '../_pageComponents/01_homePage/01_AboveTheFold';
 
-const HeroSection = styled.section`
+import Navbar from '../_allPageComponents/NavBar';
+
+import AboveTheFold from './_pageComponents/sections/01_AboveTheFold';
+import UpcomingShows from './_pageComponents/sections/02_UpcomingShows';
+import NewsFeed from './_pageComponents/sections/03_NewsFeed';
+import Footer from './_pageComponents/sections/05_Footer';
+import Gallery from './_pageComponents/sections/04_Gallery';
+
+
+const HomePage = styled.section`
   height: 100vh;
   background-color: #000; /* fallback in case image is slow to load */
   background-image: url('/images/backgrounds/alt-wood-panels.png');
@@ -15,10 +21,14 @@ const HeroSection = styled.section`
 
 export default function Home() {
   return (
-    <HeroSection>
+    <HomePage>
         <Navbar />
         <AboveTheFold/>
-    </HeroSection>
+        <UpcomingShows/>
+        <NewsFeed/>
+        <Gallery/>
+        <Footer/>
+    </HomePage>
   );
 }
 

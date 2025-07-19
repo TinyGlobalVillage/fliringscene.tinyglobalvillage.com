@@ -7,7 +7,7 @@ const NavbarContainer = styled.nav`
   position: fixed;
   top: 0;
   width: 100%;
-  background: #0d0d0d;
+  background: #000;
   padding: 1rem 2rem;
   z-index: 100;
   display: flex;

@@ -1,9 +1,11 @@
 // src/components/AboveTheFold.tsx
 'use client';
 import styled from 'styled-components';
+import ComedyClubSign from '../ui/ComedyClubSign';
 
-const HeroSection = styled.section`
-width: 50%;
+const AboveFoldSection = styled.section`
+width: 75%;
+min-width: 400px;
 margin: 0 auto;
 height: 100vh;
   display: flex;
@@ -33,15 +35,6 @@ const Title = styled.h1`
     font-size: 3rem;
   }
 `;
-// animation: flicker 2s infinite;
-
-// @keyframes flicker {
-//   0%, 100% { opacity: 1; }
-//   45% { opacity: 0.9; }
-//   50% { opacity: 0.5; }
-//   55% { opacity: 0.95; }
-// }
-
 
 const Subtitle = styled.h2`
   font-size: 3rem;
@@ -83,12 +76,13 @@ const CTAButton = styled.button`
 export default function AboveTheFold() {
   return (
 
-    <HeroSection>
-      <Title>FLIRING</Title>
+    <AboveFoldSection>
+      <ComedyClubSign/>
+      {/* <Title>FLIRING</Title>
       <Subtitle>SCENE</Subtitle>
       <NeonBox>COMEDY CLUB</NeonBox>
-      <CTAButton>🎤 Upcoming Shows</CTAButton>
-    </HeroSection>
+      <CTAButton>🎤 Upcoming Shows</CTAButton> */}
+    </AboveFoldSection>
 
   );
 }

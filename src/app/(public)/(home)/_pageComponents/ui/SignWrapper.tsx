@@ -12,3 +12,4 @@ export const SignWrapper = styled.div`
   gap: 1.2rem;
   padding: 2rem;
 `;
+export default SignWrapper;
