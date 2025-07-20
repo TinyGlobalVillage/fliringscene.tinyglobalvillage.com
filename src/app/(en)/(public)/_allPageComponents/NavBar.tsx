@@ -1,4 +1,3 @@
-// src/components/Navbar.tsx
 'use client';
 import styled from 'styled-components';
 
@@ -81,7 +80,7 @@ export default function Navbar() {
       </NavLink>
       <NavLink href="/shows">SHOWS</NavLink>
       <NavLink href="/about">ABOUT</NavLink>
-      <NavLink href="/about">GALLERY</NavLink>
+      <NavLink href="/gallery">GALLERY</NavLink>
       <NavLink href="/contact">CONTACT</NavLink>
     </NavbarContainer>
   );

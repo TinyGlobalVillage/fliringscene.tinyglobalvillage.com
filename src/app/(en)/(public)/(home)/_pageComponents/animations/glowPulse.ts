@@ -1,3 +1,4 @@
+'use client'
 import { keyframes } from 'styled-components';
 
 export const glowPulse = keyframes`

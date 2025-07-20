@@ -1,3 +1,4 @@
+'use client'
 // src/styles/GlobalStyles.ts
 import { createGlobalStyle } from 'styled-components';
 
