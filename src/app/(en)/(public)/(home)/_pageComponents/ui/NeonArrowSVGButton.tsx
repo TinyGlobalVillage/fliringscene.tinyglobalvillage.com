@@ -1,27 +1,42 @@
 'use client'
 import styled from 'styled-components';
+import { useRouter } from 'next/navigation';
 
 const ButtonWrapper = styled.button`
-  background: transparent;
-  border: none;
-  outline: none;
+  all: unset;
+  display: block;
+  max-width: 500px;
+  width: 100%;
+  cursor: pointer;
 
-  &:focus {
-    outline: none;
-  }
 
-  &:active {
-    outline: none;
+  transition: transform 0.2s ease, filter 0.2s ease;
+
+  &:hover {
+    /* slightly bigger */
+    transform: scale(1.05);
+
+    /* crank the glow */
+    filter:
+      drop-shadow(0 0 1px #fe9e17)
+
   }
 `;
 
 function NeonArrowSVGButton({ onClick }: { onClick?: () => void }) {
+  const router = useRouter();
+
   return (
-    <ButtonWrapper onClick={onClick}>
+    <ButtonWrapper onClick={() => router.push('/shows')}>
       {<svg xmlns="http://www.w3.org/2000/svg"
-        viewBox="-800 0 700 300"
+        viewBox="-790  9.5   590  180"
         preserveAspectRatio="xMidYMid meet"
-        style={{ width: '100%', height: '100%', overflow: 'visible', background: 'transparent' }}
+        style={{
+          width: '300px',
+          // height: '100%',
+          overflow: 'visible',
+          background: 'transparent'
+        }}
       >
         <path
           d="M-319.17 9.49
@@ -66,7 +81,7 @@ function NeonArrowSVGButton({ onClick }: { onClick?: () => void }) {
         <text
           x="-535"
           y="110"
-          fontSize="35"
+          fontSize="2.6em"
           fontFamily="Arial, sans-serif"
           fill="#fc5b7c"
           textAnchor="middle"
@@ -74,6 +89,7 @@ function NeonArrowSVGButton({ onClick }: { onClick?: () => void }) {
             pointerEvents: 'none',
             textShadow: '0 0 5px #c68697, 0 0 10px #491e27',
             transition: 'all 0.2s ease',
+            textAlign: 'center',
           }}
         >
           KOMMENDE SHOW

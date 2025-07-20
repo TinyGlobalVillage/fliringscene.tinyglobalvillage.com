@@ -11,6 +11,7 @@ interface NeonTextProps {
 const SvgWrapper = styled.div`
   width: 100%;
   text-align: center;
+  // border: 2px solid red;
 `;
 
 export default function NeonText({
@@ -21,7 +22,7 @@ export default function NeonText({
 }: NeonTextProps) {
   return (
     <SvgWrapper>
-      <svg width="100%" height="110" viewBox="0 -10 500 120" preserveAspectRatio="xMidYMid meet">
+      <svg width="100%"  viewBox="0 -10 500 100" preserveAspectRatio="xMidYMid meet">
         <defs>
           <filter id="neonFillGlow" x="-100%" y="-100%" width="300%" height="300%">
            <feGaussianBlur in="SourceGraphic" stdDeviation="4.5" result="blur1" />

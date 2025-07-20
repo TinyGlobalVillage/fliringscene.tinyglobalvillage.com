@@ -9,6 +9,8 @@ const SvgWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
+  
 `;
 
 export default SvgWrapper;

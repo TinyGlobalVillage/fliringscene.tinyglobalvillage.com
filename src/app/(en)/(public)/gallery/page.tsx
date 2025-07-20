@@ -1,6 +1,5 @@
 'use client';
 import styled from "styled-components";
-import Navbar from "../_allPageComponents/NavBar";
 
 const GallerySection = styled.div`
  width: 500px;
@@ -20,7 +19,6 @@ const GallerySection = styled.div`
 export default function GalleryPage() {
     return (
         <GallerySection>
-            <Navbar />
             <h1>Gallery</h1>
             <p>This is the gallery page.</p>
         </GallerySection>

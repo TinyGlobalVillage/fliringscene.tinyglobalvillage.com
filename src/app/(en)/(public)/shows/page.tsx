@@ -1,6 +1,5 @@
 'use client';
 import styled from "styled-components";
-import Navbar from "../_allPageComponents/NavBar";
 
 const ShowsSection = styled.div`
   width: 500px;
@@ -20,7 +19,6 @@ const ShowsSection = styled.div`
 export default function ShowsPage() {
     return (
         <>
-        <Navbar />
         <ShowsSection>
             <h1>Our Shows</h1>
             <p>Explore our diverse range of shows that cater to all interests and tastes.</p>

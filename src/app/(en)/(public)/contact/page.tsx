@@ -1,6 +1,5 @@
 'use client'
 import styled from "styled-components";
-import Navbar from "../_allPageComponents/NavBar";
 
 const ContactSection = styled.div`
   width: 500px;
@@ -22,7 +21,6 @@ padding-top: 300px;
 export default function ContactPage() {
     return (
         <>
-        <Navbar />
         <ContactSection>
             <h1>Contact Us</h1>
             <p>We would love to hear from you! Please reach out with any questions or feedback.</p>

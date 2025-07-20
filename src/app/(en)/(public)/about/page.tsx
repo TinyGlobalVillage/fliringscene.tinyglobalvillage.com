@@ -1,6 +1,5 @@
 'use client';
 import styled from "styled-components";
-import Navbar from "../_allPageComponents/NavBar";
 
 const AboutSection = styled.div`
   width: 500px;
@@ -20,7 +19,6 @@ padding-top: 300px;
 export default function About() {
     return (
         <>
-        <Navbar/>
         <AboutSection>
             <h1>About Us</h1>
             <p>Welcome to Fliring Scene, your premier destination for comedy and entertainment. We are dedicated to bringing you the best in stand-up comedy, improv, and live performances.</p>
