@@ -8,10 +8,18 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  html, body {
-    font-family: 'Neuzeit', sans-serif;
-    background: #000;
-    color: #fff;
+  @font-face {
+    font-family: 'Josefin Sans';
+    src: url('/fonts/JosefinSans-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  body {
+    font-family: 'Josefin Sans', sans-serif;
+    margin: 0;
+    padding: 0;
   }
 
   a {

@@ -1,16 +1,26 @@
 import styled from 'styled-components';
 
 const ButtonWrapper = styled.button`
-  /* Your button styling here */
+  background: transparent;
+  border: none;
+  outline: none;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    outline: none;
+  }
 `;
 
 function NeonArrowSVGButton({ onClick }: { onClick?: () => void }) {
   return (
     <ButtonWrapper onClick={onClick}>
-      {  <svg xmlns="http://www.w3.org/2000/svg"
-      viewBox="-800 0 700 300"
-       preserveAspectRatio="xMidYMid meet"
-        style={{ width: '100%', height: 'auto', overflow: 'visible' }}
+      {<svg xmlns="http://www.w3.org/2000/svg"
+        viewBox="-800 0 700 300"
+        preserveAspectRatio="xMidYMid meet"
+        style={{ width: '100%', height: 'auto', overflow: 'visible', background: 'transparent' }}
       >
         <path
           d="M-319.17 9.49
@@ -29,7 +39,7 @@ function NeonArrowSVGButton({ onClick }: { onClick?: () => void }) {
           strokeLinejoin="round"
           opacity="1"
           style={{
-             filter: 'drop-shadow(0 0 3px #fe9e17) drop-shadow(0 0 15px #ff9900)',
+            filter: 'drop-shadow(0 0 3px #fe9e17) drop-shadow(0 0 15px #ff9900)',
           }}
         />
         <path
@@ -48,8 +58,8 @@ function NeonArrowSVGButton({ onClick }: { onClick?: () => void }) {
           strokeLinecap="round"
           strokeLinejoin="round"
           opacity="1"
-           style={{
-             filter: 'drop-shadow(0 0 2px #fe9e17) drop-shadow(0 0 2px #ff9900)',
+          style={{
+            filter: 'drop-shadow(0 0 2px #fe9e17) drop-shadow(0 0 2px #ff9900)',
           }}
         />
         <text

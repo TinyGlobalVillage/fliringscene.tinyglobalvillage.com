@@ -19,15 +19,9 @@ const Background = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: -1;
+  z-index: 0;
   pointer-events: none;
   overflow: hidden;
-`;
-
-const RelativeImageWrapper = styled.div`
-  position: relative;     // required by next/image fill
-  width: 100%;
-  height: 100%;
 `;
 
 const Foreground = styled.main`
@@ -44,7 +38,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <GlobalStyle />
           <Wrapper>
             <Background>
-              <RelativeImageWrapper>
                 <Image
                   src="/images/backgrounds/alt-wood-panels.png"
                   alt="Background"
@@ -52,7 +45,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   priority
                   style={{ objectFit: 'cover' }}
                 />
-              </RelativeImageWrapper>
             </Background>
             <Foreground>
               {children}

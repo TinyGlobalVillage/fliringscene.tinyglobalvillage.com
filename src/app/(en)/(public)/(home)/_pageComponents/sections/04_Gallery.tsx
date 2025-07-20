@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 const GallerySection = styled.section`
-   background: #f0f0f0;
+   background-color: rgba(170, 167, 167, 0.5); // semi-transparent black
   height: 100vh;
   width: 75%;
   min-width: 400px;
