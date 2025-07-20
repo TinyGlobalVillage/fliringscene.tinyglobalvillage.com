@@ -22,7 +22,7 @@ const MicrophoneSVG = () => (
       xmlns="http://www.w3.org/2000/svg"
       viewBox="-200 -400 700 700"
       width="100%"
-      height="auto"
+      height="100%"
       preserveAspectRatio="xMidYMid meet"
     >
       {/* Orange stroke */}

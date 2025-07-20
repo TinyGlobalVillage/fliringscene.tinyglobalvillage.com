@@ -20,7 +20,7 @@ export default function NeonSVGTitle({
 }: NeonSVGTitleProps) {
   return (
     <SvgWrapper>
-      <svg width="100%" height="150" viewBox="0 0 600 150">
+      <svg width="100%" height="150px" viewBox="0 0 600 150">
         <defs>
           <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
             <feGaussianBlur stdDeviation="2" result="blur1" />

@@ -20,7 +20,7 @@ function NeonArrowSVGButton({ onClick }: { onClick?: () => void }) {
       {<svg xmlns="http://www.w3.org/2000/svg"
         viewBox="-800 0 700 300"
         preserveAspectRatio="xMidYMid meet"
-        style={{ width: '100%', height: 'auto', overflow: 'visible', background: 'transparent' }}
+        style={{ width: '100%', height: '100%', overflow: 'visible', background: 'transparent' }}
       >
         <path
           d="M-319.17 9.49

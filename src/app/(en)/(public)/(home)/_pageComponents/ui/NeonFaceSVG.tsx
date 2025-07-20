@@ -1,13 +1,12 @@
 'use client';
-import styled from 'styled-components';
 
 import SvgWrapper from './SvgWrapper';
 
-const DebugWrapper = styled.div`
-  // border: 1px solid red;
-  // height: auto;
-  // width: 100%;
-`;
+// const DebugWrapper = styled.div`
+//   // border: 1px solid red;
+//   // height: auto;
+//   // width: 100%;
+// `;
 
 const NeonFaceSVG = () => (
   <SvgWrapper>

@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 import { useEffect, useState } from 'react';
 
-const NavbarContainer = styled.nav<{ scrolled: boolean }>`
+const NavbarContainer = styled.nav<{ $scrolled: boolean }>`
   position: fixed;
   top: 0;
   width: 100%;
@@ -19,10 +19,11 @@ const NavbarContainer = styled.nav<{ scrolled: boolean }>`
   font-family: sans-serif;
   align-items: center;
   padding: 0 2rem;
+  margin-top: 10px;
   transition: background-color 0.3s ease;
-  background-color: ${({ scrolled }) =>
-    scrolled ? 'rgba(0, 0, 0, 0.85)' : 'transparent'};
-  backdrop-filter: ${({ scrolled }) => (scrolled ? 'blur(6px)' : 'none')};
+  background-color: ${({ $scrolled }) =>
+    $scrolled ? 'rgba(0, 0, 0, 0.85)' : 'transparent'};
+  backdrop-filter: ${({ $scrolled }) => ($scrolled ? 'blur(6px)' : 'none')};
 `;
 
 const NavLink = styled(Link)`
@@ -60,19 +61,19 @@ export default function Navbar() {
   }, []);
 
   return (
-    <NavbarContainer scrolled={scrolled}>
+    <NavbarContainer $scrolled={scrolled}>
       <NavLink href="/">
         <LogoWrapper>
           <Image
             src="/images/icons/fliring-scene-logo-circle.png"
             alt="Fliring Scene Logo"
-            width={70}
-            height={70}
+            width={60}
+            height={60}
             priority
             style={{
               paddingTop: '10px',
-              width: '70px',
-              height: '70px',
+              width: 'auto',
+              height: 'auto',
               objectFit: 'contain',
             }}
           />
