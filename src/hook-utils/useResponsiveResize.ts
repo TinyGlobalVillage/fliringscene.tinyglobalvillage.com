@@ -1,28 +1,25 @@
 import { useEffect, useState } from 'react';
+import type { FontSizeKey } from '../styles/scaleMap';
 
 export default function useResponsiveResize() {
-  const [sizing, setSizing] = useState({fontSize: '8.5rem', viewBoxHeight: 115  });
-
-//   __Option__
-//   const [sizing, setSizing] = useState<{ fontSize: '6.5rem' | '7.5rem' | '8.5rem'; viewBoxHeight: number }>({
-//   fontSize: '8.5rem',
-//   viewBoxHeight: 115,
-// });
+   const [fontSizeKey, setFontSizeKey] = useState<FontSizeKey>('8.5rem');
 
 useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
       if (width <= 480) {
-        setSizing({ fontSize: '6.5rem', viewBoxHeight: 90 });
+        setFontSizeKey('6.5rem');
       } else if (width <= 768) {
-        setSizing({ fontSize: '7.5rem', viewBoxHeight: 105 });
+        setFontSizeKey('7.5rem');
       } else {
-        setSizing({ fontSize: '8.5rem', viewBoxHeight: 115 });
+        setFontSizeKey('8.5rem');
       }
     };
-    handleResize(); // Call once on mount
+
+    handleResize(); // initial
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-  return sizing;
+
+  return { fontSizeKey };
 }

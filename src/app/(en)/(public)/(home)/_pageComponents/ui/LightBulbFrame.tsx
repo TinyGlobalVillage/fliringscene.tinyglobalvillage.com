@@ -2,19 +2,13 @@
 import styled, { keyframes } from 'styled-components';
 import { glowPulse } from '../animations/glowPulse';
 import useResponsiveResize from '@/hook-utils/useResponsiveResize';
+import { scaleMap } from '@/styles/scaleMap';
 
 // --- Animations ---
 const bulbPulse = keyframes`
   0%,100% { opacity:1; box-shadow:0 0 4px #fff,0 0 12px #ff0; }
   50% { opacity:0.7; box-shadow:0 0 2px #fff,0 0 8px #f90; }
 `;
-
-// --- RESIZING FOR ENTIRE LIGHT BULB FRAME ---
-const scaleMap = {
-  '6.5rem': { boxWidth: '220px', bulbSize: '15px' }, // mobile view
-  '7.5rem': { boxWidth: '280px', bulbSize: '18px' }, // tablet view
-  '8.5rem': { boxWidth: '320px', bulbSize: '22px' }, // desktop view
-} as const;
 
 // --- Styled Components ---
 const SignWrapper = styled.div`
@@ -93,12 +87,8 @@ interface LightBulbFrameProps {
 }
 
 export default function LightBulbFrame({ children }: LightBulbFrameProps) {
-  const { fontSize } = useResponsiveResize();
-
-  //__Option__
-  // const { boxWidth, bulbSize } = scaleMap[fontSize];
-
-const { boxWidth, bulbSize } = scaleMap[fontSize as keyof typeof scaleMap];
+  const { fontSizeKey } = useResponsiveResize();
+  const { boxWidth, bulbSize } = scaleMap[fontSizeKey];
 
   return (
     <SignWrapper>

@@ -1,5 +1,9 @@
 'use client';
 import styled from 'styled-components';
+import useResponsiveResize from '@/hook-utils/useResponsiveResize';
+import { scaleMap } from '@/styles/scaleMap';
+
+
 const SvgWrapper = styled.div`
 width: 100%;
 text-align: center;
@@ -22,60 +26,58 @@ const microphonePaths = [
   "M-19.41 -220.19 C-19.41,-220.19 20.77,-225.98 46.96,-209.44"
 ];
 
-const MicrophoneSVG = () => (
-  <SvgWrapper>
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="-114.45 -290.28 180.79 442.81"
-      // width="100%"
-      // height="100%"
-      preserveAspectRatio="xMidYMid meet"
-      style={{
-        width: '70px',
-        // height: '100%',
-        overflow: 'visible' }}
-    >
-      {/* Orange stroke */}
-      <g
-        transform="translate(0, 0)"
+export default function MicrophoneSVG() {
+  const { fontSizeKey } = useResponsiveResize();
+  const { microphoneWidth } = scaleMap[fontSizeKey as keyof typeof scaleMap];
+
+  return (
+    <SvgWrapper>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="-114.45 -290.28 180.79 442.81"
+        preserveAspectRatio="xMidYMid meet"
         style={{
-          filter: 'drop-shadow(0 0 3px #fe9e17) drop-shadow(0 0 15px #ff9900)',
+          width: microphoneWidth,
+          overflow: 'visible',
         }}
       >
-        {microphonePaths.map((d, i) => (
-          <path
-            key={`orange-${i}`}
-            d={d}
-            stroke="#fe9e17"
-            strokeWidth="11"
-            fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        ))}
-      </g>
-
-      {/* Yellow accent stroke */}
-      <g
-        transform="translate(0, 0) )"
-        style={{
-          filter: 'drop-shadow(0 0 3px #f8e160) drop-shadow(0 0 15px #fe9e17)',
-        }}
-      >
-        {microphonePaths.map((d, i) => (
-          <path
-            key={`yellow-${i}`}
-            d={d}
-            stroke="#f8e160"
-            strokeWidth="3"
-            fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        ))}
-      </g>
-    </svg>
-  </SvgWrapper>
-);
-
-export default MicrophoneSVG;
+        <g
+          transform="translate(0, 0)"
+          style={{
+            filter: 'drop-shadow(0 0 3px #fe9e17) drop-shadow(0 0 15px #ff9900)',
+          }}
+        >
+          {microphonePaths.map((d, i) => (
+            <path
+              key={`orange-${i}`}
+              d={d}
+              stroke="#fe9e17"
+              strokeWidth="11"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          ))}
+        </g>
+        <g
+          transform="translate(0, 0)"
+          style={{
+            filter: 'drop-shadow(0 0 3px #f8e160) drop-shadow(0 0 15px #fe9e17)',
+          }}
+        >
+          {microphonePaths.map((d, i) => (
+            <path
+              key={`yellow-${i}`}
+              d={d}
+              stroke="#f8e160"
+              strokeWidth="3"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          ))}
+        </g>
+      </svg>
+    </SvgWrapper>
+  );
+}

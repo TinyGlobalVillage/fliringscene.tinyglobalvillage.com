@@ -1,19 +1,24 @@
 'use client';
-// import styled from 'styled-components';
 import SvgWrapper from './SvgWrapper';
+import useResponsiveResize from '@/hook-utils/useResponsiveResize';
+import { scaleMap } from '@/styles/scaleMap';
 
-const NeonFaceSVG = () => (
-  <SvgWrapper>
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="225 0 450 450"
-      preserveAspectRatio="xMidYMid meet"
-      style={{
-        width:  '220px',
-        height: 'auto',
-        overflow: 'visible',
-      }}
-    >
+const NeonFaceSVG = () => {
+  const { fontSizeKey } = useResponsiveResize();
+  const { faceWidth } = scaleMap[fontSizeKey];
+
+  return (
+    <SvgWrapper>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="225 0 450 450"
+        preserveAspectRatio="xMidYMid meet"
+        style={{
+          width: faceWidth,
+          height: 'auto',
+          overflow: 'visible',
+        }}
+      >
       <g transform="translate(156, 346)" style={{ filter: 'drop-shadow(0 0 3px #fe9e17) drop-shadow(0 0 15px #ff9900)' }}>
         {/* Orange Face Glow */}
         <path
@@ -151,8 +156,9 @@ const NeonFaceSVG = () => (
           strokeLinejoin="round"
         />
       </g>
-    </svg>
-  </SvgWrapper>
-);
+ </svg>
+    </SvgWrapper>
+  );
+};
 
 export default NeonFaceSVG;

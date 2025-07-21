@@ -1,6 +1,8 @@
 'use client'
 import styled from 'styled-components';
 import { useRouter } from 'next/navigation';
+import useResponsiveResize from '@/hook-utils/useResponsiveResize';
+import { scaleMap } from '@/styles/scaleMap';
 
 const ButtonWrapper = styled.button`
   all: unset;
@@ -25,6 +27,8 @@ const ButtonWrapper = styled.button`
 
 function NeonArrowSVGButton({ onClick }: { onClick?: () => void }) {
   const router = useRouter();
+  const { fontSizeKey } = useResponsiveResize();
+  const { arrowWidth, arrowTextSize } = scaleMap[fontSizeKey as keyof typeof scaleMap];
 
   return (
     <ButtonWrapper onClick={() => router.push('/shows')}>
@@ -32,8 +36,7 @@ function NeonArrowSVGButton({ onClick }: { onClick?: () => void }) {
         viewBox="-790  9.5   590  180"
         preserveAspectRatio="xMidYMid meet"
         style={{
-          width: '300px',
-          // height: '100%',
+          width: arrowWidth,
           overflow: 'visible',
           background: 'transparent'
         }}
@@ -81,7 +84,7 @@ function NeonArrowSVGButton({ onClick }: { onClick?: () => void }) {
         <text
           x="-535"
           y="110"
-          fontSize="2.6em"
+          fontSize={arrowTextSize}
           fontFamily="Arial, sans-serif"
           fill="#fc5b7c"
           textAnchor="middle"
