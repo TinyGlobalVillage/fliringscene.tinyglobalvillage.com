@@ -33,6 +33,9 @@ html {
     color: inherit;
     text-decoration: none;
   }
+  nav {
+  padding-bottom: 100px;
+  }
 `;
 
 export default GlobalStyle;

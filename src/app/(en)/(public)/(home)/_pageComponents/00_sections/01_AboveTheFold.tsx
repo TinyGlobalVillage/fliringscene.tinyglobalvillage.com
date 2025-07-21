@@ -11,7 +11,6 @@ import { media } from '@/styles/breakpoints';
 
 
 const AboveFoldWrapper = styled.section`
-margin-top: 100px;
 width: 100%;
 height: 100vh;
 display: flex;

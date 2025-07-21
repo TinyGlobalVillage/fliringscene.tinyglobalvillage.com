@@ -14,6 +14,7 @@ export const scaleMap = {
     faceWidth: '100px',
     arrowWidth: '200px',
     arrowTextSize: '2em',
+    cardsPerView: '1',
 
   },
   '7.5rem': {
@@ -30,6 +31,7 @@ export const scaleMap = {
     faceWidth: '190px',
     arrowWidth: '260px',
     arrowTextSize: '2.4em',
+    cardsPerView: '2.25',
   },
   '8.5rem': {
     fontSize: '6rem',
@@ -45,6 +47,7 @@ export const scaleMap = {
     faceWidth: '220px',
     arrowWidth: '300px',
     arrowTextSize: '2.5em',
+    cardsPerView: '3.25',
   },
 } as const;
 

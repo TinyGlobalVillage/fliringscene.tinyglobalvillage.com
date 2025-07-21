@@ -1,9 +1,11 @@
 'use client';
 import styled from 'styled-components';
-import TikkioWidget from '../tikkio/TikkoNextShowWidget';
+import TikkioWidget from '../../../_allPageComponents/tikkio/TikkoWidget';
 import { glowPulse } from '../../animations/glowPulse';
 import NeonSectionTitleFontSize from '../../../_allPageComponents/headers/NeonSectionTitleFontSize';
 import { media } from '@/styles/breakpoints';
+import EndlessScrollContainer from '../../../_allPageComponents/scroll-containers/endlessScrollContainer';
+
 
 const UpcomingShowsSection = styled.section`
   min-height: 70vh;
@@ -30,13 +32,12 @@ width: 90%;
 `;
 
 
+
 export default function UpcomingShows() {
   return (
     <UpcomingShowsSection id="upcoming-show">
-
       <NeonSectionTitleFontSize>KOMMENDE SHOW</NeonSectionTitleFontSize>
       <TikkioWidget />
-
     </UpcomingShowsSection>
   );
 }

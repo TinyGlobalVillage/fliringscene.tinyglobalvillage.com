@@ -2,10 +2,11 @@
 
 import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
+import useResponsiveResize from '@/hook-utils/useResponsiveResize';
 
 // --- Styled Components ---
 const WidgetWrapper = styled.div`
-//   border: 2px solid red; // debug
+
  width: 100%;
   overflow: hidden;
 
@@ -24,7 +25,9 @@ const WidgetWrapper = styled.div`
 
 const ScrollContainer = styled.div<{ $eventCount: number }>`
   display: flex;
+  position: relative;
   overflow-x: auto;
+  behavior: smooth;
   scroll-snap-type: x mandatory;
   gap: 1rem;
   padding: 1rem;
@@ -36,8 +39,35 @@ const ScrollContainer = styled.div<{ $eventCount: number }>`
                 ? 'space-between'
                 : 'flex-start'};
 `;
+const Card = styled.div<{ $cardWidth: number }>`
+  flex: 0 0 ${({ $cardWidth }) => $cardWidth}%;
+  scroll-snap-align: start;
+  padding: 0 0.5rem;
+  box-sizing: border-box;
+`;
 
-export default function TikkioNextShowWidgetLazy() {
+const Arrow = styled.button`
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #ff4ecb;
+  cursor: pointer;
+  z-index: 10;
+`;
+
+const LeftArrow = styled(Arrow)`
+  left: -10px;
+`;
+
+const RightArrow = styled(Arrow)`
+  right: -10px;
+`;
+
+export default function TikkioWidget() {
+
     const containerRef = useRef<HTMLDivElement>(null);
     const [loaded, setLoaded] = useState(false);
     const [eventCount, setEventCount] = useState(0);
@@ -66,18 +96,18 @@ export default function TikkioNextShowWidgetLazy() {
 
         const style = document.createElement('style');
         style.innerHTML = `
-    .tikkio-widget-events {
-    display: flex !important;
-    width: 100% !important;
-    justify-content: center !important;
-  }
+            .tikkio-widget-events {
+            display: flex !important;
+            width: 100% !important;
+            justify-content: center !important;
+        }
 
-  .tikkio-widget-events > * {
-    flex: 1 1 auto !important;
-    max-width: 100% !important;
-    width: 100% !important;
-  }
-  `;
+        .tikkio-widget-events > * {
+            flex: 1 1 auto !important;
+            max-width: 100% !important;
+            width: 100% !important;
+        }
+        `;
         document.head.appendChild(style);
 
         const widgetDiv = document.createElement('div');
@@ -104,7 +134,19 @@ export default function TikkioNextShowWidgetLazy() {
 
         const observer = new MutationObserver(() => {
             const cards = target?.children?.length || 0;
-            setEventCount(cards);
+            const [cloned, setCloned] = useState(false);
+
+            if (cards === 1 && !cloned) {
+                //Clone the one card 3 times
+                const original = target.children[0];
+                for (let i = 0; i < 3; i++) {
+                    const clone = original.cloneNode(true);
+                    target.appendChild(clone);
+                }
+                setEventCount(4)
+            } else {
+                setEventCount(cards);
+            }
         });
 
         observer.observe(target, { childList: true });

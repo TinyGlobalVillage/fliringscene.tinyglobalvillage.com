@@ -36,7 +36,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </Background>
           <NavBar />
           <Foreground>
-            {children}
+            <main>{children}</main>
           </Foreground>
         </StyledComponentsRegistry>
       </body>

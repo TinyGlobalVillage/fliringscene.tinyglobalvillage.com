@@ -21,7 +21,7 @@ position: fixed;
   gap: 4rem;
   align-items: center;
   z-index: 9999;
-  background: ${({ $scrolled }) => ($scrolled ? 'rgba(0,0,0,0.70)' : 'transparent')};
+  background: ${({ $scrolled }) => ($scrolled ? 'rgba(0,0,0,0.7)' : 'transparent')};
   transition: background 0.25s ease;
 
    @media ${media.mobile} {
