@@ -26,12 +26,19 @@ const ButtonWrapper = styled.button`
 `;
 
 function NeonArrowSVGButton({ onClick }: { onClick?: () => void }) {
-  const router = useRouter();
   const { fontSizeKey } = useResponsiveResize();
   const { arrowWidth, arrowTextSize } = scaleMap[fontSizeKey as keyof typeof scaleMap];
 
   return (
-    <ButtonWrapper onClick={() => router.push('/shows')}>
+    <ButtonWrapper onClick={
+      () => {
+        const el = document.getElementById('upcoming-show');
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+      }
+    }
+    >
       {<svg xmlns="http://www.w3.org/2000/svg"
         viewBox="-790  9.5   590  180"
         preserveAspectRatio="xMidYMid meet"

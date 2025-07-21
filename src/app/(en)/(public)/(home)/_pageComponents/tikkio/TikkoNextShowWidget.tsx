@@ -6,6 +6,20 @@ import styled from 'styled-components';
 // --- Styled Components ---
 const WidgetWrapper = styled.div`
 //   border: 2px solid red; // debug
+ width: 100%;
+  overflow: hidden;
+
+ .tikkio-widget-events {
+  width: 100% !important;
+  max-width: 600px;
+  margin: 0 auto;
+  border-radius: 5px;
+
+  background: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 15px #00bfff, 0 0 15px #00bfff;
+  overflow: hidden; /* Ensures inner content respects the border-radius */
+}
+
 `;
 
 const ScrollContainer = styled.div<{ $eventCount: number }>`

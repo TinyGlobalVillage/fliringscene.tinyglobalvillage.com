@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { scaleMap } from '@/styles/scaleMap';
 import useResponsiveResize from '@/hook-utils/useResponsiveResize';
 
-interface NeonTextProps {
+interface NeonTextFontSizeProps {
   children: string;
   color?: string;
   fontWeight?: number;
@@ -19,7 +19,7 @@ export default function NeonText({
   children,
   color = '#ff4ecb',
   fontWeight = 700,
-}: NeonTextProps) {
+}: NeonTextFontSizeProps) {
   const { fontSizeKey } = useResponsiveResize();
   const { NeonTextFontSize } = scaleMap[fontSizeKey as keyof typeof scaleMap];
 

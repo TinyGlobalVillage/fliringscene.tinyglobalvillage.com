@@ -3,10 +3,10 @@
 import styled from 'styled-components';
 
 import ComedyClubSign from '../ui/ComedyClubSign';
-import NeonSVGTitle from '../ui/NeonSVGTitle';
-import MicrophoneSVG from '../ui/MicrophoneSVG';
-import NeonFaceSVG from '../ui/NeonFaceSVG';
-import NeonArrowSVGButton from '../ui/NeonArrowSVGButton';
+import NeonTitleFontSize from '../../../_allPageComponents/headers/NeonTitleFontSize';
+import MicrophoneSVG from '../svg/MicrophoneSVG';
+import NeonFaceSVG from '../svg/NeonFaceSVG';
+import NeonArrowSVGButton from '../svg/NeonArrowSVGButton';
 import { media } from '@/styles/breakpoints';
 
 
@@ -32,15 +32,15 @@ const FaceMicArrowWrapper = styled.div`
 `;
 
 export default function AboveTheFold() {
-   return (
+  return (
 
     <AboveFoldWrapper>
-    <NeonSVGTitle color="#ff66cc" >
+      <NeonTitleFontSize color="#ff66cc" >
         FLIRING
-      </NeonSVGTitle>
-      <NeonSVGTitle color="#00bfff" >
+      </NeonTitleFontSize>
+      <NeonTitleFontSize color="#00bfff" >
         SCENE
-      </NeonSVGTitle>
+      </NeonTitleFontSize>
       <ComedyClubSign />
       <FaceMicArrowWrapper>
         <MicrophoneSVG />

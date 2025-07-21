@@ -1,6 +1,7 @@
 'use client';
 import styled from 'styled-components';
 import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { media, breakpoints } from '@/styles/breakpoints';
@@ -37,7 +38,8 @@ const LogoWrapper = styled.div`
   &:hover {
     transform: scale(1.05);
     filter: drop-shadow(0 0 5px #fff) drop-shadow(0 0 10px #ff4ecb);
-  }
+    text-shadow: 0 0 5px #ff4ecb, 0 0 10px #ff4ecb;
+    }
 
    @media ${media.mobile} {
     position: fixed;
@@ -104,11 +106,22 @@ const NavLink = styled(Link)`
   &:hover {
     transform: scale(1.05);
     color: #fff;
-    text-shadow: 0 0 5px #ff4ecb, 0 0 10px #ff4ecb;
+
   }
 `;
 
 export default function NavBar() {
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const handleLogoClick = () => {
+    if (pathname === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      router.push('/')
+    }
+  }
+
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [logoSize, setLogoSize] = useState(LOGO_SIZE.desktop);
@@ -137,17 +150,17 @@ export default function NavBar() {
 
   return (
     <NavbarContainer $scrolled={scrolled}>
-      <Link href="/">
-        <LogoWrapper>
-          <Image
-            src="/images/icons/fliring-scene-logo-circle.png"
-            alt="Logo"
-            width={logoSize}
-            height={logoSize}
-            priority
-          />
-        </LogoWrapper>
-      </Link>
+
+      <LogoWrapper onClick={handleLogoClick}>
+        <Image
+          src="/images/icons/fliring-scene-logo-circle.png"
+          alt="Logo"
+          width={logoSize}
+          height={logoSize}
+          priority
+        />
+      </LogoWrapper>
+
 
       <MenuToggle onClick={() => setMenuOpen(v => !v)}>
         {menuOpen ? '✕' : '☰'}

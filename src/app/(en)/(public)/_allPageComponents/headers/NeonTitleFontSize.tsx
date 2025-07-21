@@ -4,6 +4,13 @@ import styled from 'styled-components';
 import useResponsiveResize from '@/hook-utils/useResponsiveResize';
 import { scaleMap } from '@/styles/scaleMap';
 
+
+interface NeonTitleFOntSizeProps {
+  children: string;
+  color?: string;
+  strokeWidth?: string;
+}
+
 const SvgWrapper = styled.div`
   width: 500px;
   text-align: center;
@@ -14,21 +21,17 @@ const SvgWrapper = styled.div`
   }
 `;
 
-export default function NeonSVGTitle({
+export default function NeonTitleFontSize({
   children,
   color = '#ff4ecb',
   strokeWidth = '3.75',
-}: {
-  children: string;
-  color?: string;
-  strokeWidth?: string;
-}) {
+}: NeonTitleFOntSizeProps ) {
   const { fontSizeKey } = useResponsiveResize();
-  const { NeonTitleFontSize, viewBoxHeight } = scaleMap[fontSizeKey];
+  const { NeonTitleFontSize, NeonTitleViewBoxHeight } = scaleMap[fontSizeKey];
 
   return (
     <SvgWrapper>
-      <svg width="100%" viewBox={`0 0 600 ${viewBoxHeight}`} preserveAspectRatio="xMidYMid meet">
+      <svg width="100%" viewBox={`0 0 600 ${NeonTitleViewBoxHeight}`} preserveAspectRatio="xMidYMid meet">
         <defs>
           <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
             <feGaussianBlur stdDeviation="2" result="blur1" />

@@ -2,16 +2,16 @@
 import styled from 'styled-components';
 import TikkioWidget from '../tikkio/TikkoNextShowWidget';
 import { glowPulse } from '../../animations/glowPulse';
-import NeonText from '../ui/NeonText';
-
+import NeonSectionTitleFontSize from '../../../_allPageComponents/headers/NeonSectionTitleFontSize';
+import { media } from '@/styles/breakpoints';
 
 const UpcomingShowsSection = styled.section`
-  background-color: rgba(170, 167, 167, 0.5); // semi-transparent black
-  height: auto;
-  width: 75%;
+  min-height: 70vh;
+  scroll-margin-top: 100px; // adjust based on fixed nav height
+  width: 80%;
   min-width: 300px;
   margin: 0 auto;
-  margin-bottom: 25px;
+  margin-bottom: 35px;
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -21,13 +21,22 @@ const UpcomingShowsSection = styled.section`
   animation: ${glowPulse} 2.5s infinite;
   box-shadow: 0 0 10px #f7b700, 0 0 25px #f7b700;
   background: rgba(0, 0, 0, 0.1);
+
+  @media ${media.mobile}{
+width: 90%;
+
+}
+
 `;
+
 
 export default function UpcomingShows() {
   return (
-    <UpcomingShowsSection>
-      <NeonText>KOMMENDE SHOW</NeonText>
+    <UpcomingShowsSection id="upcoming-show">
+
+      <NeonSectionTitleFontSize>KOMMENDE SHOW</NeonSectionTitleFontSize>
       <TikkioWidget />
+
     </UpcomingShowsSection>
   );
 }
