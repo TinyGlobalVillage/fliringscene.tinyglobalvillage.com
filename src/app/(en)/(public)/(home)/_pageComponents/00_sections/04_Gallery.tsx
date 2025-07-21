@@ -1,6 +1,6 @@
 'use client';
 import styled from 'styled-components';
-import Button from '../../../_allPageComponents/buttons/Button';
+import SlidingGallery from '../../../_allPageComponents/gallery/slidingGallery'
 
 const GallerySection = styled.section`
    background-color: rgba(170, 167, 167, 0.5); // semi-transparent black
@@ -19,8 +19,9 @@ export default function Gallery() {
     <GallerySection>
       <h2>Gallery</h2>
 
-      <Button />
+   
       <p>Check out our latest photos and videos!</p>
+      <SlidingGallery />
     </GallerySection>
   )
 }
