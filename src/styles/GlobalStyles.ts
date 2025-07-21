@@ -3,6 +3,11 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
+html {
+  width: 100%;
+  overflow-x: hidden;
+}
+
   *, *::before, *::after {
     margin: 0;
     padding: 0;
@@ -21,6 +26,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Josefin Sans', sans-serif;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
   }
 
   a {
