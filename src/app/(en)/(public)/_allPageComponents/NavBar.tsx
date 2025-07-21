@@ -5,16 +5,16 @@ import { usePathname, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { media, breakpoints } from '@/styles/breakpoints';
-
+import { glowPulse } from '../(home)/animations/glowPulse';
 
 const LOGO_SIZE = { desktop: 70, mobile: 60 };
 
 const NavbarContainer = styled.nav<{ $scrolled: boolean }>`
-margin-top: 10px;
 position: fixed;
   top: 0;
   left: 0;
   right: 0;
+  padding: 5px 0px;
 
   display: flex;
   justify-content: center;
@@ -24,9 +24,9 @@ position: fixed;
   background: ${({ $scrolled }) => ($scrolled ? 'rgba(0,0,0,0.70)' : 'transparent')};
   transition: background 0.25s ease;
 
-  //  @media ${media.mobile} {
+   @media ${media.mobile} {
 
-  // }
+  }
 
 `;
 
@@ -48,10 +48,10 @@ const LogoWrapper = styled.div`
   }
 `;
 
-const MenuToggle = styled.button`
+const MenuToggle = styled.button<{ $open: boolean }>`
   position: fixed;
-  top: -8px;
-  right: 15px;
+   top: ${({ $open }) => ($open ? '15px' : '-5px')};
+  right: ${({ $open }) => ($open ? '30px' : '25px')};
   display: none;
   background: transparent;
   border: none;
@@ -59,6 +59,7 @@ const MenuToggle = styled.button`
   font-size: 4rem;
   cursor: pointer;
   align-items: center;
+  z-index: 9999;
 
   @media ${media.mobile} {
     display: flex;
@@ -82,13 +83,19 @@ const NavLinks = styled.div<{ $open: boolean }>`
 
   @media ${media.mobile} {
     position: fixed;
-    top: 75px;
+    top: 3px;
+    left: 115px;
+    width: 250px;
+    height: 290px;
     margin: 1rem;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
     justify-content: center;
-    width: 85%;
     background: rgba(0, 0, 0, 0.85);
+    // border: 8px solid #ff4ecb;
+    border-radius: 28px;
+    animation: ${glowPulse} 2.5s infinite;
+    box-shadow: 0 0 10px #ff4ecb, 0 0 25px #ff4ecb;
     padding: 1rem 2rem;
     transform: ${({ $open }) => ($open ? 'translateY(0)' : 'translateY(-200%)')};
     transition: transform 0.3s ease;
@@ -115,6 +122,7 @@ export default function NavBar() {
   const router = useRouter();
 
   const handleLogoClick = () => {
+    setMenuOpen(false);
     if (pathname === '/') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
@@ -162,15 +170,15 @@ export default function NavBar() {
       </LogoWrapper>
 
 
-      <MenuToggle onClick={() => setMenuOpen(v => !v)}>
+      <MenuToggle $open={menuOpen} onClick={() => setMenuOpen(v => !v)}>
         {menuOpen ? '✕' : '☰'}
       </MenuToggle>
 
       <NavLinks $open={menuOpen}>
-        <NavLink href="/shows">SHOWS</NavLink>
-        <NavLink href="/about">ABOUT</NavLink>
-        <NavLink href="/gallery">GALLERY</NavLink>
-        <NavLink href="/contact">CONTACT</NavLink>
+        <NavLink href="/shows" onClick={() => setMenuOpen(false)}>SHOWS</NavLink>
+        <NavLink href="/about" onClick={() => setMenuOpen(false)}>ABOUT</NavLink>
+        <NavLink href="/gallery" onClick={() => setMenuOpen(false)}>GALLERY</NavLink>
+        <NavLink href="/contact" onClick={() => setMenuOpen(false)}>CONTACT</NavLink>
       </NavLinks>
     </NavbarContainer>
   );
