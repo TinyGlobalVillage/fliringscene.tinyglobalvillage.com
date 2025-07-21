@@ -1,7 +1,7 @@
 'use client';
 import styled from 'styled-components';
-import TikkioWidget from '../../tikkio/TikkoNextShowWidget';
-import { glowPulse } from '../animations/glowPulse';
+import TikkioWidget from '../tikkio/TikkoNextShowWidget';
+import { glowPulse } from '../../animations/glowPulse';
 import NeonText from '../ui/NeonText';
 
 

@@ -1,6 +1,6 @@
 'use client';
 import styled from 'styled-components';
-import { glowPulse } from '../animations/glowPulse';
+import { glowPulse } from '../../animations/glowPulse';
 
 
 
@@ -21,7 +21,7 @@ const NewsFeedSection = styled.section`
     box-shadow: 0 0 10px #f7b700, 0 0 25px #f7b700;
     background: rgba(0, 0, 0, 0.1);
 `;
-import FacebookFeed from '../../facebook/FacebookFeed';
+import FacebookFeed from '../facebook/FacebookFeed';
 
 export default function NewsSection() {
   return (
