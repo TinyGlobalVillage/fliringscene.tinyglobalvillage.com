@@ -7,6 +7,7 @@ import NeonSVGTitle from '../ui/NeonSVGTitle';
 import MicrophoneSVG from '../ui/MicrophoneSVG';
 import NeonFaceSVG from '../ui/NeonFaceSVG';
 import NeonArrowSVGButton from '../ui/NeonArrowSVGButton';
+import useResponsiveFontSize from '@/hook-utils/useResponsiveResize';
 
 
 const AboveFoldWrapper = styled.section`
@@ -24,15 +25,20 @@ const FaceMicArrowWrapper = styled.div`
   flex-direction: row;
   align-items: center;
   margin-top: 20px;
-
 `;
 
 export default function AboveTheFold() {
+
+  const { fontSize, viewBoxHeight} = useResponsiveFontSize();
   return (
 
     <AboveFoldWrapper>
-      <NeonSVGTitle color="#ff66cc">FLIRING</NeonSVGTitle>
-      <NeonSVGTitle color="#00bfff">SCENE</NeonSVGTitle>
+    <NeonSVGTitle color="#ff66cc" fontSize={fontSize} viewBoxHeight={viewBoxHeight}>
+        FLIRING
+      </NeonSVGTitle>
+      <NeonSVGTitle color="#00bfff" fontSize={fontSize} viewBoxHeight={viewBoxHeight}>
+        SCENE
+      </NeonSVGTitle>
       <ComedyClubSign />
       <FaceMicArrowWrapper>
         <MicrophoneSVG />
@@ -40,6 +46,5 @@ export default function AboveTheFold() {
         <NeonArrowSVGButton onClick={() => alert('Go to shows')} />
       </FaceMicArrowWrapper>
     </AboveFoldWrapper>
-
   );
 }

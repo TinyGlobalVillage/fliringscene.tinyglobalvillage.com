@@ -2,6 +2,7 @@
 import styled from 'styled-components';
 import TikkioWidget from '../../tikkio/TikkoNextShowWidget';
 import { glowPulse } from '../animations/glowPulse';
+import NeonText from '../ui/NeonText';
 
 const UpcomingShowsSection = styled.section`
   background-color: rgba(170, 167, 167, 0.5); // semi-transparent black
@@ -20,16 +21,11 @@ const UpcomingShowsSection = styled.section`
   box-shadow: 0 0 10px #f7b700, 0 0 25px #f7b700;
   background: rgba(0, 0, 0, 0.1);
 `;
-const Title = styled.h2`
-  font-size: 2.5rem;
-  color: #333;
-  margin-bottom: 1rem;
-`;
 
 export default function UpcomingShows () {
   return (
     <UpcomingShowsSection>
-      <Title>Upcoming Shows</Title>
+      <NeonText size="3rem">KOMMENDE SHOW</NeonText>
       <TikkioWidget/>
     </UpcomingShowsSection>
   );

@@ -6,6 +6,8 @@ interface NeonSVGTitleProps {
   color?: string;
   size?: string;
   strokeWidth?: string;
+  fontSize?: string;
+  viewBoxHeight?: number;
 }
 
 const SvgWrapper = styled.div`
@@ -22,10 +24,12 @@ export default function NeonSVGTitle({
   children,
   color = '#ff4ecb',
   strokeWidth = '3.75',
+  fontSize = '8.5rem',
+  viewBoxHeight = 115,
 }: NeonSVGTitleProps) {
   return (
     <SvgWrapper>
-      <svg width="100%" viewBox="0 0 600 115" preserveAspectRatio="xMidYMid meet">
+      <svg width="100%" viewBox={`0 0 600 ${viewBoxHeight}`} preserveAspectRatio="xMidYMid meet">
         <defs>
           <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
             <feGaussianBlur stdDeviation="2" result="blur1" />
@@ -44,7 +48,7 @@ export default function NeonSVGTitle({
           dominantBaseline="middle"
           textAnchor="middle"
           fontFamily="sans-serif"
-          fontSize="8.5rem"
+          fontSize={fontSize}
           stroke={color}
           strokeWidth={strokeWidth}
           fill="none"

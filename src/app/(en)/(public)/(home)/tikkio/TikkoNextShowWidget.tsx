@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 // --- Styled Components ---
 const WidgetWrapper = styled.div`
-  border: 2px solid red; // debug
+//   border: 2px solid red; // debug
 `;
 
 const ScrollContainer = styled.div<{ $eventCount: number }>`
