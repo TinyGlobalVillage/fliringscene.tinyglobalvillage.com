@@ -1,5 +1,6 @@
 'use client'
 import styled from 'styled-components';
+
 import useResponsiveResize from '@/hook-utils/useResponsiveResize';
 import { scaleMap } from '@/styles/scaleMap';
 
@@ -23,7 +24,7 @@ export default function NeonSVGTitle({
   strokeWidth?: string;
 }) {
   const { fontSizeKey } = useResponsiveResize();
-  const { fontSize, viewBoxHeight } = scaleMap[fontSizeKey];
+  const { NeonTitleFontSize, viewBoxHeight } = scaleMap[fontSizeKey];
 
   return (
     <SvgWrapper>
@@ -46,7 +47,7 @@ export default function NeonSVGTitle({
           dominantBaseline="middle"
           textAnchor="middle"
           fontFamily="sans-serif"
-          fontSize={fontSize}
+          fontSize={NeonTitleFontSize}
           stroke={color}
           strokeWidth={strokeWidth}
           fill="none"

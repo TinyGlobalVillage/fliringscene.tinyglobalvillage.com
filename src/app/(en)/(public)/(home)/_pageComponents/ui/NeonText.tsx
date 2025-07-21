@@ -21,7 +21,7 @@ export default function NeonText({
   fontWeight = 700,
 }: NeonTextProps) {
   const { fontSizeKey } = useResponsiveResize();
-  const { fontSize } = scaleMap[fontSizeKey as keyof typeof scaleMap];
+  const { NeonTextFontSize } = scaleMap[fontSizeKey as keyof typeof scaleMap];
 
   return (
     <SvgWrapper>
@@ -41,7 +41,7 @@ export default function NeonText({
           dominantBaseline="middle"
           textAnchor="middle"
           fontFamily="'Josefin Sans', sans-serif"
-          fontSize={fontSize}
+          fontSize={NeonTextFontSize}
           fontWeight={fontWeight}
           fill={color}
           filter="url(#neonFillGlow)"

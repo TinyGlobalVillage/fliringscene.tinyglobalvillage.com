@@ -4,6 +4,7 @@ import TikkioWidget from '../../tikkio/TikkoNextShowWidget';
 import { glowPulse } from '../animations/glowPulse';
 import NeonText from '../ui/NeonText';
 
+
 const UpcomingShowsSection = styled.section`
   background-color: rgba(170, 167, 167, 0.5); // semi-transparent black
   height: auto;
@@ -22,11 +23,11 @@ const UpcomingShowsSection = styled.section`
   background: rgba(0, 0, 0, 0.1);
 `;
 
-export default function UpcomingShows () {
+export default function UpcomingShows() {
   return (
     <UpcomingShowsSection>
-      <NeonText size="3rem">KOMMENDE SHOW</NeonText>
-      <TikkioWidget/>
+      <NeonText>KOMMENDE SHOW</NeonText>
+      <TikkioWidget />
     </UpcomingShowsSection>
   );
 }

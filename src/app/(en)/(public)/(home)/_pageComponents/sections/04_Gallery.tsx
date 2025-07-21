@@ -1,5 +1,6 @@
 'use client';
 import styled from 'styled-components';
+import Button from '../../../_allPageComponents/buttons/Button';
 
 const GallerySection = styled.section`
    background-color: rgba(170, 167, 167, 0.5); // semi-transparent black
@@ -13,12 +14,13 @@ const GallerySection = styled.section`
   align-items: center;
 `;
 
-  export default function Gallery() {
-    return (
-        <GallerySection>
-            <h2>Gallery</h2>
-            {/* Add your gallery content here */}
-            <p>Check out our latest photos and videos!</p>
-        </GallerySection>
-    )
-  }
+export default function Gallery() {
+  return (
+    <GallerySection>
+      <h2>Gallery</h2>
+
+      <Button />
+      <p>Check out our latest photos and videos!</p>
+    </GallerySection>
+  )
+}
