@@ -3,6 +3,12 @@ import { useEffect, useState } from 'react';
 export default function useResponsiveResize() {
   const [sizing, setSizing] = useState({fontSize: '8.5rem', viewBoxHeight: 115  });
 
+//   __Option__
+//   const [sizing, setSizing] = useState<{ fontSize: '6.5rem' | '7.5rem' | '8.5rem'; viewBoxHeight: number }>({
+//   fontSize: '8.5rem',
+//   viewBoxHeight: 115,
+// });
+
 useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;

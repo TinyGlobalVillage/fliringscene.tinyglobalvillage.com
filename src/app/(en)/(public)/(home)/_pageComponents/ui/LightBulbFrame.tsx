@@ -9,11 +9,11 @@ const bulbPulse = keyframes`
   50% { opacity:0.7; box-shadow:0 0 2px #fff,0 0 8px #f90; }
 `;
 
-// --- Sizing ---
+// --- RESIZING FOR ENTIRE LIGHT BULB FRAME ---
 const scaleMap = {
-  '6.5rem': { boxWidth: '240px', bulbSize: '8px' },
-  '7.5rem': { boxWidth: '280px', bulbSize: '10px' },
-  '8.5rem': { boxWidth: '320px', bulbSize: '12px' },
+  '6.5rem': { boxWidth: '220px', bulbSize: '15px' }, // mobile view
+  '7.5rem': { boxWidth: '280px', bulbSize: '18px' }, // tablet view
+  '8.5rem': { boxWidth: '320px', bulbSize: '22px' }, // desktop view
 } as const;
 
 // --- Styled Components ---
@@ -36,11 +36,8 @@ const BulbWrapper = styled.div`
   display: inline-flex;
 `;
 
-const FramedBox = styled.div<{ $scale: string }>`
-  width: ${({ $scale }) =>
-    $scale === '6.5rem' ? '240px' :
-    $scale === '7.5rem' ? '280px' :
-    '320px'};
+const FramedBox = styled.div<{ $width: string }>`
+  width: ${({ $width }) => $width};
   padding: 10px;
   border: 8px solid #f7b700;
   border-radius: 28px;
@@ -53,15 +50,9 @@ const FramedBox = styled.div<{ $scale: string }>`
   z-index: 1;
 `;
 
-const Bulb = styled.div<{ $top: string; $left: string; $scale: string }>`
-  width: ${({ $scale }) =>
-    $scale === '6.5rem' ? '8px' :
-    $scale === '7.5rem' ? '10px' :
-    '12px'};
-  height: ${({ $scale }) =>
-    $scale === '6.5rem' ? '8px' :
-    $scale === '7.5rem' ? '10px' :
-    '12px'};
+const Bulb = styled.div<{ $top: string; $left: string; $size: string }>`
+  width: ${({ $size }) => $size};
+  height: ${({ $size }) => $size};
   background: #fff;
   border-radius: 50%;
   position: absolute;
@@ -103,7 +94,11 @@ interface LightBulbFrameProps {
 
 export default function LightBulbFrame({ children }: LightBulbFrameProps) {
   const { fontSize } = useResponsiveResize();
-  const { boxWidth, bulbSize } = scaleMap[fontSize];
+
+  //__Option__
+  // const { boxWidth, bulbSize } = scaleMap[fontSize];
+
+const { boxWidth, bulbSize } = scaleMap[fontSize as keyof typeof scaleMap];
 
   return (
     <SignWrapper>
@@ -113,11 +108,11 @@ export default function LightBulbFrame({ children }: LightBulbFrameProps) {
             key={i}
             $top={`${top}%`}
             $left={`${left}%`}
-            $scale={fontSize}
+            $size={bulbSize}
           />
         ))}
 
-        <FramedBox $scale={fontSize}>
+        <FramedBox $width={boxWidth}>
           {children}
         </FramedBox>
       </BulbWrapper>
