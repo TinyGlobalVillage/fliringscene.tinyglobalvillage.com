@@ -7,7 +7,7 @@ import NeonSVGTitle from '../ui/NeonSVGTitle';
 import MicrophoneSVG from '../ui/MicrophoneSVG';
 import NeonFaceSVG from '../ui/NeonFaceSVG';
 import NeonArrowSVGButton from '../ui/NeonArrowSVGButton';
-import useResponsiveFontSize from '@/hook-utils/useResponsiveResize';
+import { media } from '@/styles/breakpoints';
 
 
 const AboveFoldWrapper = styled.section`
@@ -18,6 +18,10 @@ display: flex;
 flex-direction: column;
 // justify-content: center;
 align-items: center;
+
+   @media ${media.mobile} {
+  margin-top: 75px;
+  }
 `;
 
 const FaceMicArrowWrapper = styled.div`
@@ -28,15 +32,13 @@ const FaceMicArrowWrapper = styled.div`
 `;
 
 export default function AboveTheFold() {
-
-  const { fontSize, viewBoxHeight} = useResponsiveFontSize();
-  return (
+   return (
 
     <AboveFoldWrapper>
-    <NeonSVGTitle color="#ff66cc" fontSize={fontSize} viewBoxHeight={viewBoxHeight}>
+    <NeonSVGTitle color="#ff66cc" >
         FLIRING
       </NeonSVGTitle>
-      <NeonSVGTitle color="#00bfff" fontSize={fontSize} viewBoxHeight={viewBoxHeight}>
+      <NeonSVGTitle color="#00bfff" >
         SCENE
       </NeonSVGTitle>
       <ComedyClubSign />

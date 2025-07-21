@@ -3,23 +3,30 @@ import styled from 'styled-components';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import { breakpoints } from '@/styles/breakpoints';
+import { media, breakpoints } from '@/styles/breakpoints';
 
-const HEIGHT = 75;
+
+const LOGO_SIZE = { desktop: 70, mobile: 60 };
 
 const NavbarContainer = styled.nav<{ $scrolled: boolean }>`
-  position: fixed;
+margin-top: 10px;
+position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: ${HEIGHT}px;
+
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 4rem;
   align-items: center;
-  padding: 0 1.5rem;
   z-index: 9999;
   background: ${({ $scrolled }) => ($scrolled ? 'rgba(0,0,0,0.70)' : 'transparent')};
   transition: background 0.25s ease;
+
+  //  @media ${media.mobile} {
+
+  // }
+
 `;
 
 const LogoWrapper = styled.div`
@@ -31,44 +38,54 @@ const LogoWrapper = styled.div`
     transform: scale(1.05);
     filter: drop-shadow(0 0 5px #fff) drop-shadow(0 0 10px #ff4ecb);
   }
+
+   @media ${media.mobile} {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+  }
 `;
 
 const MenuToggle = styled.button`
+  position: fixed;
+  top: -8px;
+  right: 15px;
   display: none;
   background: transparent;
   border: none;
   color: #ff4ecb;
-  font-size: 1.25rem;
+  font-size: 4rem;
   cursor: pointer;
   align-items: center;
-  gap: 0.5rem;
 
-  @media (max-width: ${breakpoints.mobile}) {
+  @media ${media.mobile} {
     display: flex;
+
   }
 
-  &:hover {
-    color: white;
-  }
+  // &:hover {
+  //   color: white;
+  // }
 
-  &::after {
-    content: '▼';
-    font-size: 0.9rem;
-    transform: translateY(1px);
-  }
+  // &::after {
+  //   content: '▼';
+  //   font-size: 1.5rem;
+  //   transform: translateY(1px);
+  // }
 `;
 
 const NavLinks = styled.div<{ $open: boolean }>`
   display: flex;
   gap: 2rem;
 
-  @media (max-width: ${breakpoints.mobile}) {
-    position: absolute;
-    top: ${HEIGHT}px;
-    left: 0;
-    right: 0;
+  @media ${media.mobile} {
+    position: fixed;
+    top: 75px;
+    margin: 1rem;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    width: 85%;
     background: rgba(0, 0, 0, 0.85);
     padding: 1rem 2rem;
     transform: ${({ $open }) => ($open ? 'translateY(0)' : 'translateY(-200%)')};
@@ -94,12 +111,28 @@ const NavLink = styled(Link)`
 export default function NavBar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [logoSize, setLogoSize] = useState(LOGO_SIZE.desktop);
 
+  // handle scroll → background
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  // handle resize → logo size
+  useEffect(() => {
+    const onResize = () => {
+      setLogoSize(
+        window.innerWidth <= breakpoints.mobile
+          ? LOGO_SIZE.mobile
+          : LOGO_SIZE.desktop
+      );
+    };
+    onResize();
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
   }, []);
 
   return (
@@ -109,15 +142,15 @@ export default function NavBar() {
           <Image
             src="/images/icons/fliring-scene-logo-circle.png"
             alt="Logo"
-            width={60}
-            height={60}
+            width={logoSize}
+            height={logoSize}
             priority
           />
         </LogoWrapper>
       </Link>
 
-      <MenuToggle onClick={() => setMenuOpen(prev => !prev)}>
-        MENU
+      <MenuToggle onClick={() => setMenuOpen(v => !v)}>
+        {menuOpen ? '✕' : '☰'}
       </MenuToggle>
 
       <NavLinks $open={menuOpen}>

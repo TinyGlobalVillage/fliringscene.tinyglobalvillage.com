@@ -23,7 +23,7 @@ export default function NeonSVGTitle({
   strokeWidth?: string;
 }) {
   const { fontSizeKey } = useResponsiveResize();
-  const { viewBoxHeight } = scaleMap[fontSizeKey];
+  const { fontSize, viewBoxHeight } = scaleMap[fontSizeKey];
 
   return (
     <SvgWrapper>
@@ -46,7 +46,7 @@ export default function NeonSVGTitle({
           dominantBaseline="middle"
           textAnchor="middle"
           fontFamily="sans-serif"
-          fontSize={fontSizeKey}
+          fontSize={fontSize}
           stroke={color}
           strokeWidth={strokeWidth}
           fill="none"

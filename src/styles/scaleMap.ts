@@ -1,5 +1,3 @@
-import { view } from 'drizzle-orm/sqlite-core';
-
 // scaleMap.ts (new or shared)
 export const scaleMap = {
   '6.5rem': {
@@ -11,7 +9,7 @@ export const scaleMap = {
     svgViewBoxHeight: 90,
     microphoneWidth: '30px',
     faceWidth: '100px',
-    arrowWidth: '140px',
+    arrowWidth: '200px',
     arrowTextSize: '2em',
   },
   '7.5rem': {
