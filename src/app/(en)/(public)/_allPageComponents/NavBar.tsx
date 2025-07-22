@@ -15,7 +15,6 @@ position: fixed;
   left: 0;
   right: 0;
   padding: 5px 0px;
-
   display: flex;
   justify-content: center;
   gap: 4rem;
@@ -43,8 +42,8 @@ const LogoWrapper = styled.div`
 
    @media ${media.mobile} {
     position: fixed;
-    top: 10px;
-    left: 10px;
+    top: 15px;
+    left: 15px;
   }
 `;
 

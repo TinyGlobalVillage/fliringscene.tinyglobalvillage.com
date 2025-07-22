@@ -17,6 +17,7 @@ const Background = styled.div`
 const Foreground = styled.div`
   /* optional page-wide paddings etc. */
   min-height:100vh;
+  padding-top: 100px;
 `;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

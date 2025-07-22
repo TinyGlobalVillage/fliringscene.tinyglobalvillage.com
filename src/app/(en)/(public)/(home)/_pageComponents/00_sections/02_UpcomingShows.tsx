@@ -26,18 +26,18 @@ const UpcomingShowsSection = styled.section`
 
   @media ${media.mobile}{
 width: 90%;
+min-height: 60vh;
+padding: 1.5rem;
 
 }
 
 `;
 
-
-
 export default function UpcomingShows() {
   return (
     <UpcomingShowsSection id="upcoming-show">
       <NeonSectionTitleFontSize>KOMMENDE SHOW</NeonSectionTitleFontSize>
-      <TikkioWidget />
+          <TikkioWidget />
     </UpcomingShowsSection>
   );
 }

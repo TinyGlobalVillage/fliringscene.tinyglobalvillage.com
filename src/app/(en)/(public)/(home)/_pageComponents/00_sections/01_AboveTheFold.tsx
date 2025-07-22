@@ -19,7 +19,7 @@ flex-direction: column;
 align-items: center;
 
    @media ${media.mobile} {
-  margin-top: 75px;
+  
   }
 `;
 

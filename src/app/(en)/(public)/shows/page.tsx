@@ -8,16 +8,17 @@ import TikkioWidget from "../_allPageComponents/tikkio/TikkoWidget";
 
 const ShowsSection = styled.div`
   min-height: 70vh;
-//   scroll-margin-top: 100px;
-  width: 80%;
   min-width: 300px;
+  width: 80%;
+
+  scroll-margin-top: 100px;
   margin: 0 auto;
-//   margin-top: 100px;
-  margin-bottom: 35px;
   padding: 2rem;
+
   display: flex;
   flex-direction: column;
   align-items: center;
+
   border: 8px solid #f7b700;
   border-radius: 28px;
   animation: ${glowPulse} 2.5s infinite;
@@ -25,9 +26,9 @@ const ShowsSection = styled.div`
   background: rgba(0, 0, 0, 0.1);
 
   @media ${media.mobile}{
-width: 90%;
-
-}
+  width: 90%;
+   margin-top: -10px;
+  }
 
 `;
 

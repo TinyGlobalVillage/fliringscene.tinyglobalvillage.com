@@ -36,11 +36,11 @@ export default function TikkioWidget() {
         justify-content: center!important;
         }
 
-      // .tikkio-widget-events > * {
-      //   flex:1 1 auto !important;
-      //   max-width:100% !important;
-      //   width:100% !important;
-      // }
+      .tikkio-widget-events > * {
+        flex:1 1 auto !important;
+        max-width:100% !important;
+        width:100% !important;
+      }
 
       .tikkio-widget-event-inside
         {
