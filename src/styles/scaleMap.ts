@@ -1,22 +1,38 @@
 // scaleMap.ts
 export const scaleMap = {
   '6.5rem': {
-    fontSize: '6.5rem',
-    NeonTitleFontSize: '6.5rem',
-    NeonSectionTitleFontSize: '6.5rem',
-    NeonTextFontSize: '6.5rem',
-    viewBoxHeight: 105,
-    NeonTitleViewBoxHeight: 105,
-    svgViewBoxHeight: 90,
-    boxWidth: '220px',
-    bulbSize: '15px',
-    comedyClubBulbSize: '15px',
-    microphoneWidth: '30px',
-    faceWidth: '100px',
-    arrowWidth: '200px',
-    arrowTextSize: '2em',
-    cardsPerView: '1',
+    // homepage
 
+      // **** up for deletion ****
+        // fontSize: '6.5rem',
+        // viewBoxHeight: 105,
+        // svgViewBoxHeight: 90,
+
+      // Section Title
+      NeonSectionTitleFontSize: '6.5rem',
+
+      //above the fold
+
+        //navbar
+
+        //Above Fold Title
+        NeonTitleFontSize: '6.5rem',
+        NeonTitleViewBoxHeight: 105,
+
+        // Comedy Sign
+        comedyClubBulbSize: '15px',
+        NeonTextFontSize: '6.5rem',
+        boxWidth: '220px',
+        bulbSize: '15px',
+
+        // FaceMicArrow
+        microphoneWidth: '30px',
+        faceWidth: '100px',
+        arrowWidth: '200px',
+        arrowTextSize: '2em',
+
+      // Gallery
+      cardsPerView: '1',
 
     // Contact Page
     NeonContactPageTitle: '3.5rem',
@@ -29,56 +45,92 @@ export const scaleMap = {
 
   },
   '7.5rem': {
-    fontSize: '4rem',
-    NeonTitleFontSize: '7.5rem',
-    NeonSectionTitleFontSize: '7.5rem',
-    NeonTextFontSize: '6rem',
-    viewBoxHeight: 110,
-    NeonTitleViewBoxHeight: 110,
-    svgViewBoxHeight: 105,
-    boxWidth: '280px',
-    bulbSize: '18px',
-    comedyClubBulbSize: '18px',
-    microphoneWidth: '50px',
-    faceWidth: '150px',
-    arrowWidth: '240px',
-    arrowTextSize: '2.4em',
-    cardsPerView: '2.25',
+    // homepage
+
+      // **** up for deletion ****
+        // fontSize: '4rem',
+        // viewBoxHeight: 110,
+        // svgViewBoxHeight: 105,
+
+        // Section Title
+        NeonSectionTitleFontSize: '7.5rem',
+
+      //above the fold
+
+        //navbar
+
+        //Above Fold Title
+        NeonTitleFontSize: '11rem',
+        NeonTitleViewBoxHeight: 160,
+
+        // Comedy Sign
+        comedyClubBulbSize: '18px',
+        NeonTextFontSize: '6rem',
+        boxWidth: '430px',
+        bulbSize: '18px',
+
+        // FaceMicArrow
+        microphoneWidth: '50px',
+        faceWidth: '150px',
+        arrowWidth: '240px',
+        arrowTextSize: '2.4em',
+
+      // Gallery
+      cardsPerView: '2.25',
 
     // Contact Page
     NeonContactPageTitle: '6.5rem',
     NeonContactPageTitleViewBoxHeight: '0',
 
-    //footer
+    //Footer
     footerHeaderFontSize: '.9rem',
     footerButtonWidth: '200px',
     inputWidth: '200px',
   },
   '8.5rem': {
-    fontSize: '6rem',
-    NeonTitleFontSize: '8.5rem',
-    NeonSectionTitleFontSize: '6.5rem',
-    NeonTextFontSize: '6rem',
-    viewBoxHeight: 115,
-    NeonTitleViewBoxHeight: 115,
-    svgViewBoxHeight: 115,
-    boxWidth: '320px',
-    bulbSize: '32px',
-    comedyClubBulbSize: '22px',
-    microphoneWidth: '70px',
-    faceWidth: '220px',
-    arrowWidth: '300px',
-    arrowTextSize: '2.5em',
-    cardsPerView: '3.25',
+    // homepage
+
+      // **** up for deletion ****
+        // fontSize: '6rem',
+        // viewBoxHeight: 115,
+        // svgViewBoxHeight: 115,
+
+      // Section Title
+      NeonSectionTitleFontSize: '6.5rem',
+
+      //above the fold
+
+        //navbar
+
+        //Above Fold Title
+        NeonTitleFontSize: '15rem',
+        NeonTitleViewBoxHeight: 205,
+
+        // Comedy Sign
+        comedyClubBulbSize: '22px',
+        NeonTextFontSize: '6rem',
+        boxWidth: '520px',
+        bulbSize: '32px',
+
+        // FaceMicArrow
+        microphoneWidth: '70px',
+        faceWidth: '220px',
+        arrowWidth: '300px',
+        arrowTextSize: '2.5em',
+
+      // Gallery
+        cardsPerView: '3.25',
+
+      //Footer
+        footerHeaderFontSize: '1rem',
+        footerButtonWidth: '200px',
+        inputWidth: '200px',
 
     // Contact Page
     NeonContactPageTitle: '6.5rem',
     NeonContactPageTitleViewBoxHeight: '0',
 
-    //footer
-    footerHeaderFontSize: '1rem',
-    footerButtonWidth: '200px',
-    inputWidth: '200px',
+
 
   },
 } as const;
