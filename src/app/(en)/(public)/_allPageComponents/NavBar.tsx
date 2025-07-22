@@ -60,6 +60,7 @@ const MenuToggle = styled.button<{ $open: boolean }>`
   cursor: pointer;
   align-items: center;
   z-index: 9999;
+  justify-content: center;
 
   @media ${media.mobile} {
     display: flex;
@@ -80,6 +81,7 @@ const MenuToggle = styled.button<{ $open: boolean }>`
 const NavLinks = styled.div<{ $open: boolean }>`
   display: flex;
   gap: 2rem;
+  align-items: center;
 
   @media ${media.mobile} {
     position: fixed;
@@ -118,14 +120,10 @@ const NavLink = styled(Link)`
 `;
 
 const IconLink = styled.a`
-  color: #ff4ecb;             /* default icon color */
-  font-size: 1.5rem;          /* controls icon size via SVG's currentColor */
-  display: inline-flex;
-  align-items: center;
-  margin-left: 1rem;
+  color: #ff4ecb;
 
   &:hover {
-    color: #00bfff;           /* hover color */
+    color: #fff;           /* hover color */
   }
 `;
 
