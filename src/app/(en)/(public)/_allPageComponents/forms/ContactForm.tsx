@@ -17,14 +17,14 @@ const FormWrapper = styled.section`
   margin: 0 auto;
 
   @media ${media.mobile}{
-  gap: .5rem;
-  padding: 1rem;
+    gap: .5rem;
+    padding: 1rem;
   }
 `;
 
 const ContactFormHeader = styled.div`
-margin: 0 auto;
-text-align: center;
+  margin: 0 auto;
+  text-align: center;
 `;
 
 const Form = styled.form`
@@ -39,16 +39,17 @@ const Field = styled.div`
   gap: 0.5rem;
 
   label {
-    font-size: 1.125rem;    /* larger label text */
+    font-size: 1.125rem;
     font-weight: 600;
     color: #ff4ecb;
-    text-align: left;       /* ensure left-aligned */
+    text-align: left;
   }
 
   input,
-  select {
-    width: 100%;            /* full width */
-    padding: 0.75rem;       /* good padding */
+  select,
+  textarea {
+    width: 100%;
+    padding: 0.75rem;
     border-radius: 6px;
     border: 1px solid #ccc;
     background: #fff;
@@ -80,39 +81,53 @@ const Status = styled.p<{ variant: 'success' | 'error' }>`
     variant === 'success' ? '#4caf50' : '#f44336'};
 `;
 
-
-
 // ── Component ────────────────────────────────────────────────────────────────
 export default function ContactForm() {
-
-
   const [form, setForm] = useState({
     name: '',
     email: '',
     number: '',
     topic: '',
-    videoLink: ''
+    otherMessage: '',
+    videoLink: '',
   });
-  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [status, setStatus] = useState<'idle'|'sending'|'success'|'error'>('idle');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    setForm(f => ({ ...f, [e.target.name]: e.target.value }));
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setForm(f => ({ ...f, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name || !form.email || !form.topic) return;
-    setStatus('sending');
+    // require otherMessage if topic==="Other"
+    if (
+      !form.name ||
+      !form.email ||
+      !form.topic ||
+      (form.topic === 'Other' && !form.otherMessage)
+    ) return;
 
+    setStatus('sending');
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form)
+        headers: { 'Content-Type':'application/json' },
+        body: JSON.stringify(form),
       });
       if (!res.ok) throw new Error('Network error');
+
       setStatus('success');
-      setForm({ name: '', email: '', number: '', topic: '', videoLink: '' });
+      setForm({
+        name: '',
+        email: '',
+        number: '',
+        topic: '',
+        otherMessage: '',
+        videoLink: '',
+      });
     } catch {
       setStatus('error');
     }
@@ -121,10 +136,9 @@ export default function ContactForm() {
   return (
     <FormWrapper>
       <ContactFormHeader>
-    <NeonContactPageTitle>
-      Contact Us
-    </NeonContactPageTitle>
-  </ContactFormHeader>
+        <NeonContactPageTitle>Contact Us</NeonContactPageTitle>
+      </ContactFormHeader>
+
       <Form onSubmit={handleSubmit}>
         <Field>
           <label htmlFor="name">Name *</label>
@@ -137,6 +151,7 @@ export default function ContactForm() {
             required
           />
         </Field>
+
         <Field>
           <label htmlFor="email">Email *</label>
           <input
@@ -148,6 +163,7 @@ export default function ContactForm() {
             required
           />
         </Field>
+
         <Field>
           <label htmlFor="number">Phone Number</label>
           <input
@@ -158,6 +174,7 @@ export default function ContactForm() {
             onChange={handleChange}
           />
         </Field>
+
         <Field>
           <label htmlFor="topic">Topic *</label>
           <select
@@ -176,32 +193,41 @@ export default function ContactForm() {
             <option>Other</option>
           </select>
         </Field>
+
+        {form.topic === 'Other' && (
+          <Field>
+            <label htmlFor="otherMessage">Please describe *</label>
+            <textarea
+              id="otherMessage"
+              name="otherMessage"
+              rows={4}
+              value={form.otherMessage}
+              onChange={handleChange}
+              required
+              placeholder=""
+            />
+          </Field>
+        )}
+
         <Field>
           <label htmlFor="videoLink">Send Us A Performance Video</label>
           <input
             id="videoLink"
             name="videoLink"
             type="url"
-            placeholder="https://youtube.com/…"
+            placeholder="https://youtube.com/… or similar"
             value={form.videoLink}
             onChange={handleChange}
           />
         </Field>
-        <Button type="submit" disabled={status === 'sending'}>
-          {status === 'sending' ? 'Sending…' : 'Send Message'}
+
+        <Button type="submit" disabled={status==='sending'}>
+          {status==='sending' ? 'Sending…' : 'Send Message'}
         </Button>
       </Form>
 
-      {status === 'success' && (
-        <Status variant="success">
-          Thank you! We’ll be in touch.
-        </Status>
-      )}
-      {status === 'error' && (
-        <Status variant="error">
-          Something went wrong. Please try again.
-        </Status>
-      )}
+      {status==='success' && <Status variant="success">Thank you! We’ll be in touch.</Status>}
+      {status==='error'   && <Status variant="error">Something went wrong. Please try again.</Status>}
     </FormWrapper>
   );
 }
