@@ -38,11 +38,27 @@ export default function BackToTop() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const scrollToTop = () =>
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+ const scrollToPreviousSection = () => {
+    // grab all sections (or replace with your selector)
+    const sections = Array.from(document.querySelectorAll<HTMLElement>('section[id]'));
+    const scrollPos = window.scrollY;
+
+    // find those above current scroll by at least 10px
+    const prev = sections
+      .map(sec => ({ sec, top: sec.offsetTop }))
+      .filter(({ top }) => top < scrollPos - 10);
+
+    if (prev.length) {
+      // scroll to the last one (the nearest above)
+      prev.pop()!.sec.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // fallback to very top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
 
   return (
-    <BackToTopButton onClick={scrollToTop} visible={visible} aria-label="Back to top">
+    <BackToTopButton onClick={scrollToPreviousSection} visible={visible} aria-label="Scroll to previous section">
       <FiArrowUp size={20} />
     </BackToTopButton>
   );

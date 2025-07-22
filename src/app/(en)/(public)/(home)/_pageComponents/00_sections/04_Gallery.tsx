@@ -31,7 +31,7 @@ padding: 1.5rem;
 
 export default function Gallery() {
   return (
-    <GallerySection>
+    <GallerySection id='gallery'>
       <h2>Gallery</h2>
 
       <Button />

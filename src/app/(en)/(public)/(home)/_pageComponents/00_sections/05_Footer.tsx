@@ -159,7 +159,7 @@ export default function Footer() {
   };
 
   return (
-    <FooterSection>
+    <FooterSection id='footer'>
       <FooterGrid>
         {/* 1️⃣ Newsletter */}
         <Column>

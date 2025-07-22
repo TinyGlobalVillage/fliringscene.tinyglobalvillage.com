@@ -32,7 +32,7 @@ import FacebookFeed from '../facebook/FacebookFeed';
 
 export default function NewsSection() {
   return (
-    <NewsFeedSection>
+    <NewsFeedSection id="news-feed">
       <h2>Latest News</h2>
       <FacebookFeed />
     </NewsFeedSection>
