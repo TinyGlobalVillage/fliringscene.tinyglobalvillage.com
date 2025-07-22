@@ -29,7 +29,7 @@ const BackToTopButton = styled.button<{ visible: boolean}>`
   }
 `;
 
-export default function BackToTop() {
+export default function scrollToPreviousSection() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {

@@ -5,7 +5,7 @@ import StyledComponentsRegistry from '@/styles/StyledComponentsRegistry';
 import styled from 'styled-components';
 import Image from 'next/image';
 import NavBar from './(en)/(public)/_allPageComponents/NavBar';
-import BackToTop from './(en)/(public)/_allPageComponents/buttons/BackToTop';
+import BackToTop from './(en)/(public)/_allPageComponents/buttons/ScrollToPreviousSectionButton';
 
 const Background = styled.div`
   position:fixed;

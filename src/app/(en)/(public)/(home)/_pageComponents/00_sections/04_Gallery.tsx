@@ -33,7 +33,6 @@ export default function Gallery() {
   return (
     <GallerySection id='gallery'>
       <h2>Gallery</h2>
-
       <Button />
       <p>Check out our latest photos and videos!</p>
     </GallerySection>
