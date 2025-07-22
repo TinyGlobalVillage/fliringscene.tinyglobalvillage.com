@@ -31,7 +31,8 @@ export async function POST(request: Request) {
     await transporter.sendMail({
       // ② “From” can be any valid address on your server’s domain
       from: `"Fliring Scene" <no-reply@fliring.no>`,
-      to: 'hei@fliring.no',         // your destination
+      // to: 'hei@fliring.no',         // your destination
+      to: 'admin@tinyglobalvillage.com',         // your destination
       replyTo: email,               // lets you hit “Reply” to contact the user
       subject: `Contact Form: ${topic}`,
       html,
