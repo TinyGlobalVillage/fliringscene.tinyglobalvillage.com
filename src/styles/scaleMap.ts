@@ -1,12 +1,12 @@
 // scaleMap.ts
 export const scaleMap = {
-  '6.5rem': {
+  '6.5rem': { // MOBILE
     // homepage
 
       // **** up for deletion ****
-        // fontSize: '6.5rem',
-        // viewBoxHeight: 105,
-        // svgViewBoxHeight: 90,
+        fontSize: '6.5rem',
+        viewBoxHeight: 105,
+        svgViewBoxHeight: 90,
 
       // Section Title
       NeonSectionTitleFontSize: '6.5rem',
@@ -43,8 +43,8 @@ export const scaleMap = {
       cardsPerView: '1',
 
     // Contact Page
-    NeonContactPageTitle: '3.5rem',
-    NeonContactPageTitleViewBoxHeight: '170',
+    NeonContactPageTitle: '5rem',
+    NeonContactPageTitleViewBoxHeight: '90',
 
     //footer
     footerHeaderFontSize: '1rem',
@@ -52,16 +52,16 @@ export const scaleMap = {
     inputWidth: '200px',
 
   },
-  '7.5rem': {
+  '7.5rem': { // TABLET
     // homepage
 
       // **** up for deletion ****
-        // fontSize: '4rem',
-        // viewBoxHeight: 110,
-        // svgViewBoxHeight: 105,
+        fontSize: '4rem',
+        viewBoxHeight: 110,
+        svgViewBoxHeight: 105,
 
         // Section Title
-        NeonSectionTitleFontSize: '7.5rem',
+        NeonSectionTitleFontSize: '6.5rem', // used on Shows page also
 
       //above the fold
 
@@ -95,21 +95,21 @@ export const scaleMap = {
       cardsPerView: '2.25',
 
     // Contact Page
-    NeonContactPageTitle: '6.5rem',
-    NeonContactPageTitleViewBoxHeight: '0',
+    NeonContactPageTitle: '6rem',
+    NeonContactPageTitleViewBoxHeight: '90',
 
     //Footer
     footerHeaderFontSize: '.9rem',
     footerButtonWidth: '200px',
     inputWidth: '200px',
   },
-  '8.5rem': {
+  '8.5rem': { // DESKTOP
     // homepage
 
       // **** up for deletion ****
-        // fontSize: '6rem',
-        // viewBoxHeight: 115,
-        // svgViewBoxHeight: 115,
+        fontSize: '6rem',
+        viewBoxHeight: 115,
+        svgViewBoxHeight: 115,
 
       // Section Title
       NeonSectionTitleFontSize: '6.5rem',
@@ -119,19 +119,19 @@ export const scaleMap = {
         //navbar
 
         //Above Fold Title
-        NeonTitleFontSize: '15rem',
-        NeonTitleViewBoxHeight: 205,
+        NeonTitleFontSize: '11rem',
+        NeonTitleViewBoxHeight: 170,
         // create stroke width
 
         // Comedy Sign
         comedyClubBulbSize: '22px',
         NeonTextFontSize: '6rem',
-        boxWidth: '520px',
+        boxWidth: '420px',
         bulbSize: '32px',
 
         // FaceMicArrow
-        microphoneWidth: '70px',
-        faceWidth: '220px',
+        microphoneWidth: '50px',
+        faceWidth: '190px',
         arrowWidth: '300px',
         arrowTextSize: '2.5em',
 
@@ -152,7 +152,7 @@ export const scaleMap = {
 
     // Contact Page
     NeonContactPageTitle: '6.5rem',
-    NeonContactPageTitleViewBoxHeight: '0',
+    NeonContactPageTitleViewBoxHeight: '90',
 
 
 

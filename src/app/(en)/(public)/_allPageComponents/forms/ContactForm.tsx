@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import NeonContactPageTitle from '../../contact/_pageComponents/NeonContactPageTitle';
+import { media } from '@/styles/breakpoints';
 
 // ── Styled Components ─────────────────────────────────────────────────────────
 const FormWrapper = styled.section`
@@ -12,8 +13,13 @@ const FormWrapper = styled.section`
   border-radius: 28px;
   display: flex;
   flex-direction: column;
+  gap: .5rem;
+  margin: 0 auto;
 
-  gap: 1rem;
+  @media ${media.mobile}{
+  gap: .5rem;
+  padding: 1rem;
+  }
 `;
 
 const ContactFormHeader = styled.div`
@@ -24,7 +30,7 @@ text-align: center;
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
 `;
 
 const Field = styled.div`
@@ -46,7 +52,7 @@ const Field = styled.div`
     border-radius: 6px;
     border: 1px solid #ccc;
     background: #fff;
-    font-size: 1rem;
+    font-size: .75rem;
   }
 `;
 
@@ -171,7 +177,7 @@ export default function ContactForm() {
           </select>
         </Field>
         <Field>
-          <label htmlFor="videoLink">YouTube Video Link</label>
+          <label htmlFor="videoLink">Send Us A Performance Video</label>
           <input
             id="videoLink"
             name="videoLink"

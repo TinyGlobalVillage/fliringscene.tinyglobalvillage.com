@@ -12,10 +12,11 @@ interface NeonContactPageTitleProps {
 }
 
 const SvgWrapper = styled.div`
-  width: 500px;
+  width: 100%;
+  max-width: 300px;
   text-align: center;
   // border: 2px solid red;
-
+  margin: 0 auto;
   svg {
     overflow: visible;
   }
@@ -31,7 +32,7 @@ export default function NeonContactPageTitle({
 
   return (
     <SvgWrapper>
-      <svg width="100%" viewBox={`${NeonContactPageTitleViewBoxHeight} 0 800 100`} preserveAspectRatio="xMidYMid meet">
+      <svg width="100%" viewBox={`0 0 550 ${NeonContactPageTitleViewBoxHeight}`} preserveAspectRatio="xMidYMid meet">
         <defs>
           <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
             <feGaussianBlur stdDeviation="2" result="blur1" />

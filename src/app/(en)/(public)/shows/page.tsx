@@ -11,8 +11,9 @@ const ShowsSection = styled.div`
   min-width: 300px;
   width: 80%;
 
-  scroll-margin-top: 100px;
+//   scroll-margin-top: 100px;
   margin: 0 auto;
+  margin-top: 100px;
   padding: 2rem;
 
   display: flex;
@@ -27,10 +28,26 @@ const ShowsSection = styled.div`
 
   @media ${media.mobile}{
   width: 90%;
-   margin-top: -10px;
+   margin-top: 100px;
+   max-height: 550px;
+  }
+`;
+
+const WidgetWrapper = styled.div`
+  width: 100%;
+//   max-width: 500px;           /* never grow past 500px */
+  overflow: visible;
+
+  @media ${media.mobile} {
+    transform-origin: top center;
+    transform: scale(0.9);
   }
 
-`;
+  /* ensure the inner widget fills this container */
+  & > div {
+    width: 100% !important;
+  }
+    `;
 
 export default function ShowsPage() {
     return (
@@ -38,7 +55,9 @@ export default function ShowsPage() {
             <NeonSectionTitleFontSize>
                 KOMMENDE SHOW
             </NeonSectionTitleFontSize>
-            <TikkioWidget />
+            <WidgetWrapper>
+                <TikkioWidget />
+            </WidgetWrapper>
         </ShowsSection>
     );
 }

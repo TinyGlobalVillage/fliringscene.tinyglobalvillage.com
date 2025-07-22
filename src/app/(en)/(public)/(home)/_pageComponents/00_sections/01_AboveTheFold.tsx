@@ -17,7 +17,7 @@ display: flex;
 flex-direction: column;
 // justify-content: center;
 align-items: center;
-padding-top: 100px;
+padding-top: 80px;
    @media ${media.mobile} {
   padding: 80px;
   }
