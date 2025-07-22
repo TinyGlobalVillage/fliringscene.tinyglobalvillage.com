@@ -5,6 +5,7 @@ import StyledComponentsRegistry from '@/styles/StyledComponentsRegistry';
 import styled from 'styled-components';
 import Image from 'next/image';
 import NavBar from './(en)/(public)/_allPageComponents/NavBar';
+import BackToTop from './(en)/(public)/_allPageComponents/buttons/BackToTop';
 
 const Background = styled.div`
   position:fixed;
@@ -37,6 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </Background>
           <NavBar />
           <Foreground>
+            <BackToTop/>
             <main>{children}</main>
           </Foreground>
         </StyledComponentsRegistry>

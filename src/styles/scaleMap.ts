@@ -1,4 +1,4 @@
-// scaleMap.ts (new or shared)
+// scaleMap.ts
 export const scaleMap = {
   '6.5rem': {
     fontSize: '6.5rem',
@@ -17,6 +17,11 @@ export const scaleMap = {
     arrowTextSize: '2em',
     cardsPerView: '1',
 
+    //footer
+    footerHeaderFontSize: '1rem',
+    footerButtonWidth: '200px',
+    inputWidth: '200px',
+
   },
   '7.5rem': {
     fontSize: '4rem',
@@ -29,11 +34,16 @@ export const scaleMap = {
     boxWidth: '280px',
     bulbSize: '18px',
     comedyClubBulbSize: '18px',
-    microphoneWidth: '60px',
-    faceWidth: '190px',
-    arrowWidth: '260px',
+    microphoneWidth: '50px',
+    faceWidth: '150px',
+    arrowWidth: '240px',
     arrowTextSize: '2.4em',
     cardsPerView: '2.25',
+
+    //footer
+    footerHeaderFontSize: '.9rem',
+    footerButtonWidth: '200px',
+    inputWidth: '200px',
   },
   '8.5rem': {
     fontSize: '6rem',
@@ -51,6 +61,11 @@ export const scaleMap = {
     arrowWidth: '300px',
     arrowTextSize: '2.5em',
     cardsPerView: '3.25',
+
+    //footer
+    footerHeaderFontSize: '1rem',
+    footerButtonWidth: '200px',
+    inputWidth: '200px',
   },
 } as const;
 
