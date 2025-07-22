@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { media } from '@/styles/breakpoints';
 import { scaleMap } from '@/styles/scaleMap';
 import useResponsiveResize from '@/hook-utils/useResponsiveResize';
+import FacebookIcon from '../facebook/FacebookIcon';
 
 
 const FooterSection = styled.section`
@@ -62,17 +63,17 @@ const Form = styled.form`
   gap: 0.5rem;
 `;
 
-const Input = styled.input<{$inputWidth: string}>`
-  width: ${({$inputWidth}) => $inputWidth};
+const Input = styled.input<{ $inputWidth: string }>`
+  width: ${({ $inputWidth }) => $inputWidth};
   height: 30px;
   padding: 0.5rem;
   border-radius: 4px;
   border: 1px solid #ccc;
 `;
 
-const Button = styled.button<{ $buttonWidth: string}>`
+const Button = styled.button<{ $buttonWidth: string }>`
   padding: 0.5rem;
-  width: ${({$buttonWidth}) => $buttonWidth};
+  width: ${({ $buttonWidth }) => $buttonWidth};
   background: #ff4ecb;
   color: #fff;
   border: none;
@@ -108,6 +109,19 @@ margin-bottom: 1rem;
 text-align: center;
 line-height: 1.5rem;
 font-size: ${({ $fontSize }) => $fontSize};
+`;
+
+const IconLink = styled.a`
+  color: #ff4ecb;             /* default icon color */
+  font-size: 1.5rem;          /* controls icon size via SVG's currentColor */
+  display: inline-flex;
+  align-items: center;
+
+  &:hover {
+    color: #00bfff;           /* hover color */
+  }
+
+
 `;
 
 const Trademark = styled.div`
@@ -169,7 +183,7 @@ export default function Footer() {
             </SignupHeader>
             <Form onSubmit={handleSubmit}>
               <Input
-               $inputWidth={inputWidth}
+                $inputWidth={inputWidth}
                 type="email"
                 placeholder="Enter Email In Here"
                 value={email}
@@ -189,7 +203,6 @@ export default function Footer() {
         {/* 2️⃣ Quick Links */}
         <Column>
           <h3>Quick Links</h3>
-
           <List>
             <li><Link href="/shows">Shows</Link></li>
             <li><Link href="/about">About</Link></li>
@@ -201,6 +214,14 @@ export default function Footer() {
                   <li><Link href="/privacy">Privacy Policy</Link></li> */}
             {/* </ul> */}
           </List>
+                  <IconLink
+                    href="https://www.facebook.com/profile.php?id=61577337325283"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Facebook"
+                  >
+                    <FacebookIcon />
+                  </IconLink>
 
         </Column>
 

@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { media, breakpoints } from '@/styles/breakpoints';
 import { glowPulse } from '../(home)/animations/glowPulse';
+import FacebookIcon from '../(home)/_pageComponents/facebook/FacebookIcon';
 
 const LOGO_SIZE = { desktop: 70, mobile: 60 };
 
@@ -116,6 +117,18 @@ const NavLink = styled(Link)`
   }
 `;
 
+const IconLink = styled.a`
+  color: #ff4ecb;             /* default icon color */
+  font-size: 1.5rem;          /* controls icon size via SVG's currentColor */
+  display: inline-flex;
+  align-items: center;
+  margin-left: 1rem;
+
+  &:hover {
+    color: #00bfff;           /* hover color */
+  }
+`;
+
 export default function NavBar() {
   const pathname = usePathname();
   const router = useRouter();
@@ -178,6 +191,14 @@ export default function NavBar() {
         <NavLink href="/about" onClick={() => setMenuOpen(false)}>ABOUT</NavLink>
         <NavLink href="/gallery" onClick={() => setMenuOpen(false)}>GALLERY</NavLink>
         <NavLink href="/contact" onClick={() => setMenuOpen(false)}>CONTACT</NavLink>
+        <IconLink
+          href="https://www.facebook.com/profile.php?id=61577337325283"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook"
+        >
+          <FacebookIcon />
+        </IconLink>
       </NavLinks>
     </NavbarContainer>
   );

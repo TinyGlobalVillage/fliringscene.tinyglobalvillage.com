@@ -46,6 +46,21 @@ export default function FacebookFeed() {
       window.FB!.XFBML.parse(ref.current!);
     };
 
+    const style = document.createElement('style');
+    style.innerHTML = `
+.FacebookFeed__FeedWrapper-sc-5931885c-0 { /* … */ }
+  .gVfpsh                        { /* … */ }
+  .fb-page                       { /* … */ }
+  .fb_iframe_widget              { /* … */ }
+  .UjScaledImageContainer__2zfrf { /* … */ }
+  ._1dro                         { /* … */ }
+  ._2ph                          { /* … */ }
+  .clearfix                      { /* … */ }
+  ._2efs                         { /* … */ }
+    `;
+
+    document.head.appendChild(style);
+
     const s = document.createElement('script');
     s.id = 'facebook-jssdk';
     s.src = 'https://connect.facebook.net/en_US/sdk.js';
