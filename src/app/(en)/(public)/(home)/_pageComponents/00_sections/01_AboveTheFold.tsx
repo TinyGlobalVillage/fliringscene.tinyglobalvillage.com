@@ -17,9 +17,9 @@ display: flex;
 flex-direction: column;
 // justify-content: center;
 align-items: center;
-
+padding-top: 100px;
    @media ${media.mobile} {
-  
+  padding: 80px;
   }
 `;
 
@@ -44,7 +44,7 @@ export default function AboveTheFold() {
       <FaceMicArrowWrapper>
         <MicrophoneSVG />
         <NeonFaceSVG />
-        <NeonArrowSVGButton onClick={() => alert('Go to shows')} />
+        <NeonArrowSVGButton />
       </FaceMicArrowWrapper>
     </AboveFoldWrapper>
   );

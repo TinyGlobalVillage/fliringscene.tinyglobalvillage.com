@@ -1,5 +1,5 @@
 'use client';
-import React, { forwardRef, useMemo, useRef, useState, useEffect } from 'react';
+import React, { forwardRef, useMemo, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -10,10 +10,9 @@ const Wrapper = styled.div`
 
 const Arrow = styled.button`
   position: absolute;
-  bottom: -1.5rem;
   background: none;
   border: none;
-  font-size: 1.25rem;
+  font-size: 4rem;
   color: #ff4ecb;
   cursor: pointer;
   padding: 0;
@@ -21,8 +20,8 @@ const Arrow = styled.button`
   z-index: 10;
 `;
 
-const LeftArrow = styled(Arrow)`left: 40%;`;
-const RightArrow = styled(Arrow)`right: 40%;`;
+const LeftArrow = styled(Arrow)`left: 30%;`;
+const RightArrow = styled(Arrow)`right: 30%;`;
 
 const ScrollContainer = styled.div<{ count: number }>`
   display: flex;
@@ -41,6 +40,14 @@ const ScrollContainer = styled.div<{ count: number }>`
     count === 1 ? 'center' : count <= 3 ? 'space-between' : 'flex-start'};
 `;
 
+// New wrapper to add borders with alternating colors
+const ItemWrapper = styled.div<{ borderColor: string }>`
+  border: 4px solid ${({ borderColor }) => borderColor};
+  border-radius: 16px;
+  padding: 0.5rem;
+  flex: 0 0 auto;
+`;
+
 export type EndlessScrollContainerProps = {
   children: React.ReactNode;
   /** if only 1 child, clone it `cloneTimes` more */
@@ -53,7 +60,8 @@ export const EndlessScrollContainer = forwardRef<
   EndlessScrollContainerProps
 >(({ children, cloneSingle = false, cloneTimes = 3 }, ref) => {
   const localRef = useRef<HTMLDivElement>(null);
-  const container = (ref as React.RefObject<HTMLDivElement>)?.current ?? localRef.current;
+  const scrollRef = (ref as React.RefObject<HTMLDivElement>) ?? localRef;
+  const containerElem = scrollRef.current;
 
   // 1) prepare children & clone if needed
   const items = useMemo(() => {
@@ -66,58 +74,67 @@ export const EndlessScrollContainer = forwardRef<
 
   // 2) drag/swipe handlers
   useEffect(() => {
-    if (!container) return;
-    let down = false, startX = 0, scrollL = 0;
+    if (!containerElem) return;
+    let down = false,
+      startX = 0,
+      scrollL = 0;
 
     const onDown = (e: MouseEvent | TouchEvent) => {
       down = true;
       startX = 'touches' in e ? e.touches[0].pageX : e.pageX;
-      scrollL = container.scrollLeft;
-      container.classList.add('dragging');
+      scrollL = containerElem.scrollLeft;
+      containerElem.classList.add('dragging');
     };
     const onMove = (e: MouseEvent | TouchEvent) => {
       if (!down) return;
       const x = 'touches' in e ? e.touches[0].pageX : e.pageX;
-      container.scrollLeft = scrollL - (x - startX) * 1.5;
+      containerElem.scrollLeft = scrollL - (x - startX) * 1.5;
       e.preventDefault();
     };
     const onUp = () => {
       down = false;
-      container.classList.remove('dragging');
+      containerElem.classList.remove('dragging');
     };
 
-    container.addEventListener('mousedown', onDown);
-    container.addEventListener('touchstart', onDown, { passive: true });
-    container.addEventListener('mousemove', onMove);
-    container.addEventListener('touchmove', onMove, { passive: false });
-    container.addEventListener('mouseup', onUp);
-    container.addEventListener('mouseleave', onUp);
-    container.addEventListener('touchend', onUp);
+    containerElem.addEventListener('mousedown', onDown);
+    containerElem.addEventListener('touchstart', onDown as EventListener, { passive: true });
+    containerElem.addEventListener('mousemove', onMove);
+    containerElem.addEventListener('touchmove', onMove as EventListener, { passive: false });
+    containerElem.addEventListener('mouseup', onUp);
+    containerElem.addEventListener('mouseleave', onUp);
+    containerElem.addEventListener('touchend', onUp);
 
     return () => {
-      container.removeEventListener('mousedown', onDown);
-      container.removeEventListener('touchstart', onDown as any);
-      container.removeEventListener('mousemove', onMove);
-      container.removeEventListener('touchmove', onMove as any);
-      container.removeEventListener('mouseup', onUp);
-      container.removeEventListener('mouseleave', onUp);
-      container.removeEventListener('touchend', onUp);
+      containerElem.removeEventListener('mousedown', onDown);
+      containerElem.removeEventListener('touchstart', onDown as EventListener);
+      containerElem.removeEventListener('mousemove', onMove);
+      containerElem.removeEventListener('touchmove', onMove as EventListener);
+      containerElem.removeEventListener('mouseup', onUp);
+      containerElem.removeEventListener('mouseleave', onUp);
+      containerElem.removeEventListener('touchend', onUp);
     };
-  }, [container]);
+  }, [containerElem]);
 
   const scrollByPage = (dir: 'left' | 'right') => {
-    if (!container) return;
-    container.scrollBy({
-      left: dir === 'left' ? -container.offsetWidth : container.offsetWidth,
+    if (!containerElem) return;
+    containerElem.scrollBy({
+      left: dir === 'left' ? -containerElem.offsetWidth : containerElem.offsetWidth,
       behavior: 'smooth',
     });
   };
 
+  // define the alternating colors
+  const colors = ['#ff4ecb', '#00bfff', '#f7b700'];
+
   return (
     <Wrapper>
       <LeftArrow onClick={() => scrollByPage('left')}>◀</LeftArrow>
-      <ScrollContainer ref={ref ?? localRef} count={items.length}>
-        {items}
+      <ScrollContainer ref={scrollRef} count={items.length}>
+        {items.map((item, idx) => (
+          <ItemWrapper key={idx} borderColor={colors[idx % colors.length]}>
+            {item}
+          </ItemWrapper>
+        ))}
       </ScrollContainer>
       <RightArrow onClick={() => scrollByPage('right')}>▶</RightArrow>
     </Wrapper>

@@ -18,6 +18,7 @@ export const scaleMap = {
         //Above Fold Title
         NeonTitleFontSize: '6.5rem',
         NeonTitleViewBoxHeight: 105,
+        // create stroke width
 
         // Comedy Sign
         comedyClubBulbSize: '15px',
@@ -30,6 +31,13 @@ export const scaleMap = {
         faceWidth: '100px',
         arrowWidth: '200px',
         arrowTextSize: '2em',
+
+      // Upcoming Shows
+        //title
+        //tikkio widget sizing
+        // arrow sizing
+
+      // News Feed
 
       // Gallery
       cardsPerView: '1',
@@ -62,6 +70,7 @@ export const scaleMap = {
         //Above Fold Title
         NeonTitleFontSize: '11rem',
         NeonTitleViewBoxHeight: 160,
+        // create stroke width
 
         // Comedy Sign
         comedyClubBulbSize: '18px',
@@ -74,6 +83,13 @@ export const scaleMap = {
         faceWidth: '150px',
         arrowWidth: '240px',
         arrowTextSize: '2.4em',
+
+      // Upcoming Shows
+        //title
+        //tikkio widget sizing
+        // arrow sizing
+
+      // News Feed
 
       // Gallery
       cardsPerView: '2.25',
@@ -105,6 +121,7 @@ export const scaleMap = {
         //Above Fold Title
         NeonTitleFontSize: '15rem',
         NeonTitleViewBoxHeight: 205,
+        // create stroke width
 
         // Comedy Sign
         comedyClubBulbSize: '22px',
@@ -117,6 +134,13 @@ export const scaleMap = {
         faceWidth: '220px',
         arrowWidth: '300px',
         arrowTextSize: '2.5em',
+
+      // Upcoming Shows
+        //title
+        //tikkio widget sizing
+        // arrow sizing
+
+      // News Feed
 
       // Gallery
         cardsPerView: '3.25',

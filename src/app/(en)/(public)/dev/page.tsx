@@ -11,15 +11,13 @@ const PROP: Prop = 'faceWidth';
 export default function Dev() {
   const [bp, setBp] = useState<BP>('6.5rem');
 
-  const read = () => {
-    const store = JSON.parse(localStorage.getItem(KEY) || '{}');
-    return store?.[bp]?.[PROP] ?? scaleMap[bp][PROP];
-  };
-
   const [val, setVal] = useState<number>(0);
 
   useEffect(() => {
-    setVal(parseInt(read(), 10));
+    // read current value from localStorage or fallback to scaleMap
+  const store = JSON.parse(localStorage.getItem(KEY) || '{}');
+  const str = store?.[bp]?.[PROP] ?? scaleMap[bp][PROP];
+  setVal(parseInt(str, 10));
   }, [bp]);
 
   const save = (n: number) => {

@@ -1,6 +1,5 @@
 'use client'
 import styled from 'styled-components';
-import { useRouter } from 'next/navigation';
 import useResponsiveResize from '@/hook-utils/useResponsiveResize';
 import { scaleMap } from '@/styles/scaleMap';
 
@@ -25,7 +24,8 @@ const ButtonWrapper = styled.button`
   }
 `;
 
-function NeonArrowSVGButton({ onClick }: { onClick?: () => void }) {
+
+function NeonArrowSVGButton() {
   const { fontSizeKey } = useResponsiveResize();
   const { arrowWidth, arrowTextSize } = scaleMap[fontSizeKey as keyof typeof scaleMap];
 

@@ -24,8 +24,11 @@ export async function POST(request: Request) {
   try {
     const text = await fs.readFile(filePath, 'utf-8');
     list = JSON.parse(text);
-  } catch (err: any) {
-    if (err.code === 'ENOENT') {
+  } catch (err: unknown) {
+    // Narrow to the ErrnoException interface that has .code
+    const e = err as { code?: string };
+    if (e.code === 'ENOENT') {
+      // file not found → initialize
       await fs.writeFile(filePath, '[]', 'utf-8');
     } else {
       console.error('Corrupt JSON, resetting…', err);

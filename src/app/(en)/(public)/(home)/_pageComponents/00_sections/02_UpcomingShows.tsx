@@ -4,7 +4,7 @@ import TikkioWidget from '../../../_allPageComponents/tikkio/TikkoWidget';
 import { glowPulse } from '../../animations/glowPulse';
 import NeonSectionTitleFontSize from '../../../_allPageComponents/headers/NeonSectionTitleFontSize';
 import { media } from '@/styles/breakpoints';
-import EndlessScrollContainer from '../../../_allPageComponents/scroll-containers/endlessScrollContainer';
+// import EndlessScrollContainer from '../../../_allPageComponents/scroll-containers/endlessScrollContainer';
 
 
 const UpcomingShowsSection = styled.section`
@@ -15,7 +15,7 @@ const UpcomingShowsSection = styled.section`
   margin: 0 auto;
   margin-bottom: 35px;
   padding: 2rem;
-  padding-bottom: 4rem;
+  padding-bottom: 6rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,7 +38,12 @@ export default function UpcomingShows() {
   return (
     <UpcomingShowsSection id="upcoming-show">
       <NeonSectionTitleFontSize>KOMMENDE SHOW</NeonSectionTitleFontSize>
-          <TikkioWidget />
+          {/* <EndlessScrollContainer>
+            <TikkioWidget />
+          </EndlessScrollContainer> */}
+
+            <TikkioWidget />
+
     </UpcomingShowsSection>
   );
 }
