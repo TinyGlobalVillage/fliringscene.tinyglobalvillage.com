@@ -5,7 +5,7 @@ import useResponsiveResize from '@/hook-utils/useResponsiveResize';
 import { scaleMap } from '@/styles/scaleMap';
 
 
-interface NeonTitleFontSizeProps {
+interface NeonContactPageTitleProps {
   children: string;
   color?: string;
   strokeWidth?: string;
@@ -21,17 +21,17 @@ const SvgWrapper = styled.div`
   }
 `;
 
-export default function NeonTitleFontSize({
+export default function NeonContactPageTitle({
   children,
   color = '#ff4ecb',
-  strokeWidth = '3.75',
-}: NeonTitleFontSizeProps ) {
+  strokeWidth = '2.75',
+}: NeonContactPageTitleProps ) {
   const { fontSizeKey } = useResponsiveResize();
-  const { NeonTitleFontSize, NeonTitleViewBoxHeight } = scaleMap[fontSizeKey];
+  const { NeonContactPageTitle, NeonContactPageTitleViewBoxHeight } = scaleMap[fontSizeKey];
 
   return (
     <SvgWrapper>
-      <svg width="100%" viewBox={`0 0 600 ${NeonTitleViewBoxHeight}`} preserveAspectRatio="xMidYMid meet">
+      <svg width="100%" viewBox={`130 0 600 ${NeonContactPageTitleViewBoxHeight}`} preserveAspectRatio="xMidYMid meet">
         <defs>
           <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
             <feGaussianBlur stdDeviation="2" result="blur1" />
@@ -50,7 +50,7 @@ export default function NeonTitleFontSize({
           dominantBaseline="middle"
           textAnchor="middle"
           fontFamily="sans-serif"
-          fontSize={NeonTitleFontSize}
+          fontSize={NeonContactPageTitle}
           stroke={color}
           strokeWidth={strokeWidth}
           fill="none"

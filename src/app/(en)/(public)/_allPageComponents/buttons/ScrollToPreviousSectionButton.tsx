@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { FiArrowUp } from 'react-icons/fi';
 
-const BackToTopButton = styled.button<{ visible: boolean}>`
+const ScrollToPreviousSectionStyle = styled.button<{ $visible: boolean}>`
   position: fixed;
   bottom: 2rem;
   right: 2rem;
@@ -17,8 +17,8 @@ const BackToTopButton = styled.button<{ visible: boolean}>`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  opacity: ${({ visible }: { visible: boolean }) => (visible ? 1 : 0)};
-  pointer-events: ${({ visible }: { visible: boolean }) => (visible ? 'auto' : 'none')};
+  opacity: ${({ $visible }: { $visible: boolean }) => ($visible ? 1 : 0)};
+  pointer-events: ${({ $visible }: { $visible: boolean }) => ($visible ? 'auto' : 'none')};
   transition: opacity 0.3s ease;
   z-index: 10000;
 
@@ -29,7 +29,7 @@ const BackToTopButton = styled.button<{ visible: boolean}>`
   }
 `;
 
-export default function scrollToPreviousSection() {
+export default function ScrollToPreviousSectionButton() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -58,8 +58,8 @@ export default function scrollToPreviousSection() {
   };
 
   return (
-    <BackToTopButton onClick={scrollToPreviousSection} visible={visible} aria-label="Scroll to previous section">
+    <ScrollToPreviousSectionStyle onClick={scrollToPreviousSection} $visible={visible} aria-label="Scroll to previous section">
       <FiArrowUp size={20} />
-    </BackToTopButton>
+    </ScrollToPreviousSectionStyle>
   );
 }

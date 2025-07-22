@@ -14,7 +14,7 @@ export default function Home() {
       <AboveTheFold />
       <UpcomingShows />
       <NewsFeed />
-      <Gallery />
+      {/* <Gallery /> */}
       <Footer />
     </>
   );

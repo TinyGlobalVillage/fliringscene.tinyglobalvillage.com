@@ -186,8 +186,8 @@ export default function NavBar() {
 
       <NavLinks $open={menuOpen}>
         <NavLink href="/shows" onClick={() => setMenuOpen(false)}>SHOWS</NavLink>
-        <NavLink href="/about" onClick={() => setMenuOpen(false)}>ABOUT</NavLink>
-        <NavLink href="/gallery" onClick={() => setMenuOpen(false)}>GALLERY</NavLink>
+        {/* <NavLink href="/about" onClick={() => setMenuOpen(false)}>ABOUT</NavLink>
+        <NavLink href="/gallery" onClick={() => setMenuOpen(false)}>GALLERY</NavLink> */}
         <NavLink href="/contact" onClick={() => setMenuOpen(false)}>CONTACT</NavLink>
         <IconLink
           href="https://www.facebook.com/profile.php?id=61577337325283"

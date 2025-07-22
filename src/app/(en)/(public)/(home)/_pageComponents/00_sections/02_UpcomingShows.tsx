@@ -8,13 +8,14 @@ import EndlessScrollContainer from '../../../_allPageComponents/scroll-container
 
 
 const UpcomingShowsSection = styled.section`
-  min-height: 70vh;
+  min-height: 100%;
   scroll-margin-top: 100px; // adjust based on fixed nav height
   width: 80%;
   min-width: 300px;
   margin: 0 auto;
   margin-bottom: 35px;
   padding: 2rem;
+  padding-bottom: 4rem;
   display: flex;
   flex-direction: column;
   align-items: center;

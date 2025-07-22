@@ -17,6 +17,11 @@ export const scaleMap = {
     arrowTextSize: '2em',
     cardsPerView: '1',
 
+
+    // Contact Page
+    NeonContactPageTitle: '3.5rem',
+    NeonContactPageTitleViewBoxHeight: '105',
+
     //footer
     footerHeaderFontSize: '1rem',
     footerButtonWidth: '200px',
@@ -40,6 +45,10 @@ export const scaleMap = {
     arrowTextSize: '2.4em',
     cardsPerView: '2.25',
 
+    // Contact Page
+    NeonContactPageTitle: '6.5rem',
+    NeonContactPageTitleViewBoxHeight: '110',
+
     //footer
     footerHeaderFontSize: '.9rem',
     footerButtonWidth: '200px',
@@ -62,10 +71,15 @@ export const scaleMap = {
     arrowTextSize: '2.5em',
     cardsPerView: '3.25',
 
+    // Contact Page
+    NeonContactPageTitle: '6.5rem',
+    NeonContactPageTitleViewBoxHeight: '115',
+
     //footer
     footerHeaderFontSize: '1rem',
     footerButtonWidth: '200px',
     inputWidth: '200px',
+
   },
 } as const;
 

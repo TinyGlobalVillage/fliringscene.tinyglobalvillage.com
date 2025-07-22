@@ -6,9 +6,7 @@ import { media } from '@/styles/breakpoints';
 
 const NewsFeedSection = styled.section`
  min-height: 70vh;
-  scroll-margin-top: 100px; // adjust based on fixed nav height
   width: 80%;
-  min-width: 300px;
   margin: 0 auto;
   margin-bottom: 35px;
   padding: 2rem;
@@ -24,17 +22,20 @@ const NewsFeedSection = styled.section`
   @media ${media.mobile}{
 width: 90%;
 min-height: 60vh;
-padding: 1.5rem;
+padding: 1rem;
 
 }
 `;
-import FacebookFeed from '../facebook/FacebookFeed';
+import FacebookIframe from '../facebook/FacebookIframe';
+import NeonSectionTitleFontSize from '../../../_allPageComponents/headers/NeonSectionTitleFontSize';
 
 export default function NewsSection() {
   return (
     <NewsFeedSection id="news-feed">
-      <h2>Latest News</h2>
-      <FacebookFeed />
+      <NeonSectionTitleFontSize>
+        LATEST NEWS
+        </NeonSectionTitleFontSize>
+      <FacebookIframe />
     </NewsFeedSection>
   );
 }

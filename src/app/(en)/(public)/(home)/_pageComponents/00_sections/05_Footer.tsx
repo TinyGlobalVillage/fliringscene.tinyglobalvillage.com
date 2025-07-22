@@ -104,7 +104,7 @@ text-align: center;
 color: ${({ variant }) => variant === 'success' ? '#ff4ecb' : '#f44336'}
 `;
 
-const SignupHeader = styled.h3<{ $fontSize: string }>`
+const SignupHeader = styled.div<{ $fontSize: string }>`
 margin-bottom: 1rem;
 text-align: center;
 line-height: 1.5rem;
@@ -214,14 +214,14 @@ export default function Footer() {
                   <li><Link href="/privacy">Privacy Policy</Link></li> */}
             {/* </ul> */}
           </List>
-                  <IconLink
-                    href="https://www.facebook.com/profile.php?id=61577337325283"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Facebook"
-                  >
-                    <FacebookIcon />
-                  </IconLink>
+          <IconLink
+            href="https://www.facebook.com/profile.php?id=61577337325283"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+          >
+            <FacebookIcon />
+          </IconLink>
 
         </Column>
 
