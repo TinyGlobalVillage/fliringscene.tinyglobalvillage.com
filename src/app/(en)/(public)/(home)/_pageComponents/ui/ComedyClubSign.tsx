@@ -1,7 +1,7 @@
 'use client';
 import styled from 'styled-components';
 import NeonText from '../../../_allPageComponents/headers/NeonTextFontSize';
-import LightBulbFrame from './LightBulbFrame';
+import LightBulbFrame from './AboveFoldLightBulbFrame';
 
 
 const ComedyClubSignWrapper = styled.div`

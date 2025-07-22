@@ -82,23 +82,26 @@ const bulbPositions = [
 ];
 
 // --- Component ---
-interface LightBulbFrameProps {
+interface AboveFoldLightBulbFrameProps {
   children: React.ReactNode;
+  positions?: Array<{ top: number; left: number }>;
 }
 
-export default function LightBulbFrame({ children }: LightBulbFrameProps) {
+export default function AboveFoldLightBulbFrame({
+  children,
+positions = bulbPositions }: AboveFoldLightBulbFrameProps) {
   const { fontSizeKey } = useResponsiveResize();
-  const { boxWidth, bulbSize } = scaleMap[fontSizeKey];
+  const { boxWidth, comedyClubBulbSize } = scaleMap[fontSizeKey];
 
   return (
     <SignWrapper>
       <BulbWrapper>
-        {bulbPositions.map(({ top, left }, i) => (
+        {positions.map(({ top, left }, i) => (
           <Bulb
             key={i}
             $top={`${top}%`}
             $left={`${left}%`}
-            $size={bulbSize}
+            $size={comedyClubBulbSize}
           />
         ))}
 
