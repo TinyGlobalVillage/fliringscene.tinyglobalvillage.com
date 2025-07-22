@@ -8,14 +8,12 @@ import TikkioWidget from "../_allPageComponents/tikkio/TikkoWidget";
 
 const ShowsSection = styled.div`
   min-height: 70vh;
-  // max-height: 400px;
   min-width: 300px;
   width: 80%;
   height: auto;
-
-//   scroll-margin-top: 100px;
   margin: 0 auto;
   margin-top: 100px;
+  margin-bottom: 30px;
   padding: 2rem;
 
   display: flex;
