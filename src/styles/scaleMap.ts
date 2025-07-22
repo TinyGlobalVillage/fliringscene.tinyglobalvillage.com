@@ -73,7 +73,7 @@ export const scaleMap = {
 
     // Contact Page
     NeonContactPageTitle: '6.5rem',
-    NeonContactPageTitleViewBoxHeight: '115',
+    NeonContactPageTitleViewBoxHeight: '0',
 
     //footer
     footerHeaderFontSize: '1rem',

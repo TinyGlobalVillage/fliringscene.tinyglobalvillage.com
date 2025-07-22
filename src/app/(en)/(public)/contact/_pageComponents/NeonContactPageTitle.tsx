@@ -31,7 +31,7 @@ export default function NeonContactPageTitle({
 
   return (
     <SvgWrapper>
-      <svg width="100%" viewBox={`130 0 600 ${NeonContactPageTitleViewBoxHeight}`} preserveAspectRatio="xMidYMid meet">
+      <svg width="100%" viewBox={`${NeonContactPageTitleViewBoxHeight} 0 800 100`} preserveAspectRatio="xMidYMid meet">
         <defs>
           <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
             <feGaussianBlur stdDeviation="2" result="blur1" />
