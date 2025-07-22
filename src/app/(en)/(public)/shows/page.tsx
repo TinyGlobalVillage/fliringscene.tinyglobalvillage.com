@@ -35,7 +35,7 @@ const ShowsSection = styled.div`
 
 const WidgetWrapper = styled.div`
   width: 100%;
-//   max-width: 500px;           /* never grow past 500px */
+  padding: 1rem;
   overflow: visible;
 
   @media ${media.mobile} {

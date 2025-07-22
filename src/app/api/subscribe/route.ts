@@ -25,10 +25,14 @@ export async function POST(request: Request) {
     const text = await fs.readFile(filePath, 'utf-8');
     list = JSON.parse(text);
   } catch (err: unknown) {
-    // Narrow to the ErrnoException interface that has .code
-    const e = err as { code?: string };
-    if (e.code === 'ENOENT') {
-      // file not found → initialize
+    // narrow to Node error to inspect `.code`
+    if (
+      typeof err === 'object' &&
+      err !== null &&
+      'code' in err &&
+      (err as NodeJS.ErrnoException).code === 'ENOENT'
+    ) {
+      // file doesn’t exist → create it
       await fs.writeFile(filePath, '[]', 'utf-8');
     } else {
       console.error('Corrupt JSON, resetting…', err);
