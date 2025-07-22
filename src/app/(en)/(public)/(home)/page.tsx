@@ -13,7 +13,7 @@ export default function Home() {
     <>
       <AboveTheFold />
       <UpcomingShows />
-      <NewsFeed />
+      {/* <NewsFeed /> */}
       {/* <Gallery /> */}
       <Footer />
     </>
