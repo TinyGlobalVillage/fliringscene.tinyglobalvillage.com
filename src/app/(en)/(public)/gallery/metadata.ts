@@ -10,9 +10,9 @@ export const metadata = {
     siteName: "Fliring Scene",
     images: [
       {
-        url: "https://fliringscene.tinyglobalvillage.com/images/fliring-scene-logo-square.jpg", // Replace with your best crowd or stage shot
-        width: 1200,
-        height: 630,
+        url: "https://fliringscene.tinyglobalvillage.com/images/fliring-scene-logo-square.jpg", 
+        width: 1000,
+        height: 1000,
         alt: "Audience laughing at a standup show at Fliring Scene",
       },
     ],
