@@ -10,25 +10,23 @@ import FacebookIcon from '../../../_allPageComponents/facebook/FacebookIcon';
 
 
 const FooterSection = styled.section`
-  //  min-height: 70vh;
     scroll-margin-top: 100px; // adjust based on fixed nav height
     width: 80%;
-    min-width: 300px;
     margin: 0 auto;
-    margin-bottom: 35px;
     padding: 2rem;
+
     display: flex;
     flex-direction: column;
     align-items: center;
+
     color: #ff4ecb;
     border-radius: 25px;
     background: rgba(0, 0, 0, 0.6);
 
     @media ${media.mobile}{
-  width: 90%;
-  min-height: 60vh;
-  padding: 1.5rem;
-  }
+    max-height: 80vh;
+    padding: 1.5rem;
+    }
 `;
 
 const FooterGrid = styled.div`
@@ -54,6 +52,10 @@ const Column = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+
+  @media ${media.mobile}{
+  gap: .5rem;
+  }
 `;
 
 const Form = styled.form`
@@ -93,10 +95,11 @@ const Button = styled.button<{ $buttonWidth: string }>`
 const List = styled.ul`
   list-style: none;
   margin: 0;
+  margin-bottom: 10px;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: .5rem;
 
   a {
     color: #ff4ecb;
@@ -120,7 +123,7 @@ color: ${({ variant }) => variant === 'success' ? '#ff4ecb' : '#f44336'}
 const SignupHeader = styled.div<{ $fontSize: string }>`
 margin-bottom: 1rem;
 text-align: center;
-line-height: 1.5rem;
+line-height: 1rem;
 font-size: ${({ $fontSize }) => $fontSize};
 `;
 
@@ -138,7 +141,6 @@ const IconLink = styled.a`
 `;
 
 const Trademark = styled.div`
-  margin-top: 0.75rem;
   font-size: 0.875rem;
   color: #00bfff;
   a {

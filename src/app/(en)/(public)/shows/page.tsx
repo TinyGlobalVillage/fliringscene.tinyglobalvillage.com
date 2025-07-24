@@ -7,13 +7,10 @@ import { media } from "@/styles/breakpoints";
 import TikkioWidget from "../../_allPageComponents/tikkio/TikkoWidget";
 
 const ShowsSection = styled.div`
-  min-height: 70vh;
-  min-width: 300px;
   width: 80%;
   height: auto;
   margin: 0 auto;
   margin-top: 100px;
-  margin-bottom: 30px;
   padding: 2rem;
 
   display: flex;
@@ -27,8 +24,9 @@ const ShowsSection = styled.div`
   background: rgba(0, 0, 0, 0.1);
 
   @media ${media.mobile}{
-  width: 90%;
-   margin-top: 100px;
+    padding: 15px 0px 25px 0px;
+  height: 60vh;
+
    max-height: 550px;
   }
 `;
@@ -38,8 +36,9 @@ const WidgetWrapper = styled.div`
   overflow: visible;
 
   @media ${media.mobile} {
+
     transform-origin: top center;
-    transform: scale(0.9);
+    transform: scale(0.8);
   }
 
   /* ensure the inner widget fills this container */

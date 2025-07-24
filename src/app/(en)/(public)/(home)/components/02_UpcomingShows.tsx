@@ -12,11 +12,14 @@ import TikkioWidget from '../../../_allPageComponents/tikkio/TikkoWidget';
 
 
 const UpcomingShowsSection = styled.section`
-  scroll-margin-top: 100px;
+
+scroll-margin-top: 100px;
   width: 80%;
+  height: auto;
   margin: 0 auto;
   margin-bottom: 70px;
   padding: 2rem;
+  
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,7 +30,8 @@ const UpcomingShowsSection = styled.section`
   background: rgba(0, 0, 0, 0.2);
 
   @media ${media.tablet}{
-
+  padding-bottom: 0;
+  padding: 1.8rem;
 }
   @media ${media.mobile}{
   scroll-margin-top: 90px;
@@ -39,7 +43,7 @@ const UpcomingShowsSection = styled.section`
 
 `;
 const TikkioWrapper = styled.div`
-  width: 100%;
+
 
   /* nothing on desktop/tablet – the widget just renders at full size */
   @media ${media.mobile} {
