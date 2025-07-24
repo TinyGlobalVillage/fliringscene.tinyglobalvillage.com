@@ -3,7 +3,7 @@ import useResponsiveResize from '@/hook-utils/useResponsiveResize';
 import { scaleMap } from '@/styles/scaleMap/scaleMap';
 
 const CurvedArrowWrapper = styled.div`
-border: 1px solid red;
+// border: 1px solid red;
 
 `;
 
