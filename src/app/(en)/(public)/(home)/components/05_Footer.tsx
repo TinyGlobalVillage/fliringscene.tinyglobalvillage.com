@@ -89,6 +89,7 @@ const Button = styled.button<{ $buttonWidth: string }>`
 
   &:hover {
     filter: drop-shadow(0 0 5px #ff4ecb);
+    color: #00bfff;
   }
 `;
 
@@ -107,7 +108,7 @@ const List = styled.ul`
     transition: color 0.2s;
 
     &:hover {
-      color: #fff;
+      color: #00bfff;
     }
   }
 `;
