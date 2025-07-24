@@ -3,14 +3,13 @@
 import styled from 'styled-components';
 
 const SvgWrapper = styled.div`
-  width: 100%;
-  max-width: 400px;
+  width: auto;
   height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
-  
+  // border: 2px solid red;
+
 `;
 
 export default SvgWrapper;

@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 import useResponsiveResize from '@/hook-utils/useResponsiveResize';
-import { scaleMap } from '@/styles/scaleMap';
+import { scaleMap } from '@/styles/scaleMap/scaleMap';
 
 
 interface NeonContactPageTitleProps {
@@ -26,7 +26,7 @@ export default function NeonContactPageTitle({
   children,
   color = '#ff4ecb',
   strokeWidth = '2.75',
-}: NeonContactPageTitleProps ) {
+}: NeonContactPageTitleProps) {
   const { fontSizeKey } = useResponsiveResize();
   const { NeonContactPageTitle, NeonContactPageTitleViewBoxHeight } = scaleMap[fontSizeKey];
 

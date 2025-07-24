@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
-import type { FontSizeKey } from '../styles/scaleMap';
+import type { FontSizeKey } from '../styles/scaleMap/scaleMap';
 
 export default function useResponsiveResize() {
-   const [fontSizeKey, setFontSizeKey] = useState<FontSizeKey>('8.5rem');
+  const [fontSizeKey, setFontSizeKey] =
+    useState<FontSizeKey>('8.5rem');
 
-useEffect(() => {
+  useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
       if (width <= 480) {
@@ -18,7 +19,8 @@ useEffect(() => {
 
     handleResize(); // initial
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    return () =>
+      window.removeEventListener('resize', handleResize);
   }, []);
 
   return { fontSizeKey };

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { useState } from 'react';
 import Link from 'next/link';
 import { media } from '@/styles/breakpoints';
-import { scaleMap } from '@/styles/scaleMap';
+import { scaleMap } from '@/styles/scaleMap/scaleMap';
 import useResponsiveResize from '@/hook-utils/useResponsiveResize';
 import FacebookIcon from '../../../_allPageComponents/facebook/FacebookIcon';
 

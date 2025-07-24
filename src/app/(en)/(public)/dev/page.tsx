@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { scaleMap, FontSizeKey } from '@/styles/scaleMap';
+import { scaleMap, FontSizeKey } from '@/styles/scaleMap/scaleMap';
 
 const KEY = 'scaleMap-dev';
 type BP = FontSizeKey;
@@ -15,9 +15,9 @@ export default function Dev() {
 
   useEffect(() => {
     // read current value from localStorage or fallback to scaleMap
-  const store = JSON.parse(localStorage.getItem(KEY) || '{}');
-  const str = store?.[bp]?.[PROP] ?? scaleMap[bp][PROP];
-  setVal(parseInt(str, 10));
+    const store = JSON.parse(localStorage.getItem(KEY) || '{}');
+    const str = store?.[bp]?.[PROP] ?? scaleMap[bp][PROP];
+    setVal(parseInt(str, 10));
   }, [bp]);
 
   const save = (n: number) => {

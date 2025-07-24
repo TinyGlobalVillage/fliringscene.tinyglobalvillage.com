@@ -2,18 +2,16 @@
 import styled from 'styled-components';
 
 import useResponsiveResize from '@/hook-utils/useResponsiveResize';
-import { scaleMap } from '@/styles/scaleMap';
+import { scaleMap } from '@/styles/scaleMap/scaleMap';
+// import SvgWrapper from '../svg/SvgWrapper';
 
-
-interface NeonTitleFontSizeProps {
+interface NeonSubtitleFontSizeProps {
   children: string;
   color?: string;
   strokeWidth?: string;
 }
 
-const SvgWrapper = styled.div`
-  width: 500px;
-  text-align: center;
+const Wrapper = styled.div`
   // border: 2px solid red;
 
   svg {
@@ -21,17 +19,17 @@ const SvgWrapper = styled.div`
   }
 `;
 
-export default function NeonTitleFontSize({
+export default function NeonSubtitleFontSize({
   children,
   color = '#ff4ecb',
-  strokeWidth = '3.75',
-}: NeonTitleFontSizeProps ) {
+  strokeWidth = '4.75',
+}: NeonSubtitleFontSizeProps) {
   const { fontSizeKey } = useResponsiveResize();
-  const { NeonTitleFontSize, NeonTitleViewBoxHeight } = scaleMap[fontSizeKey];
+  const { NeonSubtitleFontSize, NeonSubtitleViewBoxHeight } = scaleMap[fontSizeKey];
 
   return (
-    <SvgWrapper>
-      <svg width="100%" viewBox={`0 0 600 ${NeonTitleViewBoxHeight}`} preserveAspectRatio="xMidYMid meet">
+    <Wrapper>
+      <svg width="100%" viewBox={`0 0 600 ${NeonSubtitleViewBoxHeight}`} preserveAspectRatio="xMidYMid meet">
         <defs>
           <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
             <feGaussianBlur stdDeviation="2" result="blur1" />
@@ -50,7 +48,7 @@ export default function NeonTitleFontSize({
           dominantBaseline="middle"
           textAnchor="middle"
           fontFamily="sans-serif"
-          fontSize={NeonTitleFontSize}
+          fontSize={NeonSubtitleFontSize}
           stroke={color}
           strokeWidth={strokeWidth}
           fill="none"
@@ -59,6 +57,6 @@ export default function NeonTitleFontSize({
           {children}
         </text>
       </svg>
-    </SvgWrapper>
+    </Wrapper>
   );
 }

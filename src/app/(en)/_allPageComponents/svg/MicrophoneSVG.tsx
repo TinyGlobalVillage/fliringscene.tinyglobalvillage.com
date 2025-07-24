@@ -1,15 +1,10 @@
 'use client';
-import styled from 'styled-components';
+// import styled from 'styled-components';
 import useResponsiveResize from '@/hook-utils/useResponsiveResize';
-import { scaleMap } from '@/styles/scaleMap';
+import { scaleMap } from '@/styles/scaleMap/scaleMap';
 
 
-const SvgWrapper = styled.div`
-width: 100%;
-text-align: center;
-// border: 2px solid red;
-`;
-// import SvgWrapper from './SvgWrapper';
+import SvgWrapper from './SvgWrapper';
 
 const microphonePaths = [
   "M17.65 -279.04 C-26.05,-290.28 -57.05,-290.01 -86.7,-272.8 C-108.25,-260.3 -114.45,-238.91 -113.12,-223.11 C-111.41,-202.62 -104.3,-107.01 -98.47,-89.13 C-93.1,-72.64 -77.25,-49.18 -42.29,-49.18 C-7.33,-49.18 26.39,-48.05 46.36,-70.53 C66.34,-93 57.6,-140.45 53.86,-166.67 C50.11,-192.89 61.35,-267.81 17.65,-279.04z",
@@ -28,16 +23,16 @@ const microphonePaths = [
 
 export default function MicrophoneSVG() {
   const { fontSizeKey } = useResponsiveResize();
-  const { microphoneWidth } = scaleMap[fontSizeKey as keyof typeof scaleMap];
+  const { micWidth, micViewBoxMinX, micViewBoxMinY, micViewBoxWidth, micViewBoxHeight } = scaleMap[fontSizeKey as keyof typeof scaleMap];
 
   return (
     <SvgWrapper>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="-114.45 -290.28 180.79 442.81"
+        viewBox={`${micViewBoxMinX} ${micViewBoxMinY} ${micViewBoxWidth} ${micViewBoxHeight}`}
         preserveAspectRatio="xMidYMid meet"
         style={{
-          width: microphoneWidth,
+          width: micWidth,
           overflow: 'visible',
         }}
       >

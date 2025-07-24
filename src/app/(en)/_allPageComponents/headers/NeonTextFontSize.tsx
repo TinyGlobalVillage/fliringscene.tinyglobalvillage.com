@@ -1,7 +1,7 @@
 // NeonText.tsx
 'use client';
 import styled from 'styled-components';
-import { scaleMap } from '@/styles/scaleMap';
+import { scaleMap } from '@/styles/scaleMap/scaleMap';
 import useResponsiveResize from '@/hook-utils/useResponsiveResize';
 
 interface NeonTextFontSizeProps {
