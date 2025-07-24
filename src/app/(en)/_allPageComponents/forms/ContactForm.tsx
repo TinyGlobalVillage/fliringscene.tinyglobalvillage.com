@@ -6,8 +6,7 @@ import { media } from '@/styles/breakpoints';
 
 // ── Styled Components ─────────────────────────────────────────────────────────
 const FormWrapper = styled.section`
-  max-width: 95%;
-  padding: 2.5rem;
+  padding: 3rem;
   background: rgba(0,0,0,0.1);
   border: 8px solid #f7b700;
   border-radius: 28px;
@@ -49,12 +48,37 @@ const Field = styled.div`
   select,
   textarea {
     width: 100%;
-    padding: 0.75rem;
+     /* include padding in our height calculation */
+    box-sizing: border-box;
+
+    /* fixed height for all controls */
+    height: 2.5rem;
+
+    /* same vertical padding if you still want it */
+    padding: 0.5rem 0.75rem;
+
+    /* match your font-size and line-height */
+    font-size: 0.75rem;
+    line-height: 1rem;
+
     border-radius: 6px;
     border: 1px solid #ccc;
     background: #fff;
-    font-size: .75rem;
   }
+/* allow textarea to grow taller when needed */
+  textarea {
+    width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;  /* so padding stays inside 100% width */
+
+  /* allow only vertical resizing: */
+  resize: vertical;
+
+  /* auto‐height + a sensible minimum */
+  height: auto;
+  min-height: 6rem;
+  }
+
 `;
 
 const Button = styled.button`
@@ -66,11 +90,15 @@ const Button = styled.button`
   border-radius: 4px;
   font-size: 1rem;
   cursor: pointer;
+  margin-top: 15px;
 
   &:disabled {
     opacity: 0.6;
     cursor: default;
   }
+    @media ${media.mobile}{
+    margin-bottom: 15px;
+    }
 `;
 
 const Status = styled.p<{ variant: 'success' | 'error' }>`

@@ -6,7 +6,8 @@ import { media } from "@/styles/breakpoints";
 
 const ContactSection = styled.div`
   width: 100%;
-  margin: 80px auto 0;
+  margin: 0 auto;
+  margin-top: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,24 +15,20 @@ const ContactSection = styled.div`
   gap: 1rem;
 
   @media ${media.mobile}, ${media.tablet}
-
+  height: 60vh;
+  max-height: 300px;
   }
 
   `;
 
   const FormWrapper = styled.div`
   width: 100%;
-  max-width: 500px;         /* desktop cap */
+  max-width: 500px;
   transform-origin: top center;
 
-  @media ${media.mobile} {
-    /* Option A: just let it shrink via width */
-    width: 90%;
-  }
 
-  /* Option B: if you really want to scale instead:
   @media ${media.mobile} {
-    transform: scale(0.9);
+    transform: scale(0.8);
   }
   */
 `;
