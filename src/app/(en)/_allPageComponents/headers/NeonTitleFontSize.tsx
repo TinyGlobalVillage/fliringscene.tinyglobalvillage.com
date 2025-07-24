@@ -8,7 +8,6 @@ import { scaleMap } from '@/styles/scaleMap/scaleMap';
 interface NeonTitleFontSizeProps {
   children: string;
   color?: string;
-  strokeWidth?: string;
 }
 
 const SvgWrapper = styled.div`
@@ -24,14 +23,13 @@ const SvgWrapper = styled.div`
 export default function NeonTitleFontSize({
   children,
   color = '#ff4ecb',
-  strokeWidth = '3.75',
 }: NeonTitleFontSizeProps) {
   const { fontSizeKey } = useResponsiveResize();
-  const { NeonTitleFontSize, NeonTitleViewBoxHeight } = scaleMap[fontSizeKey];
+  const { NeonTitleFontSize, NeonTitleStrokeWidth, NeonTitleViewBoxMinX, NeonTitleViewBoxMinY, NeonTitleViewBoxWidth, NeonTitleViewBoxHeight } = scaleMap[fontSizeKey];
 
   return (
     <SvgWrapper>
-      <svg width="100%" viewBox={`0 0 600 ${NeonTitleViewBoxHeight}`} preserveAspectRatio="xMidYMid meet">
+      <svg width="100%" viewBox={`${NeonTitleViewBoxMinX} ${NeonTitleViewBoxMinY} ${NeonTitleViewBoxWidth} ${NeonTitleViewBoxHeight}`} preserveAspectRatio="xMidYMid meet">
         <defs>
           <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
             <feGaussianBlur stdDeviation="2" result="blur1" />
@@ -52,7 +50,7 @@ export default function NeonTitleFontSize({
           fontFamily="sans-serif"
           fontSize={NeonTitleFontSize}
           stroke={color}
-          strokeWidth={strokeWidth}
+          strokeWidth={NeonTitleStrokeWidth}
           fill="none"
           filter="url(#glow)"
         >

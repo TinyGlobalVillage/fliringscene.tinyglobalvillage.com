@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 import useResponsiveResize from '@/hook-utils/useResponsiveResize';
 import { scaleMap } from '@/styles/scaleMap/scaleMap';
+import { glowPulseFilter } from '../_nonComponentHelpers/glowPulse';
+
 
 const CurvedArrowWrapper = styled.div`
+// animation: ${glowPulseFilter} 2.5s infinite;
 // border: 1px solid red;
-
 `;
 
 
@@ -50,9 +52,9 @@ export default function CurveArrow() {
           }}
         />
         <text
-          x="100"
-          y="100"
-          fontSize="3rem"
+          x="350"
+          y="260"
+          fontSize="1.8rem"
           fontFamily="Arial, sans-serif"
           fill="#fc5b7c"
           textAnchor="middle"
@@ -63,7 +65,7 @@ export default function CurveArrow() {
             textAlign: "center",
           }}
         >
-          {/* KOMMENDE SHOW */}
+          KOMMENDE SHOW
         </text>
       </svg>
     </CurvedArrowWrapper>

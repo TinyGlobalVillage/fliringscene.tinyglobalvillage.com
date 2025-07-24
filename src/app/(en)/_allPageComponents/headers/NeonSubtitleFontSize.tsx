@@ -8,7 +8,6 @@ import { scaleMap } from '@/styles/scaleMap/scaleMap';
 interface NeonSubtitleFontSizeProps {
   children: string;
   color?: string;
-  strokeWidth?: string;
 }
 
 const Wrapper = styled.div`
@@ -22,14 +21,14 @@ const Wrapper = styled.div`
 export default function NeonSubtitleFontSize({
   children,
   color = '#ff4ecb',
-  strokeWidth = '4.75',
+
 }: NeonSubtitleFontSizeProps) {
   const { fontSizeKey } = useResponsiveResize();
-  const { NeonSubtitleFontSize, NeonSubtitleViewBoxHeight } = scaleMap[fontSizeKey];
+  const { NeonSubtitleFontSize, NeonSubtitleStrokeWidth, NeonSubtitleViewBoxMinX, NeonSubtitleViewBoxMinY, NeonSubtitleViewBoxWidth, NeonSubtitleViewBoxHeight } = scaleMap[fontSizeKey];
 
   return (
     <Wrapper>
-      <svg width="100%" viewBox={`0 0 600 ${NeonSubtitleViewBoxHeight}`} preserveAspectRatio="xMidYMid meet">
+      <svg width="100%" viewBox={`${NeonSubtitleViewBoxMinX} ${NeonSubtitleViewBoxMinY} ${NeonSubtitleViewBoxWidth} ${NeonSubtitleViewBoxHeight}`} preserveAspectRatio="xMidYMid meet">
         <defs>
           <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
             <feGaussianBlur stdDeviation="2" result="blur1" />
@@ -50,7 +49,7 @@ export default function NeonSubtitleFontSize({
           fontFamily="sans-serif"
           fontSize={NeonSubtitleFontSize}
           stroke={color}
-          strokeWidth={strokeWidth}
+          strokeWidth={NeonSubtitleStrokeWidth}
           fill="none"
           filter="url(#glow)"
         >

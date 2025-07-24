@@ -1,10 +1,10 @@
-import { mobileScale } from "./mobilePages/mobile";
-import { tabletScale } from "./tabletPages/tablet";
+import { mobileScales } from "./mobilePages/mobile";
+import { tabletScales } from "./tabletPages/tablet";
 import { desktopScales } from "./desktopPages/desktop";
 
 export const scaleMap = {
-...mobileScale,
-...tabletScale,
+...mobileScales,
+...tabletScales,
 ...desktopScales
 
 } as const;

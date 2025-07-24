@@ -1,6 +1,3 @@
 export const tabletGalleryScales = {
-  '8.5rem': {
-
-
-  },
+   cardsPerView: '2.25',
 } as const;

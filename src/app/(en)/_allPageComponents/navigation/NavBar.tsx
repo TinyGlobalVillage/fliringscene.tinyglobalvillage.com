@@ -5,7 +5,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { media, breakpoints } from '@/styles/breakpoints';
-import { glowPulse } from '../_nonComponentHelpers/glowPulse';
+import { glowPulse, glowPulseFilter } from '../_nonComponentHelpers/glowPulse';
 import FacebookIcon from '../facebook/FacebookIcon';
 
 const LOGO_SIZE = { desktop: 70, mobile: 60 };
@@ -34,6 +34,7 @@ const LogoWrapper = styled.div`
   display: flex;
   align-items: center;
   transition: transform 0.2s, filter 0.2s;
+  animation: ${glowPulseFilter};
 
   &:hover {
     transform: scale(1.05);
@@ -61,6 +62,8 @@ const MenuToggle = styled.button<{ $open: boolean }>`
   align-items: center;
   z-index: 9999;
   justify-content: center;
+
+
 
   @media ${media.mobile} {
     display: flex;
@@ -110,6 +113,8 @@ const NavLink = styled(Link)`
   text-decoration: none;
   font-size: 1.25rem;
   letter-spacing: 1px;
+  // drop-shadow: 0 0 10px #ff4ecb, 0 0 25px #ff4ecb;
+
   transition: transform 0.2s, color 0.2s, text-shadow 0.2s;
 
   &:hover {

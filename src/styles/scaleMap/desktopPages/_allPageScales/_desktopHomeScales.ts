@@ -1,19 +1,17 @@
-export const mobilepHomeScales = {
-  '8.5rem': {
+export const desktopHomeScales = {
 
     //__SECTION___ABOVE FOLD
 
     // "FLIRING"
     NeonTitleFontSize: '11rem',
-    NeonTitleStrokeWidth: '',
+    NeonTitleStrokeWidth: '3.75',
 
-    NeonTitleViewBoxMinX: '',
-    NeonTitleViewBoxMinY: '',
-    NeonTitleViewBoxWidth: '',
+    NeonTitleViewBoxMinX: '0',
+    NeonTitleViewBoxMinY: '0',
+    NeonTitleViewBoxWidth: '600',
     NeonTitleViewBoxHeight: 170,
 
     // MICROPHONE
-
     micWidth: '60px',
 
     micViewBoxMinX: '-153',
@@ -31,11 +29,11 @@ export const mobilepHomeScales = {
 
     // "SCENE"
     NeonSubtitleFontSize: '12rem',
-    NeonSubtitleStrokeWidth: '11',
+    NeonSubtitleStrokeWidth: '7',
 
-    NeonSubtitleViewBoxMinX: '',
-    NeonSubtitleViewBoxMinY: '',
-    NeonSubtitleViewBoxWidth: '',
+    NeonSubtitleViewBoxMinX: '0',
+    NeonSubtitleViewBoxMinY: '0',
+    NeonSubtitleViewBoxWidth: '600',
     NeonSubtitleViewBoxHeight: 180,
 
     // COMEDY SIGN
@@ -66,5 +64,4 @@ export const mobilepHomeScales = {
     footerButtonWidth: '200px',
     inputWidth: '200px',
 
-  },
 } as const;
