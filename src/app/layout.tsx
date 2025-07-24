@@ -4,8 +4,8 @@ import GlobalStyle from '@/styles/GlobalStyles';
 import StyledComponentsRegistry from '@/styles/StyledComponentsRegistry';
 import styled from 'styled-components';
 import Image from 'next/image';
-import NavBar from './(en)/(public)/_allPageComponents/navigation/NavBar';
-import ScrollToPreviousSectionButton from './(en)/(public)/_allPageComponents/buttons/ScrollToPreviousSectionButton';
+import NavBar from './(en)/_allPageComponents/navigation/NavBar';
+import ScrollToPreviousSectionButton from './(en)/_allPageComponents/buttons/ScrollToPreviousSectionButton';
 
 const Background = styled.div`
   position:fixed;
@@ -38,7 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </Background>
           <NavBar />
           <Foreground>
-            <ScrollToPreviousSectionButton/>
+            <ScrollToPreviousSectionButton />
             <main>{children}</main>
           </Foreground>
         </StyledComponentsRegistry>

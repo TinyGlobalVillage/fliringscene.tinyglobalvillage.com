@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { media } from '@/styles/breakpoints';
 import { scaleMap } from '@/styles/scaleMap';
 import useResponsiveResize from '@/hook-utils/useResponsiveResize';
-import FacebookIcon from '../../_allPageComponents/facebook/FacebookIcon';
+import FacebookIcon from '../../../_allPageComponents/facebook/FacebookIcon';
 
 
 const FooterSection = styled.section`

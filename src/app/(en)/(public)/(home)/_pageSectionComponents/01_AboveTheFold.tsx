@@ -2,11 +2,11 @@
 'use client';
 import styled from 'styled-components';
 
-import ComedyClubSign from '../../_allPageComponents/ui/ComedyClubSign';
-import NeonTitleFontSize from '../../_allPageComponents/headers/NeonTitleFontSize';
-import MicrophoneSVG from '../../_allPageComponents/svg/MicrophoneSVG';
-import NeonFaceSVG from '../../_allPageComponents/svg/NeonFaceSVG';
-import NeonArrowSVGButton from '../../_allPageComponents/svg/NeonArrowSVGButton';
+import ComedyClubSign from '@/app/(en)/_allPageComponents/ui/ComedyClubSign';
+import NeonTitleFontSize from '../../../_allPageComponents/headers/NeonTitleFontSize';
+import MicrophoneSVG from '@/app/(en)/_allPageComponents/svg/MicrophoneSVG';
+import NeonFaceSVG from '@/app/(en)/_allPageComponents/svg/NeonFaceSVG';
+import NeonArrowSVGButton from '@/app/(en)/_allPageComponents/svg/NeonArrowSVGButton';
 import { media } from '@/styles/breakpoints';
 
 

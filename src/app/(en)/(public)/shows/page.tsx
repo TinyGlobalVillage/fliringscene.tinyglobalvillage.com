@@ -1,10 +1,10 @@
 'use client';
 import styled from "styled-components";
 
-import NeonSectionTitleFontSize from "../_allPageComponents/headers/NeonSectionTitleFontSize";
-import { glowPulse } from "../_allPageComponents/_nonComponentHelpers/animations/glowPulse";
+import NeonSectionTitleFontSize from "../../_allPageComponents/headers/NeonSectionTitleFontSize";
+import { glowPulse } from "../../_allPageComponents/_nonComponentHelpers/glowPulse";
 import { media } from "@/styles/breakpoints";
-import TikkioWidget from "../_allPageComponents/tikkio/TikkoWidget";
+import TikkioWidget from "../../_allPageComponents/tikkio/TikkoWidget";
 
 const ShowsSection = styled.div`
   min-height: 70vh;

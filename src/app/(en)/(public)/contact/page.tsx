@@ -1,6 +1,6 @@
 'use client'
 import styled from "styled-components";
-import ContactForm from "../_allPageComponents/forms/ContactForm";
+import ContactForm from "../../_allPageComponents/forms/ContactForm";
 import { media } from "@/styles/breakpoints";
 
 

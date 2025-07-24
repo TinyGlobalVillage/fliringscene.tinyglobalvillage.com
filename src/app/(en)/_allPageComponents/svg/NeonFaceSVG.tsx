@@ -2,7 +2,7 @@
 import SvgWrapper from './SvgWrapper';
 import useResponsiveResize from '@/hook-utils/useResponsiveResize';
 import { scaleMap } from '@/styles/scaleMap';
-    
+
 
 const NeonFaceSVG = () => {
   const { fontSizeKey } = useResponsiveResize();
