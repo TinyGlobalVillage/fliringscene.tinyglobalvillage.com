@@ -51,9 +51,7 @@ export default function TikkioWidget() {
               font-size: 2rem;
               color: #ff4ecb !important;
             }
-            .location br {
-              display: none !important;
-            }
+            
             .tikkio-widget-buy-ticket {
               cursor: pointer !important;
               border-radius: 0 0 15px 15px !important;
