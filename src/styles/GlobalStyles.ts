@@ -3,6 +3,21 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
+
+"sqs"
+
+nav.NavBar {
+}
+
+@media (min-width: 767px){ // desktop or tablet
+color: red;
+background-color: blue;
+font-size: .5rem;
+}
+
+
+}
+
 html {
   width: 100%;
   overflow-x: hidden;

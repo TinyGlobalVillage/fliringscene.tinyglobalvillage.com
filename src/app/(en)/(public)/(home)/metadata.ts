@@ -1,6 +1,6 @@
 // src/app/about/metadata.ts
 export const metadata = {
-  title: "About | SiteName",
+  title: "Fliring Scene",
   description: "Learn more about our mission...",
   keywords: "about, site, mission, team",
   openGraph: {

@@ -17,7 +17,9 @@ export const scaleMap = {
 
         //Above Fold Title
         NeonTitleFontSize: '6.5rem',
+        NeonTitleFontSizeB: '6.5rem',
         NeonTitleViewBoxHeight: 105,
+        NeonTitleViewBoxHeightB: 105,
         // create stroke width
 
         // Comedy Sign
@@ -69,7 +71,9 @@ export const scaleMap = {
 
         //Above Fold Title
         NeonTitleFontSize: '11rem',
+        NeonTitleFontSizeB: '11rem',
         NeonTitleViewBoxHeight: 160,
+        NeonTitleViewBoxHeightB: 160,
         // create stroke width
 
         // Comedy Sign
@@ -120,7 +124,9 @@ export const scaleMap = {
 
         //Above Fold Title
         NeonTitleFontSize: '11rem',
+        NeonTitleFontSizeB: '11rem',
         NeonTitleViewBoxHeight: 170,
+        NeonTitleViewBoxHeightB: 170,
         // create stroke width
 
         // Comedy Sign
