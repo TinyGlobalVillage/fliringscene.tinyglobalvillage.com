@@ -1,12 +1,14 @@
 'use client';
 import styled from 'styled-components';
-import { glowPulse } from '../../animations/glowPulse';
+import Button from '../../_allPageComponents/buttons/Button';
 import { media } from '@/styles/breakpoints';
+import { glowPulse } from '../../_allPageComponents/_nonComponentHelpers/animations/glowPulse';
 
-
-const NewsFeedSection = styled.section`
+const GallerySection = styled.section`
  min-height: 70vh;
+  scroll-margin-top: 100px; // adjust based on fixed nav height
   width: 80%;
+  min-width: 300px;
   margin: 0 auto;
   margin-bottom: 35px;
   padding: 2rem;
@@ -22,20 +24,17 @@ const NewsFeedSection = styled.section`
   @media ${media.mobile}{
 width: 90%;
 min-height: 60vh;
-padding: 1rem;
+padding: 1.5rem;
 
 }
 `;
-import FacebookIframe from '../facebook/FacebookIframe';
-import NeonSectionTitleFontSize from '../../../_allPageComponents/headers/NeonSectionTitleFontSize';
 
-export default function NewsSection() {
+export default function Gallery() {
   return (
-    <NewsFeedSection id="news-feed">
-      <NeonSectionTitleFontSize>
-        LATEST NEWS
-        </NeonSectionTitleFontSize>
-      <FacebookIframe />
-    </NewsFeedSection>
-  );
+    <GallerySection id='gallery'>
+      <h2>Gallery</h2>
+      <Button />
+      <p>Check out our latest photos and videos!</p>
+    </GallerySection>
+  )
 }

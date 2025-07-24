@@ -1,6 +1,6 @@
 'use client';
 import styled, { keyframes } from 'styled-components';
-import { glowPulse } from '../../(home)/animations/glowPulse';
+import { glowPulse } from '../_nonComponentHelpers/animations/glowPulse';
 import useResponsiveResize from '@/hook-utils/useResponsiveResize';
 import { scaleMap } from '@/styles/scaleMap';
 
@@ -89,7 +89,7 @@ interface LightBulbFrameProps {
 
 export default function LightBulbFrame({
   children,
-positions = bulbPositions }: LightBulbFrameProps) {
+  positions = bulbPositions }: LightBulbFrameProps) {
   const { fontSizeKey } = useResponsiveResize();
   const { boxWidth, bulbSize } = scaleMap[fontSizeKey];
 

@@ -2,7 +2,7 @@
 import styled from "styled-components";
 
 import NeonSectionTitleFontSize from "../_allPageComponents/headers/NeonSectionTitleFontSize";
-import { glowPulse } from "../(home)/animations/glowPulse";
+import { glowPulse } from "../_allPageComponents/_nonComponentHelpers/animations/glowPulse";
 import { media } from "@/styles/breakpoints";
 import TikkioWidget from "../_allPageComponents/tikkio/TikkoWidget";
 
@@ -49,14 +49,14 @@ const WidgetWrapper = styled.div`
     `;
 
 export default function ShowsPage() {
-    return (
-        <ShowsSection>
-            <NeonSectionTitleFontSize>
-                KOMMENDE SHOW
-            </NeonSectionTitleFontSize>
-            <WidgetWrapper>
-                <TikkioWidget />
-            </WidgetWrapper>
-        </ShowsSection>
-    );
+  return (
+    <ShowsSection>
+      <NeonSectionTitleFontSize>
+        KOMMENDE SHOW
+      </NeonSectionTitleFontSize>
+      <WidgetWrapper>
+        <TikkioWidget />
+      </WidgetWrapper>
+    </ShowsSection>
+  );
 }

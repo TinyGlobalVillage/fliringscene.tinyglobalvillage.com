@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import styled from 'styled-components';
-import NeonContactPageTitle from '../../contact/_pageComponents/NeonContactPageTitle';
+import NeonContactPageTitle from '../headers/NeonContactPageTitle';
 import { media } from '@/styles/breakpoints';
 
 // ── Styled Components ─────────────────────────────────────────────────────────

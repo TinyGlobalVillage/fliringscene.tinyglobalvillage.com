@@ -4,7 +4,7 @@ import GlobalStyle from '@/styles/GlobalStyles';
 import StyledComponentsRegistry from '@/styles/StyledComponentsRegistry';
 import styled from 'styled-components';
 import Image from 'next/image';
-import NavBar from './(en)/(public)/_allPageComponents/NavBar';
+import NavBar from './(en)/(public)/_allPageComponents/navigation/NavBar';
 import ScrollToPreviousSectionButton from './(en)/(public)/_allPageComponents/buttons/ScrollToPreviousSectionButton';
 
 const Background = styled.div`
@@ -16,7 +16,7 @@ const Background = styled.div`
 `;
 
 const Foreground = styled.div`
-  
+
 
 `;
 

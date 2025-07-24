@@ -1,10 +1,11 @@
 'use client';
 import styled from 'styled-components';
-import NeonText from '../../../_allPageComponents/headers/NeonTextFontSize';
+import NeonText from '../headers/NeonTextFontSize';
 import LightBulbFrame from './AboveFoldLightBulbFrame';
 
 
 const ComedyClubSignWrapper = styled.div`
+z-index: 1000;
 `;
 
 export default function ComedyClubSign() {

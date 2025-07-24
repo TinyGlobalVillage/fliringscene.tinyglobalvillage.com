@@ -1,45 +1,12 @@
-'use client'
-import styled from 'styled-components';
 import useResponsiveResize from '@/hook-utils/useResponsiveResize';
 import { scaleMap } from '@/styles/scaleMap';
 
-const ButtonWrapper = styled.button`
-  all: unset;
-  display: block;
-  max-width: 500px;
-  width: 100%;
-  cursor: pointer;
-
-
-  transition: transform 0.2s ease, filter 0.2s ease;
-
-  &:hover {
-    /* slightly bigger */
-    transform: scale(1.05);
-
-    /* crank the glow */
-    filter:
-      drop-shadow(0 0 1px #fe9e17)
-
-  }
-`;
-
-
-function NeonArrowSVGButton() {
+export default function StraightArrow() {
   const { fontSizeKey } = useResponsiveResize();
   const { arrowWidth, arrowTextSize } = scaleMap[fontSizeKey as keyof typeof scaleMap];
 
   return (
-    <ButtonWrapper onClick={
-      () => {
-        const el = document.getElementById('upcoming-show');
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        }
-      }
-    }
-    >
-      {<svg xmlns="http://www.w3.org/2000/svg"
+  <svg xmlns="http://www.w3.org/2000/svg"
         viewBox="-790  9.5   590  180"
         preserveAspectRatio="xMidYMid meet"
         style={{
@@ -104,9 +71,6 @@ function NeonArrowSVGButton() {
         >
           KOMMENDE SHOW
         </text>
-      </svg>}
-    </ButtonWrapper>
+      </svg>
   );
-}
-
-export default NeonArrowSVGButton;
+};

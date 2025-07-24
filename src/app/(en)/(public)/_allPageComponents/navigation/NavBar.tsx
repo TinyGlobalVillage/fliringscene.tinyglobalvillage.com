@@ -5,8 +5,8 @@ import { usePathname, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { media, breakpoints } from '@/styles/breakpoints';
-import { glowPulse } from '../(home)/animations/glowPulse';
-import FacebookIcon from '../(home)/_pageComponents/facebook/FacebookIcon';
+import { glowPulse } from '../_nonComponentHelpers/animations/glowPulse';
+import FacebookIcon from '../facebook/FacebookIcon';
 
 const LOGO_SIZE = { desktop: 70, mobile: 60 };
 

@@ -1,6 +1,6 @@
 'use client';
 import styled, { keyframes } from 'styled-components';
-import { glowPulse } from '../../animations/glowPulse';
+import { glowPulse } from '../_nonComponentHelpers/animations/glowPulse';
 import useResponsiveResize from '@/hook-utils/useResponsiveResize';
 import { scaleMap } from '@/styles/scaleMap';
 
@@ -89,7 +89,7 @@ interface AboveFoldLightBulbFrameProps {
 
 export default function AboveFoldLightBulbFrame({
   children,
-positions = bulbPositions }: AboveFoldLightBulbFrameProps) {
+  positions = bulbPositions }: AboveFoldLightBulbFrameProps) {
   const { fontSizeKey } = useResponsiveResize();
   const { boxWidth, comedyClubBulbSize } = scaleMap[fontSizeKey];
 
