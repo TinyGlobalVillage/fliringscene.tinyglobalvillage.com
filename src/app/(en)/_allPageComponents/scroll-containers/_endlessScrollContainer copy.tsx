@@ -1,158 +1,95 @@
 'use client';
-import React, { forwardRef, useEffect, useState, useRef } from 'react';
+import React, {
+  forwardRef,
+  useRef,
+  useLayoutEffect,
+  useMemo,
+  useCallback,
+  UIEventHandler,
+} from 'react';
 import styled from 'styled-components';
+import { media } from '@/styles/breakpoints';
 
-const Wrapper = styled.div`
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-`;
 
-const Arrow = styled.button`
-  position: absolute;
-  bottom: -1.5rem;
-  background: none;
-  border: none;
-  font-size: 3rem;
-  color: #ff4ecb;
-  cursor: pointer;
-  user-select: none;
-  z-index: 10;
-  padding: 0;
-`;
-
-const LeftArrow = styled(Arrow)`left: 25%;`;
-const RightArrow = styled(Arrow)`right: 25%;`;
-
-const ScrollContainer = styled.div<{ $eventCount: number }>`
+const ScrollContainer = styled.div`
   display: flex;
-  position: relative;
   overflow-x: auto;
-  scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
   gap: 1rem;
   padding: 1rem;
-  max-width: 100%;
+
+  /* hide native scrollbar */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
 
   -webkit-overflow-scrolling: touch;
-  touch-action: pan-x;
-
-  user-select: none;
-  cursor: grab;
-  &.dragging {
-    cursor: grabbing;
-  }
-
-  justify-content: ${({ $eventCount }) =>
-    $eventCount === 1
-      ? 'center'
-      : $eventCount <= 3
-      ? 'space-between'
-      : 'flex-start'};
 `;
 
-type EndlessScrollContainerProps = {
-  children?: React.ReactNode;
+const Item = styled.div`
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  width: calc((100% + 1rem) / 3.25 - 1rem);
+
+  @media ${media.tablet} {
+    width: calc((100% + 1rem) / 2.25 - 1rem);
+  }
+  @media ${media.mobile} {
+    width: 100%;
+  }
+`;
+
+export type EndlessScrollContainerProps = {
+  children: React.ReactNode;
 };
 
-export const EndlessScrollContainer = forwardRef<
+const EndlessScrollContainer = forwardRef<
   HTMLDivElement,
   EndlessScrollContainerProps
 >(({ children }, ref) => {
-  const localRef = useRef<HTMLDivElement>(null);
-  // coalesce ref into a typed RefObject
-  const scrollRef = (ref as React.RefObject<HTMLDivElement>) ?? localRef;
-  const container = scrollRef.current;
+  const innerRef = useRef<HTMLDivElement>(null);
+  const containerRef = (ref as React.RefObject<HTMLDivElement>) || innerRef;
 
-  const [eventCount, setEventCount] = useState(0);
-  const [cloned, setCloned] = useState(false);
+  // 1) Triple-clone your children
+  const items = useMemo(() => {
+    const arr = React.Children.toArray(children);
+    return arr.length ? [...arr, ...arr, ...arr] : [];
+  }, [children]);
 
-  useEffect(() => {
-    if (!container) return;
-    const target = container.querySelector('.tikkio-widget-events');
-    if (!target) return;
+  // 2) scroll to the middle copy
+  const scrollToMiddle = useCallback(() => {
+    const el = containerRef.current;
+    if (!el || items.length === 0) return;
+    el.scrollLeft = el.scrollWidth / 3;
+  }, [containerRef, items.length]);
 
-    const mo = new MutationObserver(() => {
-      const cards = target.children.length;
-      if (cards === 1 && !cloned) {
-        const original = target.children[0] as HTMLElement;
-        for (let i = 0; i < 3; i++) {
-          const clone = original.cloneNode(true) as HTMLElement;
-          target.appendChild(clone);
-        }
-        setCloned(true);
-        setEventCount(4);
-      } else {
-        setEventCount(cards);
-      }
-    });
+  // on mount & whenever `items` changes
+  useLayoutEffect(() => {
+    scrollToMiddle();
+  }, [scrollToMiddle]);
 
-    mo.observe(target, { childList: true });
-    return () => mo.disconnect();
-  }, [container, cloned]);
+  // 3) Loop logic
+  const handleScroll: UIEventHandler<HTMLDivElement> = useCallback((e) => {
+    const el = e.currentTarget;
+    const third = el.scrollWidth / 3;
+    if (el.scrollLeft <= 0) {
+      el.scrollLeft = third;
+    } else if (el.scrollLeft >= third * 2) {
+      el.scrollLeft = third;
+    }
+  }, []);
 
-  useEffect(() => {
-    if (!container) return;
-    let isDown = false;
-    let startX = 0;
-    let scrollLeft = 0;
-
-    const onDown = (e: MouseEvent | TouchEvent) => {
-      isDown = true;
-      startX = 'touches' in e ? e.touches[0].pageX : e.pageX;
-      scrollLeft = container.scrollLeft;
-      container.classList.add('dragging');
-    };
-    const onMove = (e: MouseEvent | TouchEvent) => {
-      if (!isDown) return;
-      e.preventDefault();
-      const x = 'touches' in e ? e.touches[0].pageX : e.pageX;
-      container.scrollLeft = scrollLeft - (x - startX) * 1.5;
-    };
-    const onUp = () => {
-      isDown = false;
-      container.classList.remove('dragging');
-    };
-
-    container.addEventListener('mousedown', onDown);
-    container.addEventListener('touchstart', onDown, { passive: true });
-    container.addEventListener('mousemove', onMove);
-    container.addEventListener('touchmove', onMove, { passive: false });
-    container.addEventListener('mouseup', onUp);
-    container.addEventListener('mouseleave', onUp);
-    container.addEventListener('touchend', onUp);
-
-    return () => {
-      container.removeEventListener('mousedown', onDown);
-      container.removeEventListener('touchstart', onDown as EventListener);
-      container.removeEventListener('mousemove', onMove);
-      container.removeEventListener('touchmove', onMove as EventListener);
-      container.removeEventListener('mouseup', onUp);
-      container.removeEventListener('mouseleave', onUp);
-      container.removeEventListener('touchend', onUp);
-    };
-  }, [container]);
-
-  const scrollByPage = (dir: 'left' | 'right') => {
-    if (!container) return;
-    container.scrollBy({
-      left: dir === 'left' ? -container.offsetWidth : container.offsetWidth,
-      behavior: 'smooth',
-    });
-  };
+  if (items.length === 0) return null;
 
   return (
-    <Wrapper>
-      <LeftArrow onClick={() => scrollByPage('left')} aria-label="Prev">
-        ◀
-      </LeftArrow>
-      <ScrollContainer ref={scrollRef} $eventCount={eventCount}>
-        {children}
+
+      <ScrollContainer ref={containerRef} onScroll={handleScroll}>
+        {items.map((child, idx) => (
+          <Item key={idx}>{child}</Item>
+        ))}
       </ScrollContainer>
-      <RightArrow onClick={() => scrollByPage('right')} aria-label="Next">
-        ▶
-      </RightArrow>
-    </Wrapper>
+
   );
 });
 

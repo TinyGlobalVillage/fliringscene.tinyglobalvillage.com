@@ -48,6 +48,10 @@ html {
     color: inherit;
     text-decoration: none;
   }
+
+  a, button {
+  cursor: pointer;
+  }
 `;
 
 export default GlobalStyle;

@@ -5,8 +5,8 @@ import { FiArrowUp } from 'react-icons/fi';
 
 const ScrollToPreviousSectionStyle = styled.button<{ $visible: boolean}>`
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
+  bottom: 15px;
+  right: 20px;
   width: 3rem;
   height: 3rem;
   border: none;

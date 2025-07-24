@@ -13,5 +13,6 @@ export const desktopScales = {
     ...desktopContactScales,
     ...desktopGalleryScales,
     ...desktopShowScales,
-  }
+  },
 } as const;
+

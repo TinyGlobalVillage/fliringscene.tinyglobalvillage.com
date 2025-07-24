@@ -1,6 +1,6 @@
 'use client';
 import styled, { keyframes } from 'styled-components';
-import { glowPulse } from '../_nonComponentHelpers/glowPulse';
+import { glowPulse } from '../_nonComponentHelpers/animations/glowPulse';
 import useResponsiveResize from '@/hook-utils/useResponsiveResize';
 import { scaleMap } from '@/styles/scaleMap/scaleMap';
 

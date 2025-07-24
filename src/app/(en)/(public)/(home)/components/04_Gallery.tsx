@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 import Button from '../../../_allPageComponents/buttons/Button';
 import { media } from '@/styles/breakpoints';
-import { glowPulse } from '../../../_allPageComponents/_nonComponentHelpers/glowPulse';
+import { glowPulse } from '../../../_allPageComponents/_nonComponentHelpers/animations/glowPulse';
 
 const GallerySection = styled.section`
  min-height: 70vh;

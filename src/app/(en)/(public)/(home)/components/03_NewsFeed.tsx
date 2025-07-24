@@ -1,6 +1,6 @@
 'use client';
 import styled from 'styled-components';
-import { glowPulse } from '../../../_allPageComponents/_nonComponentHelpers/glowPulse';
+import { glowPulse } from '../../../_allPageComponents/_nonComponentHelpers/animations/glowPulse';
 import { media } from '@/styles/breakpoints';
 import FacebookIframe from '../../../_allPageComponents/facebook/FacebookIframe';
 import NeonSectionTitleFontSize from '../../../_allPageComponents/headers/NeonSectionTitleFontSize';

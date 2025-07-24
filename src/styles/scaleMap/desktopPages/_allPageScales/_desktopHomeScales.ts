@@ -4,7 +4,7 @@ export const desktopHomeScales = {
 
     // "FLIRING"
     NeonTitleFontSize: '11rem',
-    NeonTitleStrokeWidth: '3.75',
+    NeonTitleStrokeWidth: '4.5',
 
     NeonTitleViewBoxMinX: '0',
     NeonTitleViewBoxMinY: '0',
@@ -12,27 +12,27 @@ export const desktopHomeScales = {
     NeonTitleViewBoxHeight: 170,
 
     // MICROPHONE
-    micWidth: '60px',
+    micWidth: '50px',
 
-    micViewBoxMinX: '-153',
-    micViewBoxMinY: '-280',
+    micViewBoxMinX: '-98',
+    micViewBoxMinY: '-270',
     micViewBoxWidth: '230',
     micViewBoxHeight: '400',
 
     // FACE
-    faceWidth: '9rem',
+    faceWidth: '7rem',
 
-    faceViewBoxMinX: '225',
-    faceViewBoxMinY: '0',
+    faceViewBoxMinX: '285',
+    faceViewBoxMinY: '30',
     faceViewBoxWidth: '450',
     faceViwBoxHeight: '450',
 
     // "SCENE"
-    NeonSubtitleFontSize: '12rem',
+    NeonSubtitleFontSize: '13rem',
     NeonSubtitleStrokeWidth: '7',
 
-    NeonSubtitleViewBoxMinX: '0',
-    NeonSubtitleViewBoxMinY: '0',
+    NeonSubtitleViewBoxMinX: '-30',
+    NeonSubtitleViewBoxMinY: '-10',
     NeonSubtitleViewBoxWidth: '600',
     NeonSubtitleViewBoxHeight: 180,
 
@@ -43,10 +43,10 @@ export const desktopHomeScales = {
     bulbSize: '32px',
 
     //CURVED ARROW
-    curvedArrowWidth: '125px',
+    curvedArrowWidth: '155px',
 
-    curvedArrowViewBoxMinX: '-330',
-    curvedArrowViewBoxMinY: '-80',
+    curvedArrowViewBoxMinX: '295',
+    curvedArrowViewBoxMinY: '-72',
     curvedArrowViewBoxWidth: '500',
     curvedArrowViewBoxHeight: '649',
 

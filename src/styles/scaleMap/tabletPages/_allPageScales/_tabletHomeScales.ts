@@ -42,10 +42,10 @@ export const tabletpHomeScales = {
     bulbSize: '18px',
 
     //CURVED ARROW
-    curvedArrowWidth: '125px',
+    curvedArrowWidth: '135px',
 
-    curvedArrowViewBoxMinX: '-430',
-    curvedArrowViewBoxMinY: '-90',
+    curvedArrowViewBoxMinX: '265',
+    curvedArrowViewBoxMinY: '-75',
     curvedArrowViewBoxWidth: '500',
     curvedArrowViewBoxHeight: '649',
 

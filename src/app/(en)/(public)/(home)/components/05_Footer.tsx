@@ -65,14 +65,17 @@ const Form = styled.form`
 
 const Input = styled.input<{ $inputWidth: string }>`
   width: ${({ $inputWidth }) => $inputWidth};
-  height: 30px;
-  padding: 0.5rem;
+  height: 32px;
+  padding: 0 0.75rem;
   border-radius: 4px;
   border: 1px solid #ccc;
+  font-size: 1rem;
+  box-sizing: border-box;
 `;
 
 const Button = styled.button<{ $buttonWidth: string }>`
   padding: 0.5rem;
+  height: 32px;
   width: ${({ $buttonWidth }) => $buttonWidth};
   background: #ff4ecb;
   color: #fff;
@@ -88,12 +91,22 @@ const Button = styled.button<{ $buttonWidth: string }>`
 `;
 
 const List = styled.ul`
-list-style: none;
-margin: 0;
-padding: 0;
-display: flex;
-flex-direction: column;
-gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  a {
+    color: #ff4ecb;
+    text-decoration: none;
+    transition: color 0.2s;
+
+    &:hover {
+      color: #fff;
+    }
+  }
 `;
 
 const StatusMessage = styled.p<{ variant: 'success' | 'error' }>`
@@ -205,7 +218,7 @@ export default function Footer() {
           <h3>Quick Links</h3>
           <List>
             <li><Link href="/shows">Shows</Link></li>
-            <li><Link href="/about">About</Link></li>
+            {/* <li><Link href="/about">About</Link></li> */}
             <li><Link href="/gallery">Gallery</Link></li>
 
             {/* <ul> */}

@@ -1,7 +1,7 @@
 'use client'
 import styled from 'styled-components';
-import CurveArrow from './CurveArrowSVG';
-// import StraightArrow from './StraightArrowSVG';
+import CurveArrow from '../svg/CurveArrowSVG';
+// import StraightArrow from '../svg/StraightArrowSVG';
 
 const ButtonWrapper = styled.button`
   all: unset;

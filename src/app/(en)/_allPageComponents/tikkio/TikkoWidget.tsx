@@ -20,12 +20,13 @@ export default function TikkioWidget() {
           style.innerHTML = `
             .tikkio-widget-events {
               display: flex !important;
-              width: 100% !important;
-              justify-content: center!important;
+              height: 100% !important;
+              justify-content: center !important;
             }
             .tikkio-widget-events > * {
               flex:1 1 auto !important;
-              max-width:100% !important;
+              height: 100% !important;
+              max-height: 100% !important;
               width:100% !important;
             }
             .tikkio-widget-event-inside {

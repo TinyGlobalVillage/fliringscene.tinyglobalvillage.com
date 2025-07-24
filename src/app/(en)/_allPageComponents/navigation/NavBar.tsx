@@ -5,59 +5,70 @@ import { usePathname, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { media, breakpoints } from '@/styles/breakpoints';
-import { glowPulse, glowPulseFilter } from '../_nonComponentHelpers/glowPulse';
+import { glowPulse, glowPulseFilter } from '../_nonComponentHelpers/animations/glowPulse';
 import FacebookIcon from '../facebook/FacebookIcon';
+import { PulsingWrapper } from '../animations/pulseEffect';
 
-const LOGO_SIZE = { desktop: 70, mobile: 60 };
-
+// Parent Container
 const NavbarContainer = styled.nav<{ $scrolled: boolean }>`
 position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  padding: 5px 0px;
+  padding: 15px 0px;
   display: flex;
   justify-content: center;
-  gap: 4rem;
+  gap: 2rem;
   align-items: center;
   z-index: 9999;
   background: ${({ $scrolled }) => ($scrolled ? 'rgba(0,0,0,0.7)' : 'transparent')};
   transition: background 0.25s ease;
 
-   @media ${media.mobile} {
+
+  @media ${media.tablet}{
+  background: none;
+  }
+  @media ${media.mobile}{
+  background: none;
+  }
+`
+
+const LOGO_SIZE = { desktop: 70, mobile: 50 };
+
+const LogoContainer = styled.div`
+@media ${media.mobile}{
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 9999; // ensure it sits above
 
   }
-
 `;
 
 const LogoWrapper = styled.div`
   display: flex;
   align-items: center;
-  transition: transform 0.2s, filter 0.2s;
-  animation: ${glowPulseFilter};
+  transition: transform 0.2s;
+  animation: ${glowPulseFilter} 3s ease-in-out infinite;
+  transform-origin: center;
+  cursor: pointer;
 
   &:hover {
     transform: scale(1.05);
     filter: drop-shadow(0 0 5px #fff) drop-shadow(0 0 10px #ff4ecb);
     text-shadow: 0 0 5px #ff4ecb, 0 0 10px #ff4ecb;
-    }
-
-   @media ${media.mobile} {
-    position: fixed;
-    top: 15px;
-    left: 15px;
   }
 `;
 
 const MenuToggle = styled.button<{ $open: boolean }>`
   position: fixed;
-   top: ${({ $open }) => ($open ? '15px' : '-5px')};
-  right: ${({ $open }) => ($open ? '30px' : '25px')};
+   top: ${({ $open }) => ($open ? '15px' : '-12px')};
+  right: ${({ $open }) => ($open ? '30px' : '10px')};
   display: none;
   background: transparent;
   border: none;
   color: #ff4ecb;
-  font-size: 4rem;
+  font-size: 4.7rem;
   cursor: pointer;
   align-items: center;
   z-index: 9999;
@@ -67,18 +78,7 @@ const MenuToggle = styled.button<{ $open: boolean }>`
 
   @media ${media.mobile} {
     display: flex;
-
   }
-
-  // &:hover {
-  //   color: white;
-  // }
-
-  // &::after {
-  //   content: '▼';
-  //   font-size: 1.5rem;
-  //   transform: translateY(1px);
-  // }
 `;
 
 const NavLinks = styled.div<{ $open: boolean }>`
@@ -121,6 +121,13 @@ const NavLink = styled(Link)`
     transform: scale(1.05);
     color: #fff;
 
+  }
+`;
+const MobileOnlyNavLink = styled(NavLink)`
+  display: none;
+
+  @media ${media.mobile} {
+    display: inline-block;
   }
 `;
 
@@ -174,15 +181,19 @@ export default function NavBar() {
   return (
     <NavbarContainer $scrolled={scrolled}>
 
-      <LogoWrapper onClick={handleLogoClick}>
-        <Image
-          src="/images/icons/fliring-scene-logo-circle.png"
-          alt="Logo"
-          width={logoSize}
-          height={logoSize}
-          priority
-        />
-      </LogoWrapper>
+      <LogoContainer>
+        <PulsingWrapper>
+          <LogoWrapper onClick={handleLogoClick}>
+            <Image
+              src="/images/icons/fliring-scene-logo-circle.png"
+              alt="Logo"
+              width={logoSize}
+              height={logoSize}
+              priority
+            />
+          </LogoWrapper>
+        </PulsingWrapper>
+      </LogoContainer>
 
 
       <MenuToggle $open={menuOpen} onClick={() => setMenuOpen(v => !v)}>
@@ -190,6 +201,7 @@ export default function NavBar() {
       </MenuToggle>
 
       <NavLinks $open={menuOpen}>
+        <MobileOnlyNavLink href="/" onClick={() => setMenuOpen(false)}>HOME</MobileOnlyNavLink>
         <NavLink href="/shows" onClick={() => setMenuOpen(false)}>SHOWS</NavLink>
         {/* <NavLink href="/about" onClick={() => setMenuOpen(false)}>ABOUT</NavLink>
         <NavLink href="/gallery" onClick={() => setMenuOpen(false)}>GALLERY</NavLink> */}

@@ -1,28 +1,25 @@
 // src/components/AboveTheFold.tsx
 'use client';
 import styled from 'styled-components';
-
 import ComedyClubSign from '@/app/(en)/_allPageComponents/ui/ComedyClubSign';
 import NeonTitleFontSize from '@/app/(en)/_allPageComponents/headers/NeonTitleFontSize';
 import NeonSubtitleFontSize from '@/app/(en)/_allPageComponents/headers/NeonSubtitleFontSize';
 import MicrophoneSVG from '@/app/(en)/_allPageComponents/svg/MicrophoneSVG';
 import NeonFaceSVG from '@/app/(en)/_allPageComponents/svg/NeonFaceSVG';
-import NeonArrowSVGButton from '@/app/(en)/_allPageComponents/svg/NeonArrowSVGButton';
+import NeonArrowSVGButton from '@/app/(en)/_allPageComponents/buttons/NeonArrowSVGButton';
 import { media } from '@/styles/breakpoints';
-
+import { PulsingWrapper } from '@/app/(en)/_allPageComponents/animations/pulseEffect';
 
 const AboveFoldWrapper = styled.section`
 width: 100%;
-height: 100vh;
+height: 100dvh;
 display: flex;
 flex-direction: column;
 align-items: center;
-padding-top: 80px;
-   @media ${media.mobile} {
+padding-top: 100px;
 
-  }
-   @media ${media.tablet} {
-
+@media ${media.mobile} {
+  padding-top: 80px;
   }
 `;
 
@@ -73,7 +70,15 @@ export default function AboveTheFold() {
         <NeonSubtitleFontSize color="#00bfff" >SCENE</NeonSubtitleFontSize>
       </TitleWrapper>
       <ComedyClubSign />
-      <NeonArrowSVGButton />
+      <PulsingWrapper
+        $color="#fe9e17"
+        $scale={1.02}
+        $duration="3s"
+        $easing="ease-in"
+        $iterationCount="infinite"
+      >
+        <NeonArrowSVGButton />
+      </PulsingWrapper>
     </AboveFoldWrapper>
   );
 }

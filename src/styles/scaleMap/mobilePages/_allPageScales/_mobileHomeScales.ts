@@ -38,13 +38,13 @@ export const mobilepHomeScales = {
   // COMEDY SIGN
   comedyClubBulbSize: '15px',
   NeonTextFontSize: '6.5rem',
-  boxWidth: '220px',
+  boxWidth: '180px',
   bulbSize: '15px',
 
   //CURVED ARROW
-  curvedArrowWidth: '120px',
+  curvedArrowWidth: '100px',
 
-  curvedArrowViewBoxMinX: '-350',
+  curvedArrowViewBoxMinX: '200',
   curvedArrowViewBoxMinY: '-80',
   curvedArrowViewBoxWidth: '500',
   curvedArrowViewBoxHeight: '649',
