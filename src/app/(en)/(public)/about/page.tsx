@@ -21,8 +21,11 @@ export default function About() {
         <>
         <AboutSection>
             <h1>About Us</h1>
-            <p>Welcome to Fliring Scene, your premier destination for comedy and entertainment. We are dedicated to bringing you the best in stand-up comedy, improv, and live performances.</p>
-            <p>Our mission is to create a vibrant community where laughter thrives and artists shine. Join us for an unforgettable experience!</p>
+            <p>Welcome to Fliring Scene – Steinkjer’s new, intimate, and inclusive cultural stage in Breidablikkgården!</p>
+            <p>Here, local stand‑up, speeches, revues, improv, singing, and music will have room to flourish, whether you’re a seasoned pro or a complete beginner. This is the place where laughter, stories, and great experiences take center stage.</p>
+            <p>Behind Fliring Scene are the passionate founders Johan Halseth and Andreas Trætli, who have joined forces to create an arena for the full breadth of cultural life. Are you from Steinkjer or the surrounding area and eager to try your hand on stage?</p>
+            <p>Send us a short video clip at hei@fliring.no – we can’t wait to discover new faces and hear fresh jokes!</p>
+            <p>For only NOK 200 you can become a member of Fliring Scene, support the city’s new cultural hub, enjoy discounts on all our events – and maybe a surprise or two. Sign up by sending NOK 200 via Vipps to 961768. See you at Breidablikkgården!</p>
         </AboutSection>
         </>
     );
