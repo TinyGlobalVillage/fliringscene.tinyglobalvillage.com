@@ -30,7 +30,9 @@ const ButtonWrapper = styled.button`
 function NeonArrowSVGButton() {
 
   return (
-    <ButtonWrapper onClick={
+    <ButtonWrapper 
+    aria-label="Scroll to upcoming show"
+    onClick={
       () => {
         const el = document.getElementById('upcoming-show');
         if (el) {

@@ -189,16 +189,17 @@ export default function Footer() {
   };
 
   return (
-    <FooterSection id='footer'>
+    <FooterSection id='footer' role='contentinfo'>
       <FooterGrid>
         {/* 1️⃣ Newsletter */}
         <Column>
           <div>
-            <SignupHeader $fontSize={footerHeaderFontSize}>
+            <SignupHeader id='newsletter-header' $fontSize={footerHeaderFontSize}>
               <h3>Signup for Our Newsletter</h3>
             </SignupHeader>
-            <Form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit} aria-labelledby="newsletter-header">
               <Input
+                aria-label='Email address'
                 $inputWidth={inputWidth}
                 type="email"
                 placeholder="Enter Email In Here"
@@ -210,9 +211,9 @@ export default function Footer() {
                 {status === 'sending' ? 'Sending…' : 'Subscribe'}
               </Button>
             </Form>
-            {status === 'success' && (<StatusMessage variant='success'>Thanks for subscribing!</StatusMessage>)}
-            {status === 'error' && (<StatusMessage variant='error'>Oops! Try again.</StatusMessage>)}
-            {status === 'duplicate' && (<StatusMessage variant='error'> You’re already on the list!</StatusMessage>)}
+            {status === 'success' && (<StatusMessage variant='success' aria-live='polite'>Thanks for subscribing!</StatusMessage>)}
+            {status === 'error' && (<StatusMessage variant='error' aria-live='polite'>Oops! Try again.</StatusMessage>)}
+            {status === 'duplicate' && (<StatusMessage variant='error' aria-live='polite'> You’re already on the list!</StatusMessage>)}
           </div>
         </Column>
 
