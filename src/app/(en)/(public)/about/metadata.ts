@@ -3,6 +3,8 @@ export const metadata = {
   title: "About Us | Fliring Scene – Comedy, Culture & Community",
   description: "Get to know the team behind Fliring Scene – Steinkjer’s vibrant stage for standup, music, and local voices.",
   keywords: "about Fliring Scene, Steinkjer culture, local comedy scene, meet the team, community venue Norway",
+    viewport: "width=device-width, initial-scale=1",
+    
   openGraph: {
     title: "About Us | Fliring Scene – Comedy, Culture & Community",
     description: "Fliring Scene is powered by local passion. Learn about our mission, our founders, and our dream to build Steinkjer’s creative stage.",
