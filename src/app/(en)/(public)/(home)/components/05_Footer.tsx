@@ -222,8 +222,8 @@ export default function Footer() {
           <List>
             <li><Link href="/shows">Shows</Link></li>
             {/* <li><Link href="/about">About</Link></li> */}
-            <li><Link href="/gallery">Gallery</Link></li>
-
+            {/*<li><Link href="/gallery">Gallery</Link></li>*/}
+            <li><Link href="/contact">Contact</Link></li>
             {/* <ul> */}
             {/* <li><Link href="/contact">Contact</Link></li>
                   <li><Link href="/faq">FAQ</Link></li>
