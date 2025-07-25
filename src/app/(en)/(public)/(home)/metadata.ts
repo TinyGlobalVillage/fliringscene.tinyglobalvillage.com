@@ -1,6 +1,6 @@
 // src/app/metadata.ts
 export const metadata = {
-  title: "Fliring Scene | Steinkjer’s Stage for Laughter and Culture",
+  title: "Fliring Scene | Home",
   description: "Fliring Scene is Steinkjer’s new comedy and culture venue – hosting standup, music, revues, and open mic nights in an intimate setting.",
   keywords: "Fliring Scene, comedy club Steinkjer, standup Norway, local performers, cultural venue, Steinkjer events, open mic",
   openGraph: {

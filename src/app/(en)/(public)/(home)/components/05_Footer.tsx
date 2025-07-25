@@ -246,7 +246,7 @@ export default function Footer() {
         <Column>
           <h3>Get in Touch</h3>
           <Link href='/contact' passHref>
-            <Button $buttonWidth={footerButtonWidth}>Contact Us</Button></Link>
+            <Button $buttonWidth={footerButtonWidth} aria-label='Go to contact page'>Contact Us</Button></Link>
         </Column>
       </FooterGrid>
 
