@@ -2,106 +2,73 @@
 export const runtime = 'nodejs';
 
 import { NextResponse, NextRequest } from 'next/server';
-import { RateLimiterMemory } from 'rate-limiter-flexible';
-import sanitize from 'sanitize-html';
-import nodemailer from 'nodemailer';
+import { RateLimiterMemory }        from 'rate-limiter-flexible';
+import sanitize                     from 'sanitize-html';
+import nodemailer                   from 'nodemailer';
 
-const limiter = new RateLimiterMemory({
-  points: 5,
-  duration: 60,
-});
+const limiter = new RateLimiterMemory({ points: 5, duration: 60 });
 
 export async function POST(request: NextRequest) {
-  // 1) rate-limit by IP
+  // 1) rate‐limit by IP
   const ip = request.headers.get('x-forwarded-for') ?? '';
   try {
     await limiter.consume(ip);
   } catch {
-    return NextResponse.json(
-      { error: 'Too many requests' },
-      { status: 429 }
-    );
+    return NextResponse.json({ error: 'Too many requests' }, { status: 429 });
   }
 
   // 2) origin check (CSRF guard)
   const origin = request.headers.get('origin');
   if (origin !== process.env.NEXT_PUBLIC_BASE_URL) {
-    return NextResponse.json(
-      { error: 'Invalid origin' },
-      { status: 403 }
-    );
+    return NextResponse.json({ error: 'Invalid origin' }, { status: 403 });
   }
 
-  // 3) pull out only what we need
+  // 3) parse and validate payload
   const {
     name,
     email,
     topic,
     otherMessage,
     videoLink,
-    website, // honeypot field
-    ts, // timestamp field
+    website,  // honeypot
+    ts        // timestamp
   } = await request.json();
 
-  // 4) honeypot: must be empty
+  // honeypot: bots fill this
   if (website) {
-    return NextResponse.json(
-      { error: 'Spam detected' },
-      { status: 400 }
-    );
+    return NextResponse.json({ error: 'Spam detected' }, { status: 400 });
   }
 
-  // 5) timing: require at least 3 seconds to submit
+  // timing: require human‐like delay
   const sentAt = Number(ts);
   if (isNaN(sentAt) || Date.now() - sentAt < 3000) {
-    return NextResponse.json(
-      { error: 'Form submitted too quickly' },
-      { status: 400 }
-    );
+    return NextResponse.json({ error: 'Form submitted too quickly' }, { status: 400 });
   }
 
-  // 6) sanitize inputs
+  // sanitize
   const clean = (s: string) =>
-    sanitize(s ?? '', {
-      allowedTags: [],
-      allowedAttributes: {},
-    });
+    sanitize(s ?? '', { allowedTags: [], allowedAttributes: {} });
 
-  const cleanName = clean(name);
+  const cleanName  = clean(name);
   const cleanEmail = clean(email);
   const cleanTopic = clean(topic);
-  const cleanMsg = otherMessage ? clean(otherMessage) : '';
-  const cleanVid = videoLink ? clean(videoLink) : '';
+  const cleanMsg   = otherMessage ? clean(otherMessage) : '';
+  const cleanVid   = videoLink    ? clean(videoLink)    : '';
 
-  // 7) build your email HTML
+  // build HTML body
   const html = `
     <h2>New Contact Form Submission</h2>
     <p><strong>Name:</strong> ${cleanName}</p>
     <p><strong>Email:</strong> ${cleanEmail}</p>
     <p><strong>Topic:</strong> ${cleanTopic}</p>
-    ${
-      cleanMsg
-        ? `<p><strong>Message:</strong> ${cleanMsg}</p>`
-        : ''
-    }
-    ${
-      cleanVid
-        ? `<p><strong>Video:</strong> <a href="${cleanVid}">${cleanVid}</a></p>`
-        : ''
-    }
+    ${cleanMsg ? `<p><strong>Message:</strong> ${cleanMsg}</p>` : ''}
+    ${cleanVid ? `<p><strong>Video:</strong> <a href="${cleanVid}">${cleanVid}</a></p>` : ''}
   `;
 
-  // 8) send it
-  // const transporter = nodemailer.createTransport({
-  //   sendmail: true,
-  //   newline:  'unix',
-  //   path:     '/usr/sbin/sendmail',
-  // });
-
-  // 8) Create SMTP transporter
+  // 4) set up SMTP transport
   const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
-    port: Number(process.env.SMTP_PORT),
+    host:   process.env.SMTP_HOST,
+    port:   Number(process.env.SMTP_PORT),
     secure: process.env.SMTP_SECURE === 'true',
     auth: {
       user: process.env.SMTP_USER,
@@ -109,7 +76,7 @@ export async function POST(request: NextRequest) {
     },
   });
 
-  // 8a) Verify transporter once (will throw if credentials/host bad)
+  // 5) verify transport on startup
   try {
     await transporter.verify();
     console.log('✅ SMTP transport verified:', {
@@ -119,35 +86,28 @@ export async function POST(request: NextRequest) {
     });
   } catch (err) {
     console.error('❌ SMTP verify failed:', err);
-    return NextResponse.json(
-      { error: 'Mail config error' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Mail configuration error' }, { status: 500 });
   }
 
-  // 8b) Attempt to send
-  let info;
+  // 6) send the mail
   try {
-    info = await transporter.sendMail({
-      from: `"${cleanName}" <${cleanEmail}>`,
-      to: 'admin@tinyglobalvillage.com',
-      replyTo: cleanEmail,
-      subject: `Contact Form: ${cleanTopic}`,
+    const info = await transporter.sendMail({
+      from:     `"Fliring Scene Form Submissions" <${process.env.FROM_EMAIL}>`,
+      to:       process.env.TO_EMAIL,
+      replyTo:  cleanEmail,
+      subject:  `Contact Form: ${cleanTopic}`,
       html,
       envelope: {
-        from: cleanEmail,
-        to: 'admin@tinyglobalvillage.com',
+        from: process.env.FROM_EMAIL,
+        to:   process.env.TO_EMAIL
       },
     });
-    console.log('✉️  sendMail success:', info);
+    console.log('✉️ sendMail success:', info);
   } catch (err) {
     console.error('❌ sendMail failed:', err);
-    return NextResponse.json(
-      { error: 'Failed to send email' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Failed to send email' }, { status: 500 });
   }
 
-  // 9) respond
+  // 7) respond
   return NextResponse.json({ success: true });
 }
