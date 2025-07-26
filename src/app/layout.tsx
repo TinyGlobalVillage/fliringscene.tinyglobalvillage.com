@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import Image from 'next/image';
 import NavBar from './(en)/_allPageComponents/navigation/NavBar';
 import ScrollToPreviousSectionButton from './(en)/_allPageComponents/buttons/ScrollToPreviousSectionButton';
-import Footer from './(en)/(public)/(home)/components/05_Footer';
+import Footer from './(en)/_allPageComponents/footer/Footer';
 
 const Background = styled.div`
   position:fixed;

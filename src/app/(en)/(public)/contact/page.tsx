@@ -7,7 +7,7 @@ const ContactSection = styled.section`
   width: 100%;
   padding: 100px 2rem;           /* give top & bottom breathing room */
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;

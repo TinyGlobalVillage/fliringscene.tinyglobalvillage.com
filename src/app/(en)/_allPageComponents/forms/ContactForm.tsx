@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import NeonContactPageTitle from '../headers/NeonContactPageTitle';
 import { media } from '@/styles/breakpoints';
-import Footer from '../../(public)/(home)/components/05_Footer';
 
 // ── Styled Components ─────────────────────────────────────────────────────────
 const FormWrapper = styled.section`

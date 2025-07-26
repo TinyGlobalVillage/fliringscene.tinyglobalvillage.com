@@ -24,10 +24,6 @@ position: fixed;
   background: ${({ $scrolled }) => ($scrolled ? 'rgba(0,0,0,0.7)' : 'transparent')};
   transition: background 0.25s ease;
 
-
-  @media ${media.tablet}{
-  background: none;
-  }
   @media ${media.mobile}{
   background: none;
   }

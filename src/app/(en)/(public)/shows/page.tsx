@@ -11,7 +11,7 @@ const ShowsSection = styled.div`
   height: auto;
   margin: 0 auto;
   margin-top: 110px;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
   padding: 2rem;
 
   display: flex;
