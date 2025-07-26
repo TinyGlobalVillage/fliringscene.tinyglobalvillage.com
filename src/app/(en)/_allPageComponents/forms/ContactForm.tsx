@@ -238,6 +238,7 @@ export default function ContactForm() {
             <textarea
               id="otherMessage"
               name="otherMessage"
+              aria-describedby="other-desc"
               rows={4}
               value={form.otherMessage}
               onChange={handleChange}
@@ -282,10 +283,10 @@ export default function ContactForm() {
       </Form>
 
       {status === 'success' && (
-        <Status variant="success">Thank you! We’ll be in touch.</Status>
+        <Status variant="success" role="status" aria-live="polite">Thank you! We’ll be in touch.</Status>
       )}
       {status === 'error' && (
-        <Status variant="error">Something went wrong. Please try again.</Status>
+        <Status variant="error" role="status" aria-live="polite">Something went wrong. Please try again.</Status>
       )}
     </FormWrapper>
   );
