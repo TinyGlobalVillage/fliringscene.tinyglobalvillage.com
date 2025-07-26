@@ -95,7 +95,7 @@ export async function POST(request: NextRequest) {
       from:     `"Fliring Scene Form Submissions" <${process.env.FROM_EMAIL}>`,
       to:       process.env.TO_EMAIL,
       replyTo:  cleanEmail,
-      subject:  `Contact Form: ${cleanTopic}`,
+      subject:  `Contact Form Submission: "${cleanTopic}"`,
       html,
       envelope: {
         from: process.env.FROM_EMAIL,

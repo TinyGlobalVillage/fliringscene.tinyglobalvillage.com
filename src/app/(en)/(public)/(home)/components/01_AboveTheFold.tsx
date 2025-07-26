@@ -23,6 +23,14 @@ padding-top: 100px;
   }
 `;
 
+const Heading = styled.h1`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // margin-bottom: 1rem;
+`;
+
 const TitleWrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -58,6 +66,7 @@ export default function AboveTheFold() {
   return (
 
     <AboveFoldWrapper>
+      <Heading>
 
       <NeonTitleFontSize color="#ff66cc" >FLIRING</NeonTitleFontSize>
 
@@ -69,6 +78,8 @@ export default function AboveTheFold() {
 
         <NeonSubtitleFontSize color="#00bfff" >SCENE</NeonSubtitleFontSize>
       </TitleWrapper>
+      </Heading>
+
       <ComedyClubSign />
       <PulsingWrapper
         $color="#fe9e17"
