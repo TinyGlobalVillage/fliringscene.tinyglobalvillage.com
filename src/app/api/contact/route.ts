@@ -49,29 +49,50 @@ export async function POST(request: NextRequest) {
   const clean = (s: string) =>
     sanitize(s ?? '', { allowedTags: [], allowedAttributes: {} });
 
+  const cleanName  = clean(name);
+  const cleanEmail = clean(email);
+  const cleanTopic = clean(topic);
+  const cleanMsg   = otherMessage ? clean(otherMessage) : '';
+  const cleanVid   = videoLink    ? clean(videoLink)    : '';
+
   // 7) build your email HTML
   const html = `
     <h2>New Contact Form Submission</h2>
-    <p><strong>Name:</strong> ${clean(name)}</p>
-    <p><strong>Email:</strong> ${clean(email)}</p>
-    <p><strong>Topic:</strong> ${clean(topic)}</p>
-    ${otherMessage ? `<p><strong>Message:</strong> ${clean(otherMessage)}</p>` : ''}
-    ${videoLink    ? `<p><strong>Video:</strong> <a href="${clean(videoLink)}">${clean(videoLink)}</a></p>` : ''}
+    <p><strong>Name:</strong> ${cleanName}</p>
+    <p><strong>Email:</strong> ${cleanEmail}</p>
+    <p><strong>Topic:</strong> ${cleanTopic}</p>
+    ${cleanMsg ? `<p><strong>Message:</strong> ${cleanMsg}</p>` : ''}
+    ${cleanVid ? `<p><strong>Video:</strong> <a href="${cleanVid}">${cleanVid}</a></p>` : ''}
   `;
 
   // 8) send it
-  const transporter = nodemailer.createTransport({
-    sendmail: true,
-    newline: 'unix',
-    path: '/usr/sbin/sendmail',
-  });
+  // const transporter = nodemailer.createTransport({
+  //   sendmail: true,
+  //   newline:  'unix',
+  //   path:     '/usr/sbin/sendmail',
+  // });
 
+  const transporter = nodemailer.createTransport({
+  host:     process.env.SMTP_HOST,
+  port:     Number(process.env.SMTP_PORT),
+  secure:   process.env.SMTP_SECURE === 'true',  // TLS on 465
+  auth: {
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS,
+  },
+});
+
+  // Use the user's email as the envelope From
   await transporter.sendMail({
-    from:    `"Fliring Scene" <admin@tinyglobalvillage.com>`,
+    from:    `"${cleanName}" <${cleanEmail}>`,
     to:      'admin@tinyglobalvillage.com',
-    replyTo: clean(email),
-    subject: `Contact Form: ${clean(topic)}`,
+    replyTo: cleanEmail,
+    subject: `Contact Form: ${cleanTopic}`,
     html,
+    envelope: {
+      from: cleanEmail,
+      to:   'admin@tinyglobalvillage.com',
+    },
   });
 
   // 9) respond
