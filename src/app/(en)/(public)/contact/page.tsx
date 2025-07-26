@@ -1,46 +1,35 @@
-'use client'
-import styled from "styled-components";
-import ContactForm from "../../_allPageComponents/forms/ContactForm";
-import { media } from "@/styles/breakpoints";
+'use client';
+import styled from 'styled-components';
+import ContactForm from '../../_allPageComponents/forms/ContactForm';
+import { media } from '@/styles/breakpoints';
 
-
-const ContactSection = styled.div`
+const ContactSection = styled.section`
   width: 100%;
+  padding: 100px 2rem;           /* give top & bottom breathing room */
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  gap: 1rem;
+  gap: 2rem;
 
-  @media ${media.mobile}, ${media.tablet}
-  height: 60vh;
-  max-height: 300px;
+  /* if you really want to target mobile, do it properly */
+  @media ${media.mobile}, ${media.tablet} {
+    padding: 50px 1rem;
   }
-
-  `;
-
-  const FormWrapper = styled.div`
-  width: 100%;
-  max-width: 500px;
-  transform-origin: top center;
-
-
-  @media ${media.mobile} {
-    transform: scale(0.8);
-  }
-  */
 `;
 
+const FormWrapper = styled.div`
+  width: 100%;
+  max-width: 500px;
+`;
 
 export default function ContactPage() {
   return (
-     <ContactSection>
+    <ContactSection>
       <FormWrapper>
         <ContactForm />
       </FormWrapper>
     </ContactSection>
-
-  )
+  );
 }

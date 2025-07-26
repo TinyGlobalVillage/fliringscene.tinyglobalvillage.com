@@ -24,14 +24,14 @@ export default function TikkioWidget() {
               justify-content: center !important;
             }
             .tikkio-widget-events > * {
-              flex:1 1 auto !important;
-              height: 100% !important;
-              max-height: 100% !important;
+              // flex: 1 1 auto !important;
+              // height: 100% !important;
+              // max-height: 100% !important;
               width:100% !important;
             }
             .tikkio-widget-event-inside {
-              box-shadow: 0 0 15px #00bfff, 0 0 15px #00bfff !important;
-              border-radius: 25px;
+              // box-shadow: 0 0 15px #00bfff, 0 0 15px #00bfff !important;
+              // border-radius: 25px;
             }
             .tikkio-widget-event-image {
               border-radius: 15px 15px 0px 0px;
@@ -51,7 +51,7 @@ export default function TikkioWidget() {
               font-size: 2rem;
               color: #ff4ecb !important;
             }
-            
+
             .tikkio-widget-buy-ticket {
               cursor: pointer !important;
               border-radius: 0 0 15px 15px !important;

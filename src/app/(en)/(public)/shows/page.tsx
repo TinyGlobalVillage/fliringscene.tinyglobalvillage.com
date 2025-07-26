@@ -10,7 +10,8 @@ const ShowsSection = styled.div`
   width: 80%;
   height: auto;
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: 110px;
+  margin-bottom: 100px;
   padding: 2rem;
 
   display: flex;
@@ -32,8 +33,9 @@ const ShowsSection = styled.div`
 `;
 
 const WidgetWrapper = styled.div`
-  padding: 1rem;
-  overflow: visible;
+    overflow: visible;
+  box-shadow: 0 0 15px #00bfff, 0 0 15px #00bfff !important;
+  border-radius: 25px;
 
   @media ${media.mobile} {
 

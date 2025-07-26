@@ -19,7 +19,7 @@ scroll-margin-top: 100px;
   margin: 0 auto;
   margin-bottom: 70px;
   padding: 2rem;
-  
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,7 +43,8 @@ scroll-margin-top: 100px;
 
 `;
 const TikkioWrapper = styled.div`
-
+  box-shadow: 0 0 15px #00bfff, 0 0 15px #00bfff !important;
+  border-radius: 25px;
 
   /* nothing on desktop/tablet – the widget just renders at full size */
   @media ${media.mobile} {
@@ -66,12 +67,12 @@ export default function UpcomingShows() {
       {/* <EndlessScrollContainer>
         {dummyEvents.map((_, idx) => (
           <EventCard key={idx} $borderColor={colors[idx % colors.length]}> */}
-          <TikkioWrapper>
+      <TikkioWrapper>
 
-            <TikkioWidget />
-          </TikkioWrapper>
-          {/* </EventCard> */}
-        {/* ))} */}
+        <TikkioWidget />
+      </TikkioWrapper>
+      {/* </EventCard> */}
+      {/* ))} */}
       {/* </EndlessScrollContainer> */}
     </UpcomingShowsSection>
   );
