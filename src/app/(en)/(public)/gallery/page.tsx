@@ -1,26 +1,39 @@
 'use client';
-import styled from "styled-components";
+import styled from 'styled-components';
+import ImageGallery from '../_allPageComponents/gallery/imageGallery'; // Update the path if it's different
 
 const GallerySection = styled.div`
- width: 500px;
+  width: 100%;
   margin: 0 auto;
   padding: 2rem;
+  padding-top: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  padding-top: 300px;
   color: white;
   z-index: 20;
-  height: 100vh;
-  gap: 1rem;
+  min-height: 100vh;
+  gap: 2rem;
+  box-sizing: border-box;
 `;
 
-export default function GalleryPage() {
-    return (
-        <GallerySection>
-            <h1>Gallery</h1>
-            <p>This is the gallery page.</p>
-        </GallerySection>
-    )
+const Heading = styled.h1`
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+`;
+
+const Description = styled.p`
+  font-size: 1.25rem;
+  max-width: 600px;
+  text-align: center;
+`;
+
+export default function GalleryPage(): React.ReactElement {
+  return (
+    <GallerySection>
+      <Heading>Gallery</Heading>
+      <Description>This is the gallery page. Explore our images below.</Description>
+      <ImageGallery />
+    </GallerySection>
+  );
 }
