@@ -4,10 +4,11 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import { media, breakpoints } from '@/styles/breakpoints';
+import { media, logo_size } from '@/styles/breakpoints';
 import { glowPulse, glowPulseFilter } from '../_nonComponentHelpers/animations/glowPulse';
 import FacebookIcon from '../facebook/FacebookIcon';
 import { PulsingWrapper } from '../animations/pulseEffect';
+ import pickLogoSize from '@/hook-utils/pickLogoSize';
 
 // Parent Container
 const NavbarContainer = styled.nav<{ $scrolled: boolean }>`
@@ -24,30 +25,26 @@ position: fixed;
   background: ${({ $scrolled }) => ($scrolled ? 'rgba(0,0,0,0.7)' : 'transparent')};
   transition: background 0.25s ease;
 
-  @media ${media.mobile}{
-  background: none;
-  }
-`
-
-const LOGO_SIZE = { desktop: 70, mobile: 50 };
-
-const LogoContainer = styled.div`
-@media ${media.mobile}{
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 9999; // ensure it sits above
+    @media ${media.mobile} {
+    width: 100%;
+    padding: 5px 15px;
+    justify-content: space-between;
+    background: none;
 
   }
-`;
 
-const LogoWrapper = styled.div`
+  `
+
+const LogoWrapper = styled.div<{ $menuOpen: boolean }>`
   display: flex;
   align-items: center;
   transition: transform 0.2s;
   animation: ${glowPulseFilter} 3s ease-in-out infinite;
   transform-origin: center;
   cursor: pointer;
+
+transform: ${({ $menuOpen }) =>
+    $menuOpen ? 'translateY(10px)' : 'translateY(0)'};
 
   &:hover {
     transform: scale(1.05);
@@ -57,19 +54,18 @@ const LogoWrapper = styled.div`
 `;
 
 const MenuToggle = styled.button<{ $open: boolean }>`
-  position: fixed;
-   top: ${({ $open }) => ($open ? '15px' : '-12px')};
-  right: ${({ $open }) => ($open ? '30px' : '10px')};
   display: none;
+  position:  ${({ $open }) => ($open ? 'fixed' : 'none')};
+   top: ${({ $open }) => ($open ? '33px' : 'none')};
+  right: ${({ $open }) => ($open ? '15px' : 'none')};
   background: transparent;
   border: none;
   color: #ff4ecb;
-  font-size: 4.7rem;
+  font-size: ${({$open}) => $open ? '2rem': '4rem'};
   cursor: pointer;
   align-items: center;
   z-index: 9999;
   justify-content: center;
-
 
 
   @media ${media.mobile} {
@@ -102,6 +98,8 @@ const NavLinks = styled.div<{ $open: boolean }>`
     transition: transform 0.3s ease;
     z-index: 9998;
   }
+
+
 `;
 
 const NavLink = styled(Link)`
@@ -115,7 +113,7 @@ const NavLink = styled(Link)`
 
   &:hover {
     transform: scale(1.05);
-    color: #fff;
+    color: #00bfff;
 
   }
 `;
@@ -131,7 +129,7 @@ const IconLink = styled.a`
   color: #ff4ecb;
 
   &:hover {
-    color: #fff;           /* hover color */
+    color: #00bfff;           /* hover color */
   }
 `;
 
@@ -150,7 +148,7 @@ export default function NavBar() {
 
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [logoSize, setLogoSize] = useState(LOGO_SIZE.desktop);
+  const [logoSize, setLogoSize] = useState<number>(logo_size.desktop);
 
   // handle scroll → background
   useEffect(() => {
@@ -160,26 +158,23 @@ export default function NavBar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+
   // handle resize → logo size
   useEffect(() => {
-    const onResize = () => {
-      setLogoSize(
-        window.innerWidth <= breakpoints.mobile
-          ? LOGO_SIZE.mobile
-          : LOGO_SIZE.desktop
-      );
-    };
-    onResize();
-    window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
-  }, []);
+    const onResize = ()=> {
+      const w = window.innerWidth
+      setLogoSize (pickLogoSize(2))
+    }
+    onResize()
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
+  }, [])
 
   return (
     <NavbarContainer $scrolled={scrolled}>
 
-      <LogoContainer>
         <PulsingWrapper>
-          <LogoWrapper onClick={handleLogoClick}>
+          <LogoWrapper $menuOpen={menuOpen} onClick={handleLogoClick}>
             <Image
               src="/images/icons/fliring-scene-logo-circle.png"
               alt="Logo"
@@ -189,7 +184,6 @@ export default function NavBar() {
             />
           </LogoWrapper>
         </PulsingWrapper>
-      </LogoContainer>
 
 
       <MenuToggle $open={menuOpen} onClick={() => setMenuOpen(v => !v)}>

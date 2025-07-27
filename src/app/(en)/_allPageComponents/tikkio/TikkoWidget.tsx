@@ -18,54 +18,57 @@ export default function TikkioWidget() {
           // 1) Inject your style overrides
           const style = document.createElement('style');
           style.innerHTML = `
-            .tikkio-widget-events {
-              display: flex !important;
-              height: 100% !important;
-              justify-content: center !important;
-            }
-            .tikkio-widget-events > * {
-              // flex: 1 1 auto !important;
-              // height: 100% !important;
-              // max-height: 100% !important;
-              width:100% !important;
-            }
-            .tikkio-widget-event-inside {
-              // box-shadow: 0 0 15px #00bfff, 0 0 15px #00bfff !important;
-              // border-radius: 25px;
-            }
-            .tikkio-widget-event-image {
-              border-radius: 15px 15px 0px 0px;
-            }
-            .tikkio-widget-event-inner-content {
-              background-color: rgba(0, 0, 0, 0.7)!important;
-              color: #fff !important;
-              font-size: 1.5rem !important;
-              height: auto !important;
-            }
-            .tikkio-widget-event-title {
-              font-size: 1rem !important;
-              line-height: 1.7rem !important;
-              height: auto !important;
-            }
-            .location {
-              font-size: 2rem;
-              color: #ff4ecb !important;
-            }
+            // .tikkio-widget-events {
+            //   display: flex !important;
+            //   height: 100% !important;
+            //   justify-content: center !important;
+            // }
+            // .tikkio-widget-events > * {
+            //   // flex: 1 1 auto !important;
+            //   // height: 100% !important;
+            //   // max-height: 100% !important;
+            //   width:100% !important;
+            // }
+            // .tikkio-widget-event-inside {
+            //   // box-shadow: 0 0 15px #00bfff, 0 0 15px #00bfff !important;
+            //   // border-radius: 25px;
+            // }
+            // .tikkio-widget-event-image {
+            //   border-radius: 15px 15px 0px 0px;
+            // }
+            // .tikkio-widget-event-inner-content {
+            //   background-color: rgba(0, 0, 0, 0.9)!important;
+            //   color: #fff !important;
+            //   font-size: 1.5rem !important;
+            //   height: auto !important;
+            // }
+            // .tikkio-widget-event-title {
+            //   font-size: 1rem !important;
+            //   line-height: 1.7rem !important;
+            //   height: auto !important;
+            // }
+            // .location {
+            //   font-size: 2rem;
+            //   color: #ff4ecb !important;
+            // }
 
-            .tikkio-widget-buy-ticket {
-              cursor: pointer !important;
-              border-radius: 0 0 15px 15px !important;
-              border: 1px solid #00bfff !important;
-              color: #fff !important;
-              background-color: rgba(200, 0, 255, 0.7) !important;
-              transition: transform 0.2s ease, filter 0.2s ease !important;
-              transform-origin: bottom center !important;
-            }
-            .tikkio-widget-buy-ticket:hover {
-              color: #00bfff !important;
-              transform: scaleY(1.1) !important;
-              filter: drop-shadow(0 0 8px #ff4ecb) !important;
-            }
+            // .tikkio-widget-buy-ticket {
+            //   cursor: pointer !important;
+            //   border-radius: 0 0 15px 15px !important;
+            //   border: 1px solid #cc00aa !important;
+            //   color: #fff !important;
+            //   background:rgba(204, 0, 170, .9) !important;
+            //   // transition: transform 0.2s ease, filter 0.2s ease !important;
+            //   // transform-origin: bottom center !important;
+            // }
+            // .tikkio-widget-buy-ticket:hover {
+            // background:
+            //   color: #fff !important;
+            //   background: #00bfff !important;
+            //   border: 1px solid #00bfff !important;
+            //   transform: scaleY(1.1) !important;
+            //   filter: drop-shadow(0 0 8px #00bfff) !important;
+            // }
           `;
           document.head.appendChild(style);
 

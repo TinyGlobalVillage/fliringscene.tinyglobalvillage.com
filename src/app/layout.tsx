@@ -18,8 +18,12 @@ const Background = styled.div`
 `;
 
 const Foreground = styled.div`
+`;
 
-
+const ScrollArrowWrapper = styled.div`
+display: flex;
+align-items: center;
+justify-content: end;
 `;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -51,7 +55,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </Background>
           <NavBar />
           <Foreground>
-            <ScrollToPreviousSectionButton />
+            <ScrollArrowWrapper>
+              <ScrollToPreviousSectionButton />
+            </ScrollArrowWrapper>
             <main>{children}</main>
             <Footer/>
           </Foreground>

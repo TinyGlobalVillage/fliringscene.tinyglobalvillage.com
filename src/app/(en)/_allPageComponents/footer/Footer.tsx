@@ -11,7 +11,7 @@ import FacebookIcon from '../facebook/FacebookIcon';
 
 const FooterSection = styled.section`
     scroll-margin-top: 100px; // adjust based on fixed nav height
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
     padding: 2rem;
 
@@ -26,6 +26,11 @@ const FooterSection = styled.section`
     @media ${media.mobile}{
     max-height: 80vh;
     padding: 1.5rem;
+
+    p {
+    font-size: .7rem;
+    }
+
     }
 `;
 
@@ -52,6 +57,7 @@ const Column = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  color: #fff;
 
   @media ${media.mobile}{
   gap: .5rem;
@@ -95,13 +101,16 @@ const Button = styled.button<{ $buttonWidth: string }>`
 `;
 
 const List = styled.ul`
+  font-weight: bold;
   list-style: none;
   margin: 0;
-  margin-bottom: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: .5rem;
+  gap: 1rem;
+  text-align: center;
 
   a {
     color: #ff4ecb;
@@ -123,10 +132,14 @@ color: ${({ variant }) => variant === 'success' ? '#ff4ecb' : '#f44336'}
 `;
 
 const SignupHeader = styled.div<{ $fontSize: string }>`
-margin-bottom: 1rem;
+margin-bottom: 15px;
 text-align: center;
-line-height: 1rem;
 font-size: ${({ $fontSize }) => $fontSize};
+
+@media ${media.mobile}{
+margin-bottom: 10px;
+}
+
 `;
 
 const IconLink = styled.a`
@@ -143,15 +156,24 @@ const IconLink = styled.a`
 `;
 
 const Trademark = styled.div`
+  margin-top: 10px;
   font-size: 0.875rem;
   color: #00bfff;
+
   a {
     color: inherit;
     text-decoration: underline;
+
     &:hover {
       text-decoration: none;
       color: #fff;
     }
+  }
+
+  @media ${media.mobile} {
+
+  text-align: center;
+  font-size: .75rem;
   }
 `;
 
@@ -223,10 +245,10 @@ export default function Footer() {
         <Column>
           <h3>Quick Links</h3>
           <List>
-            <li><Link href="/shows">Shows</Link></li>
+            <li><Link href="/shows">SHOWS</Link></li>
             {/* <li><Link href="/about">About</Link></li> */}
             {/*<li><Link href="/gallery">Gallery</Link></li>*/}
-            <li><Link href="/contact">Contact</Link></li>
+            <li><Link href="/contact">CONTACT</Link></li>
             {/* <ul> */}
             {/* <li><Link href="/contact">Contact</Link></li>
                   <li><Link href="/faq">FAQ</Link></li>

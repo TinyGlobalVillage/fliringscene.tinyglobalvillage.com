@@ -2,7 +2,7 @@ export const mobilepHomeScales = {
   //__SECTION___ABOVE FOLD
 
   // "FLIRING"
-  NeonTitleFontSize: '6.5rem',
+  NeonTitleFontSize: '5.5rem',
   NeonTitleStrokeWidth: '3',
 
   NeonTitleViewBoxMinX: '0',
@@ -11,24 +11,24 @@ export const mobilepHomeScales = {
   NeonTitleViewBoxHeight: 105,
 
   // MICROPHONE
-  micWidth: '2px',
+  micWidth: '1.7px',
 
-  micViewBoxMinX: '-230',
+  micViewBoxMinX: '-200',
   micViewBoxMinY: '-150',
   micViewBoxWidth: '11',
   micViewBoxHeight: '115',
 
   // FACE
-  faceWidth: '70px',
+  faceWidth: '75px',
 
-  faceViewBoxMinX: '-110',
+  faceViewBoxMinX: '-30',
   faceViewBoxMinY: '0',
   faceViewBoxWidth: '450',
   faceViwBoxHeight: '450',
 
   // "SCENE"
   NeonSubtitleFontSize: '8rem',
-  NeonSubtitleStrokeWidth: '4',
+  NeonSubtitleStrokeWidth: '5',
 
   NeonSubtitleViewBoxMinX: '-20',
   NeonSubtitleViewBoxMinY: '0',

@@ -12,9 +12,8 @@ import TikkioWidget from '../../../_allPageComponents/tikkio/TikkoWidget';
 
 
 const UpcomingShowsSection = styled.section`
-
 scroll-margin-top: 100px;
-  width: 80%;
+  width: 92%;
   height: auto;
   margin: 0 auto;
   margin-bottom: 70px;
@@ -35,25 +34,82 @@ scroll-margin-top: 100px;
 }
   @media ${media.mobile}{
   scroll-margin-top: 90px;
-  height: 60vh;
-  padding: 15px 0px 25px 0px;
+  padding: 15px 20px 25px 20px;
 
 
 }
 
 `;
+
 const TikkioWrapper = styled.div`
-  box-shadow: 0 0 15px #00bfff, 0 0 15px #00bfff !important;
+  width: 100%;
+  max-width: 670px;
+  // height: 110%;               /* fill its parent’s height */
+  display: flex;
+  /* center content if you like: */
+  justify-content: center;
+  align-items: stretch;       /* stretch children to full height */
+
+  /* neon border / shadow: */
+  box-shadow: 0 0 15px #00bfff, 0 0 15px #00bfff;
   border-radius: 25px;
 
-  /* nothing on desktop/tablet – the widget just renders at full size */
-  @media ${media.mobile} {
-    /* shrink everything inside by 20% */
-    .tikkio-widget-events {
-      transform: scale(0.8);
-      transform-origin: top center;
-    }
+
+  /* target the injected widget container and its cards */
+  .tikkio-widget-events {
+    display: flex !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important;        /* now they have real height */
+    flex-direction: column;         /* or row, depending on layout */
   }
+  .tikkio-widget-events > * {
+    flex: 1 1 auto !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+            .tikkio-widget-event-image {
+              border-radius: 15px 15px 0px 0px;
+            }
+            .tikkio-widget-event-inner-content {
+              background-color: rgba(0, 0, 0, 0.9)!important;
+              color: #fff !important;
+              font-size: 1.5rem !important;
+              height: auto !important;
+            }
+            .tikkio-widget-event-title {
+              font-size: 1rem !important;
+              line-height: 1.7rem !important;
+              height: auto !important;
+            }
+            .location {
+              font-size: 2rem;
+              color: #ff4ecb !important;
+            }
+
+            .tikkio-widget-buy-ticket {
+              cursor: pointer !important;
+              border-radius: 0 0 15px 15px !important;
+              border: 1px solid #cc00aa !important;
+              color: #fff !important;
+              background:rgba(204, 0, 170, .9) !important;
+              // transition: transform 0.2s ease, filter 0.2s ease !important;
+              // transform-origin: bottom center !important;
+            }
+            .tikkio-widget-buy-ticket:hover {
+            background:
+              color: #fff !important;
+              background: #00bfff !important;
+              border: 1px solid #00bfff !important;
+              transform: scaleY(1.1) !important;
+              filter: drop-shadow(0 0 8px #00bfff) !important;
+            }
+
+  // @media ${media.mobile} {
+  //   /* if you want to shrink everything on phone: */
+  //   transform: scale(0.9);
+  //   transform-origin: top center;
+  // }
 `;
 export default function UpcomingShows() {
 
@@ -74,6 +130,7 @@ export default function UpcomingShows() {
       {/* </EventCard> */}
       {/* ))} */}
       {/* </EndlessScrollContainer> */}
+      <div></div>
     </UpcomingShowsSection>
   );
 }

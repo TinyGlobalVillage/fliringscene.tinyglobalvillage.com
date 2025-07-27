@@ -2,11 +2,12 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { FiArrowUp } from 'react-icons/fi';
+import { media } from '@/styles/breakpoints';
 
-const ScrollToPreviousSectionStyle = styled.button<{ $visible: boolean}>`
+const ScrollToPreviousSectionStyle = styled.button<{ $visible: boolean }>`
   position: fixed;
-  bottom: 15px;
-  right: 20px;
+  bottom: 20px;
+  right: 3%;
   width: 3rem;
   height: 3rem;
   border: none;
@@ -28,6 +29,20 @@ const ScrollToPreviousSectionStyle = styled.button<{ $visible: boolean}>`
     background: #00bfff;
     filter: drop-shadow(0 0 8px #ff4ecb) !important;
   }
+
+  @media ${media.mobileXS}{
+  right: 3%;
+  width: 2rem;
+  height: 2rem;
+  }
+
+  @media ${media.mobile}{
+  right: 7%;
+  width: 2.5rem;
+  height: 2.5rem;
+  }
+
+
 `;
 
 export default function ScrollToPreviousSectionButton() {
@@ -39,7 +54,7 @@ export default function ScrollToPreviousSectionButton() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
- const scrollToPreviousSection = () => {
+  const scrollToPreviousSection = () => {
     // grab all sections (or replace with your selector)
     const sections = Array.from(document.querySelectorAll<HTMLElement>('section[id]'));
     const scrollPos = window.scrollY;
