@@ -163,7 +163,7 @@ export default function NavBar() {
   useEffect(() => {
     const onResize = ()=> {
       const w = window.innerWidth
-      setLogoSize (pickLogoSize(2))
+      setLogoSize (pickLogoSize(w))
     }
     onResize()
     window.addEventListener('resize', onResize)
