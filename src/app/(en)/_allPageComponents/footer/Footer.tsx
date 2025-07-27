@@ -21,7 +21,7 @@ const FooterSection = styled.section`
 
     color: #ff4ecb;
     border-radius: 25px;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.9);
 
     @media ${media.mobile}{
     max-height: 80vh;
@@ -79,7 +79,7 @@ const Button = styled.button<{ $buttonWidth: string }>`
   padding: 0.5rem;
   height: 32px;
   width: ${({ $buttonWidth }) => $buttonWidth};
-  background: #ff4ecb;
+  background: #cc00aa;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -88,8 +88,9 @@ const Button = styled.button<{ $buttonWidth: string }>`
 
 
   &:hover {
-    filter: drop-shadow(0 0 5px #ff4ecb);
-    color: #00bfff;
+    filter: drop-shadow(0 0 5px #00bfff);
+    background: #00bfff;
+    color: #fff;
   }
 `;
 
@@ -149,6 +150,7 @@ const Trademark = styled.div`
     text-decoration: underline;
     &:hover {
       text-decoration: none;
+      color: #fff;
     }
   }
 `;

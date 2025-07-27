@@ -23,9 +23,10 @@ const ScrollToPreviousSectionStyle = styled.button<{ $visible: boolean}>`
   z-index: 10000;
 
   &:hover {
-    color: #00bfff !important;
-              transform: scale(1.1) !important;
-              filter: drop-shadow(0 0 8px #ff4ecb) !important;
+    color: #fff !important;
+    transform: scale(1.1) !important;
+    background: #00bfff;
+    filter: drop-shadow(0 0 8px #ff4ecb) !important;
   }
 `;
 
