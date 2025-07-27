@@ -154,7 +154,7 @@ export default function ImageGallery(): React.ReactElement {
             <MainImage
               key={`prev-${slides[prev].image}`}
               src={slides[prev].image}
-              alt="Previous slide"
+              alt={slides[prev].alt}
               $animation={direction === 'right' ? 'slideOutLeft' : 'slideOutRight'}
             />
           )}
@@ -162,7 +162,7 @@ export default function ImageGallery(): React.ReactElement {
           <MainImage
             key={`current-${slides[current].image}`}
             src={slides[current].image}
-            alt="Current slide"
+            alt={slides[current].alt}
             $animation={direction === 'right' ? 'slideInRight' : 'slideInLeft'}
             onAnimationEnd={() => setPrev(null)}
           />
@@ -192,7 +192,7 @@ export default function ImageGallery(): React.ReactElement {
           <Thumbnail
             key={index}
             src={slide.thumbnail}
-            alt={`Thumbnail ${index + 1}`}
+            alt={slide.alt}
             $active={index === current}
             onClick={() => {
               setDirection(index > current ? 'right' : 'left');
