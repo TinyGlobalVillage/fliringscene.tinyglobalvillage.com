@@ -69,13 +69,15 @@ const MainImage = styled.img<{ $animation: AnimationKey }>`
 `;
 
 const Overlay = styled.div`
-  position: absolute;
-  bottom: 1rem;
-  left: 1rem;
+ text-align: center;
+  margin-top: -2rem;
+  padding: 0.5rem 1rem;
+  background-color: rgba(0, 0, 0, 0.6);
   color: white;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 1rem;
   border-radius: 0.5rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 const NavButton = styled.button`
@@ -166,11 +168,12 @@ export default function ImageGallery(): React.ReactElement {
           />
         </MainImageWrapper>
 
-        <Overlay>
-          <h2>{slides[current].title}</h2>
-          <p>{slides[current].description}</p>
-        </Overlay>
-
+       {(slides[current].title || slides[current].description) && (
+  <Overlay>
+    {slides[current].title && <h2>{slides[current].title}</h2>}
+    {slides[current].description && <p>{slides[current].description}</p>}
+  </Overlay>
+)}
         <NavButtonLeft onClick={prevSlide} aria-label="Previous slide">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
             <path d="M15 6L9 12L15 18" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />

@@ -8,7 +8,7 @@ export interface Slide {
 export const slides: Slide[] = [
   {
     title: '',
-    description: '',
+    description: 'Kevin Kildal',
     image: '/images/gallery/KevinKildal.jpg',
     thumbnail: '/images/gallery/KevinKildal.jpg',
   },
