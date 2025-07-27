@@ -104,7 +104,7 @@ export default function ShowsPage() {
         KOMMENDE SHOW
       </NeonSectionTitleFontSize>
       <WidgetWrapper>
-        <TikkioWidget />
+        <TikkioWidget strategy="afterInteractive" />
       </WidgetWrapper>
     </ShowsSection>
   );

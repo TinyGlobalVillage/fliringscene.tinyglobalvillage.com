@@ -2,23 +2,29 @@
 'use client';
 import React, { useRef, useEffect } from 'react';
 
-export default function TikkioWidget() {
+type TikkioWidgetProps = {
+  strategy?: 'afterInteractive' | 'lazyOnload';
+};
+
+export default function TikkioWidget({
+  strategy = 'afterInteractive',
+}: TikkioWidgetProps) {
   const widgetRef = useRef<HTMLDivElement>(null);
   const loadedOnce = useRef(false);
 
+  // mount + load logic
   useEffect(() => {
     const el = widgetRef.current;
-    if (!el || loadedOnce.current) return;
+    if (!el) return;
 
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          loadedOnce.current = true;
+    function mountAndLoad() {
+      if (loadedOnce.current) return;
+      loadedOnce.current = true;
 
-          // 1) Inject your style overrides
-          const style = document.createElement('style');
-          style.innerHTML = `
-            // .tikkio-widget-events {
+      // 1) inject your styles
+      const style = document.createElement('style');
+       style.innerHTML = `
+       // .tikkio-widget-events {
             //   display: flex !important;
             //   height: 100% !important;
             //   justify-content: center !important;
@@ -69,32 +75,49 @@ export default function TikkioWidget() {
             //   transform: scaleY(1.1) !important;
             //   filter: drop-shadow(0 0 8px #00bfff) !important;
             // }
-          `;
-          document.head.appendChild(style);
+    `;
+      document.head.appendChild(style);
 
-          // 2) Create & append the Tikkio wrapper
-          const wrapper = document.createElement('div');
-          wrapper.className = 'tikkio-widget-events';
-          wrapper.setAttribute('w-id', '24620');
-          wrapper.setAttribute('w-token', 'd8cc712d213f01f1036ffdaf45fe9f17b1292b3d');
-          wrapper.setAttribute('w-target', 'blank');
-          el.appendChild(wrapper);
+      // 2) mount the wrapper container
+      const wrapper = document.createElement('div');
+      wrapper.className = 'tikkio-widget-events';
+      wrapper.setAttribute('w-id', '24620');
+      wrapper.setAttribute(
+        'w-token',
+        'd8cc712d213f01f1036ffdaf45fe9f17b1292b3d'
+      );
+      wrapper.setAttribute('w-target', 'blank');
+      el.appendChild(wrapper);
 
-          // 3) Append the widget script
-          const script = document.createElement('script');
-          script.src = 'https://a.tikkio.com/static/1.1.1.1/js/widgets.js';
-          script.async = true;
-          el.appendChild(script);
+      // 3) dynamically append the widget script
+      const existing = document.querySelector(
+        'script[src^="https://a.tikkio.com/static/1.1.1"]'
+      );
+      if (existing) existing.remove();
 
-          io.disconnect();
-        }
-      },
-      { rootMargin: '0px 0px 200px 0px' }
-    );
+      const script = document.createElement('script');
+      script.src = 'https://a.tikkio.com/static/1.1.1/js/widgets.js';
+      script.async = true;
+      document.body.appendChild(script);
+    }
 
-    io.observe(el);
-    return () => io.disconnect();
-  }, []); // ← only run once on mount
+    if (strategy === 'afterInteractive') {
+      mountAndLoad();
+    } else {
+      // lazyOnload
+      const io = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            mountAndLoad();
+            io.disconnect();
+          }
+        },
+        { rootMargin: '0px 0px 200px 0px' }
+      );
+      io.observe(el);
+      return () => io.disconnect();
+    }
+  }, [strategy]);
 
   return <div ref={widgetRef} />;
 }
