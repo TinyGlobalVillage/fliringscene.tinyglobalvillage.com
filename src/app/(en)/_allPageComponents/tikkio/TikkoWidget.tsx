@@ -15,7 +15,7 @@ export default function TikkioWidget({
   // Pull out the mount-and-load logic into a fn that takes a real element
   function mountAndLoad(el: HTMLDivElement) {
     if (loadedOnce.current) return;
-    loadedOnce.current = true;
+    loadedOnce.current = true; 
 
     // 1) inject styles
     const style = document.createElement('style');
