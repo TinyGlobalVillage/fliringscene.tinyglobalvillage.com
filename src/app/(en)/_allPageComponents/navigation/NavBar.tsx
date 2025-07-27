@@ -30,12 +30,11 @@ position: fixed;
     padding: 5px 15px;
     justify-content: space-between;
     background: none;
-
   }
 
   `
 
-const LogoWrapper = styled.div<{ $menuOpen: boolean }>`
+const StyledLogoLink = styled(Link)<{ $menuOpen: boolean }>`
   display: flex;
   align-items: center;
   transition: transform 0.2s;
@@ -43,14 +42,13 @@ const LogoWrapper = styled.div<{ $menuOpen: boolean }>`
   transform-origin: center;
   cursor: pointer;
 
-transform: ${({ $menuOpen }) =>
-    $menuOpen ? 'translateY(10px)' : 'translateY(0)'};
-
   &:hover {
     transform: scale(1.05);
     filter: drop-shadow(0 0 5px #fff) drop-shadow(0 0 10px #ff4ecb);
     text-shadow: 0 0 5px #ff4ecb, 0 0 10px #ff4ecb;
   }
+
+
 `;
 
 const MenuToggle = styled.button<{ $open: boolean }>`
@@ -96,7 +94,7 @@ const NavLinks = styled.div<{ $open: boolean }>`
     padding: 1rem 2rem;
     transform: ${({ $open }) => ($open ? 'translateY(0)' : 'translateY(-200%)')};
     transition: transform 0.3s ease;
-    z-index: 9998;
+    z-index: 9995;
   }
 
 
@@ -129,7 +127,7 @@ const IconLink = styled.a`
   color: #ff4ecb;
 
   &:hover {
-    color: #00bfff;           /* hover color */
+    color: #00bfff;          
   }
 `;
 
@@ -174,7 +172,7 @@ export default function NavBar() {
     <NavbarContainer $scrolled={scrolled}>
 
         <PulsingWrapper>
-          <LogoWrapper $menuOpen={menuOpen} onClick={handleLogoClick}>
+          <StyledLogoLink href="/" $menuOpen={menuOpen} onClick={handleLogoClick}>
             <Image
               src="/images/icons/fliring-scene-logo-circle.png"
               alt="Logo"
@@ -182,7 +180,7 @@ export default function NavBar() {
               height={logoSize}
               priority
             />
-          </LogoWrapper>
+          </StyledLogoLink>
         </PulsingWrapper>
 
 
