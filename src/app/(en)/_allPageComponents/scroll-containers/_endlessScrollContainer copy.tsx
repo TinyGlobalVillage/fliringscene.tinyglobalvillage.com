@@ -35,7 +35,7 @@ const Item = styled.div`
   @media ${media.tablet} {
     width: calc((100% + 1rem) / 2.25 - 1rem);
   }
-  @media ${media.mobile} {
+  @media ${media.mobileM} {
     width: 100%;
   }
 `;

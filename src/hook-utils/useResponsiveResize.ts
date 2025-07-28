@@ -1,27 +1,32 @@
-import { useEffect, useState } from 'react';
-import type { FontSizeKey } from '../styles/scaleMap/scaleMap';
+// src/hook-utils/useResponsiveResize.ts
+import { useState, useEffect } from 'react';
+import { breakpoints, BreakpointKey } from '@/styles/breakpoints';
 
 export default function useResponsiveResize() {
-  const [fontSizeKey, setFontSizeKey] =
-    useState<FontSizeKey>('8.5rem');
+  const [currentBreakpoint, setCurrentBreakpoint] = useState<BreakpointKey>('desktop');
 
   useEffect(() => {
-    const handleResize = () => {
-      const width = window.innerWidth;
-      if (width <= 480) {
-        setFontSizeKey('6.5rem');
-      } else if (width <= 768) {
-        setFontSizeKey('7.5rem');
+    function update() {
+      const w = window.innerWidth;
+      if (w < breakpoints.mobileS) {
+        setCurrentBreakpoint('mobileS');
+      } else if (w < breakpoints.mobileM) {
+        setCurrentBreakpoint('mobileM');
+      } else if (w < breakpoints.mobileL) {
+        setCurrentBreakpoint('mobileL');
+      } else if (w < breakpoints.tablet) {
+        setCurrentBreakpoint('tablet');
+      } else if (w < breakpoints.laptop) {
+        setCurrentBreakpoint('laptop');
       } else {
-        setFontSizeKey('8.5rem');
+        setCurrentBreakpoint('desktop');
       }
-    };
+    }
 
-    handleResize(); // initial
-    window.addEventListener('resize', handleResize);
-    return () =>
-      window.removeEventListener('resize', handleResize);
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
   }, []);
 
-  return { fontSizeKey };
+  return { currentBreakpoint };
 }

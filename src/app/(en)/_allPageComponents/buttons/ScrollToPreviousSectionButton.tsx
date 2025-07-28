@@ -5,42 +5,46 @@ import { FiArrowUp } from 'react-icons/fi';
 import { media } from '@/styles/breakpoints';
 
 const ScrollToPreviousSectionStyle = styled.button<{ $visible: boolean }>`
-  position: fixed;
-  bottom: 20px;
-  right: 3%;
-  width: 3rem;
-  height: 3rem;
-  border: none;
-  border-radius: 50%;
-  background: #ff4ecb;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  opacity: ${({ $visible }: { $visible: boolean }) => ($visible ? 1 : 0)};
-  pointer-events: ${({ $visible }: { $visible: boolean }) => ($visible ? 'auto' : 'none')};
-  transition: opacity 0.3s ease;
-  z-index: 10000;
+display: flex;
+align-items: center;
+justify-content: center;
 
-  &:hover {
-    color: #fff !important;
-    transform: scale(1.1) !important;
-    background: #00bfff;
-    filter: drop-shadow(0 0 8px #ff4ecb) !important;
-  }
+position: fixed;
+bottom: 20px;
+right: 6%;
 
-  @media ${media.mobileXS}{
-  right: 3%;
-  width: 2rem;
-  height: 2rem;
-  }
+width: 1.95rem;
+height: 1.95rem;
 
-  @media ${media.mobile}{
-  right: 7%;
-  width: 2.5rem;
-  height: 2.5rem;
-  }
+border: none;
+border-radius: 50%;
+background: #ff4ecb;
+color: #fff;
+cursor: pointer;
+opacity: ${({ $visible }: { $visible: boolean }) => ($visible ? 1 : 0)};
+pointer-events: ${({ $visible }: { $visible: boolean }) => ($visible ? 'auto' : 'none')};
+transition: opacity 0.3s ease;
+
+z-index: 9999;
+
+&:hover {
+color: #fff !important;
+transform: scale(1.1) !important;
+background: #00bfff;
+filter: drop-shadow(0 0 8px #ff4ecb) !important;
+}
+
+@media ${media.mobileM}{
+right: 3%;
+width: 2rem;
+height: 2rem;
+}
+
+@media ${media.mobileL}{
+right: 7%;
+width: 2.5rem;
+height: 2.5rem;
+}
 
 
 `;

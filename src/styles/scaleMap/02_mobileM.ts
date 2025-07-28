@@ -1,8 +1,23 @@
-export const mobilepHomeScales = {
-  //__SECTION___ABOVE FOLD
+export const mobileM = {
+
+//__ALL SECTIONS___
+
+
+    NeonSectionTitleFontSize: '6.5rem',
+
+
+    // **** up for deletion ****
+    // fontSize: '6.5rem',
+    // viewBoxHeight: 105,
+    // svgViewBoxHeight: 90,
+
+
+
+//__SECTION___ABOVE FOLD
+
 
   // "FLIRING"
-  NeonTitleFontSize: '5.5rem',
+  NeonTitleFontSize: '5.9rem',
   NeonTitleStrokeWidth: '3',
 
   NeonTitleViewBoxMinX: '0',
@@ -11,23 +26,23 @@ export const mobilepHomeScales = {
   NeonTitleViewBoxHeight: 105,
 
   // MICROPHONE
-  micWidth: '1.7px',
+  micWidth: '1.5px',
 
   micViewBoxMinX: '-200',
-  micViewBoxMinY: '-150',
+  micViewBoxMinY: '-100',
   micViewBoxWidth: '11',
   micViewBoxHeight: '115',
 
   // FACE
-  faceWidth: '75px',
+  faceWidth: '70px',
 
-  faceViewBoxMinX: '-30',
-  faceViewBoxMinY: '0',
+  faceViewBoxMinX: '-10',
+  faceViewBoxMinY: '60',
   faceViewBoxWidth: '450',
   faceViwBoxHeight: '450',
 
   // "SCENE"
-  NeonSubtitleFontSize: '8rem',
+  NeonSubtitleFontSize: '9rem',
   NeonSubtitleStrokeWidth: '5',
 
   NeonSubtitleViewBoxMinX: '-20',
@@ -38,8 +53,10 @@ export const mobilepHomeScales = {
   // COMEDY SIGN
   comedyClubBulbSize: '15px',
   NeonTextFontSize: '6.5rem',
-  boxWidth: '180px',
-  bulbSize: '15px',
+  boxWidth: '200px',
+
+  //other LightbulbFrame
+  bulbSize: '12px',
 
   //CURVED ARROW
   curvedArrowWidth: '100px',
@@ -60,4 +77,21 @@ export const mobilepHomeScales = {
   footerHeaderFontSize: '1rem',
   footerButtonWidth: '200px',
   inputWidth: '200px',
-} as const;
+
+
+// ABOUT Page
+
+
+// SHOW PAGE
+
+
+// GALLERY PAGE
+
+
+// CONTACT PAGE
+
+  NeonContactPageTitle: '5rem',
+  NeonContactPageTitleViewBoxHeight: '90',
+
+
+}

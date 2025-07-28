@@ -18,8 +18,8 @@ flex-direction: column;
 align-items: center;
 padding-top: 100px;
 
-@media ${media.mobile} {
-// scroll-margin-top: 100px;
+@media ${media.mobileM} {
+
   }
 `;
 
@@ -39,7 +39,7 @@ const TitleWrapper = styled.div`
   @media ${media.tablet}{
   margin-left: 0px;
   }
-  @media ${media.mobile}{
+  @media ${media.mobileM}{
   margin-left: 10px;
   }
 `;
@@ -52,7 +52,7 @@ flex-direction: row;
   margin-right: -20px;
   }
 
-  @media ${media.mobile} {
+  @media ${media.mobileM} {
     margin-right: 0px;
     }
 `;

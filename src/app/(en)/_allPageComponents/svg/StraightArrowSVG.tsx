@@ -1,9 +1,9 @@
 import useResponsiveResize from '@/hook-utils/useResponsiveResize';
-import { scaleMap } from '@/styles/scaleMap/scaleMap';
+import { scaleMap } from '@/styles/scaleMap/00_scaleMap';
 
 export default function StraightArrow() {
-  const { fontSizeKey } = useResponsiveResize();
-  const { arrowWidth, arrowTextSize } = scaleMap[fontSizeKey as keyof typeof scaleMap];
+  const { currentBreakpoint } = useResponsiveResize();
+  const { arrowWidth, arrowTextSize } = scaleMap[currentBreakpoint as keyof typeof scaleMap];
 
   return (
     <svg xmlns="http://www.w3.org/2000/svg"

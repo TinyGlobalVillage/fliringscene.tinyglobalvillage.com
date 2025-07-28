@@ -1,6 +1,6 @@
 'use client';
 import styled from 'styled-components';
-import { scaleMap } from '@/styles/scaleMap/scaleMap';
+import { scaleMap } from '@/styles/scaleMap/00_scaleMap';
 import useResponsiveResize from '@/hook-utils/useResponsiveResize';
 
 
@@ -21,8 +21,8 @@ export default function NeonSectionTitleFontSize({
     color = '#ff4ecb',
     fontWeight = 700,
 }: NeonSectionTitleFontSizeProps) {
-    const { fontSizeKey } = useResponsiveResize();
-    const { NeonSectionTitleFontSize } = scaleMap[fontSizeKey as keyof typeof scaleMap];
+    const { currentBreakpoint } = useResponsiveResize();
+    const { NeonSectionTitleFontSize } = scaleMap[currentBreakpoint];
 
     return (
         <SvgWrapper>

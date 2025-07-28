@@ -1,5 +1,4 @@
 // src/styles/breakpoints.ts
-
 /**
  * Breakpoint tokens (ascending):
  * mobileXS       – mobile-portrait (iPhone SE, Galaxy Z Fold5 folded) → 320px
@@ -11,38 +10,35 @@
  * desktopLg      – desktop-large (wide monitors)                  → 1440px
  */
 
-
 export const breakpoints = {
-  mobileXS:     340,
-  mobileSM:     400,
-  mobile:       480,
-  tabletPortrait: 768,
-  tablet:       1024,
-  desktop:      1280,
-  desktopLg:    1440,
-} as const
+  mobileS: 320,
+  mobileM: 375,
+  mobileL: 425,
+  tablet: 768,
+  laptop: 1024,
+  desktop: 1280,
+} as const;
+
+export type BreakpointKey = keyof typeof breakpoints;
 
 export const media = {
-  mobileXS:      `(max-width: ${breakpoints.mobileXS}px)`,
-  mobileSM:      `(max-width: ${breakpoints.mobileSM}px)`,
-  mobile:        `(max-width: ${breakpoints.mobile}px)`,
-  tabletPortrait:`(max-width: ${breakpoints.tabletPortrait}px)`,
-  tablet:        `(max-width: ${breakpoints.tablet}px)`,
-  desktop:       `(min-width: ${breakpoints.desktop}px)`,
-  desktopLg:     `(min-width: ${breakpoints.desktopLg}px)`,
-}
+  mobileS: `(min-width: ${breakpoints.mobileS}px)`,
+  mobileM: `(min-width: ${breakpoints.mobileM}px)`,
+  mobileL: `(min-width: ${breakpoints.mobileL}px)`,
+  tablet: `(min-width: ${breakpoints.tablet}px)`,
+  laptop: `(min-width: ${breakpoints.laptop}px)`,
+  desktop: `(min-width: ${breakpoints.desktop}px)`,
+};
 
 export const logo_size = {
-  xs:     50,
-  sm:     32,
-  mobile: 40,
+  mobileS: 50,
+  mobileM: 50,
+  mobileL: 50,
   tablet: 48,
+  laptop: 54,
   desktop: 64,
-  lg:     80,
-} as const
 
-
-
+} as const;
 
 // @media ${media.mobileXS}{
 //   }

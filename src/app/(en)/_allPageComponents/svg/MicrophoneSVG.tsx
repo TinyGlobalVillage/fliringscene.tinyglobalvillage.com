@@ -1,7 +1,7 @@
 'use client';
 // import styled from 'styled-components';
 import useResponsiveResize from '@/hook-utils/useResponsiveResize';
-import { scaleMap } from '@/styles/scaleMap/scaleMap';
+import { scaleMap } from '@/styles/scaleMap/00_scaleMap';
 
 
 import SvgWrapper from './SvgWrapper';
@@ -22,8 +22,8 @@ const microphonePaths = [
 ];
 
 export default function MicrophoneSVG() {
-  const { fontSizeKey } = useResponsiveResize();
-  const { micWidth, micViewBoxMinX, micViewBoxMinY, micViewBoxWidth, micViewBoxHeight } = scaleMap[fontSizeKey as keyof typeof scaleMap];
+  const { currentBreakpoint } = useResponsiveResize();
+  const { micWidth, micViewBoxMinX, micViewBoxMinY, micViewBoxWidth, micViewBoxHeight } = scaleMap[currentBreakpoint];
 
   return (
     <SvgWrapper>

@@ -18,7 +18,8 @@ interface PulseProps {
   $scale?: number;
   $duration?: string;         // e.g. '2s'
   $easing?: string;           // e.g. 'ease-in-out'
-  $iterationCount?: string;   // e.g. 'infinite' or '1'
+  $iterationCount?: string;
+  
 }
 
 export const PulsingWrapper = styled.div<PulseProps>`

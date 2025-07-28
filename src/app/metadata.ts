@@ -1,5 +1,6 @@
 // src/app/metadata.ts
 export const metadata = {
+
   title: {
     default: 'Fliring Scene',
     template: '%s | Fliring Scene',

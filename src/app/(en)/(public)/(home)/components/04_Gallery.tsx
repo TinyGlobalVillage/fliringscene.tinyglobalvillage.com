@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 import Button from '../../../_allPageComponents/buttons/Button';
 import { media } from '@/styles/breakpoints';
-import { glowPulse } from '../../../_allPageComponents/_nonComponentHelpers/animations/glowPulse';
+import { glowPulse } from '../../../_allPageComponents/animations/glowPulse';
 
 const GallerySection = styled.section`
  min-height: 70vh;
@@ -21,7 +21,7 @@ const GallerySection = styled.section`
   box-shadow: 0 0 10px #f7b700, 0 0 25px #f7b700;
   background: rgba(0, 0, 0, 0.1);
 
-  @media ${media.mobile}{
+  @media ${media.mobileM}{
 width: 90%;
 min-height: 60vh;
 padding: 1.5rem;

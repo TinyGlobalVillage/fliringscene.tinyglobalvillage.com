@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 import useResponsiveResize from '@/hook-utils/useResponsiveResize';
-import { scaleMap } from '@/styles/scaleMap/scaleMap';
+import { scaleMap } from '@/styles/scaleMap/00_scaleMap';
 
 
 interface NeonTitleFontSizeProps {
@@ -24,8 +24,8 @@ export default function NeonTitleFontSize({
   children,
   color = '#ff4ecb',
 }: NeonTitleFontSizeProps) {
-  const { fontSizeKey } = useResponsiveResize();
-  const { NeonTitleFontSize, NeonTitleStrokeWidth, NeonTitleViewBoxMinX, NeonTitleViewBoxMinY, NeonTitleViewBoxWidth, NeonTitleViewBoxHeight } = scaleMap[fontSizeKey];
+  const { currentBreakpoint } = useResponsiveResize();
+  const { NeonTitleFontSize, NeonTitleStrokeWidth, NeonTitleViewBoxMinX, NeonTitleViewBoxMinY, NeonTitleViewBoxWidth, NeonTitleViewBoxHeight } = scaleMap[currentBreakpoint];
 
   return (
     <SvgWrapper>

@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 import useResponsiveResize from '@/hook-utils/useResponsiveResize';
-import { scaleMap } from '@/styles/scaleMap/scaleMap';
+import { scaleMap } from '@/styles/scaleMap/00_scaleMap';
 // import SvgWrapper from '../svg/SvgWrapper';
 
 interface NeonSubtitleFontSizeProps {
@@ -23,8 +23,8 @@ export default function NeonSubtitleFontSize({
   color = '#ff4ecb',
 
 }: NeonSubtitleFontSizeProps) {
-  const { fontSizeKey } = useResponsiveResize();
-  const { NeonSubtitleFontSize, NeonSubtitleStrokeWidth, NeonSubtitleViewBoxMinX, NeonSubtitleViewBoxMinY, NeonSubtitleViewBoxWidth, NeonSubtitleViewBoxHeight } = scaleMap[fontSizeKey];
+  const { currentBreakpoint } = useResponsiveResize();
+  const { NeonSubtitleFontSize, NeonSubtitleStrokeWidth, NeonSubtitleViewBoxMinX, NeonSubtitleViewBoxMinY, NeonSubtitleViewBoxWidth, NeonSubtitleViewBoxHeight } = scaleMap[currentBreakpoint];
 
   return (
     <Wrapper>

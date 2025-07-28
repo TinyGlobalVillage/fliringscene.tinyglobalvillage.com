@@ -3,96 +3,92 @@ import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import NeonContactPageTitle from '../headers/NeonContactPageTitle';
 import { media } from '@/styles/breakpoints';
+import { glowPulse } from '../animations/glowPulse';
 
-// ── Styled Components ─────────────────────────────────────────────────────────
+
 const FormWrapper = styled.section`
-  // padding: 3rem;
-  padding: 1rem 3rem;
-  background: rgba(0,0,0,0.1);
-  border: 8px solid #f7b700;
-  border-radius: 28px;
-  display: flex;
-  flex-direction: column;
-  gap: .5rem;
-  margin: 1rem auto;
-  max-height: 78vh;
+display: flex;
+flex-direction: column;
 
-  @media ${media.mobile}{
-    gap: .5rem;
-    // padding: 1rem;
-  }
-`;
+gap: 1rem;
+padding: 1rem 1rem;
 
-const ContactFormHeader = styled.div`
-  margin: 0 auto;
-  text-align: center;
+border: 8px solid #f7b700;
+border-radius: 50px;
+animation: ${glowPulse} 2s infinite;
+box-shadow: 0 0 10px #f7b700, 0 0 25px #f7b700;
+background: rgba(0, 0, 0, 0.7);
+
+@media ${media.mobileM}{
+}
 `;
 
 const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+display: flex;
+flex-direction: column;
+gap: 1.5rem;
 `;
 
 const Field = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+display: flex;
+flex-direction: column;
+gap: 1rem;
 
-  label {
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: #ff4ecb;
-    text-align: left;
-  }
+label {
+font-size: 1rem;
+font-weight: bold;
+color: #ff4ecb;
+text-align: left;
+}
 
-  input,
-  select,
-  textarea {
-    width: 100%;
-    box-sizing: border-box;
-    height: 2.5rem;
-    padding: 0.5rem 0.75rem;
-    font-size: 0.75rem;
-    line-height: 1rem;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    background: #fff;
-  }
+input,
+select,
+textarea {
+width: 100%;
+box-sizing: border-box;
+height: 2.5rem;
+padding: 0.5rem 0.75rem;
+font-size: .95rem;
+line-height: 1rem;
+border-radius: 6px;
+border: 1px solid #ccc;
+background: #fff;
+}
 
-  textarea {
-    resize: vertical;
-    height: auto;
-    min-height: 6rem;
-  }
+textarea {
+resize: vertical;
+height: auto;
+min-height: 6rem;
+}
 `;
 
 const Button = styled.button`
-  align-self: center;
-  padding: 0.75rem 1.5rem;
-  background: #ff4ecb;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  font-size: 1rem;
-  cursor: pointer;
-  margin-top: 15px;
+align-self: center;
+padding: 0.75rem 1.5rem;
+background: #ff4ecb;
+color: #fff;
+border: none;
+border-radius: 4px;
+font-size: 1rem;
+cursor: pointer;
+// margin-top: 15px;
+margin-bottom: 7px;
 
-  &:disabled {
-    opacity: 0.6;
-    cursor: default;
-  }
+&:disabled {
+opacity: 0.6;
+cursor: default;
+}
 
-  @media ${media.mobile}{
-    margin-bottom: 15px;
-  }
+@media ${media.mobileM}{
+margin-bottom: 15px;
+}
 `;
 
 const Status = styled.p<{ variant: 'success' | 'error' }>`
-  margin-top: 1rem;
-  text-align: center;
-  font-size: 1rem;
-  color: ${({ variant }) =>
+margin-top: 1rem;
+text-align: center;
+font-size: 1rem;
+color: ${({ variant }) =>
     variant === 'success' ? '#4caf50' : '#f44336'};
 `;
 
@@ -122,55 +118,55 @@ export default function ContactForm() {
     setForm(f => ({ ...f, [name]: value }));
   };
 
- const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  if (
-    !form.name ||
-    !form.email ||
-    !form.topic ||
-    (form.topic === 'Other' && !form.otherMessage)
-  ) return;
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (
+      !form.name ||
+      !form.email ||
+      !form.topic ||
+      (form.topic === 'Other' && !form.otherMessage)
+    ) return;
 
-  setStatus('sending');
-  try {
-    const res = await fetch('/api/contact', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(form),
-    });
+    setStatus('sending');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
 
-    // read the JSON even on errors:
-    const payload = await res.json();
+      // read the JSON even on errors:
+      const payload = await res.json();
 
-    if (!res.ok) {
-      console.error('API error:', res.status, payload);
+      if (!res.ok) {
+        console.error('API error:', res.status, payload);
+        setStatus('error');
+        return;
+      }
+
+      // success
+      setStatus('success');
+      setForm({
+        name: '',
+        email: '',
+        number: '',
+        topic: '',
+        otherMessage: '',
+        videoLink: '',
+        website: '',
+        ts: String(Date.now()),
+      });
+    } catch (err) {
+      console.error('Network or unexpected error:', err);
       setStatus('error');
-      return;
     }
-
-    // success
-    setStatus('success');
-    setForm({
-      name: '',
-      email: '',
-      number: '',
-      topic: '',
-      otherMessage: '',
-      videoLink: '',
-      website: '',
-      ts: String(Date.now()),
-    });
-  } catch (err) {
-    console.error('Network or unexpected error:', err);
-    setStatus('error');
-  }
-};
+  };
 
   return (
     <FormWrapper>
-      <ContactFormHeader>
-        <NeonContactPageTitle>Contact Us</NeonContactPageTitle>
-      </ContactFormHeader>
+
+      <NeonContactPageTitle>Contact Us</NeonContactPageTitle>
+
 
       <Form onSubmit={handleSubmit}>
         {/* Name */}
@@ -254,7 +250,7 @@ export default function ContactForm() {
             id="videoLink"
             name="videoLink"
             type="text"
-            placeholder="https://youtube.com/… or similar"
+            placeholder="https://youtube.com/… "
             value={form.videoLink}
             onChange={handleChange}
           />

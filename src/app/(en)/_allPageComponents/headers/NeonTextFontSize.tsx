@@ -1,7 +1,7 @@
 // NeonText.tsx
 'use client';
 import styled from 'styled-components';
-import { scaleMap } from '@/styles/scaleMap/scaleMap';
+import { scaleMap } from '@/styles/scaleMap/00_scaleMap';
 import useResponsiveResize from '@/hook-utils/useResponsiveResize';
 
 interface NeonTextFontSizeProps {
@@ -20,8 +20,8 @@ export default function NeonText({
   color = '#ff4ecb',
   fontWeight = 700,
 }: NeonTextFontSizeProps) {
-  const { fontSizeKey } = useResponsiveResize();
-  const { NeonTextFontSize } = scaleMap[fontSizeKey as keyof typeof scaleMap];
+  const { currentBreakpoint } = useResponsiveResize();
+  const { NeonTextFontSize } = scaleMap[currentBreakpoint as keyof typeof scaleMap];
 
   return (
     <SvgWrapper>

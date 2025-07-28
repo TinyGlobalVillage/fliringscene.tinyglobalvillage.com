@@ -32,7 +32,7 @@ const FrameWrapper = styled.div`
   @media ${media.tablet} {
     max-width: 600px;
   }
-  @media ${media.mobile} {
+  @media ${media.mobileM} {
     max-width: 100%;
     aspect-ratio: 3 / 5;
   }

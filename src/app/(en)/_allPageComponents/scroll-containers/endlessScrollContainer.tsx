@@ -26,7 +26,7 @@ const Item = styled.div`
     /* two cards: one gap of 1rem */
     flex: 0 0 calc((100% - 1rem) / 2);
   }
-  @media ${media.mobile} {
+  @media ${media.mobileM} {
     /* one card */
     flex: 0 0 100%;
   }

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { useState } from 'react';
 import Link from 'next/link';
 import { media } from '@/styles/breakpoints';
-import { scaleMap } from '@/styles/scaleMap/scaleMap';
+import { scaleMap } from '@/styles/scaleMap/00_scaleMap';
 import useResponsiveResize from '@/hook-utils/useResponsiveResize';
 import FacebookIcon from '../facebook/FacebookIcon';
 
@@ -23,7 +23,7 @@ const FooterSection = styled.section`
     border-radius: 25px;
     background: rgba(0, 0, 0, 0.9);
 
-    @media ${media.mobile}{
+    @media ${media.mobileS}{
     max-height: 80vh;
     padding: 1.5rem;
 
@@ -35,20 +35,28 @@ const FooterSection = styled.section`
 `;
 
 const FooterGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  /* ─── Base: mobile first ─── */
+  display: flex;
+  flex-direction: column;
   gap: 2rem;
   width: 100%;
   margin-bottom: 50px;
 
-  @media ${media.mobile}, ${media.tablet}{
-    display: flex;
-    flex-direction: column;
+  /* if you want a different ordering on mobile: */
+  & > :nth-child(1) { /* Newsletter */ order: 1; }
+  & > :nth-child(2) { /* Links      */ order: 3; }
+  & > :nth-child(3) { /* Contact    */ order: 2; }
 
-    /* now each child can use order */
-    & > :nth-child(1) { order: 1; } /* newsletter in middle */
-    & > :nth-child(2) { order: 2; } /* links go last */
-    & > :nth-child(3) { order: 1; } /* contact goes first */
+  /* ─── Tablet & up: switch to grid ─── */
+  @media ${media.tablet} {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+
+    /* restore natural source order in grid */
+    & > * {
+      order: initial;
+    }
   }
 `;
 
@@ -59,7 +67,7 @@ const Column = styled.div`
   gap: 1rem;
   color: #fff;
 
-  @media ${media.mobile}{
+  @media ${media.mobileS}{
   gap: .5rem;
   }
 `;
@@ -136,28 +144,22 @@ margin-bottom: 15px;
 text-align: center;
 font-size: ${({ $fontSize }) => $fontSize};
 
-@media ${media.mobile}{
+@media ${media.mobileS}{
 margin-bottom: 10px;
 }
 
 `;
 
 const IconLink = styled.a`
-  color: #ff4ecb;             /* default icon color */
-  font-size: 1.5rem;          /* controls icon size via SVG's currentColor */
+  font-size: 1.5rem;
   display: inline-flex;
   align-items: center;
-
-  &:hover {
-    color: #00bfff;           /* hover color */
-  }
-
-
 `;
 
 const Trademark = styled.div`
   margin-top: 10px;
-  font-size: 0.875rem;
+  font-size: 0.75rem;
+  text-align: center;
   color: #00bfff;
 
   a {
@@ -170,16 +172,16 @@ const Trademark = styled.div`
     }
   }
 
-  @media ${media.mobile} {
+  @media ${media.mobileM} {
 
-  text-align: center;
-  font-size: .75rem;
+  text-align: left;
+  font-size: .875rem;
   }
 `;
 
 export default function Footer() {
-  const { fontSizeKey } = useResponsiveResize();
-  const { footerHeaderFontSize, footerButtonWidth, inputWidth } = scaleMap[fontSizeKey];
+  const { currentBreakpoint } = useResponsiveResize();
+  const { footerHeaderFontSize, footerButtonWidth, inputWidth } = scaleMap[currentBreakpoint];
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error' | 'duplicate'>('idle');
 

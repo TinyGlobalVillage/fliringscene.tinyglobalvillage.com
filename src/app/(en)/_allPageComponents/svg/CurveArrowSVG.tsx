@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import useResponsiveResize from '@/hook-utils/useResponsiveResize';
-import { scaleMap } from '@/styles/scaleMap/scaleMap';
-import { glowPulseFilter } from '../_nonComponentHelpers/animations/glowPulse';
+import { scaleMap } from '@/styles/scaleMap/00_scaleMap';
+import { glowPulseFilter } from '../animations/glowPulse';
 
 
 const CurvedArrowWrapper = styled.div`
@@ -11,9 +11,9 @@ const CurvedArrowWrapper = styled.div`
 
 
 export default function CurveArrow() {
-  const { fontSizeKey } = useResponsiveResize();
+  const { currentBreakpoint } = useResponsiveResize();
 
-  const { curvedArrowWidth, curvedArrowViewBoxMinX, curvedArrowViewBoxMinY, curvedArrowViewBoxWidth, curvedArrowViewBoxHeight, NeonSubtitleStrokeWidth } = scaleMap[fontSizeKey];
+  const { curvedArrowWidth, curvedArrowViewBoxMinX, curvedArrowViewBoxMinY, curvedArrowViewBoxWidth, curvedArrowViewBoxHeight, NeonSubtitleStrokeWidth } = scaleMap[currentBreakpoint];
 
   return (
 

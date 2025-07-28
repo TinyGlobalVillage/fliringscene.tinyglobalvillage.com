@@ -6,6 +6,13 @@ const StyledIcon = styled.svg`
   width: 24px;
   height: 24px;
   fill: currentColor;
+  color: #ff4ecb;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    color: #00bfff;
+  }
 `;
 
 export default function FacebookIcon(props: React.SVGProps<SVGSVGElement>) {

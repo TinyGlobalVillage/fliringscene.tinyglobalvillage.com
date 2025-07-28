@@ -1,6 +1,6 @@
 'use client';
 import styled from 'styled-components';
-import { glowPulse } from '../../../_allPageComponents/_nonComponentHelpers/animations/glowPulse';
+import { glowPulse } from '../../../_allPageComponents/animations/glowPulse';
 import { media } from '@/styles/breakpoints';
 import FacebookIframe from '../../../_allPageComponents/facebook/FacebookIframe';
 import NeonSectionTitleFontSize from '../../../_allPageComponents/headers/NeonSectionTitleFontSize';
@@ -21,7 +21,7 @@ const NewsFeedSection = styled.section`
   box-shadow: 0 0 10px #f7b700, 0 0 25px #f7b700;
   background: rgba(0, 0, 0, 0.1);
 
-  @media ${media.mobile}{
+  @media ${media.mobileM}{
 width: 90%;
 min-height: 60vh;
 padding: 1rem;

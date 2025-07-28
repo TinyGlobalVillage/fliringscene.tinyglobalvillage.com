@@ -1,8 +1,8 @@
 'use client';
 import styled, { keyframes } from 'styled-components';
-import { glowPulse } from '../_nonComponentHelpers/animations/glowPulse';
+import { glowPulse } from '../animations/glowPulse';
 import useResponsiveResize from '@/hook-utils/useResponsiveResize';
-import { scaleMap } from '@/styles/scaleMap/scaleMap';
+import { scaleMap } from '@/styles/scaleMap/00_scaleMap';
 
 // --- Animations ---
 const bulbPulse = keyframes`
@@ -90,8 +90,8 @@ interface AboveFoldLightBulbFrameProps {
 export default function AboveFoldLightBulbFrame({
   children,
   positions = bulbPositions }: AboveFoldLightBulbFrameProps) {
-  const { fontSizeKey } = useResponsiveResize();
-  const { boxWidth, comedyClubBulbSize } = scaleMap[fontSizeKey];
+  const { currentBreakpoint } = useResponsiveResize();
+  const { boxWidth, comedyClubBulbSize } = scaleMap[currentBreakpoint];
 
   return (
     <SignWrapper>

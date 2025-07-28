@@ -1,8 +1,8 @@
 'use client';
 import styled, { keyframes } from 'styled-components';
-import { glowPulse } from '../_nonComponentHelpers/animations/glowPulse';
+import { glowPulse } from '../animations/glowPulse';
 import useResponsiveResize from '@/hook-utils/useResponsiveResize';
-import { scaleMap } from '@/styles/scaleMap/scaleMap';
+import { scaleMap } from '@/styles/scaleMap/00_scaleMap';
 
 // --- Animations ---
 const bulbPulse = keyframes`
@@ -90,8 +90,8 @@ interface LightBulbFrameProps {
 export default function LightBulbFrame({
   children,
   positions = bulbPositions }: LightBulbFrameProps) {
-  const { fontSizeKey } = useResponsiveResize();
-  const { boxWidth, bulbSize } = scaleMap[fontSizeKey];
+  const { currentBreakpoint } = useResponsiveResize();
+  const { boxWidth, bulbSize } = scaleMap[currentBreakpoint];
 
   return (
     <SignWrapper>
