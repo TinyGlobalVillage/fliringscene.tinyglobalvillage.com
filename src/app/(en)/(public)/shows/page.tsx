@@ -9,9 +9,9 @@ import TikkioWidget from "../../_allPageComponents/tikkio/TikkoWidget";
 const ShowsSection = styled.div`
 width: 90%;
 margin: 0 auto;
-margin-top: 80px;
+margin-top: 70px;
 margin-bottom: 100px;
-padding: 1rem;
+padding: 1rem 1rem;
 
 display: flex;
 flex-direction: column;

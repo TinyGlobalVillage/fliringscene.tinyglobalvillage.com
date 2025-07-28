@@ -12,7 +12,7 @@ export const mobileS = {
   //__SECTION___ABOVE FOLD
 
   // "FLIRING"
-  NeonTitleFontSize: '5.9rem',
+  NeonTitleFontSize: '5.5rem',
   NeonTitleStrokeWidth: '3',
 
   NeonTitleViewBoxMinX: '0',
@@ -21,7 +21,7 @@ export const mobileS = {
   NeonTitleViewBoxHeight: 105,
 
   // MICROPHONE
-  micWidth: '1.5px',
+  micWidth: '1.4px',
 
   micViewBoxMinX: '-200',
   micViewBoxMinY: '-100',
@@ -29,7 +29,7 @@ export const mobileS = {
   micViewBoxHeight: '115',
 
   // FACE
-  faceWidth: '70px',
+  faceWidth: '65px',
 
   faceViewBoxMinX: '-10',
   faceViewBoxMinY: '60',

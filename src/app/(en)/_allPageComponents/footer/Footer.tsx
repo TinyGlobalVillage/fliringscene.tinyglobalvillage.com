@@ -13,7 +13,7 @@ const FooterSection = styled.section`
     scroll-margin-top: 100px; // adjust based on fixed nav height
     width: 90%;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 1rem;
 
     display: flex;
     flex-direction: column;
@@ -22,10 +22,6 @@ const FooterSection = styled.section`
     color: #ff4ecb;
     border-radius: 25px;
     background: rgba(0, 0, 0, 0.9);
-
-    @media ${media.mobileS}{
-    max-height: 80vh;
-    padding: 1.5rem;
 
     p {
     font-size: .7rem;

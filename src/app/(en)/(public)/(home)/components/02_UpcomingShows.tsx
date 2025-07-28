@@ -17,7 +17,7 @@ width: 90%;
 // height: auto;
 margin: 0 auto;
 margin-bottom: 100px;
-padding: 1rem;
+padding: .25rem 1rem;
 
 display: flex;
 flex-direction: column;

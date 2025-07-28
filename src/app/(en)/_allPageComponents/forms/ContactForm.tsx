@@ -49,7 +49,7 @@ textarea {
 width: 100%;
 box-sizing: border-box;
 height: auto;
-padding: 0.5rem 0.75rem;
+padding: 0.25rem 0.75rem;
 font-size: .95rem;
 line-height: .75;
 border-radius: 6px;
@@ -60,21 +60,20 @@ background: #fff;
 textarea {
 resize: vertical;
 height: auto;
-min-height: 6rem;
+min-height:6rem;
 }
 `;
 
 const Button = styled.button`
 align-self: center;
-padding: 0.75rem 1.5rem;
+padding: 0.5rem 1.5rem;
 background: #ff4ecb;
 color: #fff;
 border: none;
 border-radius: 4px;
-font-size: 1rem;
+font-size: .75rem;
 cursor: pointer;
-// margin-top: 15px;
-margin-bottom: 7px;
+
 
 &:disabled {
 opacity: 0.6;

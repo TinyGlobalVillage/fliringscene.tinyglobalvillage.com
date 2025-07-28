@@ -11,12 +11,12 @@
  */
 
 export const breakpoints = {
-  mobileS: 320,
-  mobileM: 375,
-  mobileL: 425,
-  tablet: 768,
-  laptop: 1024,
-  desktop: 1280,
+  mobileS: 320, // typical height 568
+  mobileM: 375, // 667
+  mobileL: 425, // 812
+  tablet: 768, // 1024
+  laptop: 1024, // 768
+  desktop: 1280, // 720
 } as const;
 
 export type BreakpointKey = keyof typeof breakpoints;
