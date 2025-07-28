@@ -23,7 +23,7 @@ export const mobileS = {
   // MICROPHONE
   micWidth: '1.4px',
 
-  micViewBoxMinX: '-200',
+  micViewBoxMinX: '-230',
   micViewBoxMinY: '-100',
   micViewBoxWidth: '11',
   micViewBoxHeight: '115',
@@ -31,13 +31,13 @@ export const mobileS = {
   // FACE
   faceWidth: '65px',
 
-  faceViewBoxMinX: '-10',
+  faceViewBoxMinX: '-30',
   faceViewBoxMinY: '60',
   faceViewBoxWidth: '450',
   faceViwBoxHeight: '450',
 
   // "SCENE"
-  NeonSubtitleFontSize: '9rem',
+  NeonSubtitleFontSize: '8.9rem',
   NeonSubtitleStrokeWidth: '5',
 
   NeonSubtitleViewBoxMinX: '-20',

@@ -17,7 +17,7 @@ export const mobileM = {
 
 
   // "FLIRING"
-  NeonTitleFontSize: '5.9rem',
+  NeonTitleFontSize: '6.5rem',
   NeonTitleStrokeWidth: '3',
 
   NeonTitleViewBoxMinX: '0',
@@ -28,7 +28,7 @@ export const mobileM = {
   // MICROPHONE
   micWidth: '1.5px',
 
-  micViewBoxMinX: '-200',
+  micViewBoxMinX: '-250',
   micViewBoxMinY: '-100',
   micViewBoxWidth: '11',
   micViewBoxHeight: '115',
@@ -36,7 +36,7 @@ export const mobileM = {
   // FACE
   faceWidth: '70px',
 
-  faceViewBoxMinX: '-10',
+  faceViewBoxMinX: '-40',
   faceViewBoxMinY: '60',
   faceViewBoxWidth: '450',
   faceViwBoxHeight: '450',
@@ -45,23 +45,23 @@ export const mobileM = {
   NeonSubtitleFontSize: '9rem',
   NeonSubtitleStrokeWidth: '5',
 
-  NeonSubtitleViewBoxMinX: '-20',
+  NeonSubtitleViewBoxMinX: '-18',
   NeonSubtitleViewBoxMinY: '0',
   NeonSubtitleViewBoxWidth: '600',
   NeonSubtitleViewBoxHeight: 105,
 
   // COMEDY SIGN
-  comedyClubBulbSize: '15px',
+  comedyClubBulbSize: '18px',
   NeonTextFontSize: '6.5rem',
-  boxWidth: '200px',
+  boxWidth: '250px',
 
   //other LightbulbFrame
-  bulbSize: '12px',
+  bulbSize: '14px',
 
   //CURVED ARROW
-  curvedArrowWidth: '100px',
+  curvedArrowWidth: '120px',
 
-  curvedArrowViewBoxMinX: '200',
+  curvedArrowViewBoxMinX: '180',
   curvedArrowViewBoxMinY: '-80',
   curvedArrowViewBoxWidth: '500',
   curvedArrowViewBoxHeight: '649',

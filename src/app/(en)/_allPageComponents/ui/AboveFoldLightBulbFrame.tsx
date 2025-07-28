@@ -21,7 +21,7 @@ const SignWrapper = styled.div`
   border-radius: 55px;
   animation: ${glowPulse} 2.5s infinite;
   box-shadow: 0 0 10px #f7b700, 0 0 25px #f7b700;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.1);
 `;
 
 const BulbWrapper = styled.div`
@@ -40,7 +40,7 @@ const FramedBox = styled.div<{ $width: string }>`
   align-items: center;
   animation: ${glowPulse} 2.5s infinite;
   box-shadow: 0 0 10px #f7b700, 0 0 25px #f7b700;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.1);
   z-index: 1;
 `;
 
@@ -82,8 +82,9 @@ const bulbPositions = [
 ];
 
 // --- Component ---
-interface Props {
+interface AboveFoldLightBulbFrameProps {
   children: React.ReactNode;
+  positions?: Array<{ top: number; left: number }>;
 }
 
 export default function AboveFoldLightBulbFrame({
