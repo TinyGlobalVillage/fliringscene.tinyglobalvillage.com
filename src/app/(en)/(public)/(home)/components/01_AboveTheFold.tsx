@@ -12,7 +12,7 @@ import { PulsingWrapper } from '@/app/(en)/_allPageComponents/animations/pulseEf
 
 const AboveFoldWrapper = styled.section`
 width: 100%;
-height: 100dvh;
+// height: 100dvh;
 display: flex;
 flex-direction: column;
 align-items: center;

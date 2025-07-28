@@ -14,7 +14,7 @@ import TikkioWidget from '../../../_allPageComponents/tikkio/TikkoWidget';
 const UpcomingShowsSection = styled.section`
 scroll-margin-top: 80px;
 width: 90%;
-// height: auto;
+height: auto;
 margin: 0 auto;
 margin-bottom: 100px;
 padding: .25rem 1rem;
