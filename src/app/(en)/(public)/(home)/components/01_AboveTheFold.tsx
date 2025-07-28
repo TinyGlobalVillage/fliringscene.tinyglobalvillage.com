@@ -19,7 +19,7 @@ align-items: center;
 padding-top: 70px;
 
 @media ${media.mobileM} {
-
+  padding-top: 80px;
   }
 `;
 
@@ -29,6 +29,11 @@ const Heading = styled.h1`
   flex-direction: column;
   align-items: center;
   margin-bottom: -2px;
+
+  @media ${media.mobileM}{
+  margin-bottom: 5px;
+  }
+
 `;
 
 const TitleWrapper = styled.div`
@@ -37,11 +42,9 @@ const TitleWrapper = styled.div`
   gap: .75rem;
 
   @media ${media.tablet}{
-  margin-left: 0px;
+
   }
-  @media ${media.mobileM}{
-  margin-left: 10px;
-  }
+
 `;
 
 const FaceMicWrapper = styled.div`

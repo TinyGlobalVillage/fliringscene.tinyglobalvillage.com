@@ -59,26 +59,28 @@ const Bulb = styled.div<{ $top: string; $left: string; $size: string }>`
 
 // --- Bulb Positions (static in %) ---
 const bulbPositions = [
+  // Top edge
   { top: 0, left: 10 },
   { top: 0, left: 30 },
   { top: 0, left: 50 },
   { top: 0, left: 70 },
   { top: 0, left: 90 },
+  // Right edge
+  { top: 15, left: 100 },
+  { top: 38, left: 100 },
+  { top: 61, left: 100 },
+  { top: 85, left: 100 },
+  // Bottom edge
   { top: 100, left: 10 },
   { top: 100, left: 30 },
   { top: 100, left: 50 },
   { top: 100, left: 70 },
   { top: 100, left: 90 },
-  { top: 10, left: 0 },
-  { top: 30, left: 0 },
-  { top: 50, left: 0 },
-  { top: 70, left: 0 },
-  { top: 90, left: 0 },
-  { top: 10, left: 100 },
-  { top: 30, left: 100 },
-  { top: 50, left: 100 },
-  { top: 70, left: 100 },
-  { top: 90, left: 100 },
+  // Left edge
+  { top: 15, left: 0 },
+  { top: 38, left: 0 },
+  { top: 61, left: 0 },
+  { top: 85, left: 0 },
 ];
 
 // --- Component ---

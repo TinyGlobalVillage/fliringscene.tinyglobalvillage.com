@@ -24,7 +24,7 @@ box-shadow: 0 0 10px #f7b700, 0 0 25px #f7b700;
 background: rgba(0, 0, 0, 0.1);
 
 @media ${media.mobileM}{
-
+margin-top: 100px;
 }
 `;
 

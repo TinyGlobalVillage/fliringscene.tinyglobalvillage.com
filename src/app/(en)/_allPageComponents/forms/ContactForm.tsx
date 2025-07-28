@@ -21,6 +21,7 @@ box-shadow: 0 0 10px #f7b700, 0 0 25px #f7b700;
 background: rgba(0, 0, 0, 0.7);
 
 @media ${media.mobileM}{
+margin-top: 10px;
 }
 `;
 
@@ -41,6 +42,11 @@ margin-bottom: -10px;
 font-weight: bold;
 color: #ff4ecb;
 text-align: left;
+
+@media ${media.mobileM}{
+font-size: 1.25rem;
+}
+
 }
 
 input,
@@ -55,6 +61,12 @@ line-height: .75;
 border-radius: 6px;
 border: 1px solid #ccc;
 background: #fff;
+
+@media ${media.mobileM}{
+padding: .5rem 1rem;
+font-size: 1.25rem;
+}
+
 }
 
 textarea {
@@ -82,6 +94,8 @@ cursor: default;
 
 @media ${media.mobileM}{
 margin-bottom: 15px;
+padding: .75rem 2rem;
+font-size: 1rem;
 }
 `;
 

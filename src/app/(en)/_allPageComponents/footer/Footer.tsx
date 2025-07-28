@@ -14,6 +14,7 @@ const FooterSection = styled.section`
     width: 90%;
     margin: 0 auto;
     padding: 1rem;
+    padding-top: 2rem;
 
     display: flex;
     flex-direction: column;

@@ -23,10 +23,15 @@ display: flex;
 flex-direction: column;
 align-items: center;
 border: 8px solid #f7b700;
-border-radius: 28px;
+border-radius: 50px;
 animation: ${glowPulse} 2.5s infinite;
 box-shadow: 0 0 10px #f7b700, 0 0 25px #f7b700;
 background: rgba(0, 0, 0, 0.2);
+
+@media ${media.mobileM}{
+  margin-top: 10px;
+  padding: 1.25rem 1rem;
+  }
 
 @media ${media.tablet}{
 padding-bottom: 0;
