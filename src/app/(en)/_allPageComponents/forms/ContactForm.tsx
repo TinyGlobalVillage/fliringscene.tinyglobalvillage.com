@@ -9,8 +9,9 @@ import { glowPulse } from '../animations/glowPulse';
 const FormWrapper = styled.section`
 display: flex;
 flex-direction: column;
+margin-top: -10px;
 
-gap: 1rem;
+gap: .5rem;
 padding: 1rem 1rem;
 
 border: 8px solid #f7b700;
@@ -26,7 +27,7 @@ background: rgba(0, 0, 0, 0.7);
 const Form = styled.form`
 display: flex;
 flex-direction: column;
-gap: 1.5rem;
+gap: 1rem;
 `;
 
 const Field = styled.div`
@@ -36,6 +37,7 @@ gap: 1rem;
 
 label {
 font-size: 1rem;
+margin-bottom: -10px;
 font-weight: bold;
 color: #ff4ecb;
 text-align: left;
@@ -46,10 +48,10 @@ select,
 textarea {
 width: 100%;
 box-sizing: border-box;
-height: 2.5rem;
+height: auto;
 padding: 0.5rem 0.75rem;
 font-size: .95rem;
-line-height: 1rem;
+line-height: .75;
 border-radius: 6px;
 border: 1px solid #ccc;
 background: #fff;

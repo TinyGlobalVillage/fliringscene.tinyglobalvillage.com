@@ -16,7 +16,7 @@ height: 100dvh;
 display: flex;
 flex-direction: column;
 align-items: center;
-padding-top: 100px;
+padding-top: 70px;
 
 @media ${media.mobileM} {
 

@@ -12,12 +12,12 @@ import TikkioWidget from '../../../_allPageComponents/tikkio/TikkoWidget';
 
 
 const UpcomingShowsSection = styled.section`
-scroll-margin-top: 100px;
+scroll-margin-top: 80px;
 width: 90%;
 // height: auto;
 margin: 0 auto;
 margin-bottom: 100px;
-padding: 1.25rem;
+padding: 1rem;
 
 display: flex;
 flex-direction: column;

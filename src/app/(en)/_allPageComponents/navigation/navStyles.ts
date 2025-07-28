@@ -18,7 +18,7 @@ export const NavbarContainer = styled.nav<{
   top: 0;
   left: 0;
   right: 0;
-  padding: 1rem 1.5rem;
+  padding: .5rem 1.5rem;
   z-index: 9996;
 
   background: ${({ $scrolled }) =>

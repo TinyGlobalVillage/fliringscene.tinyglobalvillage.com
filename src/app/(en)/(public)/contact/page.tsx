@@ -5,9 +5,9 @@ import ContactForm from '../../_allPageComponents/forms/ContactForm';
 const ContactSection = styled.section`
 width: 100%;
 margin: 0 auto;
-margin-top: 90px;
+margin-top: 70px;
 margin-bottom: 100px;
-padding: 1.25rem;
+padding: 1rem;
 
 display: flex;
 flex-direction: column;
