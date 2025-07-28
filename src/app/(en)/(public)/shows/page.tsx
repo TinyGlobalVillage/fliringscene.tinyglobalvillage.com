@@ -26,6 +26,9 @@ background: rgba(0, 0, 0, 0.1);
 @media ${media.mobileM}{
 margin-top: 100px;
 }
+@media ${media.tablet}{
+margin-top: 130px;
+}
 `;
 
 const WidgetWrapper = styled.div`

@@ -71,14 +71,14 @@ export default function NavBar() {
 
       {/* desktop links */}
       <Links>
-        <NavLinks />
+        <NavLinks showHome={false}/>
       </Links>
 
       {/* mobile dropdown */}
       <DropDownMenu $open={menuOpen}
       onClick={()=> setMenuOpen(false)}
       >
-        <NavLinks />
+        <NavLinks showHome={true} />
       </DropDownMenu>
 
     </NavbarContainer>

@@ -36,14 +36,14 @@ filter: drop-shadow(0 0 8px #ff4ecb) !important;
 
 @media ${media.mobileM}{
 right: 3%;
-width: 2rem;
-height: 2rem;
+width: 3rem;
+height: 3rem;
 }
 
 @media ${media.mobileL}{
-right: 7%;
-width: 2.5rem;
-height: 2.5rem;
+right: 9%;
+width: 4rem;
+height: 4rem;
 }
 
 

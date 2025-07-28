@@ -16,10 +16,15 @@ height: 100dvh;
 display: flex;
 flex-direction: column;
 align-items: center;
-padding-top: 70px;
+margin-top: 70px;
+margin-bottom: 100px;
 
 @media ${media.mobileM} {
-  padding-top: 80px;
+  margin-top: 80px;
+  }
+@media ${media.tablet} {
+  margin-top: 120px;
+  padding-top: 0;
   }
 `;
 

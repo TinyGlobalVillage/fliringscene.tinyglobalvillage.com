@@ -12,8 +12,12 @@ interface NavLink {
   icon?: React.ReactNode;
 }
 
+type Props = {
+  showHome?: boolean
+}
+
 // ─── your links all in one place ──────────────────────────────────────────────
-const navLinks: NavLink[] = [
+const ALL_LINKS: NavLink[] = [
   { label: 'HOME',    href: '/' },
   { label: 'SHOWS',   href: '/shows' },
   { label: 'CONTACT', href: '/contact' },
@@ -26,26 +30,28 @@ const navLinks: NavLink[] = [
 ];
 
 // ─── the NavLinks component ───────────────────────────────────────────────────
-export default function NavLinks() {
+export default function NavLinks({ showHome = true }: Props) {
   return (
     <>
-      {navLinks.map(({ label, href, external, icon }) => {
-        const props = external
-          ? {
-              as: 'a' as const,
-              href,
-              target: '_blank',
-              rel: 'noopener noreferrer',
-              'aria-label': label
-            }
-          : { href };
+      {ALL_LINKS
+        .filter(link => showHome || link.label !== 'HOME')
+        .map(({ label, href, external, icon }) => {
+          const props = external
+            ? {
+                as: 'a' as const,
+                href,
+                target: '_blank',
+                rel: 'noopener noreferrer',
+                'aria-label': label
+              }
+            : { href }
 
-        return (
-          <NavItem key={href} {...props}>
-            {icon ?? label}
-          </NavItem>
-        );
-      })}
+          return (
+            <NavItem key={href} {...props}>
+              {icon ?? label}
+            </NavItem>
+          )
+        })}
     </>
-  );
+  )
 }

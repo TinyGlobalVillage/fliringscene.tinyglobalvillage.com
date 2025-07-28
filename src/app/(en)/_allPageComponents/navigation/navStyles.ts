@@ -26,6 +26,10 @@ export const NavbarContainer = styled.nav<{
   transition: background 0.25s ease;
 
   @media ${media.tablet} {
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem 1.5rem;
+
   }
 `;
 
@@ -62,7 +66,7 @@ export const LogoLink = styled(Link)<{ $open: boolean }>`
 
   position: ${({ $open }) =>
     $open ? 'fixed' : 'relative'};
-  top: ${({ $open }) => ($open ? '33px' : '0')};
+  top: ${({ $open }) => ($open ? '33px' : '5px')};
   left: ${({ $open }) => ($open ? '15px' : '0')};
 
   width: 100%;
@@ -110,19 +114,34 @@ export const LogoLink = styled(Link)<{ $open: boolean }>`
 // the wrapper that shows/hides on mobile
 export const Links = styled.div`
   display: none;
+
+  @media ${media.tablet}{
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  }
 `;
 
 // desktop text links
 export const NavItem = styled(Link)`
+
   color: #ff4ecb;
   text-decoration: none;
   font-size: 1.25rem;
+  font-weight: bold;
   letter-spacing: 1px;
   transition: transform 0.2s, color 0.2s;
 
   &:hover {
     transform: scale(1.05);
     color: #00bfff;
+  }
+
+  @media ${media.mobileL}{
+  font-size: 1.75rem;
+  }
+  @media ${media.tablet}{
+  font-size: 2rem;
   }
 `;
 
@@ -131,14 +150,29 @@ export const NavItem = styled(Link)`
 export const MenuToggle = styled.button<{ $open: boolean }>`
   position: ${({ $open }) =>
     $open ? 'fixed' : 'relative'};
-  top: ${({ $open }) => ($open ? '33px' : '0')};
+  top: ${({ $open }) => ($open ? '33px' : '5px')};
   left: ${({ $open }) => ($open ? '80%' : '0')};
   right: ${({ $open }) => ($open ? '0' : '0')};
+
+  z-index: 9999;
 
   background: transparent;
   color: #ff4ecb;
   font-size: ${({ $open }) => ($open ? '2rem' : '55px')};
-  z-index: 9999;
+
+
+@media ${media.mobileM}{
+  font-size: ${({ $open }) => ($open ? '2.5rem' : '65px')};
+  left: ${({ $open }) => ($open ? '85%' : '0')};
+  }
+@media ${media.mobileL}{
+  font-size: ${({ $open }) => ($open ? '3rem' : '75px')};
+  left: ${({ $open }) => ($open ? '90%' : '0')};
+  }
+
+  @media ${media.tablet}{
+  display: none;
+  }
 `;
 
 export const DropDownMenu = styled.div<{ $open: boolean }>`
@@ -171,5 +205,13 @@ color: #ff4ecb;
 font - size: 1.5rem;
 text - decoration: none;
 }
+
+ @media ${media.mobileL}{
+ width: 300px;
+height: 300px;
+top: ${({ $open }) => ($open ? '0px' : '-10px')};
+right: ${({ $open }) => ($open ? '-70px' : '0px')};
+  }
+
 
 `;

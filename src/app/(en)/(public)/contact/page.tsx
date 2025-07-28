@@ -2,6 +2,7 @@
 import styled from 'styled-components';
 import ContactForm from '../../_allPageComponents/forms/ContactForm';
 
+
 const ContactSection = styled.section`
 width: 100%;
 margin: 0 auto;

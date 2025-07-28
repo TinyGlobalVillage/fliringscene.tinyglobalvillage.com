@@ -39,21 +39,21 @@ const FooterGrid = styled.div`
   width: 100%;
   margin-bottom: 50px;
 
-  /* if you want a different ordering on mobile: */
   & > :nth-child(1) { /* Newsletter */ order: 1; }
   & > :nth-child(2) { /* Links      */ order: 3; }
   & > :nth-child(3) { /* Contact    */ order: 2; }
 
-  /* ─── Tablet & up: switch to grid ─── */
   @media ${media.tablet} {
     display: grid;
+    align-items: start;
+    margin-top: 10px;
+
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 2rem;
 
-    /* restore natural source order in grid */
-    & > * {
-      order: initial;
-    }
+  & > :nth-child(1) { /* Newsletter */ order: 1; }
+  & > :nth-child(2) { /* Links      */ order: 2; }
+  & > :nth-child(3) { /* Contact    */ order: 3; }
   }
 `;
 
@@ -66,6 +66,10 @@ const Column = styled.div`
 
   @media ${media.mobileS}{
   gap: .5rem;
+  }
+  @media ${media.tablet}{
+  gap: 1.5rem;
+
   }
 `;
 
@@ -107,6 +111,7 @@ const Button = styled.button<{ $buttonWidth: string }>`
 
 const List = styled.ul`
   font-weight: bold;
+  font-size: 1.25rem;
   list-style: none;
   margin: 0;
   margin-top: 5px;
@@ -244,10 +249,10 @@ export default function Footer() {
         <Column>
           <h3>Quick Links</h3>
           <List>
-            <li><Link href="/shows">SHOWS</Link></li>
+            <li><Link href="/shows">Shows</Link></li>
             {/* <li><Link href="/about">About</Link></li> */}
             {/*<li><Link href="/gallery">Gallery</Link></li>*/}
-            <li><Link href="/contact">CONTACT</Link></li>
+            <li><Link href="/contact">Contact</Link></li>
             {/* <ul> */}
             {/* <li><Link href="/contact">Contact</Link></li>
                   <li><Link href="/faq">FAQ</Link></li>

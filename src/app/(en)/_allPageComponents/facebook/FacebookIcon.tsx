@@ -1,10 +1,11 @@
 // src/components/icons/FacebookIcon.tsx
 import React from 'react';
 import styled from 'styled-components';
+import { media } from '@/styles/breakpoints';
 
 const StyledIcon = styled.svg`
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
   fill: currentColor;
   color: #ff4ecb;
   display: flex;
@@ -13,6 +14,12 @@ const StyledIcon = styled.svg`
   &:hover {
     color: #00bfff;
   }
+@media ${media.mobileM}{
+width: 40px;
+height: 40px;
+}
+
+
 `;
 
 export default function FacebookIcon(props: React.SVGProps<SVGSVGElement>) {

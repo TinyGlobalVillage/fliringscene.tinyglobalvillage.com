@@ -53,13 +53,13 @@ export const mobileL = {
   // COMEDY SIGN
   comedyClubBulbSize: '20px',
   NeonTextFontSize: '6.5rem',
-  boxWidth: '300px',
+  boxWidth: '270px',
 
   //other LightbulbFrame
   bulbSize: '12px',
 
   //CURVED ARROW
-  curvedArrowWidth: '140px',
+  curvedArrowWidth: '110px',
 
   curvedArrowViewBoxMinX: '180',
   curvedArrowViewBoxMinY: '-80',

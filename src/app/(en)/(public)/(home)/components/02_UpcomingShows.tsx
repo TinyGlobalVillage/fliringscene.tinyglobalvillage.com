@@ -30,10 +30,16 @@ background: rgba(0, 0, 0, 0.2);
 
 @media ${media.mobileM}{
   margin-top: 10px;
+  scroll-margin-top: 90px;
   padding: 1.25rem 1rem;
+  }
+@media ${media.mobileL}{
+  scroll-margin-top: 100px;
+
   }
 
 @media ${media.tablet}{
+scroll-margin-top: 115px;
 padding-bottom: 0;
 padding: 1.8rem;
 }

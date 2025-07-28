@@ -7,8 +7,8 @@ export const tablet = {
   //__SECTION___ABOVE FOLD
 
   // "FLIRING"
-  NeonTitleFontSize: '9rem',
-  NeonTitleStrokeWidth: '3.75',
+  NeonTitleFontSize: '11rem',
+  NeonTitleStrokeWidth: '5',
 
   NeonTitleViewBoxMinX: '0',
   NeonTitleViewBoxMinY: '0',
@@ -16,41 +16,41 @@ export const tablet = {
   NeonTitleViewBoxHeight: 160,
 
   // MICROPHONE
-  micWidth: '45px',
+  micWidth: '65px',
 
-  micViewBoxMinX: '-135',
-  micViewBoxMinY: '-150',
+  micViewBoxMinX: '-35',
+  micViewBoxMinY: '-130',
   micViewBoxWidth: '210',
   micViewBoxHeight: '115',
 
   // FACE
-  faceWidth: '7.5rem',
+  faceWidth: '9rem',
 
-  faceViewBoxMinX: '225',
-  faceViewBoxMinY: '0',
+  faceViewBoxMinX: '325',
+  faceViewBoxMinY: '30',
   faceViewBoxWidth: '450',
   faceViwBoxHeight: '450',
 
   // "SCENE"
-  NeonSubtitleFontSize: '10rem',
-  NeonSubtitleStrokeWidth: '5',
+  NeonSubtitleFontSize: '13rem',
+  NeonSubtitleStrokeWidth: '7',
 
   NeonSubtitleViewBoxMinX: '0',
-  NeonSubtitleViewBoxMinY: '0',
+  NeonSubtitleViewBoxMinY: '-25',
   NeonSubtitleViewBoxWidth: '600',
   NeonSubtitleViewBoxHeight: 160,
 
   // COMEDY SIGN
-  comedyClubBulbSize: '18px',
+  comedyClubBulbSize: '25px',
   NeonTextFontSize: '6rem',
-  boxWidth: '330px',
+  boxWidth: '530px',
   bulbSize: '18px',
 
   //CURVED ARROW
-  curvedArrowWidth: '135px',
+  curvedArrowWidth: '180px',
 
-  curvedArrowViewBoxMinX: '265',
-  curvedArrowViewBoxMinY: '-75',
+  curvedArrowViewBoxMinX: '250',
+  curvedArrowViewBoxMinY: '-55',
   curvedArrowViewBoxWidth: '500',
   curvedArrowViewBoxHeight: '649',
 

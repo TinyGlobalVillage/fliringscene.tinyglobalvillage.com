@@ -33,8 +33,8 @@ export const media = {
 export const logo_size = {
   mobileS: 50,
   mobileM: 50,
-  mobileL: 50,
-  tablet: 48,
+  mobileL: 70,
+  tablet: 80,
   laptop: 54,
   desktop: 64,
 

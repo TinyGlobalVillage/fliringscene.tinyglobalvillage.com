@@ -23,6 +23,15 @@ background: rgba(0, 0, 0, 0.7);
 @media ${media.mobileM}{
 margin-top: 10px;
 }
+@media ${media.mobileL}{
+margin-top: 30px;
+gap: 1rem;
+padding: 2rem;
+}
+
+@media ${media.tablet}{
+margin-top: 50px;
+}
 `;
 
 const Form = styled.form`
@@ -34,7 +43,7 @@ gap: 1rem;
 const Field = styled.div`
 display: flex;
 flex-direction: column;
-gap: 1rem;
+gap: .5rem;
 
 label {
 font-size: 1rem;
@@ -43,8 +52,18 @@ font-weight: bold;
 color: #ff4ecb;
 text-align: left;
 
-@media ${media.mobileM}{
-font-size: 1.25rem;
+  @media ${media.mobileM}{
+  font-size: 1.25rem;
+  }
+  @media ${media.mobileL}{
+  margin-top: 5px;
+  font-size: 1.5rem;
+  }
+
+  @media ${media.tablet}{
+  margin-bottom: 0;
+  margin-top: 10px;
+  font-size: 1.5rem;
 }
 
 }
@@ -66,6 +85,15 @@ background: #fff;
 padding: .5rem 1rem;
 font-size: 1.25rem;
 }
+@media ${media.mobileL}{
+font-size: 1.5rem;
+}
+
+@media ${media.tablet}{
+line-height: 1;
+font-size: 1.75rem;
+
+}
 
 }
 
@@ -73,6 +101,13 @@ textarea {
 resize: vertical;
 height: auto;
 min-height:6rem;
+}
+
+@media ${media.mobileL}{
+gap: .75rem;
+}
+@media ${media.tablet}{
+gap: 1rem;
 }
 `;
 
@@ -96,6 +131,16 @@ cursor: default;
 margin-bottom: 15px;
 padding: .75rem 2rem;
 font-size: 1rem;
+}
+@media ${media.mobileL}{
+margin-bottom: 13px;
+margin-top: 20px;
+padding: 1rem 2rem;
+font-size: 1.25rem;
+}
+@media ${media.tablet}{
+padding: 1rem 2.25rem;
+font-size: 1.5rem;
 }
 `;
 
