@@ -1,33 +1,16 @@
 'use client';
 
-import GlobalStyle from '@/styles/GlobalStyles';
+import GlobalStyle from '@/styles/GlobalStyle';
 import StyledComponentsRegistry from '@/styles/StyledComponentsRegistry';
-import styled from 'styled-components';
+
 import Image from 'next/image';
 import NavBar from './(en)/_allPageComponents/navigation/NavBar';
 import ScrollToPreviousSectionButton from './(en)/_allPageComponents/buttons/ScrollToPreviousSectionButton';
 import Footer from './(en)/_allPageComponents/footer/Footer';
 import Script from 'next/script';
-import { metadata } from './(en)/(public)/(home)/metadata';
+import { Background } from '@/styles/layoutStyles';
 
-export {metadata};
 
-const Background = styled.div`
-  position:fixed;
-  inset:0;
-  z-index:-1;
-  pointer-events:none;
-  overflow:hidden;
-`;
-
-const Foreground = styled.div`
-`;
-
-const ScrollArrowWrapper = styled.div`
-// display: flex;
-// align-items: center;
-// justify-content: end;
-`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -65,13 +48,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             />
           </Background>
           <NavBar />
-          <Foreground>
-            <ScrollArrowWrapper>
+          <div>
               <ScrollToPreviousSectionButton />
-            </ScrollArrowWrapper>
             <main>{children}</main>
             <Footer />
-          </Foreground>
+          </div>
         </StyledComponentsRegistry>
       </body>
     </html>
