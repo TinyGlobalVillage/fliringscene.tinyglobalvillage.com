@@ -63,7 +63,7 @@ export default function NeonSubtitleFontSize({
       {/* this CSS will only ever apply inside this one SVG */}
   <style>
     {`
-      /* default glow, only on <text> under #subtitle-scene */
+      
       #subtitle-scene text {
         filter: url(#glow);
       }
