@@ -69,11 +69,12 @@ margin-bottom: -10px;
 @media ${media.laptop}{
 margin-top: 15px;
 margin-bottom: 0px;
+margin-right: 50px;
 }
 @media ${media.laptopL}{
 margin-top: 25px;
 gap: 0rem;
-margin-right: 50px
+margin-right: 50px;
 }
 
 `;
@@ -83,7 +84,7 @@ display: flex;
 flex-direction: row;
 
 @media ${media.laptop}{
-margin-right: 22px;
+margin-right: 70px;
 }
 @media ${media.laptopL}{
 margin-right: 70px;
