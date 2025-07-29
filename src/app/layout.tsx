@@ -8,6 +8,9 @@ import NavBar from './(en)/_allPageComponents/navigation/NavBar';
 import ScrollToPreviousSectionButton from './(en)/_allPageComponents/buttons/ScrollToPreviousSectionButton';
 import Footer from './(en)/_allPageComponents/footer/Footer';
 import Script from 'next/script';
+import { metadata } from './(en)/(public)/(home)/metadata';
+
+export {metadata};
 
 const Background = styled.div`
   position:fixed;
