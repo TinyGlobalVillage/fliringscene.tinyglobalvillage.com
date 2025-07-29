@@ -53,7 +53,7 @@ export default function NeonSubtitleFontSize({
           </filter>
 
           <filter id="glow-large" x="-300%" y="-300%" width="600%" height="600%">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blur" />
+            <feGaussianBlur in="SourceGraphic" stdDeviation="25" result="blur" />
             <feMerge>
               <feMergeNode in="blur" />
               <feMergeNode in="SourceGraphic" />
@@ -63,7 +63,7 @@ export default function NeonSubtitleFontSize({
       {/* this CSS will only ever apply inside this one SVG */}
   <style>
     {`
-      
+
       #subtitle-scene text {
         filter: url(#glow);
       }

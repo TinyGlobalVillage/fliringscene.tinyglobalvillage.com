@@ -39,7 +39,7 @@ export const laptopL = {
 
   // "SCENE"
   NeonSubtitleFontSize: '3.5rem',
-  NeonSubtitleStrokeWidth: '3',
+  NeonSubtitleStrokeWidth: '2.5',
 
   NeonSubtitleViewBoxMinX: '0',
   NeonSubtitleViewBoxMinY: '10',

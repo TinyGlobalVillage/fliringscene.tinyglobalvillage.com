@@ -39,7 +39,7 @@ export const fourK = {
 
   // "SCENE"
   NeonSubtitleFontSize: '20rem',
-  NeonSubtitleStrokeWidth: '13',
+  NeonSubtitleStrokeWidth: '15',
 
   NeonSubtitleViewBoxMinX: '0',
   NeonSubtitleViewBoxMinY: '10',
