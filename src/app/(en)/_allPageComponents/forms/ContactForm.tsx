@@ -30,11 +30,11 @@ padding: 2rem;
 }
 
 @media ${media.laptop}{
-margin-top: 50px;
+margin-top: 20px;
 }
 
 @media ${media.fourK}{
-margin-top: 130px;
+margin-top: 100px;
 }
 `;
 

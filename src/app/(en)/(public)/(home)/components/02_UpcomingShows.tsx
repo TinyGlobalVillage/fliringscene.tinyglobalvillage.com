@@ -19,6 +19,7 @@ justify-content: center;
 
 scroll-margin-top: 75px;
 width: 90%;
+max-width: 900px;
 height: auto;
 margin: 0 auto;
 margin-bottom: 100px;
@@ -42,16 +43,16 @@ scroll-margin-top: 100px;
 
 @media ${media.tablet}{
 scroll-margin-top: 110px;
+padding: .25rem 8rem 35px;
 margin-bottom: 150px;
 }
 
 @media ${media.laptop}{
 height: 700px;
-padding: .25rem 11rem 35px;
+padding: .25rem 3rem 35px;
 }
 @media ${media.laptopL}{
-height: 700px;
-padding: 1rem 23rem 2rem;
+padding: 1rem 3rem 2rem;
 }
 @media ${media.fourK}{
 height: auto;

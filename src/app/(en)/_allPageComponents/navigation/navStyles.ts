@@ -138,7 +138,7 @@ export const NavItem = styled(Link)`
     font-size: 2rem;
   }
   @media ${media.fourK} {
-    font-size: 4rem;
+    font-size: 2.5rem;
   }
 
 `;

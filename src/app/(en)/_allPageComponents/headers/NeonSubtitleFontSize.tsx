@@ -9,9 +9,9 @@ interface NeonSubtitleFontSizeProps {
   color?: string;
 }
 
-const Wrapper = styled.div<{ $fontSize: string}>`
+const Wrapper = styled.div<{ $fontSize: string }>`
 // border: 2px solid red;
-font-size: ${({$fontSize}) => $fontSize};
+font-size: ${({ $fontSize }) => $fontSize};
 
 display: flex;
 justify-content: center;
@@ -36,19 +36,46 @@ export default function NeonSubtitleFontSize({
 
   return (
     <Wrapper $fontSize={NeonSubtitleFontSize}>
-      <svg width="100%" viewBox={`${NeonSubtitleViewBoxMinX} ${NeonSubtitleViewBoxMinY} ${NeonSubtitleViewBoxWidth} ${NeonSubtitleViewBoxHeight}`} preserveAspectRatio="xMidYMid meet">
+      <svg
+        id="subtitle-scene"
+        width="100%"
+        viewBox={`${NeonSubtitleViewBoxMinX} ${NeonSubtitleViewBoxMinY} ${NeonSubtitleViewBoxWidth} ${NeonSubtitleViewBoxHeight}`}
+        preserveAspectRatio="xMidYMid meet"
+      >
         <defs>
-          <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
-            <feGaussianBlur stdDeviation="2" result="blur1" />
-            <feGaussianBlur stdDeviation="4" result="blur2" />
+
+          <filter id="glow" x="-200%" y="-200%" width="400%" height="400%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" />
             <feMerge>
-              <feMergeNode in="blur2" />
-              <feMergeNode in="blur1" />
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+
+          <filter id="glow-large" x="-300%" y="-300%" width="600%" height="600%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
               <feMergeNode in="SourceGraphic" />
             </feMerge>
           </filter>
         </defs>
+      {/* this CSS will only ever apply inside this one SVG */}
+  <style>
+    {`
+      /* default glow, only on <text> under #subtitle-scene */
+      #subtitle-scene text {
+        filter: url(#glow);
+      }
 
+      /* swap in big glow at ≥1440px */
+      @media screen and (min-width: 1440px) {
+        #subtitle-scene text {
+          filter: url(#glow-large) !important;
+        }
+      }
+    `}
+  </style>
         <text
           x="50%"
           y="50%"

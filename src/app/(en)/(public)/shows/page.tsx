@@ -12,6 +12,7 @@ flex-direction: column;
 align-items: center;
 
 width: 90%;
+max-width: 900px;
 margin: 70px auto 100px;
 
 padding: .25rem 1.3rem 20px;
@@ -39,15 +40,15 @@ margin-bottom: 200px;
 }
 
 @media ${media.laptop}{
-height: 650px;
+height: 700px;
 margin-top: 110px;
 margin-bottom: 200px;
-padding: .25rem 11rem 35px;
+padding: .25rem 8rem 35px;
 }
 
 @media ${media.laptopL}{
 height: 750px;
-padding: 1rem 23rem 2rem;
+padding: 1rem 3rem 2rem;
 }
 
 @media ${media.fourK}{
