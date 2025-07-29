@@ -1,6 +1,6 @@
 'use client'
 import styled from 'styled-components';
-
+import { media } from '@/styles/breakpoints';
 import useResponsiveResize from '@/hook-utils/useResponsiveResize';
 import { scaleMap } from '@/styles/scaleMap/_scaleMap';
 
@@ -19,6 +19,15 @@ const SvgWrapper = styled.div`
   margin: 0 auto;
   svg {
     overflow: visible;
+  }
+
+  @media ${media.laptop}{
+  margin-top: -20px;
+  margin-bottom: -20px;
+  }
+  @media ${media.laptopL}{
+  margin-top: 0px;
+  margin-bottom: 0px;
   }
 `;
 

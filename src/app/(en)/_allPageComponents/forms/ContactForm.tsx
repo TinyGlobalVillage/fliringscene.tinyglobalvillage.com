@@ -30,7 +30,10 @@ padding: 2rem;
 }
 
 @media ${media.laptop}{
-margin-top: 20px;
+margin-top: 10px;
+}
+@media ${media.laptopL}{
+margin-top: 50px;
 }
 
 @media ${media.fourK}{
@@ -42,6 +45,10 @@ const Form = styled.form`
 display: flex;
 flex-direction: column;
 gap: 1.25rem;
+
+@media ${media.laptop}{
+gap: .75rem;
+}
 `;
 
 const Field = styled.div`
@@ -74,7 +81,7 @@ text-align: left;
 
   @media ${media.laptop}{
   margin-top: 10px;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
   @media ${media.fourK}{
   margin-top: 20px;
@@ -105,8 +112,10 @@ font-size: 1.5rem;
 }
 
 @media ${media.laptop}{
+font-size: 1.25rem;
+}
+@media ${media.laptopL}{
 font-size: 1.75rem;
-
 }
 
 }
@@ -153,8 +162,9 @@ padding: 1rem 2rem;
 font-size: 1.25rem;
 }
 @media ${media.laptop}{
-padding: 1rem 2.25rem;
-font-size: 1.5rem;
+padding: .75rem 2.5rem;
+font-size: 1rem;
+margin-bottom: 0px;
 }
 `;
 

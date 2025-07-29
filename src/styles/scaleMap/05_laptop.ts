@@ -82,6 +82,6 @@ export const laptop = {
 
   // CONTACT PAGE
 
-  NeonContactPageTitle: '6rem',
+  NeonContactPageTitle: '5rem',
   NeonContactPageTitleViewBoxHeight: '90',
 };

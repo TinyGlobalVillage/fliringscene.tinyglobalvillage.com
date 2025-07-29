@@ -4,11 +4,11 @@ export const laptopL = {
   logo_size: 65,
   scrollButtonSize: 65,
 
-  NeonSectionTitleFontSize: '6.5rem',
+  NeonSectionTitleFontSize: '9rem',
   NeonSectionTitleViewBoxMinX: '0',
   NeonSectionTitleViewBoxMinY: '-20',
-  NeonSectionTitleViewBoxWidth: '1050',
-  NeonSectionTitleViewBoxHeight: '100',
+  NeonSectionTitleViewBoxWidth: '1550',
+  NeonSectionTitleViewBoxHeight: '300',
 
   //__SECTION___ABOVE FOLD
 
@@ -24,7 +24,7 @@ export const laptopL = {
     // MICROPHONE
   micWidth: '55px',
 
-  micViewBoxMinX: '-120',
+  micViewBoxMinX: '-220',
   micViewBoxMinY: '-370',
   micViewBoxWidth: '200',
   micViewBoxHeight: '615',
@@ -32,14 +32,14 @@ export const laptopL = {
   // FACE
   faceWidth: '130px',
 
-  faceViewBoxMinX: '250',
+  faceViewBoxMinX: '150',
   faceViewBoxMinY: '20',
   faceViewBoxWidth: '400',
   faceViewBoxHeight: '500',
 
   // "SCENE"
-  NeonSubtitleFontSize: '3.25rem',
-  NeonSubtitleStrokeWidth: '2',
+  NeonSubtitleFontSize: '3.5rem',
+  NeonSubtitleStrokeWidth: '3',
 
   NeonSubtitleViewBoxMinX: '0',
   NeonSubtitleViewBoxMinY: '10',

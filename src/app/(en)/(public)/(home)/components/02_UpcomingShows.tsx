@@ -48,11 +48,13 @@ margin-bottom: 150px;
 }
 
 @media ${media.laptop}{
-height: 700px;
-padding: .25rem 3rem 35px;
+height: 650px;
+padding: .25rem 11rem 35px;
 }
 @media ${media.laptopL}{
-padding: 1rem 3rem 2rem;
+height: 700px;
+scroll-margin-top: 150px;
+padding: 1rem 8rem 3rem;
 }
 @media ${media.fourK}{
 height: auto;
@@ -75,6 +77,10 @@ padding-bottom: 5px;
 @media ${media.laptop}{
 padding-top: 15px;
 padding-bottom: 15px;
+}
+@media ${media.laptopL}{
+padding-top: 10px;
+padding-bottom: 0px;
 }
 
 @media ${media.fourK}{

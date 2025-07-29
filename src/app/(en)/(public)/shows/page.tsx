@@ -40,15 +40,16 @@ margin-bottom: 200px;
 }
 
 @media ${media.laptop}{
-height: 700px;
+height: 650px;
 margin-top: 110px;
 margin-bottom: 200px;
-padding: .25rem 8rem 35px;
+padding: .25rem 11rem 35px;
 }
 
 @media ${media.laptopL}{
-height: 750px;
-padding: 1rem 3rem 2rem;
+height: 700px;
+margin-top: 150px;
+padding: 1rem 9rem 3rem;
 }
 
 @media ${media.fourK}{
@@ -75,6 +76,12 @@ margin-bottom: 15px;
 padding-top: 15px;
 padding-bottom: 10px;
 }
+
+@media ${media.laptopL}{
+padding-top: 0px;
+padding-bottom: 0px;
+}
+
 @media ${media.fourK}{
 padding-top: 0px;
 padding-bottom: 25px;

@@ -33,7 +33,7 @@ margin-bottom: 300px;
 }
 
 @media ${media.laptop} {
-margin-top: 180px;
+margin-top: 110px;
 margin-bottom: 300px;
 }
 @media ${media.laptopL} {
