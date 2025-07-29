@@ -12,7 +12,6 @@ import { PulsingWrapper } from '@/app/(en)/_allPageComponents/animations/pulseEf
 
 const AboveFoldWrapper = styled.section`
 width: 100%;
-// height: 100dvh;
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -20,35 +19,62 @@ margin-top: 70px;
 margin-bottom: 100px;
 
 @media ${media.mobileM} {
-  margin-top: 80px;
-  }
+margin-top: 90px;
+margin-bottom: 200px;
+}
+
+@media ${media.mobileL} {
+margin-top: 160px;
+}
+
 @media ${media.tablet} {
-  margin-top: 120px;
-  padding-top: 0;
-  }
-`;
+margin-top: 180px;
+margin-bottom: 300px;
+}
 
-const Heading = styled.h1`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: -2px;
-
-  @media ${media.mobileM}{
-  margin-bottom: 5px;
-  }
+@media ${media.laptop} {
+margin-top: 180px;
+margin-bottom: 300px;
+}
+@media ${media.laptopL} {
+margin-top: 180px;
+margin-bottom: 300px;
+}
 
 `;
 
-const TitleWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  gap: .75rem;
+const SubtitleWrapper = styled.div`
+display: flex;
+flex-wrap: nowrap;
+align-items: center;
+justify-content: center;
+gap: 0.5rem;
+width: 100%;
+max-width: 700px;
+padding: 0rem 1rem 0rem 1.5rem;
+margin-bottom: -20px;
 
-  @media ${media.tablet}{
-
-  }
+@media ${media.mobileM}{
+margin-top: -15px;
+gap: 0;
+}
+@media ${media.mobileL}{
+margin-top: -10px;
+margin-bottom: -20px;
+}
+@media ${media.tablet}{
+margin-top: 5px;
+margin-bottom: -10px;
+}
+@media ${media.laptop}{
+margin-top: 15px;
+margin-bottom: 0px;
+}
+@media ${media.laptopL}{
+margin-top: 25px;
+gap: 0rem;
+margin-right: 50px
+}
 
 `;
 
@@ -56,44 +82,50 @@ const FaceMicWrapper = styled.div`
 display: flex;
 flex-direction: row;
 
- @media ${media.tablet} {
-  margin-right: -20px;
-  }
-
-  @media ${media.mobileM} {
-    margin-right: 0px;
-    }
+@media ${media.laptop}{
+margin-right: 22px;
+}
+@media ${media.laptopL}{
+margin-right: 70px;
+}
 `;
 
+const ComedyClubSignArrowWrapper = styled.div`
+display: flex;
+flex-direction: column;
+`;
 
 export default function AboveTheFold() {
   return (
 
     <AboveFoldWrapper>
-      <Heading>
 
-      <NeonTitleFontSize color="#ff66cc" >FLIRING</NeonTitleFontSize>
+      <div>
+        <NeonTitleFontSize color="#ff66cc" >FLIRING</NeonTitleFontSize>
+      </div>
 
-      <TitleWrapper>
+      <SubtitleWrapper>
+
         <FaceMicWrapper>
           <MicrophoneSVG />
           <NeonFaceSVG />
         </FaceMicWrapper>
-
         <NeonSubtitleFontSize color="#00bfff" >SCENE</NeonSubtitleFontSize>
-      </TitleWrapper>
-      </Heading>
+      </SubtitleWrapper>
 
-      <ComedyClubSign />
-      <PulsingWrapper
-        $color="#fe9e17"
-        $scale={1.02}
-        $duration="3s"
-        $easing="ease-in"
-        $iterationCount="infinite"
-      >
-        <NeonArrowSVGButton />
-      </PulsingWrapper>
+      <ComedyClubSignArrowWrapper>
+        <ComedyClubSign />
+        <PulsingWrapper
+          $color="#fe9e17"
+          $scale={1.02}
+          $duration="3s"
+          $easing="ease-in"
+          $iterationCount="infinite"
+        >
+          <NeonArrowSVGButton />
+        </PulsingWrapper>
+      </ComedyClubSignArrowWrapper>
+
     </AboveFoldWrapper>
   );
 }

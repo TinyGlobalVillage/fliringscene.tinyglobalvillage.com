@@ -1,4 +1,4 @@
-export const laptop = {
+export const fourK = {
   //__ALL SECTIONS___
 
   logo_size: 65,
@@ -13,16 +13,16 @@ export const laptop = {
   //__SECTION___ABOVE FOLD
 
   // "FLIRING"
-  NeonTitleFontSize: '10.5rem',
-  NeonTitleStrokeWidth: '5',
+  NeonTitleFontSize: '13rem',
+  NeonTitleStrokeWidth: '6',
 
   NeonTitleViewBoxMinX: '0',
   NeonTitleViewBoxMinY: '0',
   NeonTitleViewBoxWidth: '600',
   NeonTitleViewBoxHeight: 105,
 
-   // MICROPHONE
-  micWidth: '50px',
+    // MICROPHONE
+  micWidth: '60px',
 
   micViewBoxMinX: '-120',
   micViewBoxMinY: '-370',
@@ -30,35 +30,35 @@ export const laptop = {
   micViewBoxHeight: '615',
 
   // FACE
-  faceWidth: '110px',
+  faceWidth: '150px',
 
-  faceViewBoxMinX: '250',
+  faceViewBoxMinX: '220',
   faceViewBoxMinY: '20',
-  faceViewBoxWidth: '400',
+  faceViewBoxWidth: '450',
   faceViewBoxHeight: '500',
 
   // "SCENE"
-  NeonSubtitleFontSize: '2.8rem',
-  NeonSubtitleStrokeWidth: '2',
+  NeonSubtitleFontSize: '20rem',
+  NeonSubtitleStrokeWidth: '13',
 
   NeonSubtitleViewBoxMinX: '0',
-  NeonSubtitleViewBoxMinY: '5',
-  NeonSubtitleViewBoxWidth: '170',
-  NeonSubtitleViewBoxHeight: 90,
+  NeonSubtitleViewBoxMinY: '10',
+  NeonSubtitleViewBoxWidth: '850',
+  NeonSubtitleViewBoxHeight: 300,
 
   // COMEDY SIGN
-  comedyClubBulbSize: '20px',
+  comedyClubBulbSize: '25px',
   NeonTextFontSize: '6.5rem',
-  boxWidth: '325px',
+  boxWidth: '450px',
 
   //other LightbulbFrame
   bulbSize: '12px',
 
   //CURVED ARROW
-  curvedArrowWidth: '110px',
+  curvedArrowWidth: '150px',
 
-  curvedArrowViewBoxMinX: '-350',
-  curvedArrowViewBoxMinY: '-75',
+  curvedArrowViewBoxMinX: '-325',
+  curvedArrowViewBoxMinY: '-65',
   curvedArrowViewBoxWidth: '500',
   curvedArrowViewBoxHeight: '649',
 
@@ -71,8 +71,8 @@ export const laptop = {
 
   //__SECTION___FOOTER
   footerHeaderFontSize: '1.5rem',
-  footerButtonWidth: '200px',
-  inputWidth: '200px',
+  footerButtonWidth: '250px',
+  inputWidth: '250px',
 
   // ABOUT Page
 

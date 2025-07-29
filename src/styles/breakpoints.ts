@@ -11,60 +11,25 @@
  */
 
 export const breakpoints = {
-  mobileS: 320, // typical height 568
-  mobileM: 375, // 667
-  mobileL: 425, // 812
-  tablet: 768, // 1024
-  laptop: 1024, // 768
-  desktop: 1280, // 720
+  // smallest mobile typical height 320 x 568
+
+  // dev tools has built in, so go one pixel higher
+  mobileS: 320,     // typical height ≤ 568px (e.g. iPhone SE, 320x568)
+  mobileM: 375,    // height ≈ 667px (e.g. iPhone 6/7/8)
+  mobileL: 425,    // height ≈ 812px (e.g. iPhone X, 11 Pro)
+  tablet: 768,    // height ≈ 1024px (e.g. iPad Mini, iPad portrait)
+  laptop: 1024,    // height ≈ 1366px (e.g. iPad Pro landscape, small laptops)
+  laptopL: 1440,   // height ≥ 900–1080px (HD+ and up)
+  fourK: 2560,
 } as const;
 
 export type BreakpointKey = keyof typeof breakpoints;
 
 export const media = {
-  mobileS: `(min-width: ${breakpoints.mobileS}px)`,
   mobileM: `(min-width: ${breakpoints.mobileM}px)`,
   mobileL: `(min-width: ${breakpoints.mobileL}px)`,
   tablet: `(min-width: ${breakpoints.tablet}px)`,
   laptop: `(min-width: ${breakpoints.laptop}px)`,
-  desktop: `(min-width: ${breakpoints.desktop}px)`,
+  laptopL: `(min-width: ${breakpoints.laptopL}px)`,
+  fourK: `(min-width: ${breakpoints.fourK}px)`,
 };
-
-export const logo_size = {
-  mobileS: 50,
-  mobileM: 50,
-  mobileL: 70,
-  tablet: 80,
-  laptop: 54,
-  desktop: 64,
-
-} as const;
-
-// @media ${media.mobileXS}{
-//   }
-
-//   @media ${media.mobileSM}{
-
-//   }
-
-//   @media ${media.mobile}{
-
-//   }
-
-//   @media ${media.tablet}{
-
-//   }
-
-//   @media ${media.tabletPortrait}{
-
-//   }
-
-//   @media ${media.tablet}{
-
-//   }
-//   @media ${media.desktop}{
-
-//   }
-//   @media ${media.desktopLg}{
-
-//   }

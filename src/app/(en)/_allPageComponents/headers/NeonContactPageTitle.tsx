@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 import useResponsiveResize from '@/hook-utils/useResponsiveResize';
-import { scaleMap } from '@/styles/scaleMap/00_scaleMap';
+import { scaleMap } from '@/styles/scaleMap/_scaleMap';
 
 
 interface NeonContactPageTitleProps {

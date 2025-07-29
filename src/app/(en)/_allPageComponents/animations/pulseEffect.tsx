@@ -19,7 +19,7 @@ interface PulseProps {
   $duration?: string;         // e.g. '2s'
   $easing?: string;           // e.g. 'ease-in-out'
   $iterationCount?: string;
-  
+
 }
 
 export const PulsingWrapper = styled.div<PulseProps>`
@@ -27,4 +27,5 @@ export const PulsingWrapper = styled.div<PulseProps>`
              ${({ $duration = '4s' }) => $duration}
              ${({ $easing = 'ease-in-out' }) => $easing}
              ${({ $iterationCount = 'infinite' }) => $iterationCount};
-`;
+
+             `;

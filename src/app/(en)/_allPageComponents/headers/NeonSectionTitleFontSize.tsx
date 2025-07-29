@@ -1,6 +1,6 @@
 'use client';
 import styled from 'styled-components';
-import { scaleMap } from '@/styles/scaleMap/00_scaleMap';
+import { scaleMap } from '@/styles/scaleMap/_scaleMap';
 import useResponsiveResize from '@/hook-utils/useResponsiveResize';
 
 
@@ -12,8 +12,6 @@ interface NeonSectionTitleFontSizeProps {
 
 const SvgWrapper = styled.div`
 // border: 1px solid red;
-width: 80%;
-margin-bottom: 20px;
 `;
 
 export default function NeonSectionTitleFontSize({
@@ -22,11 +20,11 @@ export default function NeonSectionTitleFontSize({
     fontWeight = 700,
 }: NeonSectionTitleFontSizeProps) {
     const { currentBreakpoint } = useResponsiveResize();
-    const { NeonSectionTitleFontSize } = scaleMap[currentBreakpoint];
+    const { NeonSectionTitleFontSize, NeonSectionTitleViewBoxMinX, NeonSectionTitleViewBoxMinY, NeonSectionTitleViewBoxWidth, NeonSectionTitleViewBoxHeight } = scaleMap[currentBreakpoint];
 
     return (
         <SvgWrapper>
-            <svg width='100%' viewBox='0 -20 1050 100' preserveAspectRatio='xMidYMid meet'>
+            <svg width='100%' viewBox={`${NeonSectionTitleViewBoxMinX} ${NeonSectionTitleViewBoxMinY} ${NeonSectionTitleViewBoxWidth} ${NeonSectionTitleViewBoxHeight}`} preserveAspectRatio='xMidYMid meet'>
                 <defs>
                     <filter id="neonFillGlow" x="-100%" y="-100%" width="300%" height="300%">
                         <feGaussianBlur in="SourceGraphic" stdDeviation="4.5" result="blur1"

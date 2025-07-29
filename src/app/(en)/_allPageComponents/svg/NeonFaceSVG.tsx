@@ -1,22 +1,23 @@
 'use client';
-import SvgWrapper from './SvgWrapper';
+
 import useResponsiveResize from '@/hook-utils/useResponsiveResize';
-import { scaleMap } from '@/styles/scaleMap/00_scaleMap';
+import { scaleMap } from '@/styles/scaleMap/_scaleMap';
+import SvgWrapper from './SvgWrapper';
 
 
 const NeonFaceSVG = () => {
   const { currentBreakpoint } = useResponsiveResize();
-  const { faceWidth, faceViewBoxMinX, faceViewBoxMinY, faceViewBoxWidth, faceViwBoxHeight } = scaleMap[currentBreakpoint];
+  const { faceWidth, faceViewBoxMinX, faceViewBoxMinY, faceViewBoxWidth, faceViewBoxHeight } = scaleMap[currentBreakpoint];
 
   return (
-    <SvgWrapper>
+    <SvgWrapper $width={faceWidth}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        viewBox={`${faceViewBoxMinX} ${faceViewBoxMinY} ${faceViewBoxWidth} ${faceViwBoxHeight}`}
+        viewBox={`${faceViewBoxMinX} ${faceViewBoxMinY} ${faceViewBoxWidth} ${faceViewBoxHeight}`}
         preserveAspectRatio="xMidYMid meet"
         style={{
-          width: faceWidth,
-          height: 'auto',
+          // width: faceWidth,
+          // height: 'auto',
           overflow: 'visible',
         }}
       >

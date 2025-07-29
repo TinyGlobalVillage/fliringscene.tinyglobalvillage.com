@@ -1,13 +1,15 @@
 export const mobileS = {
   //__ALL SECTIONS___
 
-  // Section Title
-  NeonSectionTitleFontSize: '6.5rem',
+  logo_size: 40,
+  scrollButtonSize: 40,
 
-  // **** up for deletion ****
-  // fontSize: '6.5rem',
-  // viewBoxHeight: 105,
-  // svgViewBoxHeight: 90,
+  // Section Title
+  NeonSectionTitleFontSize: '5.5rem',
+  NeonSectionTitleViewBoxMinX: '0',
+  NeonSectionTitleViewBoxMinY: '-25',
+  NeonSectionTitleViewBoxWidth: '1050',
+  NeonSectionTitleViewBoxHeight: '100',
 
   //__SECTION___ABOVE FOLD
 
@@ -21,29 +23,29 @@ export const mobileS = {
   NeonTitleViewBoxHeight: 105,
 
   // MICROPHONE
-  micWidth: '1.4px',
+  micWidth: '30px',
 
-  micViewBoxMinX: '-230',
-  micViewBoxMinY: '-100',
-  micViewBoxWidth: '11',
-  micViewBoxHeight: '115',
+  micViewBoxMinX: '-110',
+  micViewBoxMinY: '-270',
+  micViewBoxWidth: '200',
+  micViewBoxHeight: '615',
 
   // FACE
-  faceWidth: '65px',
+  faceWidth: '70px',
 
-  faceViewBoxMinX: '-30',
-  faceViewBoxMinY: '60',
-  faceViewBoxWidth: '450',
-  faceViwBoxHeight: '450',
+  faceViewBoxMinX: '250',
+  faceViewBoxMinY: '100',
+  faceViewBoxWidth: '400',
+  faceViewBoxHeight: '500',
 
   // "SCENE"
-  NeonSubtitleFontSize: '8.9rem',
-  NeonSubtitleStrokeWidth: '5',
+  NeonSubtitleFontSize: '2.8rem',
+  NeonSubtitleStrokeWidth: '2',
 
-  NeonSubtitleViewBoxMinX: '-20',
-  NeonSubtitleViewBoxMinY: '0',
-  NeonSubtitleViewBoxWidth: '600',
-  NeonSubtitleViewBoxHeight: 105,
+  NeonSubtitleViewBoxMinX: '0',
+  NeonSubtitleViewBoxMinY: '20',
+  NeonSubtitleViewBoxWidth: '170',
+  NeonSubtitleViewBoxHeight: 90,
 
   // COMEDY SIGN
   comedyClubBulbSize: '15px',
@@ -56,8 +58,8 @@ export const mobileS = {
   //CURVED ARROW
   curvedArrowWidth: '100px',
 
-  curvedArrowViewBoxMinX: '200',
-  curvedArrowViewBoxMinY: '-80',
+  curvedArrowViewBoxMinX: '-300',
+  curvedArrowViewBoxMinY: '-90',
   curvedArrowViewBoxWidth: '500',
   curvedArrowViewBoxHeight: '649',
 

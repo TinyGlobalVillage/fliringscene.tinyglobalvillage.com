@@ -3,22 +3,23 @@
 
 import { useEffect, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
-import { pickLogoSize } from '@/hook-utils/pickLogoSize';
 import { PulsingWrapper } from '../animations/pulseEffect';
 import Image from 'next/image';
-import { NavbarContainer, LogoLink, LogoWrapper, Links, MenuToggle, DropDownMenu } from './navStyles';
+import { NavbarContainer, NavWrapper, LogoLink, LogoWrapper, Links, MenuToggle, DropDownMenu } from './navStyles';
 import NavLinks from './NavLinks';
-import { logo_size } from '@/styles/breakpoints';
+import useResponsiveResize from '@/hook-utils/useResponsiveResize';
+import { scaleMap } from '@/styles/scaleMap/_scaleMap';
 
 
 export default function NavBar() {
+  const { currentBreakpoint } = useResponsiveResize();
+  const { logo_size } = scaleMap[currentBreakpoint]
 
   const pathname = usePathname();
   const router = useRouter();
 
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [logoSize, setLogoSize] = useState<number>(logo_size.mobileS);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -27,13 +28,6 @@ export default function NavBar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-
-  useEffect(() => {
-    const onResize = () => setLogoSize(pickLogoSize(window.innerWidth));
-    onResize();
-    window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
-  }, []);
 
   const handleLogoClick = () => {
     if (pathname === '/') {
@@ -45,41 +39,43 @@ export default function NavBar() {
 
   return (
     <NavbarContainer $scrolled={scrolled}>
+      <NavWrapper>
 
-      {!menuOpen &&
-        <PulsingWrapper>
-          <LogoWrapper $open={menuOpen} $size={logoSize}>
-            <LogoLink $open={menuOpen} href="/" onClick={handleLogoClick}>
-              <Image
-                src="/images/icons/fliring-scene-logo-circle.png"
-                alt="FliringLogo"
-                fill
-                style={{ objectFit: 'contain' }}
-                priority
-              />
-            </LogoLink>
-          </LogoWrapper>
-        </PulsingWrapper>
-      }
+        {!menuOpen &&
+          <PulsingWrapper>
+            <LogoWrapper $open={menuOpen} $size={logo_size}>
+              <LogoLink $open={menuOpen} href="/" onClick={handleLogoClick}>
+                <Image
+                  src="/images/icons/fliring-scene-logo-circle.png"
+                  alt="FliringLogo"
+                  fill
+                  style={{ objectFit: 'contain' }}
+                  priority
+                />
+              </LogoLink>
+            </LogoWrapper>
+          </PulsingWrapper>
+        }
 
-      <MenuToggle $open={menuOpen} onClick={() => setMenuOpen(v => !v)}>
+        <MenuToggle $open={menuOpen} onClick={() => setMenuOpen(v => !v)}>
 
-        {menuOpen ? '✕' : '☰'}
+          {menuOpen ? '✕' : '☰'}
 
-      </MenuToggle>
+        </MenuToggle>
 
 
-      {/* desktop links */}
-      <Links>
-        <NavLinks showHome={false}/>
-      </Links>
+        {/* desktop links */}
+        <Links>
+          <NavLinks showHome={false} />
+        </Links>
 
-      {/* mobile dropdown */}
-      <DropDownMenu $open={menuOpen}
-      onClick={()=> setMenuOpen(false)}
-      >
-        <NavLinks showHome={true} />
-      </DropDownMenu>
+        {/* mobile dropdown */}
+        <DropDownMenu $open={menuOpen}
+          onClick={() => setMenuOpen(false)}
+        >
+          <NavLinks showHome={true} />
+        </DropDownMenu>
+      </NavWrapper>
 
     </NavbarContainer>
   );

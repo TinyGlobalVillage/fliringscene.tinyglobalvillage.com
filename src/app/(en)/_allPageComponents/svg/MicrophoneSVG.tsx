@@ -1,8 +1,7 @@
 'use client';
 // import styled from 'styled-components';
 import useResponsiveResize from '@/hook-utils/useResponsiveResize';
-import { scaleMap } from '@/styles/scaleMap/00_scaleMap';
-
+import { scaleMap } from '@/styles/scaleMap/_scaleMap';
 
 import SvgWrapper from './SvgWrapper';
 
@@ -26,13 +25,13 @@ export default function MicrophoneSVG() {
   const { micWidth, micViewBoxMinX, micViewBoxMinY, micViewBoxWidth, micViewBoxHeight } = scaleMap[currentBreakpoint];
 
   return (
-    <SvgWrapper>
+    <SvgWrapper $width={micWidth}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox={`${micViewBoxMinX} ${micViewBoxMinY} ${micViewBoxWidth} ${micViewBoxHeight}`}
         preserveAspectRatio="xMidYMid meet"
         style={{
-          width: micWidth,
+          // width: micWidth,
           overflow: 'visible',
         }}
       >

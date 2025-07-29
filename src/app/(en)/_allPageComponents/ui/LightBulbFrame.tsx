@@ -2,7 +2,7 @@
 import styled, { keyframes } from 'styled-components';
 import { glowPulse } from '../animations/glowPulse';
 import useResponsiveResize from '@/hook-utils/useResponsiveResize';
-import { scaleMap } from '@/styles/scaleMap/00_scaleMap';
+import { scaleMap } from '@/styles/scaleMap/_scaleMap';
 
 // --- Animations ---
 const bulbPulse = keyframes`

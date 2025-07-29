@@ -5,7 +5,8 @@ import LightBulbFrame from './AboveFoldLightBulbFrame';
 
 
 const ComedyClubSignWrapper = styled.div`
-z-index: 10;
+position: relative;
+z-index: 1;
 `;
 
 export default function ComedyClubSign() {

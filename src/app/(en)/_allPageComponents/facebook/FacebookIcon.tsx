@@ -4,12 +4,11 @@ import styled from 'styled-components';
 import { media } from '@/styles/breakpoints';
 
 const StyledIcon = styled.svg`
-  width: 30px;
-  height: 30px;
   fill: currentColor;
   color: #ff4ecb;
   display: flex;
   align-items: center;
+  justify-content: center;
 
   &:hover {
     color: #00bfff;
@@ -18,6 +17,19 @@ const StyledIcon = styled.svg`
 width: 40px;
 height: 40px;
 }
+@media ${media.mobileL}{
+width: 45px;
+height: 45px;
+}
+@media ${media.tablet}{
+width: 55px;
+height: 55px;
+}
+
+@media ${media.laptopL}{
+width: 60px;
+height: 60px;
+}
 
 
 `;
@@ -25,7 +37,7 @@ height: 40px;
 export default function FacebookIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <StyledIcon
-      viewBox="0 0 24 24"
+      viewBox="0 0 30 30"
       aria-label="Facebook"
       {...props}
     >

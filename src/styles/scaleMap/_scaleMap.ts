@@ -4,7 +4,8 @@ import { mobileM } from './02_mobileM';
 import { mobileL } from './03_mobileL';
 import { tablet } from './04_tablet';
 import { laptop } from './05_laptop';
-import { desktop } from './06_desktop';
+import { laptopL } from './06_laptopL';
+import { fourK } from './07_fourK';
 
 
 export const scaleMap = {
@@ -13,7 +14,8 @@ export const scaleMap = {
   mobileL,
   tablet,
   laptop,
-  desktop,
+  laptopL,
+  fourK
 } as const;
 
 // “ScaleKey” is now exactly the union of your breakpoint names:

@@ -21,15 +21,15 @@ const Foreground = styled.div`
 `;
 
 const ScrollArrowWrapper = styled.div`
-display: flex;
-align-items: center;
-justify-content: end;
+// display: flex;
+// align-items: center;
+// justify-content: end;
 `;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-           <head>
+      <head>
         <Script id="org-jsonld" type="application/ld+json">
           {JSON.stringify({
             '@context': 'https://schema.org',
@@ -39,6 +39,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             logo: 'https://…/logo-square.jpg',
           })}
         </Script>
+        <link
+          rel="preload"
+          href="/fonts/JosefinSans-VariableFont_wght.ttf"
+          as="font"
+          type="font/ttf"
+          crossOrigin="anonymous"
+        />
+
       </head>
       <body>
 
@@ -59,7 +67,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <ScrollToPreviousSectionButton />
             </ScrollArrowWrapper>
             <main>{children}</main>
-            <Footer/>
+            <Footer />
           </Foreground>
         </StyledComponentsRegistry>
       </body>

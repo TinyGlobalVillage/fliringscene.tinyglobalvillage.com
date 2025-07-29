@@ -1,67 +1,64 @@
 export const mobileL = {
+  //__ALL SECTIONS___
 
-//__ALL SECTIONS___
+  logo_size: 50,
+  scrollButtonSize: 50,
 
+  // Section Title
+  NeonSectionTitleFontSize: '6.5rem',
+  NeonSectionTitleViewBoxMinX: '0',
+  NeonSectionTitleViewBoxMinY: '-20',
+  NeonSectionTitleViewBoxWidth: '1050',
+  NeonSectionTitleViewBoxHeight: '100',
 
-    NeonSectionTitleFontSize: '6.5rem',
-
-
-    // **** up for deletion ****
-    // fontSize: '6.5rem',
-    // viewBoxHeight: 105,
-    // svgViewBoxHeight: 90,
-
-
-
-//__SECTION___ABOVE FOLD
-
+  //__SECTION___ABOVE FOLD
 
   // "FLIRING"
-  NeonTitleFontSize: '7.2rem',
-  NeonTitleStrokeWidth: '3.5',
+  NeonTitleFontSize: '7.5rem',
+  NeonTitleStrokeWidth: '3',
 
   NeonTitleViewBoxMinX: '0',
   NeonTitleViewBoxMinY: '0',
   NeonTitleViewBoxWidth: '600',
   NeonTitleViewBoxHeight: 105,
 
-  // MICROPHONE
-  micWidth: '2px',
+    // MICROPHONE
+  micWidth: '40px',
 
-  micViewBoxMinX: '-200',
-  micViewBoxMinY: '-130',
-  micViewBoxWidth: '11',
-  micViewBoxHeight: '115',
+  micViewBoxMinX: '-120',
+  micViewBoxMinY: '-370',
+  micViewBoxWidth: '200',
+  micViewBoxHeight: '615',
 
   // FACE
-  faceWidth: '90px',
+  faceWidth: '80px',
 
-  faceViewBoxMinX: '-10',
-  faceViewBoxMinY: '30',
-  faceViewBoxWidth: '450',
-  faceViwBoxHeight: '450',
+  faceViewBoxMinX: '250',
+  faceViewBoxMinY: '20',
+  faceViewBoxWidth: '400',
+  faceViewBoxHeight: '500',
 
   // "SCENE"
-  NeonSubtitleFontSize: '9rem',
-  NeonSubtitleStrokeWidth: '5',
+  NeonSubtitleFontSize: '2.8rem',
+  NeonSubtitleStrokeWidth: '2',
 
-  NeonSubtitleViewBoxMinX: '-20',
-  NeonSubtitleViewBoxMinY: '-20',
-  NeonSubtitleViewBoxWidth: '600',
-  NeonSubtitleViewBoxHeight: 105,
+  NeonSubtitleViewBoxMinX: '0',
+  NeonSubtitleViewBoxMinY: '8',
+  NeonSubtitleViewBoxWidth: '170',
+  NeonSubtitleViewBoxHeight: 90,
 
   // COMEDY SIGN
-  comedyClubBulbSize: '20px',
+  comedyClubBulbSize: '18px',
   NeonTextFontSize: '6.5rem',
-  boxWidth: '270px',
+  boxWidth: '250px',
 
   //other LightbulbFrame
-  bulbSize: '12px',
+  bulbSize: '14px',
 
   //CURVED ARROW
-  curvedArrowWidth: '110px',
+  curvedArrowWidth: '120px',
 
-  curvedArrowViewBoxMinX: '180',
+  curvedArrowViewBoxMinX: '-270',
   curvedArrowViewBoxMinY: '-80',
   curvedArrowViewBoxWidth: '500',
   curvedArrowViewBoxHeight: '649',
@@ -78,20 +75,14 @@ export const mobileL = {
   footerButtonWidth: '200px',
   inputWidth: '200px',
 
+  // ABOUT Page
 
-// ABOUT Page
+  // SHOW PAGE
 
+  // GALLERY PAGE
 
-// SHOW PAGE
+  // CONTACT PAGE
 
-
-// GALLERY PAGE
-
-
-// CONTACT PAGE
-
-  NeonContactPageTitle: '6rem',
+  NeonContactPageTitle: '5rem',
   NeonContactPageTitleViewBoxHeight: '90',
-
-
-}
+};

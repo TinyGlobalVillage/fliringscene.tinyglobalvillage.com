@@ -1,5 +1,5 @@
 import useResponsiveResize from '@/hook-utils/useResponsiveResize';
-import { scaleMap } from '@/styles/scaleMap/00_scaleMap';
+import { scaleMap } from '@/styles/scaleMap/_scaleMap';
 
 export default function StraightArrow() {
   const { currentBreakpoint } = useResponsiveResize();

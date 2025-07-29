@@ -1,8 +1,7 @@
 'use client'
 import styled from 'styled-components';
-
 import useResponsiveResize from '@/hook-utils/useResponsiveResize';
-import { scaleMap } from '@/styles/scaleMap/00_scaleMap';
+import { scaleMap } from '@/styles/scaleMap/_scaleMap';
 // import SvgWrapper from '../svg/SvgWrapper';
 
 interface NeonSubtitleFontSizeProps {
@@ -10,12 +9,21 @@ interface NeonSubtitleFontSizeProps {
   color?: string;
 }
 
-const Wrapper = styled.div`
-  // border: 2px solid red;
+const Wrapper = styled.div<{ $fontSize: string}>`
+// border: 2px solid red;
+font-size: ${({$fontSize}) => $fontSize};
 
-  svg {
-    overflow: visible;
-  }
+display: flex;
+justify-content: center;
+align-items: center;
+height: auto;
+
+svg {
+width: 100%;
+height: auto;
+overflow: visible;
+}
+
 `;
 
 export default function NeonSubtitleFontSize({
@@ -27,7 +35,7 @@ export default function NeonSubtitleFontSize({
   const { NeonSubtitleFontSize, NeonSubtitleStrokeWidth, NeonSubtitleViewBoxMinX, NeonSubtitleViewBoxMinY, NeonSubtitleViewBoxWidth, NeonSubtitleViewBoxHeight } = scaleMap[currentBreakpoint];
 
   return (
-    <Wrapper>
+    <Wrapper $fontSize={NeonSubtitleFontSize}>
       <svg width="100%" viewBox={`${NeonSubtitleViewBoxMinX} ${NeonSubtitleViewBoxMinY} ${NeonSubtitleViewBoxWidth} ${NeonSubtitleViewBoxHeight}`} preserveAspectRatio="xMidYMid meet">
         <defs>
           <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
@@ -43,11 +51,11 @@ export default function NeonSubtitleFontSize({
 
         <text
           x="50%"
-          y="60%"
+          y="50%"
           dominantBaseline="middle"
           textAnchor="middle"
           fontFamily="sans-serif"
-          fontSize={NeonSubtitleFontSize}
+          fontSize="1em"
           stroke={color}
           strokeWidth={NeonSubtitleStrokeWidth}
           fill="none"

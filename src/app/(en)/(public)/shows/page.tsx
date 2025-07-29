@@ -7,15 +7,14 @@ import { media } from "@/styles/breakpoints";
 import TikkioWidget from "../../_allPageComponents/tikkio/TikkoWidget";
 
 const ShowsSection = styled.div`
-width: 90%;
-margin: 0 auto;
-margin-top: 70px;
-margin-bottom: 100px;
-padding: 1rem 1rem;
-
 display: flex;
 flex-direction: column;
 align-items: center;
+
+width: 90%;
+margin: 70px auto 100px;
+
+padding: .25rem 1.3rem 20px;
 
 border: 8px solid #f7b700;
 border-radius: 50px;
@@ -24,11 +23,62 @@ box-shadow: 0 0 10px #f7b700, 0 0 25px #f7b700;
 background: rgba(0, 0, 0, 0.1);
 
 @media ${media.mobileM}{
-margin-top: 100px;
-}
+padding: .25rem 2rem 40px;
+margin: 90px auto 80px;
+  }
+
+@media ${media.mobileL}{
+scroll-margin-top: 65px;
+padding: .25rem 2rem 50px;
+margin: 90px auto 90px;
+  }
+
 @media ${media.tablet}{
-margin-top: 130px;
+margin-top: 150px;
+margin-bottom: 200px;
 }
+
+@media ${media.laptop}{
+height: 650px;
+margin-top: 110px;
+margin-bottom: 200px;
+padding: .25rem 11rem 35px;
+}
+
+@media ${media.laptopL}{
+height: 750px;
+padding: 1rem 23rem 2rem;
+}
+
+@media ${media.fourK}{
+height: auto;
+margin-top: 210px;
+padding: 3rem;
+}
+`;
+
+const HeadingWrapper = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+padding-top: 10px;
+padding-bottom: 5px;
+margin-bottom: 10px;
+
+@media ${media.mobileM}{
+padding-top: 15px;
+margin-bottom: 15px;
+  }
+
+  @media ${media.laptop}{
+padding-top: 15px;
+padding-bottom: 10px;
+}
+@media ${media.fourK}{
+padding-top: 0px;
+padding-bottom: 25px;
+}
+
 `;
 
 const WidgetWrapper = styled.div`
@@ -59,13 +109,13 @@ border-radius: 15px 15px 0px 0px;
 .tikkio-widget-event-inner-content {
 background-color: rgba(0, 0, 0, 0.9)!important;
 color: #fff !important;
-font-size: 1.5rem !important;
+font-size: 1.25rem !important;
 height: auto !important;
 }
 
 .tikkio-widget-event-title {
 font-size: 1rem !important;
-line-height: 1.7rem !important;
+line-height: 1.25rem !important;
 height: auto !important;
 }
 
@@ -76,6 +126,7 @@ color: #ff4ecb !important;
 
 .tikkio-widget-buy-ticket {
 cursor: pointer !important;
+padding: 7px 20px !important;
 border-radius: 0 0 15px 15px !important;
 border: 1px solid #cc00aa !important;
 color: #fff !important;
@@ -95,9 +146,9 @@ filter: drop-shadow(0 0 8px #00bfff) !important;
 export default function ShowsPage() {
   return (
     <ShowsSection>
-      <NeonSectionTitleFontSize>
-        UPCOMING SHOW
-      </NeonSectionTitleFontSize>
+      <HeadingWrapper>
+        <NeonSectionTitleFontSize>UPCOMING SHOWS</NeonSectionTitleFontSize>
+      </HeadingWrapper>
       <WidgetWrapper>
         <TikkioWidget strategy="afterInteractive" />
       </WidgetWrapper>

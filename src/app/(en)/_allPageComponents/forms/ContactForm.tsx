@@ -9,9 +9,9 @@ import { glowPulse } from '../animations/glowPulse';
 const FormWrapper = styled.section`
 display: flex;
 flex-direction: column;
-margin-top: -10px;
+margin-top: -13px;
 
-gap: .5rem;
+gap: 1rem;
 padding: 1rem 1rem;
 
 border: 8px solid #f7b700;
@@ -20,30 +20,38 @@ animation: ${glowPulse} 2s infinite;
 box-shadow: 0 0 10px #f7b700, 0 0 25px #f7b700;
 background: rgba(0, 0, 0, 0.7);
 
-@media ${media.mobileM}{
+@media ${media.mobileL}{
 margin-top: 10px;
 }
-@media ${media.mobileL}{
+@media ${media.tablet}{
 margin-top: 30px;
 gap: 1rem;
 padding: 2rem;
 }
 
-@media ${media.tablet}{
+@media ${media.laptop}{
 margin-top: 50px;
+}
+
+@media ${media.fourK}{
+margin-top: 130px;
 }
 `;
 
 const Form = styled.form`
 display: flex;
 flex-direction: column;
-gap: 1rem;
+gap: 1.25rem;
 `;
 
 const Field = styled.div`
 display: flex;
 flex-direction: column;
-gap: .5rem;
+gap: 1rem;
+
+@media ${media.mobileM}{
+gap: 1.3rem;
+  }
 
 label {
 font-size: 1rem;
@@ -56,14 +64,21 @@ text-align: left;
   font-size: 1.25rem;
   }
   @media ${media.mobileL}{
+  font-size: 1.25rem;
+  }
+  @media ${media.tablet}{
   margin-top: 5px;
   font-size: 1.5rem;
+  margin-bottom: 0;
   }
 
-  @media ${media.tablet}{
-  margin-bottom: 0;
+  @media ${media.laptop}{
   margin-top: 10px;
   font-size: 1.5rem;
+}
+  @media ${media.fourK}{
+  margin-top: 20px;
+  font-size: 2rem;
 }
 
 }
@@ -81,16 +96,15 @@ border-radius: 6px;
 border: 1px solid #ccc;
 background: #fff;
 
-@media ${media.mobileM}{
+@media ${media.mobileL}{
 padding: .5rem 1rem;
 font-size: 1.25rem;
 }
-@media ${media.mobileL}{
+@media ${media.tablet}{
 font-size: 1.5rem;
 }
 
-@media ${media.tablet}{
-line-height: 1;
+@media ${media.laptop}{
 font-size: 1.75rem;
 
 }
@@ -103,10 +117,10 @@ height: auto;
 min-height:6rem;
 }
 
-@media ${media.mobileL}{
+@media ${media.tablet}{
 gap: .75rem;
 }
-@media ${media.tablet}{
+@media ${media.laptop}{
 gap: 1rem;
 }
 `;
@@ -118,7 +132,7 @@ background: #ff4ecb;
 color: #fff;
 border: none;
 border-radius: 4px;
-font-size: .75rem;
+font-size: 1rem;
 cursor: pointer;
 
 
@@ -127,18 +141,18 @@ opacity: 0.6;
 cursor: default;
 }
 
-@media ${media.mobileM}{
+@media ${media.mobileL}{
 margin-bottom: 15px;
 padding: .75rem 2rem;
 font-size: 1rem;
 }
-@media ${media.mobileL}{
+@media ${media.tablet}{
 margin-bottom: 13px;
 margin-top: 20px;
 padding: 1rem 2rem;
 font-size: 1.25rem;
 }
-@media ${media.tablet}{
+@media ${media.laptop}{
 padding: 1rem 2.25rem;
 font-size: 1.5rem;
 }

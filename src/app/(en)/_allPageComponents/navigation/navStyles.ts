@@ -1,7 +1,8 @@
 // src/components/navigation/NavBar.styles.ts
 import styled from 'styled-components';
 import Link from 'next/link';
-import { media, logo_size } from '@/styles/breakpoints';
+import { media } from '@/styles/breakpoints';
+
 import {
   glowPulse,
   glowPulseFilter,
@@ -11,25 +12,37 @@ import {
 export const NavbarContainer = styled.nav<{
   $scrolled: boolean;
 }>`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  width: 100%;
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: .5rem 1.5rem;
+  padding: 0rem 1rem 0.5rem;
   z-index: 9996;
 
   background: ${({ $scrolled }) =>
     $scrolled ? 'rgba(0,0,0,0.9)' : 'transparent'};
   transition: background 0.25s ease;
 
+  @media ${media.tablet}{
+  padding: 1rem
+  }
+  @media ${media.laptop}{
+  padding: 1rem
+  }
+  @media ${media.fourK}{
+  padding: 2.5rem
+  }
+`;
+
+export const NavWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
   @media ${media.tablet} {
   justify-content: center;
-  gap: 2rem;
-  padding: 1rem 1.5rem;
-
+  gap: 5rem;
+  }
+  @media ${media.laptopL} {
+  gap: 9rem;
   }
 `;
 
@@ -37,10 +50,12 @@ export const LogoWrapper = styled.div<{
   $open: boolean;
   $size: number;
 }>`
-
-  position: relative;
   width: ${({ $size }) => $size}px;
   height: ${({ $size }) => $size}px;
+  margin: 1px 1px 1px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   animation: ${glowPulseFilter} 3s ease-in-out infinite;
   transition: transform 0.2s;
@@ -53,9 +68,13 @@ export const LogoWrapper = styled.div<{
       drop-shadow(0 0 10px #ff4ecb);
     text-shadow: 0 0 5px #ff4ecb, 0 0 10px #ff4ecb;
   }
-     /* remove the default focus ring */
+  /* remove the default focus ring */
   &:focus {
     outline: none;
+  }
+
+  @media ${media.tablet}{
+  margin: 0;
   }
 `;
 
@@ -77,37 +96,10 @@ export const LogoLink = styled(Link)<{ $open: boolean }>`
 
   &:hover {
     transform: scale(1.05);
-
   }
- /* remove the default focus ring */
+  /* remove the default focus ring */
   &:focus {
     outline: none;
-  }
-
-  /* ≥375px (mobileM) */
-  @media ${media.mobileM} {
-    width: ${logo_size.mobileM}px;
-    height: ${logo_size.mobileM}px;
-  }
-  /* ≥425px (mobileL) */
-  @media ${media.mobileL} {
-    width: ${logo_size.mobileL}px;
-    height: ${logo_size.mobileL}px;
-  }
-  /* ≥768px (tablet) */
-  @media ${media.tablet} {
-    width: ${logo_size.tablet}px;
-    height: ${logo_size.tablet}px;
-  }
-  /* ≥1024px (laptop) */
-  @media ${media.laptop} {
-    width: ${logo_size.laptop}px;
-    height: ${logo_size.laptop}px;
-  }
-  /* ≥1280px (desktop) */
-  @media ${media.desktop} {
-    width: ${logo_size.desktop}px;
-    height: ${logo_size.desktop}px;
   }
 `;
 
@@ -115,16 +107,18 @@ export const LogoLink = styled(Link)<{ $open: boolean }>`
 export const Links = styled.div`
   display: none;
 
-  @media ${media.tablet}{
-  display: flex;
-  align-items: center;
-  gap: 2rem;
+  @media ${media.tablet} {
+    display: flex;
+    align-items: center;
+    gap: 6rem;
+  }
+  @media ${media.laptop} {
+    gap: 8rem;
   }
 `;
 
 // desktop text links
 export const NavItem = styled(Link)`
-
   color: #ff4ecb;
   text-decoration: none;
   font-size: 1.25rem;
@@ -137,12 +131,16 @@ export const NavItem = styled(Link)`
     color: #00bfff;
   }
 
-  @media ${media.mobileL}{
-  font-size: 1.75rem;
+  @media ${media.mobileL} {
+    font-size: 1.5rem;
   }
-  @media ${media.tablet}{
-  font-size: 2rem;
+  @media ${media.tablet} {
+    font-size: 2rem;
   }
+  @media ${media.fourK} {
+    font-size: 4rem;
+  }
+
 `;
 
 /* ____________ MOBILE NAV BAR ONLY _____________ */
@@ -160,18 +158,18 @@ export const MenuToggle = styled.button<{ $open: boolean }>`
   color: #ff4ecb;
   font-size: ${({ $open }) => ($open ? '2rem' : '55px')};
 
-
-@media ${media.mobileM}{
-  font-size: ${({ $open }) => ($open ? '2.5rem' : '65px')};
-  left: ${({ $open }) => ($open ? '85%' : '0')};
+  @media ${media.mobileM} {
+    font-size: ${({ $open }) =>
+      $open ? '2.5rem' : '65px'};
+    left: ${({ $open }) => ($open ? '85%' : '0')};
   }
-@media ${media.mobileL}{
-  font-size: ${({ $open }) => ($open ? '3rem' : '75px')};
-  left: ${({ $open }) => ($open ? '90%' : '0')};
+  @media ${media.mobileL} {
+    font-size: ${({ $open }) => ($open ? '3rem' : '75px')};
+    left: ${({ $open }) => ($open ? '90%' : '0')};
   }
 
-  @media ${media.tablet}{
-  display: none;
+  @media ${media.tablet} {
+    display: none;
   }
 `;
 
@@ -206,12 +204,12 @@ font - size: 1.5rem;
 text - decoration: none;
 }
 
- @media ${media.mobileL}{
- width: 300px;
+@media ${media.mobileL}{
+width: 300px;
 height: 300px;
 top: ${({ $open }) => ($open ? '0px' : '-10px')};
 right: ${({ $open }) => ($open ? '-70px' : '0px')};
-  }
+}
 
 
 `;

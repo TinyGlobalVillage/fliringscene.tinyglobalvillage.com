@@ -2,19 +2,25 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { FiArrowUp } from 'react-icons/fi';
-import { media } from '@/styles/breakpoints';
+import useResponsiveResize from '@/hook-utils/useResponsiveResize';
+import { scaleMap } from '@/styles/scaleMap/_scaleMap';
 
-const ScrollToPreviousSectionStyle = styled.button<{ $visible: boolean }>`
+const ScrollToPreviousSectionStyle = styled.button<{
+  $visible: boolean
+  $width: number;
+  $height: number;
+
+}>`
 display: flex;
 align-items: center;
 justify-content: center;
 
 position: fixed;
 bottom: 20px;
-right: 6%;
+right: .75rem;
 
-width: 1.95rem;
-height: 1.95rem;
+width: ${({ $width }) => $width}px; //1.95rem
+height: ${({ $height }) => $height}px; //1.95rem;
 
 border: none;
 border-radius: 50%;
@@ -34,23 +40,12 @@ background: #00bfff;
 filter: drop-shadow(0 0 8px #ff4ecb) !important;
 }
 
-@media ${media.mobileM}{
-right: 3%;
-width: 3rem;
-height: 3rem;
-}
-
-@media ${media.mobileL}{
-right: 9%;
-width: 4rem;
-height: 4rem;
-}
-
-
 `;
 
 export default function ScrollToPreviousSectionButton() {
   const [visible, setVisible] = useState(false);
+  const { currentBreakpoint } = useResponsiveResize();
+  const { scrollButtonSize } = scaleMap[currentBreakpoint];
 
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 300);
@@ -78,7 +73,11 @@ export default function ScrollToPreviousSectionButton() {
   };
 
   return (
-    <ScrollToPreviousSectionStyle onClick={scrollToPreviousSection} $visible={visible} aria-label="Scroll to previous section">
+    <ScrollToPreviousSectionStyle onClick={scrollToPreviousSection}
+      $visible={visible}
+      $width={scrollButtonSize}
+      $height={scrollButtonSize}
+      aria-label="Scroll to previous section">
       <FiArrowUp size={20} />
     </ScrollToPreviousSectionStyle>
   );
