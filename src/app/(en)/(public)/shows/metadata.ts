@@ -3,8 +3,8 @@ export const metadata = {
   title: "Shows | Fliring Scene – Upcoming Events & Performances",
   description: "Check out upcoming standup shows, music acts, and live events at Fliring Scene in Steinkjer. Your seat is waiting!",
   keywords: "Fliring Scene shows, Steinkjer live events, comedy lineup, upcoming performances, standup tickets, local acts Steinkjer",
-    viewport: "width=device-width, initial-scale=1",
     
+
   openGraph: {
     title: "Shows | Fliring Scene – Upcoming Events & Performances",
     description: "Discover what’s on at Fliring Scene – from standup and music to community performances. Don’t miss the next show!",

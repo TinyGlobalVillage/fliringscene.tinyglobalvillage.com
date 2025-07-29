@@ -1,15 +1,13 @@
 // src/app/metadata.ts
-import { Metadata } from "next";
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-
   title: {
     default: 'Fliring Scene',
     template: '%s | Fliring Scene',
   },
   description:
     'Steinkjer’s intimate stage for stand-up, music & culture. Discover upcoming shows, open mics & community events.',
-  viewport: 'width=device-width, initial-scale=1',
   keywords: [
     'Fliring Scene',
     'comedy Steinkjer',

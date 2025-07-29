@@ -3,8 +3,8 @@ export const metadata = {
   title: "Contact Us | Fliring Scene – Get in Touch",
   description: "Want to perform, book the venue, or ask a question? Contact Fliring Scene – Steinkjer’s home for comedy and creativity.",
   keywords: "contact Fliring Scene, venue booking Steinkjer, comedy inquiries, Fliring Scene address, Steinkjer cultural scene",
-    viewport: "width=device-width, initial-scale=1",
     
+
   openGraph: {
     title: "Contact Us | Fliring Scene – Get in Touch",
     description: "Reach out to Fliring Scene for bookings, questions, or to join our community of performers in Steinkjer.",
@@ -12,7 +12,7 @@ export const metadata = {
     siteName: "Fliring Scene",
     images: [
       {
-        url: "https://fliringscene.tinyglobalvillage.com/images/fliring-scene-logo-square.jpg", 
+        url: "https://fliringscene.tinyglobalvillage.com/images/fliring-scene-logo-square.jpg",
         width: 1000,
         height: 1000,
         alt: "Fliring Scene logo",
