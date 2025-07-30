@@ -4,33 +4,28 @@
 import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import HeaderPlaceholder from './HeaderPlaceholder';
+import AboveTheFold from '@/app/(en)/(public)/(home)/components/01_AboveTheFold';
+// ← adjust to your actual path
 
-// 1) Desktop: SSR‐rendered, no placeholder
-const DesktopHeader = dynamic(
-  () => import('../../(public)/(home)/components/01_AboveTheFold'),
-  { ssr: true }
-);
-
-// 2) Mobile: client only, shows placeholder while loading
+// only the mobile variant is dynamically loaded
 const MobileHeader = dynamic(
-  () => import('../../(public)/(home)/components/01_AboveTheFold'),
+  () => import('@/app/(en)/(public)/(home)/components/01_AboveTheFold'),
   {
     ssr: false,
-    loading: () => <HeaderPlaceholder />
+    loading: () => <HeaderPlaceholder />,
   }
 );
 
 export default function HeaderLoader() {
-  const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const MOBILE_BREAKPOINT = 768;
 
   useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth <= 320);
-    check();
-    window.addEventListener('resize', check);
-    return () => window.removeEventListener('resize', check);
+    const onResize = () => setIsMobile(window.innerWidth <= MOBILE_BREAKPOINT);
+    onResize();
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
   }, []);
 
-  // 3) Always call the same hooks (useState, useEffect) in the same order.
-  //    Then choose which already‐imported component to render:
-  return isMobile ? <MobileHeader /> : <DesktopHeader />;
+  return isMobile ? <MobileHeader /> : <AboveTheFold />;
 }
