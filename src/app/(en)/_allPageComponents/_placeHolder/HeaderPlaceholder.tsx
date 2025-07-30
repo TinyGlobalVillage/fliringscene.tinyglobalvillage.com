@@ -13,11 +13,12 @@ export default function HeaderPlaceholder() {
         overflow: 'hidden',
       }}
     >
-      <Image
+       <Image
         src="/images/placeholder/fliring-scene-placeholder-image.jpg"
         alt="Loading header"
         fill
         priority
+        fetchPriority="high"     // ← explicitly set fetchpriority="high"
         sizes="(max-width: 425px) 100vw, 425px"
         quality={75}
       />
