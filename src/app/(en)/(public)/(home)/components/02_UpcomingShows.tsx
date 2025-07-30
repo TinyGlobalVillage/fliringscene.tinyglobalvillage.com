@@ -171,7 +171,7 @@ export default function UpcomingShows() {
 <EventCard key={idx} $borderColor={colors[idx % colors.length]}> */}
 
       <TikkioWrapper>
-        <TikkioWidget strategy="lazyOnload" />
+        <TikkioWidget strategy="afterInteractive" />
       </TikkioWrapper>
 
       {/* </EventCard> */}
