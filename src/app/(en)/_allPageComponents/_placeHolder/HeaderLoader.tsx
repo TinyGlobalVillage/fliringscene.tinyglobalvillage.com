@@ -1,10 +1,13 @@
 // components/HeaderLoader.tsx
 'use client';
+
 import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import HeaderPlaceholder from './HeaderPlaceholder';
-import AboveTheFold from '@/app/(en)/(public)/(home)/components/01_AboveTheFold'
+import AboveTheFold from '@/app/(en)/(public)/(home)/components/01_AboveTheFold';
+// ← adjust to your actual path
 
+// only the mobile variant is dynamically loaded
 const MobileHeader = dynamic(
   () => import('@/app/(en)/(public)/(home)/components/01_AboveTheFold'),
   {
@@ -24,10 +27,5 @@ export default function HeaderLoader() {
     return () => window.removeEventListener('resize', onResize);
   }, []);
 
-  // reserve a fixed 568px high box (CSS px) for both placeholder & real header
-  return (
-    <div style={{ width: '100%', maxWidth: '320px', height: '768px', margin: '0 auto' }}>
-      {isMobile ? <MobileHeader /> : <AboveTheFold />}
-    </div>
-  );
+  return isMobile ? <MobileHeader /> : <AboveTheFold />;
 }
