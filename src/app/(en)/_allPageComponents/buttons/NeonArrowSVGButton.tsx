@@ -8,6 +8,7 @@ const ButtonWrapper = styled.button`
   display: block;
   max-width: 500px;
   width: 100%;
+  height; 48px;
   cursor: pointer;
   margin-top: -22px;
   // margin-left: -100px;
@@ -30,7 +31,7 @@ const ButtonWrapper = styled.button`
 function NeonArrowSVGButton() {
 
   return (
-    <ButtonWrapper 
+    <ButtonWrapper
     aria-label="Scroll to upcoming show"
     onClick={
       () => {
