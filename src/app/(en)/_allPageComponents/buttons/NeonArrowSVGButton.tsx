@@ -11,9 +11,7 @@ const ButtonWrapper = styled.button`
   height; 48px;
   cursor: pointer;
   margin-top: -22px;
-  // margin-left: -100px;
-
-
+  
   transition: transform 0.2s ease, filter 0.2s ease;
 
   &:hover {
