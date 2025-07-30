@@ -7,8 +7,8 @@ export default function HeaderPlaceholder() {
       style={{
         position: 'relative',
         width: '100%',
-        maxWidth: '320px',   // CSS width on mobile S
-        height: '568px',     // CSS height on mobile S
+        maxWidth: '425px',   // CSS width on mobile S
+        height: '812px',     // CSS height on mobile S
         margin: '0 auto',
         overflow: 'hidden',
       }}
