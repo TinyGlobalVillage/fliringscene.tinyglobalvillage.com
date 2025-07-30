@@ -11,18 +11,18 @@ interface NeonTitleFontSizeProps {
 }
 
 const SvgWrapper = styled.div`
-  width: 500px;
-  text-align: center;
-  // border: 2px solid red;
+width: 500px;
+text-align: center;
+// border: 2px solid red;
 
-  svg {
-    overflow: visible;
-  }
-      svg text {
-    text-shadow:
-      0 0 1px #ff66cc,
-      0 0 4px #ff66cc,
-      0 0 8px #ff66cc;
+svg {
+overflow: visible;
+}
+svg text {
+text-shadow:
+0 0 1px #ff66cc,
+0 0 4px #ff66cc,
+0 0 8px #ff66cc;
   }
 `;
 
