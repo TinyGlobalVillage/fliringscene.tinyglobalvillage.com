@@ -15,8 +15,10 @@ export const metadata: Metadata = {
     'open mic',
   ],
   alternates: {
-    canonical: 'https://fliringscene.tinyglobalvillage.com',
-    languages: { 'en-US': '/', 'no-NO': '/no' },
+    languages: {
+      'en-US': 'https://fliringscene.tinyglobalvillage.com/',
+      'no-NO': 'https://fliringscene.tinyglobalvillage.com/no',
+    },
   },
   openGraph: {
     title:

@@ -311,6 +311,7 @@ export default function Footer() {
             </SignupHeader>
             <Form onSubmit={handleSubmit} aria-labelledby="newsletter-header">
               <Input
+                name="newsletterEmail"
                 aria-label='Email address'
                 $inputWidth={inputWidth}
                 type="email"
