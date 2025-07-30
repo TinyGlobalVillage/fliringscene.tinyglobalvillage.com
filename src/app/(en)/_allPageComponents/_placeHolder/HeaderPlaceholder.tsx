@@ -18,10 +18,6 @@ export default function HeaderPlaceholder() {
         alt="Loading header"
         fill
         priority
-        style={{
-          objectFit: 'cover',
-          transform: 'scale(1.05)',
-        }}
       />
     </div>
   );
