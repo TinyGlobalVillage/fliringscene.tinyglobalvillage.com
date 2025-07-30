@@ -23,13 +23,13 @@ export default function LayoutClient({ children }: { children: React.ReactNode }
     <StyledComponentsRegistry>
       <GlobalStyle />
       <Background>
-   <Image
-              src="/images/backgrounds/alt-wood-panels.png"
-              alt="Background"
-              fill
-              priority
-              style={{ objectFit: 'cover' }}
-            />
+        <Image
+          src="/images/backgrounds/alt-wood-panels.png"
+          alt="Background"
+          fill
+          priority
+          style={{ objectFit: 'cover' }}
+        />
       </Background>
       <NavBar />
       <div>

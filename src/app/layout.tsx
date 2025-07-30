@@ -3,12 +3,10 @@ import LayoutClient from './layout.client';
 import { metadata } from './metadata';
 export { metadata };
 
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
-        
         <Script id="org-jsonld" type="application/ld+json">
           {JSON.stringify({
             '@context': 'https://schema.org',
@@ -25,12 +23,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="font/ttf"
           crossOrigin="anonymous"
         />
-        {/* <link
-          rel="stylesheet"
-          href="/widgets/tikkio/widgets.min.css"
-          media="print"
-          onLoad={({ currentTarget }) => { currentTarget.media = 'all' }}
-        /> */}
+        <link
+          rel="preload"
+          as="image"
+          href="/images/placeholder/fliring-scene-placeholder-image.jpg"
+        />
       </head>
       <body>
         <LayoutClient>{children}</LayoutClient>

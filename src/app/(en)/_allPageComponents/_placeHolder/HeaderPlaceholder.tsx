@@ -7,8 +7,8 @@ export default function HeaderPlaceholder() {
       style={{
         position: 'relative',
         width: '100%',
-        maxWidth: '425px',   // CSS width on mobile S
-        height: '812px',     // CSS height on mobile S
+        maxWidth: '425px',
+        aspectRatio: '425 / 812',
         margin: '0 auto',
         overflow: 'hidden',
       }}
@@ -18,6 +18,8 @@ export default function HeaderPlaceholder() {
         alt="Loading header"
         fill
         priority
+        sizes="(max-width: 425px) 100vw, 425px"
+        quality={75}
       />
     </div>
   );
