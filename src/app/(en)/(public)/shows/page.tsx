@@ -158,7 +158,8 @@ export default function ShowsPage() {
         <NeonSectionTitleFontSize>UPCOMING SHOWS</NeonSectionTitleFontSize>
       </HeadingWrapper>
       <WidgetWrapper>
-        <TikkioWidget strategy="afterInteractive" />
+        <TikkioWidget strategy="lazyOnload" />
+        {/* <TikkioWidget strategy="afterInteractive" /> */}
       </WidgetWrapper>
     </ShowsSection>
   );

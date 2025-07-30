@@ -48,5 +48,11 @@
   },
   "overrides": {
     "esbuild": "0.25.8"
-  }
+  },
+  "browserslist": [
+  "defaults and supports es6-module",
+  "not IE 11",
+  "not op_mini all",
+  "maintained node versions"
+]
 }
