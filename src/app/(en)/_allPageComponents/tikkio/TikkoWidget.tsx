@@ -7,7 +7,7 @@ type TikkioWidgetProps = {
 };
 
 export default function TikkioWidget({
-  strategy = 'afterInteractive',
+  strategy = 'lazyOnload',
 }: TikkioWidgetProps) {
   const widgetRef = useRef<HTMLDivElement>(null);
   const loadedOnce = useRef(false);
