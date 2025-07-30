@@ -14,7 +14,7 @@ export default function HeaderPlaceholder() {
       }}
     >
       <Image
-        src="/images/placeholder/fliring-scene-placeholder.jpg"
+        src="/images/placeholder/fliring-scene-placeholder-image.jpg"
         alt="Loading header"
         fill
         priority
