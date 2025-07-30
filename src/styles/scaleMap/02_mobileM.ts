@@ -21,7 +21,7 @@ export const mobileM = {
 
   // "FLIRING"
   NeonTitleFontSize: '6.5rem',
-  NeonTitleStrokeWidth: '3',
+  NeonTitleStrokeWidth: '2.5',
 
   NeonTitleViewBoxMinX: '0',
   NeonTitleViewBoxMinY: '0',
@@ -46,7 +46,7 @@ export const mobileM = {
 
   // "SCENE"
   NeonSubtitleFontSize: '2.8rem',
-  NeonSubtitleStrokeWidth: '2',
+  NeonSubtitleStrokeWidth: '1.2',
 
   NeonSubtitleViewBoxMinX: '0',
   NeonSubtitleViewBoxMinY: '8',

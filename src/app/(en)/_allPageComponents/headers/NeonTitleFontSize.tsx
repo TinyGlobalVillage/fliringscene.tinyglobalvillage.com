@@ -18,6 +18,12 @@ const SvgWrapper = styled.div`
   svg {
     overflow: visible;
   }
+      svg text {
+    text-shadow:
+      0 0 1px #ff66cc,
+      0 0 4px #ff66cc,
+      0 0 8px #ff66cc;
+  }
 `;
 
 export default function NeonTitleFontSize({
@@ -30,18 +36,6 @@ export default function NeonTitleFontSize({
   return (
     <SvgWrapper>
       <svg width="100%" viewBox={`${NeonTitleViewBoxMinX} ${NeonTitleViewBoxMinY} ${NeonTitleViewBoxWidth} ${NeonTitleViewBoxHeight}`} preserveAspectRatio="xMidYMid meet">
-        <defs>
-          <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
-            <feGaussianBlur stdDeviation="2" result="blur1" />
-            <feGaussianBlur stdDeviation="4" result="blur2" />
-            <feMerge>
-              <feMergeNode in="blur2" />
-              <feMergeNode in="blur1" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
-
         <text
           x="50%"
           y="60%"
@@ -52,7 +46,6 @@ export default function NeonTitleFontSize({
           stroke={color}
           strokeWidth={NeonTitleStrokeWidth}
           fill="none"
-          filter="url(#glow)"
         >
           {children}
         </text>

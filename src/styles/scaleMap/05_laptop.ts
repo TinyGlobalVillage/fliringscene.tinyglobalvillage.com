@@ -14,7 +14,7 @@ export const laptop = {
 
   // "FLIRING"
   NeonTitleFontSize: '10.5rem',
-  NeonTitleStrokeWidth: '5',
+  NeonTitleStrokeWidth: '4',
 
   NeonTitleViewBoxMinX: '0',
   NeonTitleViewBoxMinY: '0',
@@ -39,7 +39,7 @@ export const laptop = {
 
   // "SCENE"
   NeonSubtitleFontSize: '2.8rem',
-  NeonSubtitleStrokeWidth: '2',
+  NeonSubtitleStrokeWidth: '1.25',
 
   NeonSubtitleViewBoxMinX: '0',
   NeonSubtitleViewBoxMinY: '5',
