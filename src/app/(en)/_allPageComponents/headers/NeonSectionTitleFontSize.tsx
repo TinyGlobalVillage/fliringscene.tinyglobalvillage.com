@@ -12,6 +12,12 @@ interface NeonSectionTitleFontSizeProps {
 
 const SvgWrapper = styled.div`
 // border: 1px solid red;
+
+   svg text {
+    text-shadow:
+      0 0 1px #ff66cc,
+      0 0 2px #ff66cc,
+  }
 `;
 
 export default function NeonSectionTitleFontSize({
@@ -25,16 +31,7 @@ export default function NeonSectionTitleFontSize({
     return (
         <SvgWrapper>
             <svg width='100%' viewBox={`${NeonSectionTitleViewBoxMinX} ${NeonSectionTitleViewBoxMinY} ${NeonSectionTitleViewBoxWidth} ${NeonSectionTitleViewBoxHeight}`} preserveAspectRatio='xMidYMid meet'>
-                <defs>
-                    <filter id="neonFillGlow" x="-100%" y="-100%" width="300%" height="300%">
-                        <feGaussianBlur in="SourceGraphic" stdDeviation="4.5" result="blur1"
-                        />
-                        <feMerge>
-                            <feMergeNode in="blur1" />
-                            <feMergeNode in="SourceGraphic" />
-                        </feMerge>
-                    </filter>
-                </defs>
+
                 <text
                     x="50%"
                     y="50%"
@@ -44,7 +41,7 @@ export default function NeonSectionTitleFontSize({
                     fontSize={NeonSectionTitleFontSize}
                     fontWeight={fontWeight}
                     fill={color}
-                    filter="url(#neonFillGlow"
+
                 >
                     {children}
                 </text>

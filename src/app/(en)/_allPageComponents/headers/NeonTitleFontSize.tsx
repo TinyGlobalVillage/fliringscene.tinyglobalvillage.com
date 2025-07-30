@@ -36,6 +36,7 @@ export default function NeonTitleFontSize({
   return (
     <SvgWrapper>
       <svg width="100%" viewBox={`${NeonTitleViewBoxMinX} ${NeonTitleViewBoxMinY} ${NeonTitleViewBoxWidth} ${NeonTitleViewBoxHeight}`} preserveAspectRatio="xMidYMid meet">
+
         <text
           x="50%"
           y="60%"
