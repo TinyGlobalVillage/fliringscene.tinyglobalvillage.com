@@ -2,6 +2,7 @@ import Script from 'next/script';
 import LayoutClient from './layout.client';
 import { metadata } from './metadata';
 export { metadata };
+import '@/styles/widgets.min.css'
 
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -24,10 +25,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="font/ttf"
           crossOrigin="anonymous"
         />
-
+        {/* <link
+          rel="stylesheet"
+          href="/widgets/tikkio/widgets.min.css"
+          media="print"
+          onLoad={({ currentTarget }) => { currentTarget.media = 'all' }}
+        /> */}
       </head>
       <body>
-       <LayoutClient>{children}</LayoutClient>
+        <LayoutClient>{children}</LayoutClient>
       </body>
     </html>
   );

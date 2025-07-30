@@ -1,30 +1,26 @@
 // components/widgets/TikkioWidget.tsx
 'use client';
-import React, { useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 
-type TikkioWidgetProps = {
+export type TikkioWidgetProps = {
+  /** When to load: immediately or when scrolled into view */
   strategy?: 'afterInteractive' | 'lazyOnload';
+  /** Additional class names to scope styles per-page */
+  className?: string;
 };
 
 export default function TikkioWidget({
   strategy = 'afterInteractive',
+  className = '',
 }: TikkioWidgetProps) {
   const widgetRef = useRef<HTMLDivElement>(null);
   const loadedOnce = useRef(false);
 
-  // Pull out the mount-and-load logic into a fn that takes a real element
   function mountAndLoad(el: HTMLDivElement) {
     if (loadedOnce.current) return;
     loadedOnce.current = true;
 
-    // 1) inject styles
-    const style = document.createElement('style');
-   style.innerHTML = `
-      
-    `;
-    document.head.appendChild(style);
-
-    // 2) mount the wrapper container
+    // 1) create the widget wrapper
     const wrapper = document.createElement('div');
     wrapper.className = 'tikkio-widget-events';
     wrapper.setAttribute('w-id', '24620');
@@ -32,13 +28,14 @@ export default function TikkioWidget({
     wrapper.setAttribute('w-target', 'blank');
     el.appendChild(wrapper);
 
-    // 3) dynamically append the widget script (removing any prior one)
+    // 2) remove any old widget script
     document
-      .querySelectorAll('script[src*="tikkio.com/static"]')
-      .forEach((old) => old.remove());
+      .querySelectorAll('script[src*="/widgets/tikkio/"]')
+      .forEach(oldScript => oldScript.remove());
 
+    // 3) inject the self-hosted widget script
     const script = document.createElement('script');
-    script.src = 'https://a.tikkio.com/static/1.1.1/js/widgets.js';
+    script.src = '/widgets/tikkio/widgets.min.js';
     script.async = true;
     document.body.appendChild(script);
   }
@@ -64,5 +61,10 @@ export default function TikkioWidget({
     }
   }, [strategy]);
 
-  return <div ref={widgetRef} />;
+  return (
+    <div
+      ref={widgetRef}
+      className={`tikkio-widget-container ${className}`.trim()}
+    />
+  );
 }

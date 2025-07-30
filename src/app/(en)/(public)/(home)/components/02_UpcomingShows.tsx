@@ -98,61 +98,6 @@ border-radius: 25px;
 max-height: 600px;
 }
 
-/* target the injected widget container and its cards */
-
-.tikkio-widget-events {
-display: flex !important;
-width: 100% !important;
-max-width: 100% !important;
-height: 80% !important;
-flex-direction: column;
-}
-
-.tikkio-widget-events > * {
-flex: 1 1 auto !important;
-width: 100% !important;
-height: 100% !important;
-}
-
-.tikkio-widget-event-image {
-border-radius: 15px 15px 0px 0px;
-}
-
-.tikkio-widget-event-inner-content {
-background-color: rgba(0, 0, 0, 0.9)!important;
-color: #fff !important;
-font-size: 1.25rem !important;
-height: auto !important;
-}
-
-.tikkio-widget-event-title {
-font-size: 1rem !important;
-line-height: 1.25rem !important;
-height: auto !important;
-}
-
-.location {
-font-size: 1.25rem;
-color: #ff4ecb !important;
-}
-
-.tikkio-widget-buy-ticket {
-cursor: pointer !important;
-padding: 7px 20px !important;
-border-radius: 0 0 15px 15px !important;
-border: 1px solid #cc00aa !important;
-color: #fff !important;
-background:rgba(204, 0, 170, .9) !important;
-}
-
-.tikkio-widget-buy-ticket:hover {
-background:
-color: #fff !important;
-background: #00bfff !important;
-border: 1px solid #00bfff !important;
-transform: scaleY(1.1) !important;
-filter: drop-shadow(0 0 8px #00bfff) !important;
-}
 `;
 export default function UpcomingShows() {
 
@@ -171,7 +116,7 @@ export default function UpcomingShows() {
 <EventCard key={idx} $borderColor={colors[idx % colors.length]}> */}
 
       <TikkioWrapper>
-        <TikkioWidget />
+        <TikkioWidget strategy="lazyOnload" className="sectionTikkio" />
       </TikkioWrapper>
 
       {/* </EventCard> */}
