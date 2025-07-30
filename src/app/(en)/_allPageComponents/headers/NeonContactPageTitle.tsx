@@ -12,29 +12,29 @@ interface NeonContactPageTitleProps {
 }
 
 const SvgWrapper = styled.div`
-  width: 100%;
-  max-width: 300px;
-  text-align: center;
-  // border: 2px solid red;
-  margin: 0 auto;
-  svg {
-    overflow: visible;
-  }
-       svg text {
-    text-shadow:
-      0 0 1px #ff66cc,
-      0 0 2px #ff66cc,
-      0 0 6px #ff66cc;
-  }
+width: 100%;
+max-width: 300px;
+text-align: center;
+// border: 2px solid red;
+margin: 0 auto;
+svg {
+overflow: visible;
+}
+svg text {
+text-shadow:
+0 0 1px #ff66cc,
+0 0 2px #ff66cc,
+0 0 6px #ff66cc;
+}
 
-  @media ${media.laptop}{
-  margin-top: -20px;
-  margin-bottom: -20px;
-  }
-  @media ${media.laptopL}{
-  margin-top: 0px;
-  margin-bottom: 0px;
-  }
+@media ${media.laptop}{
+margin-top: -20px;
+margin-bottom: -20px;
+}
+@media ${media.laptopL}{
+margin-top: 0px;
+margin-bottom: 0px;
+}
 `;
 
 export default function NeonContactPageTitle({

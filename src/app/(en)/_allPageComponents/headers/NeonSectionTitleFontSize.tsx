@@ -13,11 +13,11 @@ interface NeonSectionTitleFontSizeProps {
 const SvgWrapper = styled.div`
 // border: 1px solid red;
 
-   svg text {
-    text-shadow:
-      0 0 1px #ff66cc,
-      0 0 2px #ff66cc,
-  }
+svg text {
+text-shadow:
+0 0 1px #ff66cc,
+0 0 2px #ff66cc,
+}
 `;
 
 export default function NeonSectionTitleFontSize({

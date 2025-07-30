@@ -48,24 +48,6 @@ const GlobalStyle = createGlobalStyle`
     font: inherit;
   }
 
-  /* -----------------------------------------
-     Example Media Query
-     (scope to your .NavBar or other selector)
-  ----------------------------------------- */
-  /*
-  @media (min-width: 767px) {
-    .NavBar {
-      color: red;
-      background-color: blue;
-      font-size: 0.5rem;
-    }
-  }
-  */
-
-  .ScrollToPreviousSectionWrapper {
-  height: 40px;
-  }
-
 `;
 
 export default GlobalStyle;
