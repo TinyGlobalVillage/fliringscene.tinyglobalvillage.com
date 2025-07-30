@@ -1,4 +1,5 @@
-import AboveTheFold from './components/01_AboveTheFold';
+import HeaderLoader from '../../_allPageComponents/_placeHolder/HeaderLoader';
+
 import UpcomingShows from './components/02_UpcomingShows';
 // import NewsSection from './_pageSectionComponents/03_NewsFeed';
 // import Gallery from './_pageSectionComponents/04_Gallery';
@@ -7,7 +8,7 @@ import UpcomingShows from './components/02_UpcomingShows';
 export default function Home() {
   return (
     <>
-      <AboveTheFold />
+      <HeaderLoader/>
       <UpcomingShows />
       {/* <NewsFeed /> */}
       {/* <Gallery /> */}
