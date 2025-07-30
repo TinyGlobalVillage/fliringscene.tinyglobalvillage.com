@@ -2,7 +2,6 @@ import Script from 'next/script';
 import LayoutClient from './layout.client';
 import { metadata } from './metadata';
 export { metadata };
-import '@/styles/widgets.min.css'
 
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
