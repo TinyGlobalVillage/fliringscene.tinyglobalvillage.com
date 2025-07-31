@@ -10,8 +10,21 @@ import NavLinks from './NavLinks';
 import useResponsiveResize from '@/hook-utils/useResponsiveResize';
 import { scaleMap } from '@/styles/scaleMap/_scaleMap';
 
+type NavBarProps = {
+  dict: {
+    logoAlt: string;
+    navLinks: {
+      home: string;
+      shows: string;
+      about: string;
+      gallery: string;
+      contact: string;
+    };
+  };
+};
 
-export default function NavBar() {
+
+export default function NavBar({ dict }: NavBarProps) {
   const { currentBreakpoint } = useResponsiveResize();
   const { logo_size } = scaleMap[currentBreakpoint]
 
@@ -20,6 +33,8 @@ export default function NavBar() {
 
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const [, currentLang] = pathname.split('/');
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -44,7 +59,7 @@ export default function NavBar() {
         {!menuOpen &&
           <PulsingWrapper>
             <LogoWrapper $open={menuOpen} $size={logo_size}>
-              <LogoLink $open={menuOpen} href="/" onClick={handleLogoClick}>
+              <LogoLink $open={menuOpen} href={`/${currentLang}`} onClick={handleLogoClick}>
                 <Image
                   src="/images/icons/fliring-scene-logo-circle.png"
                   alt="FliringLogo"

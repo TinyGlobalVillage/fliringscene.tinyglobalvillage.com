@@ -7,7 +7,7 @@ export async function generateMetadata({
   params: { lang: string };
 }): Promise<Metadata> {
   const dict = getDictionary(params.lang);
-  const page = dict.home;
+  const page = dict.contact;
 
   const baseUrl =
     'https://fliringscene.tinyglobalvillage.com';

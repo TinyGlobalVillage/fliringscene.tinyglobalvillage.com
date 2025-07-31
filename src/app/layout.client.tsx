@@ -3,9 +3,9 @@
 
 import GlobalStyle from '@/styles/GlobalStyle';
 import StyledComponentsRegistry from '@/styles/StyledComponentsRegistry';
-import NavBar from './(en)/_allPageComponents/navigation/NavBar';
-import ScrollToPreviousSectionButton from './(en)/_allPageComponents/buttons/ScrollToPreviousSectionButton';
-import Footer from './(en)/_allPageComponents/footer/Footer';
+import NavBar from './[lang]/_allPageComponents/navigation/NavBar';
+import ScrollToPreviousSectionButton from './[lang]/_allPageComponents/buttons/ScrollToPreviousSectionButton';
+import Footer from './[lang]/_allPageComponents/footer/Footer';
 import styled from 'styled-components';
 import Image from 'next/image';
 
@@ -17,8 +17,13 @@ export const Background = styled.div`
 
 `;
 
+type LayoutClientProps = {
+  children: React.ReactNode;
+  lang: string;
+};
 
-export default function LayoutClient({ children }: { children: React.ReactNode }) {
+
+export default function LayoutClient({ children, lang }: LayoutClientProps) {
   return (
     <StyledComponentsRegistry>
       <GlobalStyle />
@@ -31,13 +36,13 @@ export default function LayoutClient({ children }: { children: React.ReactNode }
           style={{ objectFit: 'cover' }}
         />
       </Background>
-      <NavBar />
-      <div>
+      <NavBar lang={lang} />
+      <div lang={lang}>
 
         <ScrollToPreviousSectionButton />
 
         <main>{children}</main>
-        <Footer />
+        <Footer lang={lang} />
       </div>
     </StyledComponentsRegistry>
   );

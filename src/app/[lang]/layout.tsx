@@ -1,10 +1,10 @@
-import { ReactNode } from 'react';
+// src/app/[lang]/layout.tsx
 import Script from 'next/script';
-import LayoutClient from './layout.client';
-// import { metadata } from './metadata';
-// export { metadata };
+import { ReactNode } from 'react';
+import LayoutClient from '../layout.client';
+import LangToggle from './_allPageComponents/toggle/LangToggle';
 
-export default function RootLayout({
+export default function LangLayout({
   children,
   params,
 }: {
@@ -12,7 +12,7 @@ export default function RootLayout({
   params: { lang: string };
 }) {
   return (
-    <html lang="en">
+    <html lang={params.lang}>
       <head>
         <Script id="org-jsonld" type="application/ld+json">
           {JSON.stringify({
@@ -20,7 +20,8 @@ export default function RootLayout({
             '@type': 'Organization',
             name: 'Fliring Scene',
             url: 'https://fliringscene.tinyglobalvillage.com',
-            logo: 'https://…/logo-square.jpg',
+            logo:
+              'https://fliringscene.tinyglobalvillage.com/images/fliring-scene-logo-square.jpg',
           })}
         </Script>
         <link
@@ -35,6 +36,7 @@ export default function RootLayout({
           as="image"
           href="/images/placeholder/fliring-scene-placeholder-image.jpg"
         />
+        <LangToggle />
       </head>
       <body>
         <LayoutClient lang={params.lang}>{children}</LayoutClient>
@@ -42,12 +44,3 @@ export default function RootLayout({
     </html>
   );
 }
-
-
-// export default function LangLayout({ children, params }: { children: ReactNode, params: { lang: string } }) {
-//   return (
-//     <html lang={params.lang}>
-//       <body>{children}</body>
-//     </html>
-//   );
-// }
