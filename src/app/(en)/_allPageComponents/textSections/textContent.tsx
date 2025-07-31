@@ -38,18 +38,21 @@ const TextBlock = styled.div`
 
 const ImageWrapper = styled.div`
   flex: 1;
-  max-width: 300px;
+  max-width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
+  width: 100%;
 
   img {
-    max-width: 100%;
+    width: 100%;
+    max-width: 300px;
+    min-width: 250px;
     height: auto;
     filter: drop-shadow(0 0 10px #00bfff);
     border-radius: 25px;
   }
 `;
-
 const ImageCaption = styled.p`
   margin-top: 0.75rem;
   font-size: 0.95rem;

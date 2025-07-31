@@ -59,7 +59,7 @@ export default function StraightArrow() {
         x="-535"
         y="110"
         fontSize={arrowTextSize}
-        fontFamily="Arial, sans-serif"
+        fontFamily="'Josefin Sans', sans-serif"
         fill="#fc5b7c"
         textAnchor="middle"
         style={{
@@ -69,7 +69,7 @@ export default function StraightArrow() {
           textAlign: 'center',
         }}
       >
-        KOMMENDE SHOW
+        TA KONTAKT
       </text>
     </svg>
   );

@@ -5,6 +5,7 @@ import { aboutContent } from '../../../../data/about/aboutPageData';
 import NeonSectionTitleFontSize from '../../_allPageComponents/headers/NeonSectionTitleFontSize';
 import { glowPulse } from '../../_allPageComponents/animations/glowPulse';
 import { media } from '@/styles/breakpoints';
+import ContactArrowButton from '../../_allPageComponents/buttons/contactArrowButton';
 import GoogleMapEmbed from '../../_allPageComponents/google/GoogleMapEmbed';
 
 const AboutSection = styled.div`
@@ -41,14 +42,14 @@ const AboutSection = styled.div`
 
   @media ${media.laptop} {
     height: auto;
-    margin-top: 110px;
+    margin-top: 150px;
     margin-bottom: 200px;
     padding: 0.25rem 5rem 35px;
   }
 
   @media ${media.laptopL} {
     margin-top: 150px;
-    padding: 1rem 9rem 3rem;
+    padding: 1rem 5rem 3rem;
   }
 
   @media ${media.fourK} {
@@ -76,8 +77,8 @@ const HeadingWrapper = styled.div`
   }
 
   @media ${media.laptopL} {
-    padding-top: 0px;
-    padding-bottom: 0px;
+    padding-top: 15px;
+    padding-bottom: 10px;
   }
 
   @media ${media.fourK} {
@@ -100,6 +101,7 @@ export default function AboutPage() {
           reverse={index % 2 !== 0}
         />
       ))}
+      {/* <ContactArrowButton /> */}
       <GoogleMapEmbed />
     </AboutSection>
   );
