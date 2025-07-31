@@ -1,32 +1,106 @@
 'use client';
 import styled from "styled-components";
+import TextImageSplit from '../../_allPageComponents/textSections/textContent';
+import { aboutContent } from '../../../../data/about/aboutPageData';
+import NeonSectionTitleFontSize from '../../_allPageComponents/headers/NeonSectionTitleFontSize';
+import { glowPulse } from '../../_allPageComponents/animations/glowPulse';
+import { media } from '@/styles/breakpoints';
+import GoogleMapEmbed from '../../_allPageComponents/google/GoogleMapEmbed';
 
 const AboutSection = styled.div`
-  width: 500px;
-  margin: 0 auto;
-  padding: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-padding-top: 300px;
-  color: white;
-  z-index: 20;
-  height: 100vh;
-  gap: 1rem;
-  `;
+  background: rgba(0, 0, 0, 0.7);
 
-export default function About() {
-    return (
-        <>
-        <AboutSection>
-            <h1>About Us</h1>
-            <p>Welcome to Fliring Scene – Steinkjer’s new, intimate, and inclusive cultural stage in Breidablikkgården!</p>
-            <p>Here, local stand‑up, speeches, revues, improv, singing, and music will have room to flourish, whether you’re a seasoned pro or a complete beginner. This is the place where laughter, stories, and great experiences take center stage.</p>
-            <p>Behind Fliring Scene are the passionate founders Johan Halseth and Andreas Trætli, who have joined forces to create an arena for the full breadth of cultural life. Are you from Steinkjer or the surrounding area and eager to try your hand on stage?</p>
-            <p>Send us a short video clip at hei@fliring.no – we can’t wait to discover new faces and hear fresh jokes!</p>
-            <p>For only NOK 200 you can become a member of Fliring Scene, support the city’s new cultural hub, enjoy discounts on all our events – and maybe a surprise or two. Sign up by sending NOK 200 via Vipps to 961768. See you at Breidablikkgården!</p>
-        </AboutSection>
-        </>
-    );
+  width: 90%;
+  max-width: 900px;
+  margin: 70px auto 100px;
+
+  padding: 0.25rem 1.3rem 20px;
+  border: 8px solid #f7b700;
+  border-radius: 50px;
+  animation: ${glowPulse} 2s infinite;
+  box-shadow: 0 0 10px #f7b700, 0 0 25px #f7b700;
+
+  @media ${media.mobileM} {
+    padding: 0.25rem 2rem 40px;
+    margin: 90px auto 80px;
+  }
+
+  @media ${media.mobileL} {
+    scroll-margin-top: 65px;
+    padding: 0.25rem 2rem 50px;
+    margin: 90px auto 90px;
+  }
+
+  @media ${media.tablet} {
+    margin-top: 150px;
+    margin-bottom: 200px;
+  }
+
+  @media ${media.laptop} {
+    height: auto;
+    margin-top: 110px;
+    margin-bottom: 200px;
+    padding: 0.25rem 5rem 35px;
+  }
+
+  @media ${media.laptopL} {
+    margin-top: 150px;
+    padding: 1rem 9rem 3rem;
+  }
+
+  @media ${media.fourK} {
+    margin-top: 210px;
+    padding: 3rem;
+  }
+`;
+
+const HeadingWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+
+  @media ${media.mobileM} {
+    padding-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  @media ${media.laptop} {
+    padding-top: 15px;
+    padding-bottom: 10px;
+  }
+
+  @media ${media.laptopL} {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+
+  @media ${media.fourK} {
+    padding-top: 0px;
+    padding-bottom: 25px;
+  }
+`;
+
+export default function AboutPage() {
+  return (
+    <AboutSection>
+      <HeadingWrapper>
+        <NeonSectionTitleFontSize>ABOUT US</NeonSectionTitleFontSize>
+      </HeadingWrapper>
+
+      {aboutContent.map((section, index) => (
+        <TextImageSplit
+          key={index}
+          sectionData={section}
+          reverse={index % 2 !== 0}
+        />
+      ))}
+      <GoogleMapEmbed />
+    </AboutSection>
+  );
 }
