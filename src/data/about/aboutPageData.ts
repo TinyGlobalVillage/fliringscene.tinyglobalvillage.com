@@ -1,3 +1,5 @@
+
+
 export const aboutContent = [
   {
     text: `Welcome to Fliring Scene – Steinkjer’s new, intimate, and inclusive cultural stage in Breidablikkgården! 
@@ -5,9 +7,9 @@ export const aboutContent = [
     This is the place where laughter, stories, and great experiences take center stage.
     Behind Fliring Scene are the passionate founders Johan Halseth and Andreas Trætli, who have joined forces to create an arena for the full breadth of cultural life. 
     `,
-    images: ['/images/icons/fliring-scene-logo-square.jpeg'],
+     images: ['neon-guys'],
     alt: ['Image of them'],
-    imageCaptions: ['Andreas Trætli and Johan Halseth'],
+    imageCaptions: ['Johan Halseth & Andreas Trætli'],
   },
   {
     text: `Are you from Steinkjer or the surrounding area and eager to try your hand on stage? 

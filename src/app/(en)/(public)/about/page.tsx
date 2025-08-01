@@ -5,8 +5,8 @@ import { aboutContent } from '../../../../data/about/aboutPageData';
 import NeonSectionTitleFontSize from '../../_allPageComponents/headers/NeonSectionTitleFontSize';
 import { glowPulse } from '../../_allPageComponents/animations/glowPulse';
 import { media } from '@/styles/breakpoints';
+import GoogleMapEmbed from "../../_allPageComponents/google/GoogleMapEmbed";
 import ContactArrowButton from '../../_allPageComponents/buttons/contactArrowButton';
-import GoogleMapEmbed from '../../_allPageComponents/google/GoogleMapEmbed';
 
 const AboutSection = styled.div`
   display: flex;
@@ -93,7 +93,6 @@ export default function AboutPage() {
       <HeadingWrapper>
         <NeonSectionTitleFontSize>ABOUT US</NeonSectionTitleFontSize>
       </HeadingWrapper>
-
       {aboutContent.map((section, index) => (
         <TextImageSplit
           key={index}

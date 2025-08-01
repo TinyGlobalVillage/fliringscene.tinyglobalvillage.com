@@ -1,12 +1,12 @@
 'use client';
-
+import NeonGuys from '../svg/NeonGuysSVG';
 import styled from 'styled-components';
 import Image from 'next/image';
 
 type TextImageSplitProps = {
   sectionData: {
     text: string;
-    images: string[];
+   images: string[]; 
     alt: string[];
     imageCaptions: string[];
   };
@@ -14,7 +14,7 @@ type TextImageSplitProps = {
 };
 
 const SectionWrapper = styled.section`
-  padding: 0rem 0rem 1rem;
+  padding: 0rem 0rem 2rem;
 `;
 
 const Container = styled.div`
@@ -43,6 +43,7 @@ const ImageWrapper = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin-top: -50px;
 
   img {
     width: 100%;
@@ -54,7 +55,6 @@ const ImageWrapper = styled.div`
   }
 `;
 const ImageCaption = styled.p`
-  margin-top: 0.75rem;
   font-size: 0.95rem;
   color: #00bfff;
   text-align: center;
@@ -75,22 +75,41 @@ export default function TextImageSplit({ sectionData, reverse = false }: TextIma
             <p key={index}>{para}</p>
           ))}
         </TextBlock>
-       {sectionData.images[0] && (
+  {sectionData.images[0] && (
   <ImageWrapper>
-          <div style={{ textAlign: 'center' }}>
-            <Image
-              src={sectionData.images[0]}
-              alt={sectionData.alt[0] || 'Section image'}
-              width={400}
-              height={400}
-              priority
-            />
-            {sectionData.imageCaptions?.[0] && (
-              <ImageCaption>{sectionData.imageCaptions[0]}</ImageCaption>
-            )}
-          </div>
-        </ImageWrapper>
+    <div style={{ textAlign: 'center' }}>
+      {typeof sectionData.images[0] === 'string' && sectionData.images[0] === 'neon-guys' ? (
+        <>
+          <NeonGuys />
+          {sectionData.imageCaptions?.[0] && (
+            <ImageCaption>{sectionData.imageCaptions[0]}</ImageCaption>
+          )}
+        </>
+      ) : typeof sectionData.images[0] === 'string' ? (
+        <>
+          <Image
+            src={sectionData.images[0]}
+            alt={sectionData.alt[0] || 'Section image'}
+            width={400}
+            height={400}
+            priority
+          />
+          {sectionData.imageCaptions?.[0] && (
+            <ImageCaption>{sectionData.imageCaptions[0]}</ImageCaption>
+          )}
+        </>
+      ) : (
+        <>
+          {sectionData.images[0]}
+          {sectionData.imageCaptions?.[0] && (
+            <ImageCaption>{sectionData.imageCaptions[0]}</ImageCaption>
+          )}
+        </>
       )}
+    </div>
+  </ImageWrapper>
+)}
+
       </Container>
     </SectionWrapper>
   );
