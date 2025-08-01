@@ -3,14 +3,21 @@ import Script from 'next/script';
 import { ReactNode } from 'react';
 import LayoutClient from '../layout.client';
 import LangToggle from './_allPageComponents/toggle/LangToggle';
+import { getDictionary } from '@/data/i18n';
+
+interface LangLayoutProps {
+  children: ReactNode
+  params: { lang: 'en' | 'no' }
+}
+
 
 export default function LangLayout({
   children,
   params,
-}: {
-  children: ReactNode;
-  params: { lang: string };
-}) {
+}: LangLayoutProps) {
+
+  const dict = getDictionary(params.lang);
+
   return (
     <html lang={params.lang}>
       <head>
@@ -31,15 +38,15 @@ export default function LangLayout({
           type="font/ttf"
           crossOrigin="anonymous"
         />
-        <link
+        {/* <link
           rel="preload"
           as="image"
           href="/images/placeholder/fliring-scene-placeholder-image.jpg"
-        />
-        <LangToggle />
+        /> */}
       </head>
       <body>
-        <LayoutClient lang={params.lang}>{children}</LayoutClient>
+        <LangToggle dict={dict.navigation.langToggle} />
+        <LayoutClient lang={params.lang} dict={dict}>{children}</LayoutClient>
       </body>
     </html>
   );

@@ -1,14 +1,14 @@
 // data/i18n/en.ts
-
 import { Dictionary } from './types';
 
 export const dictionary: Dictionary = {
+  // ALL PAGES SECTIONS (SEO & SECTION DICT)
   home: {
     // SEO METADATA
-    title: 'Welcome to Fliring Scene',
-    description:
-      'Steinkjer’s intimate stage for stand-up, music & culture. Discover upcoming shows, open mics & community events.',
     meta: {
+      title: 'Welcome to Fliring Scene',
+      description:
+        'Steinkjer’s intimate stage for stand-up, music & culture. Discover upcoming shows, open mics & community events.',
       keywords: [
         'Fliring Scene',
         'comedy Steinkjer',
@@ -23,7 +23,7 @@ export const dictionary: Dictionary = {
         'Join us at Fliring Scene – an inclusive stage for standup, music, and creative expression in Steinkjer.',
     },
     twitter: {
-      card: "summary_large_image",
+      card: 'summary_large_image',
       title:
         'Fliring Scene | Steinkjer’s Stage for Laughter and Culture',
       description:
@@ -38,31 +38,22 @@ export const dictionary: Dictionary = {
       ],
     },
     // SECTIONS
-    navigation: {
-  logoAlt: "Fliring Scene Logo",
-  navLinks: {
-    home: "Home",
-    shows: "Shows",
-    about: "About",
-    gallery: "Gallery",
-    contact: "Contact",
-  },
     aboveTheFold: {
-      title: "FLIRING",
-      subtitle: "SCENE",
-      ctaLabel: "See Events",
+      title: 'FLIRING',
+      subtitle: 'SCENE',
+      ctaLabel: 'See Events',
     },
     upcomingShows: {
-      title: "Upcoming Shows",
-      ctaLabel: "See Events",
+      title: 'Upcoming Shows',
+      ctaLabel: 'See Events',
     },
   },
   about: {
-    title:
-      'About Us | Fliring Scene – Comedy, Culture & Community',
-    description:
-      'Get to know the team behind Fliring Scene – Steinkjer’s vibrant stage for standup, music, and local voices.',
     meta: {
+      title:
+        'About Us | Fliring Scene – Comedy, Culture & Community',
+      description:
+        'Get to know the team behind Fliring Scene – Steinkjer’s vibrant stage for standup, music, and local voices.',
       keywords: [
         'about Fliring Scene',
         'Steinkjer culture',
@@ -86,10 +77,10 @@ export const dictionary: Dictionary = {
     },
   },
   contact: {
-    title: 'Contact Us | Fliring Scene – Get in Touch',
-    description:
-      'Want to perform, book the venue, or ask a question? Contact Fliring Scene – Steinkjer’s home for comedy and creativity.',
     meta: {
+      title: 'Contact Us | Fliring Scene – Get in Touch',
+      description:
+        'Want to perform, book the venue, or ask a question? Contact Fliring Scene – Steinkjer’s home for comedy and creativity.',
       keywords: [
         'contact Fliring Scene',
         'venue booking Steinkjer',
@@ -111,11 +102,11 @@ export const dictionary: Dictionary = {
     },
   },
   gallery: {
-    title:
-      'Gallery | Fliring Scene – Moments of Laughter & Live Acts',
-    description:
-      'Explore snapshots from Fliring Scene’s vibrant events – standup nights, music gigs, and community moments in Steinkjer.',
     meta: {
+      title:
+        'Gallery | Fliring Scene – Moments of Laughter & Live Acts',
+      description:
+        'Explore snapshots from Fliring Scene’s vibrant events – standup nights, music gigs, and community moments in Steinkjer.',
       keywords: [
         'Fliring Scene gallery',
         'Steinkjer events photos',
@@ -140,11 +131,11 @@ export const dictionary: Dictionary = {
     },
   },
   shows: {
-    title:
-      'Shows | Fliring Scene – Upcoming Events & Performances',
-    description:
-      'Check out upcoming standup shows, music acts, and live events at Fliring Scene in Steinkjer. Your seat is waiting!',
     meta: {
+      title:
+        'Shows | Fliring Scene – Upcoming Events & Performances',
+      description:
+        'Check out upcoming standup shows, music acts, and live events at Fliring Scene in Steinkjer. Your seat is waiting!',
       keywords: [
         'Fliring Scene shows',
         'Steinkjer live events',
@@ -166,6 +157,103 @@ export const dictionary: Dictionary = {
         'Explore the lineup of shows at Fliring Scene – comedy, music, and more in the heart of Steinkjer.',
       images:
         'https://fliringscene.tinyglobalvillage.com/images/fliring-scene-logo-square.jpg',
+    },
+  },
+  // ALL COMPONENTS SECTION
+  navigation: {
+    logoAlt: 'Fliring Scene Logo',
+    links: {
+      home: {
+        label: 'HOME',
+        ariaLabel: 'Go to homepage',
+        href: '/',
+      },
+      shows: {
+        label: 'SHOWS',
+        ariaLabel: 'View upcoming shows',
+        href: '/shows',
+      },
+      about: {
+        label: 'ABOUT',
+        ariaLabel: 'Learn more about us',
+        href: '/about',
+      },
+      gallery: {
+        label: 'GALLERY',
+        ariaLabel: 'View our gallery',
+        href: '/gallery',
+      },
+      contact: {
+        label: 'CONTACT',
+        ariaLabel: 'Get in contact with us',
+        href: '/contact',
+      },
+    },
+    socialMedia: [
+      {
+        platform: 'facebook',
+        label: 'Facebook',
+        ariaLabel: 'Visit us on Facebook',
+        href: 'https://www.facebook.com/profile.php?id=61577337325283',
+        altText: 'Facebook icon',
+      },
+    ],
+    langToggle: {
+      toggleLabel: 'Language Toggle',
+      enAlt: 'English',
+      noAlt: 'Norwegian',
+    },
+  },
+  footer: {
+    newsletter: {
+      title: 'Signup for Our Newsletter',
+      formAriaLabelledBy: 'newsletter-header',
+      subscribe: 'Subscribe',
+    },
+    input: {
+      name: 'newsletterEmail',
+      ariaLabel: 'Email address',
+      placeholder: 'Enter Email In Here',
+    },
+    statusMessage: {
+      success: 'Thanks for subscribing!',
+      error: 'Oops! Try again.',
+      duplicate: 'You’re already on the list!',
+    },
+    linksColumn: {
+      title: 'Quick Links',
+      links: {
+        shows: {
+          label: 'SHOWS',
+          ariaLabel: 'View upcoming shows',
+          href: '/shows',
+        },
+        contact: {
+          label: 'CONTACT',
+          ariaLabel: 'Get in contact with us',
+          href: '/contact',
+        },
+      },
+    },
+    contactColumn: {
+      title: 'Get in Touch',
+      buttonTitle: 'Contact Us',
+      buttonAriaLabel: 'Go to contact page',
+    },
+    socialMedia: [
+      {
+        platform: 'facebook',
+        label: 'Facebook',
+        ariaLabel: 'Visit us on Facebook',
+        href: 'https://www.facebook.com/profile.php?id=61577337325283',
+        altText: 'Facebook icon',
+      },
+    ],
+    trademark: {
+      title: '© 2025 Fliring Scene. All rights reserved.',
+    },
+    advert: {
+      message: 'Powered by Tiny Global Village LLC™',
     },
   },
 };

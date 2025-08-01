@@ -1,18 +1,22 @@
 import { ReactNode } from 'react';
 import Script from 'next/script';
-import LayoutClient from './layout.client';
+// import LayoutClient from './layout.client';
 // import { metadata } from './metadata';
 // export { metadata };
 
+// import { getDictionary } from '@/data/i18n';
+
 export default function RootLayout({
   children,
-  params,
 }: {
   children: ReactNode;
-  params: { lang: string };
+
 }) {
+
+  // const dict = getDictionary(params.lang); // ✅ fetch dictionary
+
   return (
-    <html lang="en">
+    <html>
       <head>
         <Script id="org-jsonld" type="application/ld+json">
           {JSON.stringify({
@@ -37,7 +41,7 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <LayoutClient lang={params.lang}>{children}</LayoutClient>
+       {children}
       </body>
     </html>
   );

@@ -8,6 +8,7 @@ import ScrollToPreviousSectionButton from './[lang]/_allPageComponents/buttons/S
 import Footer from './[lang]/_allPageComponents/footer/Footer';
 import styled from 'styled-components';
 import Image from 'next/image';
+import { Dictionary } from '@/data/i18n/types';
 
 export const Background = styled.div`
   position: fixed;
@@ -20,10 +21,12 @@ export const Background = styled.div`
 type LayoutClientProps = {
   children: React.ReactNode;
   lang: string;
+  dict: Dictionary;
 };
 
 
-export default function LayoutClient({ children, lang }: LayoutClientProps) {
+export default function LayoutClient({ children, lang, dict }: LayoutClientProps) {
+
   return (
     <StyledComponentsRegistry>
       <GlobalStyle />
@@ -36,13 +39,13 @@ export default function LayoutClient({ children, lang }: LayoutClientProps) {
           style={{ objectFit: 'cover' }}
         />
       </Background>
-      <NavBar lang={lang} />
+      <NavBar lang={lang} dict={dict.navigation}/>
       <div lang={lang}>
 
         <ScrollToPreviousSectionButton />
 
         <main>{children}</main>
-        <Footer lang={lang} />
+        <Footer lang={lang} dict={dict.footer}/>
       </div>
     </StyledComponentsRegistry>
   );

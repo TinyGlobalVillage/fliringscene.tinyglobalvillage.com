@@ -14,8 +14,8 @@ export async function generateMetadata({
   const image = `${baseUrl}/images/fliring-scene-logo-square.jpg`;
 
   return {
-    title: page.title,
-    description: page.description,
+    title: page.meta.title,
+    description: page.meta.description,
     keywords: page.meta.keywords,
     alternates: {
       canonical: `${baseUrl}/${params.lang}`,

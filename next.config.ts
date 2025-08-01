@@ -1,4 +1,4 @@
-import path from 'path';
+// import path from 'path';
 import { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
@@ -12,7 +12,7 @@ const nextConfig: NextConfig = {
   //   };
   //   return config;
   // },
-  
+
 };
 
 export default nextConfig;

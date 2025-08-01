@@ -9,32 +9,29 @@ import { NavbarContainer, NavWrapper, LogoLink, LogoWrapper, Links, MenuToggle, 
 import NavLinks from './NavLinks';
 import useResponsiveResize from '@/hook-utils/useResponsiveResize';
 import { scaleMap } from '@/styles/scaleMap/_scaleMap';
+import { NavBarContent } from '@/data/i18n/types';
 
 type NavBarProps = {
-  dict: {
-    logoAlt: string;
-    navLinks: {
-      home: string;
-      shows: string;
-      about: string;
-      gallery: string;
-      contact: string;
-    };
-  };
+  dict: NavBarContent
+  lang: string;
 };
 
 
-export default function NavBar({ dict }: NavBarProps) {
+export default function NavBar({ dict, lang }: NavBarProps) {
   const { currentBreakpoint } = useResponsiveResize();
   const { logo_size } = scaleMap[currentBreakpoint]
 
   const pathname = usePathname();
   const router = useRouter();
 
+  const langPrefix = lang === 'no' ? '/no' : '/en';
+
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const [, currentLang] = pathname.split('/');
+
+
+  const toggleMenu = () => setMenuOpen(prev => !prev);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -45,10 +42,13 @@ export default function NavBar({ dict }: NavBarProps) {
 
 
   const handleLogoClick = () => {
-    if (pathname === '/') {
+    const currentPath = pathname.replace(/\/$/, ''); // remove trailing slash
+    const isAtHome = currentPath === `/${lang}`;
+
+    if (isAtHome) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-      router.push('/');
+      router.push(`/${lang}`);
     }
   };
 
@@ -59,11 +59,12 @@ export default function NavBar({ dict }: NavBarProps) {
         {!menuOpen &&
           <PulsingWrapper>
             <LogoWrapper $open={menuOpen} $size={logo_size}>
-              <LogoLink $open={menuOpen} href={`/${currentLang}`} onClick={handleLogoClick}>
+              <LogoLink $open={menuOpen} href={langPrefix} onClick={handleLogoClick}>
                 <Image
                   src="/images/icons/fliring-scene-logo-circle.png"
-                  alt="FliringLogo"
-                  fill
+                  alt={dict.logoAlt}
+                  width={logo_size}              // ✅ use dynamic size
+                  height={logo_size}
                   style={{ objectFit: 'contain' }}
                   priority
                 />
@@ -72,7 +73,7 @@ export default function NavBar({ dict }: NavBarProps) {
           </PulsingWrapper>
         }
 
-        <MenuToggle $open={menuOpen} onClick={() => setMenuOpen(v => !v)}>
+        <MenuToggle $open={menuOpen} onClick={toggleMenu}>
 
           {menuOpen ? '✕' : '☰'}
 
@@ -81,14 +82,24 @@ export default function NavBar({ dict }: NavBarProps) {
 
         {/* desktop links */}
         <Links>
-          <NavLinks showHome={false} />
+          <NavLinks
+            dict={dict.links}
+            socialMedia={dict.socialMedia}
+            lang={lang}
+            showHome={false}
+          />
         </Links>
 
         {/* mobile dropdown */}
         <DropDownMenu $open={menuOpen}
           onClick={() => setMenuOpen(false)}
         >
-          <NavLinks showHome={true} />
+          <NavLinks
+            dict={dict.links}
+            socialMedia={dict.socialMedia}
+            lang={lang}
+            showHome={true}
+          />
         </DropDownMenu>
       </NavWrapper>
 

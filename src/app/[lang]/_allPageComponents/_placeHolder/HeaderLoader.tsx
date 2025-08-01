@@ -20,6 +20,7 @@ type HeaderLoaderProps = {
   dict: {
     title: string;
     subtitle: string;
+    ctaLabel: string;
     // add other localized strings as needed
   };
 };

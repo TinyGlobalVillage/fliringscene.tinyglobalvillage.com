@@ -13,7 +13,8 @@ export default function Home({params}: {params: {lang: string}}) {
   return (
     <>
       <HeaderLoader dict={dict.home.aboveTheFold} />
-      <UpcomingShows />
+      {/* <UpcomingShows  /> */}
+      <UpcomingShows dict={dict.home.upcomingShows} />
       {/* <NewsFeed /> */}
       {/* <Gallery /> */}
       {/* <Footer /> */}

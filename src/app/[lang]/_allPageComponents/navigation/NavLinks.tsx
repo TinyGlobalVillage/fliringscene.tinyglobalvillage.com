@@ -1,57 +1,52 @@
 // src/components/navigation/NavLinks.tsx
 'use client';
 
-import React from 'react';
-import FacebookIcon from '../facebook/FacebookIcon';
 import { NavItem } from './navStyles';
+import { NavLinksContent, SocialLink } from '@/data/i18n/types';
+import { getSocialIcon } from '@/hook-utils/getSocialIcon';
 
-interface NavLink {
-  label: string;
-  href: string;
-  external?: boolean;
-  icon?: React.ReactNode;
+type NavLinkProps = {
+  dict: NavLinksContent;
+  socialMedia: SocialLink[];
+  showHome?: boolean;
+  lang: string;
 }
-
-type Props = {
-  showHome?: boolean
-}
-
-// ─── your links all in one place ──────────────────────────────────────────────
-const ALL_LINKS: NavLink[] = [
-  { label: 'HOME',    href: '/' },
-  { label: 'SHOWS',   href: '/shows' },
-  { label: 'CONTACT', href: '/contact' },
-  {
-    label: 'Facebook Icon',
-    href: 'https://www.facebook.com/profile.php?id=61577337325283',
-    external: true,
-    icon: <FacebookIcon />
-  }
-];
 
 // ─── the NavLinks component ───────────────────────────────────────────────────
-export default function NavLinks({ showHome = true }: Props) {
+export default function NavLinks({ dict, socialMedia, lang, showHome = true }: NavLinkProps) {
+  // convert dict object to array for mapping
+  const allNavLinks = Object.entries(dict).map(([key, link]) => ({
+    ...link,
+    key,
+  }));
+
   return (
     <>
-      {ALL_LINKS
-        .filter(link => showHome || link.label !== 'HOME')
-        .map(({ label, href, external, icon }) => {
-          const props = external
-            ? {
-                as: 'a' as const,
-                href,
-                target: '_blank',
-                rel: 'noopener noreferrer',
-                'aria-label': label
-              }
-            : { href }
+      {/* Navigation Links */}
+      {allNavLinks
+        .filter(link => showHome || link.key !== 'home')
+        .map(({ label, href, ariaLabel }) => (
+          <NavItem
+            key={href}
+            href={`/${lang}${href}`}
+            aria-label={ariaLabel}>
+            {label}
+          </NavItem>
+        ))}
 
-          return (
-            <NavItem key={href} {...props}>
-              {icon ?? label}
-            </NavItem>
-          )
-        })}
+      {/* Social Media Links */}
+      {socialMedia.map(({ platform, href, ariaLabel, label }) => (
+        <NavItem
+          key={platform}
+          as="a"
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={ariaLabel}
+        >
+          {getSocialIcon(platform) ?? label}
+        </NavItem>
+      ))}
     </>
-  )
+  );
 }
