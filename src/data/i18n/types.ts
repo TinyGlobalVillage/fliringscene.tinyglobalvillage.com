@@ -40,10 +40,10 @@ export interface TwitterImage {
 // Final dictionary interface
 export interface Dictionary {
   home: HomePage;
-  shows: PageMeta;
-  about: PageMeta;
-  gallery: PageMeta;
-  contact: PageMeta;
+  shows: ShowsPage;
+  about: PageMeta; // still need to do
+  gallery: PageMeta; // still need to do
+  contact: PageMeta; // still need to do
   navigation: NavBarContent;
   footer: FooterContent;
   // Extend with more routes as needed
@@ -67,6 +67,15 @@ export interface AboveTheFoldContent {
 export interface UpcomingShowsContent {
   title: string;
   ctaLabel: string;
+}
+
+// SHOW PAGE DATA
+export interface ShowsPage extends PageMeta {
+  showsAboveFold: ShowsAboveFoldContent;
+}
+
+export interface ShowsAboveFoldContent {
+  sectionTitle: string;
 }
 
 // ALL PAGE COMPONENTS

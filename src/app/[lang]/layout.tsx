@@ -3,7 +3,7 @@ import Script from 'next/script';
 import { ReactNode } from 'react';
 import LayoutClient from '../layout.client';
 import LangToggle from './_allPageComponents/toggle/LangToggle';
-import { getDictionary } from '@/data/i18n';
+import { getDictionary } from '@/data/i18n/getDictionary';
 
 interface LangLayoutProps {
   children: ReactNode
@@ -11,12 +11,12 @@ interface LangLayoutProps {
 }
 
 
-export default function LangLayout({
+export default async function LangLayout({
   children,
   params,
 }: LangLayoutProps) {
 
-  const dict = getDictionary(params.lang);
+  const dict = await getDictionary(params.lang);
 
   return (
     <html lang={params.lang}>

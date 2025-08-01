@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   compiler: {
     styledComponents: true, // ✅ Enables built-in SSR for styled-components
   },
+  trailingSlash: true,
   // webpack: (config) => {
   //   config.resolve.alias = {
   //     ...(config.resolve.alias || {}),

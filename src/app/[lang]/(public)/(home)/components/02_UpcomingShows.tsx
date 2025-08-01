@@ -5,7 +5,7 @@
 import NeonSectionTitleFontSize from '../../../_allPageComponents/headers/NeonSectionTitleFontSize';
 import TikkioWidget from '../../../_allPageComponents/tikkio/TikkoWidget';
 import { UpcomingShowsSection, HeadingWrapper, TikkioWrapper } from './02_Wrapper';
-import { UpcomingShowsContent } from '@/data/i18n/types';
+import type { UpcomingShowsContent } from '@/data/i18n/types';
 // import EndlessScrollContainer from '@/app/(en)/_allPageComponents/scroll-containers/_endlessScrollContainer copy';
 // import EventCard from '@/app/(en)/_allPageComponents/cards/EventCard';
 

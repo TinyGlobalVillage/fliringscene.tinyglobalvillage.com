@@ -9,7 +9,7 @@ import MicrophoneSVG from '@/app/[lang]/_allPageComponents/svg/MicrophoneSVG';
 import NeonFaceSVG from '@/app/[lang]/_allPageComponents/svg/NeonFaceSVG';
 import NeonArrowSVGButton from '@/app/[lang]/_allPageComponents/buttons/NeonArrowSVGButton';
 import { PulsingWrapper } from '@/app/[lang]/_allPageComponents/animations/pulseEffect';
-import { AboveTheFoldContent } from '@/data/i18n/types';
+import type { AboveTheFoldContent } from '@/data/i18n/types';
 
 type AboveTheFoldProps = {
   dict: AboveTheFoldContent

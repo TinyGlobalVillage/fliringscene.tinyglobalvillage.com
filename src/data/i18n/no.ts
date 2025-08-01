@@ -158,6 +158,9 @@ export const dictionary: Dictionary = {
       images:
         'https://fliringscene.tinyglobalvillage.com/images/fliring-scene-logo-square.jpg',
     },
+    showsAboveFold: {
+      sectionTitle: "kommende show"
+    }
   },
   // ALL COMPONENTS SECTION
   navigation: {

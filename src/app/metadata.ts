@@ -1,12 +1,12 @@
 import { Metadata } from 'next';
-import { getDictionary } from '@/data/i18n';
+import { getDictionary } from '@/data/i18n/getDictionary';
 
 export async function generateMetadata({
   params,
 }: {
   params: { lang: string };
 }): Promise<Metadata> {
-  const dict = getDictionary(params.lang);
+  const dict = await getDictionary(params.lang);
   const page = dict.home;
 
   const baseUrl =
@@ -44,7 +44,7 @@ export async function generateMetadata({
       card: page.twitter.card,
       title: page.twitter.title,
       description: page.twitter.description,
-      images: page.twitter.images
+      images: page.twitter.images,
     },
     robots: {
       index: true,
