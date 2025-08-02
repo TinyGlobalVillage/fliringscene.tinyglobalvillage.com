@@ -37,7 +37,7 @@ export default function AboveTheFold({ dict }: AboveTheFoldProps) {
 
       <ComedyClubSignArrowWrapper>
 
-        <ComedyClubSign />
+        <ComedyClubSign dict={dict.comedySign} />
 
         <PulsingWrapper
           $color="#fe9e17"

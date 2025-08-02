@@ -2,9 +2,23 @@
 
 import type { ReactNode } from 'react';
 
+//PAGES DICTIONARY DATA
+
+// Final dictionary interface
+export interface Dictionary {
+  home: HomePage;
+  shows: ShowsPage;
+  about: AboutPage; // still need to do
+  gallery: GalleryPage; // still need to do
+  contact: ContactPage; // still need to do
+  navigation: NavBarContent;
+  footer: FooterContent;
+  // Extend with more routes as needed
+}
+
 // SEO METADATA TYPES
 
-export interface PageMeta {
+interface PageMeta {
   meta: {
     title: string;
     description: string;
@@ -28,59 +42,107 @@ export interface PageMeta {
   };
 }
 
-export interface TwitterImage {
+interface TwitterImage {
   url: string;
   alt?: string;
   width?: number;
   height?: number;
 }
 
-//PAGES DICTIONARY DATA
-
-// Final dictionary interface
-export interface Dictionary {
-  home: HomePage;
-  shows: ShowsPage;
-  about: PageMeta; // still need to do
-  gallery: PageMeta; // still need to do
-  contact: PageMeta; // still need to do
-  navigation: NavBarContent;
-  footer: FooterContent;
-  // Extend with more routes as needed
-}
-
 // HOME PAGE DATA
 
 // 🆕 Full home structure
-export interface HomePage extends PageMeta {
+interface HomePage extends PageMeta {
   aboveTheFold: AboveTheFoldContent;
   upcomingShows: UpcomingShowsContent;
   // Add other homepage sections like `upcomingShows`, `footer`, etc.
 }
 
 // 🆕 New interface for Above the Fold section
-export interface AboveTheFoldContent {
+interface AboveTheFoldContent {
   title: string;
   subtitle: string;
   ctaLabel: string;
+  comedySign: {
+    title: string;
+    subtitle: string;
+  };
 }
-export interface UpcomingShowsContent {
+interface UpcomingShowsContent {
   title: string;
   ctaLabel: string;
 }
 
 // SHOW PAGE DATA
-export interface ShowsPage extends PageMeta {
+interface ShowsPage extends PageMeta {
   showsAboveFold: ShowsAboveFoldContent;
 }
 
-export interface ShowsAboveFoldContent {
+interface ShowsAboveFoldContent {
   sectionTitle: string;
+}
+
+// ABOUT PAGE DATA
+
+interface AboutPage extends PageMeta {
+  aboutAboveFold: AboutAboveFoldContent;
+}
+
+interface AboutAboveFoldContent {
+  sectionTitle: string;
+  para1: string;
+  para2: string;
+  para3: string;
+  para4: string;
+  para5: string;
+}
+
+// GALLERY PAGE DATA
+
+interface GalleryPage extends PageMeta {
+  galleryAboveFold: GalleryAboveFoldContent;
+}
+
+interface GalleryAboveFoldContent {
+  sectionTitle: string;
+}
+
+// CONTACT PAGE DATA
+interface ContactPage extends PageMeta {
+  contentAboveFold: ContactAboveFoldContent;
+}
+
+interface ContactAboveFoldContent {
+  form: {
+    title: string;
+    fields: {
+      name: string;
+      email: string;
+      phone: string;
+      topic: string;
+      dropdown: {
+        placeholder: string;
+        option1: string;
+        option2: string;
+        option3: string;
+        option4: string;
+        option5: string;
+        option6: string;
+        variableOption: string;
+      };
+      videoPrompt: string;
+    };
+    button: string;
+    statusMessage: {
+      success: string;
+      error: string;
+    };
+  };
 }
 
 // ALL PAGE COMPONENTS
 
-export interface Link {
+interface Link {
   label: string;
   ariaLabel: string;
   href: string;
@@ -89,20 +151,20 @@ export interface Link {
   icon?: ReactNode; // for JSX like <FacebookIcon />
 }
 
-export interface SocialLink extends Link {
+interface SocialLink extends Link {
   platform: string;
 }
 
 // NAVBAR DATA
 
-export interface NavBarContent {
+interface NavBarContent {
   logoAlt: string;
   links: NavLinksContent;
   socialMedia: SocialLink[];
   langToggle: LangToggleContent;
 }
 
-export interface NavLinksContent {
+interface NavLinksContent {
   home: Link;
   shows: Link;
   about: Link;
@@ -110,7 +172,7 @@ export interface NavLinksContent {
   contact: Link;
 }
 
-export interface LangToggleContent {
+interface LangToggleContent {
   toggleLabel: string;
   enAlt: string;
   noAlt: string;
@@ -118,7 +180,7 @@ export interface LangToggleContent {
 
 // FOOTER DATA
 
-export interface FooterContent {
+interface FooterContent {
   newsletter: {
     title: string;
     formAriaLabelledBy: string;
@@ -153,13 +215,4 @@ export interface FooterContent {
   advert: {
     message: string;
   };
-}
-
-export interface NewsLetterFormContent {
-  title: string;
-  placeholder: string;
-  subscribe: string;
-  success: string;
-  error: string;
-  duplicate: string;
 }

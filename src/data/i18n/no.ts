@@ -42,6 +42,10 @@ export const dictionary: Dictionary = {
       title: 'FLIRING',
       subtitle: 'SCENE',
       ctaLabel: 'Se arrangementer',
+      comedySign: {
+        title: 'KOMEDIE',
+        subtitle: 'KLUBB'
+      }
     },
     upcomingShows: {
       title: 'kommende show',

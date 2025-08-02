@@ -1,6 +1,6 @@
 'use client';
 import styled from 'styled-components';
-import ImageGallery from '../_allPageComponents/gallery/imageGallery'; // Update the path if it's different
+import ImageGallery from '../../../_allPageComponents/gallery/imageGallery'; // Update the path if it's different
 
 const GallerySection = styled.div`
   width: 100%;
@@ -32,7 +32,6 @@ export default function GalleryPage(): React.ReactElement {
   return (
     <GallerySection>
       <Heading>Gallery</Heading>
-      <Description>This is the gallery page. Explore our images below.</Description>
       <ImageGallery />
     </GallerySection>
   );
