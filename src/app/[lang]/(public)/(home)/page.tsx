@@ -10,6 +10,11 @@ import UpcomingShows from './components/02_UpcomingShows';
       // other props if any
     }
 
+// src/app/[lang]/page.tsx or layout.tsx
+export function generateStaticParams() {
+  return [{ lang: 'en' }, { lang: 'no' }];
+}
+
 export default async function HomePage({ params }: HomePageProps) {
   const resolvedParams = await params;
   const dict = await getDictionary(resolvedParams.lang);

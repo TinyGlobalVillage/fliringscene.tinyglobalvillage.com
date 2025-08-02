@@ -45,6 +45,7 @@ export default function NavLinks({ dict, socialMedia, lang, showHome = true }: N
           aria-label={ariaLabel}
         >
           {getSocialIcon(platform) ?? label}
+
         </NavItem>
       ))}
     </>

@@ -1,45 +1,52 @@
 'use client';
 
+import { useState } from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 
 const ToggleContainer = styled.div`
   display: flex;
-  align-items: center; /* Center items vertically */
-  padding: 6px; /* Adjust padding to make the pill look unified */
-  border-radius: 30px; /* More rounded for the pill effect */
-  background: #ffffff; /* A slightly lighter background for neumorphism */
-  width: fit-content; /* Adjust width based on content */
-  box-shadow: inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff; /* Inset shadow for the "pressed" container effect */
+  align-items: center;
+  margin-top: 5px;
+  padding: 3px;
+  border-radius: 30px;
+  border: 1px solid #fcb24aff;
+  background: #000;
+  width: fit-content;
+  box-shadow: inset 3px 3px 8px #fe9e17, inset -3px -3px 8px #d07b05ff;
 `;
 
-
 const LangButton = styled.button`
+  position: relative;
+  overflow: hidden;
   display: flex;
   align-items: center;
-  justify-content: center;
-  background: #d4d2d2; /* This will be the "pressed" background */
+  background: #000;
   border: none;
   border-radius: 25px;
-  padding: 2px 5px;
+  border: 1px solid #fcb24aff;
+  padding: 2px 8px;
   cursor: pointer;
   font-weight: 600;
   font-size: 14px;
-  color: #333;
-  box-shadow: 2px 2px 4px #b0b0b0, -2px -2px 4px #f0f0f0; /* Outer shadow for the "pressed" button */
-  transition: all 0.3s ease;
-
-  &:hover {
-    background: #c7c7c7; /* Slightly darker on hover */
-  }
-
-  img {
-    margin-left: 8px;
-    border-radius: 50%;
-  }
+  color: #ff4ecb;
+  box-shadow: 2px 2px 4px #fe9e17, -2px -2px 4px #d07b05ff;
 `;
 
+const Label = styled.span<{ $hide: boolean }>`
+  display: inline-block;
+  margin: 0 0 0 0;
+  opacity: ${({ $hide }) => ($hide ? 0 : 1)};
+  transition: opacity 0.3s ease;
+`;
+
+const Flag = styled(Image)<{ $shift: boolean; $dir: number }>`
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  transform: ${({ $shift, $dir }) =>
+    $shift ? `translateX(${ $dir * 100 }%)` : 'translateX(0)'};
+`;
 type LangToggleProps = {
   dict: {
     toggleLabel: string;
@@ -52,31 +59,75 @@ export default function LangToggle({ dict }: LangToggleProps) {
   const pathname = usePathname();
   const router = useRouter();
   const [, currentLang, ...rest] = pathname.split('/');
-
-  // Determine the target language and its details
   const isNorwegian = currentLang === 'no';
-  const targetLang = isNorwegian ? 'en' : 'no';
-  const targetLabel = isNorwegian ? 'EN' : 'NO';
-  const targetAltText = isNorwegian ? dict.enAlt : dict.noAlt;
-  const targetFlagSrc = isNorwegian
-    ? '/images/flags/fliring-scene-english-british-flag-circle.jpeg'
-    : '/images/flags/fliring-scene-norwegian-norway-flag-circle.jpeg';
 
+// → when we're on `/en`, we'll shift **right** (dir = +1)
+// → when we're on `/no`, we'll shift **left**  (dir = –1)
+const dir = isNorwegian ? -1 : 1;
+
+  // precompute the "next" values
+  const nextLang = isNorwegian ? 'en' : 'no';
+  const nextLabel = isNorwegian ? 'EN' : 'NO';
+  const nextFlagSrc = isNorwegian
+    ? '/images/flags/fliring-scene-english-british-flag-circle.png'
+    : '/images/flags/fliring-scene-norwegian-norway-flag-circle.png';
+  const nextAltText = isNorwegian ? dict.enAlt : dict.noAlt;
+
+  // UI-only state for animation
+  const [hideLabel, setHideLabel] = useState(false);
+  const [shiftFlag, setShiftFlag] = useState(false);
+  const [animating, setAnimating] = useState(false);
+
+  // Handler kicks off the two-step animation
   const handleClick = () => {
-    const path = rest.length ? `/${rest.join('/')}` : '';
-    router.push(`/${targetLang}${path}`);
+    if (animating) return;
+    setAnimating(true);
+    setHideLabel(true);    // fade out the old text
+    setShiftFlag(true);    // slide the flag left
   };
 
+  // Once the flag has finished sliding, swap and navigate
+  const onFlagTransitionEnd = () => {
+    if (!shiftFlag) return;
+    // navigate to the new locale
+    const suffix = rest.length ? `/${rest.join('/')}` : '';
+    router.push(`/${nextLang}${suffix}`);
+    // NOTE: as soon as the route changes, usePathname() updates and
+    // this component re-renders with the new label+flag in swapped order.
+  };
+
+  // Render: when !isNorwegian (i.e. on the /en page) we want flag then label,
+  // otherwise label then flag.
   return (
     <ToggleContainer role="group" aria-label={dict.toggleLabel}>
       <LangButton onClick={handleClick}>
-        {targetLabel}
-        <Image
-          src={targetFlagSrc}
-          alt={targetAltText}
-          width={25}
-          height={20}
-        />
+        {isNorwegian ? (
+          <>
+            <Label $hide={hideLabel}>{nextLabel}</Label>
+            <Flag
+              src={nextFlagSrc}
+              alt={nextAltText}
+              width={35}
+              height={25}
+              $shift={shiftFlag}
+              $dir={dir}
+              onTransitionEnd={onFlagTransitionEnd}
+            />
+          </>
+        ) : (
+          <>
+            <Flag
+              src={nextFlagSrc}
+              alt={nextAltText}
+              width={35}
+              height={25}
+              $shift={shiftFlag}
+              $dir={dir}
+              onTransitionEnd={onFlagTransitionEnd}
+            />
+            <Label $hide={hideLabel}>{nextLabel}</Label>
+          </>
+        )}
       </LangButton>
     </ToggleContainer>
   );

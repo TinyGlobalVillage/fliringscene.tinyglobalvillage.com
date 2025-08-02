@@ -10,6 +10,7 @@ import NavLinks from './NavLinks';
 import useResponsiveResize from '@/hook-utils/useResponsiveResize';
 import { scaleMap } from '@/styles/scaleMap/_scaleMap';
 import { NavBarContent } from '@/data/i18n/types';
+import LangToggle from '../toggle/LangToggle';
 
 type NavBarProps = {
   dict: NavBarContent
@@ -72,7 +73,7 @@ export default function NavBar({ dict, lang }: NavBarProps) {
             </LogoWrapper>
           </PulsingWrapper>
         }
-
+        {/* ← insert the language toggle here */}
         <MenuToggle $open={menuOpen} onClick={toggleMenu}>
 
           {menuOpen ? '✕' : '☰'}
@@ -89,6 +90,7 @@ export default function NavBar({ dict, lang }: NavBarProps) {
             showHome={false}
           />
         </Links>
+        <LangToggle dict={dict.langToggle} />
 
         {/* mobile dropdown */}
         <DropDownMenu $open={menuOpen}

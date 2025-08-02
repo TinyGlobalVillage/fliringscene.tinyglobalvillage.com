@@ -36,6 +36,7 @@ export const NavWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 3rem;
 
   @media ${media.tablet} {
   justify-content: center;
