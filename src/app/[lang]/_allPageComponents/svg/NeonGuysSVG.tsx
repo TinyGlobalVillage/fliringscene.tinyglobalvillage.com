@@ -74,7 +74,7 @@ const NeonGuys = () => {
         <path id="_R_G_L_0_G_D_28_P_0" d=" M-473.28 41.88 C-473.28,41.88 -446.42,37.14 -419.56,41.88 C-392.69,46.62 -361.88,62.42 -349.23,69.53 "/>
         <path id="_R_G_L_0_G_D_29_P_0" d=" M-460.64 93.24 C-460.64,93.24 -444.84,87.7 -429.83,93.24 C-414.81,98.77 -394.27,110.62 -389.53,121.68 "/>
     </g>
-    
+
     <g
     fill="none"
     transform="translate(960,960)"
@@ -177,10 +177,10 @@ const NeonGuys = () => {
   transform="translate(1550,960)"
    fill="none"
   stroke="#17ebfe"
-  stroke-width="7"
-  stroke-opacity="1"
-  stroke-linecap="round"
-  stroke-linejoin="round"
+  strokeWidth="7"
+  strokeOpacity="1"
+  strokeLinecap="round"
+  strokeLinejoin="round"
    style={{
           filter: 'drop-shadow(0 0 3px #fe9e17) drop-shadow(0 0 15px #17ebfe)',
         }}

@@ -6,7 +6,6 @@ const GallerySection = styled.div`
   width: 100%;
   margin: 0 auto;
   padding: 2rem;
-  padding-top: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,8 +30,8 @@ const Description = styled.p`
 export default function GalleryPage(): React.ReactElement {
   return (
     <GallerySection>
-      <Heading>Gallery</Heading>
-      <Description>This is the gallery page. Explore our images below.</Description>
+      {/* <Heading>Gallery</Heading> */}
+      {/* <Description>This is the gallery page. Explore our images below.</Description> */}
       <ImageGallery />
     </GallerySection>
   );
