@@ -3,9 +3,9 @@
 
 import GlobalStyle from '@/styles/GlobalStyle';
 import StyledComponentsRegistry from '@/styles/StyledComponentsRegistry';
-import NavBar from './[lang]/_allPageComponents/navigation/NavBar';
-import ScrollToPreviousSectionButton from './[lang]/_allPageComponents/buttons/ScrollToPreviousSectionButton';
-import Footer from './[lang]/_allPageComponents/footer/Footer';
+import NavBar from './_allPageComponents/navigation/NavBar';
+import ScrollToPreviousSectionButton from './_allPageComponents/buttons/ScrollToPreviousSectionButton';
+import Footer from './_allPageComponents/footer/Footer';
 import styled from 'styled-components';
 import Image from 'next/image';
 import { Dictionary } from '@/data/i18n/types';
@@ -39,13 +39,13 @@ export default function LayoutClient({ children, lang, dict }: LayoutClientProps
           style={{ objectFit: 'cover' }}
         />
       </Background>
-      <NavBar lang={lang} dict={dict.navigation}/>
+      <NavBar lang={lang} dict={dict.navigation} />
       <div lang={lang}>
 
         <ScrollToPreviousSectionButton />
 
         <main>{children}</main>
-        <Footer lang={lang} dict={dict.footer}/>
+        <Footer lang={lang} dict={dict.footer} />
       </div>
     </StyledComponentsRegistry>
   );

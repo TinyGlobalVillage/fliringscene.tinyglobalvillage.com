@@ -111,10 +111,10 @@ export const Links = styled.div`
   @media ${media.tablet} {
     display: flex;
     align-items: center;
-    gap: 6rem;
+    gap: 2rem;
   }
   @media ${media.laptop} {
-    gap: 8rem;
+    gap: 2rem;
   }
 `;
 

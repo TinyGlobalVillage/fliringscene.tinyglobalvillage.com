@@ -79,32 +79,73 @@ export const dictionary: Dictionary = {
       images:
         'https://fliringscene.tinyglobalvillage.com/images/fliring-scene-logo-square.jpg',
     },
-  },
-  contact: {
-    meta: {
-      title: 'kontakt oss | Fliring Scene – ta kontakt',
-      description:
-        'Ønsker du å opptre, lei en komiker, lei lokale eller stille et spørsmål? kontakt oss – Steinkjers hjem for komedie og kreativitet.',
-      keywords: [
-        'kontakt Fliring Scene',
-        'lokalleie Steinkjer',
-        'komedie henvendelser',
-        'Fliring Scene adresse',
-        'Steinkjer kulturscene',
-      ],
-      ogTitle: 'kontakt oss | Fliring Scene – ta kontakt',
-      ogDescription:
-        'Kontakt oss for bookinger, spørsmål eller for å bli en del av vårt community av utøvere i Steinkjer.',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: 'kontakt oss | Fliring Scene – ta kontakt',
-      description:
-        'Send oss en melding eller spør om opptreden. Fliring Scene ønsker nytt talent og nysgjerrige sinn velkommen.',
-      images:
-        'https://fliringscene.tinyglobalvillage.com/images/fliring-scene-logo-square.jpg',
+      aboutAboveFold: {
+      sectionTitle: 'some',
+      para1: 'some',
+      para2: 'some',
+      para3: 'some',
+      para4: 'some',
+      para5: 'some',
     },
   },
+contact: {
+  meta: {
+    title: 'Kontakt Oss | Fliring Scene – Kom i Kontakt',
+    description:
+      'Vil du opptre, leie lokalet eller stille et spørsmål? Kontakt Fliring Scene – Steinkjers hjem for humor og kreativitet.',
+    keywords: [
+      'kontakt Fliring Scene',
+      'leie lokale Steinkjer',
+      'henvendelser humor',
+      'adresse Fliring Scene',
+      'kulturscene Steinkjer',
+    ],
+    ogTitle: 'Kontakt Oss | Fliring Scene – Kom i Kontakt',
+    ogDescription:
+      'Ta kontakt med Fliring Scene for booking, spørsmål eller for å bli med i vårt fellesskap av artister i Steinkjer.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Kontakt Oss | Fliring Scene – Kom i Kontakt',
+    description:
+      'Send oss en melding eller spør om å opptre. Fliring Scene ønsker nye talenter og nysgjerrige sjeler velkommen.',
+    images:
+      'https://fliringscene.tinyglobalvillage.com/images/fliring-scene-logo-square.jpg',
+  },
+  contentAboveFold: {
+    form: {
+      title: 'Kontakt Oss',
+      fields: {
+        name: 'Navn',
+        email: 'E-post',
+        phone: 'Telefonnummer',
+        topic: 'Emne',
+        dropdown: {
+          placeholder: '— velg ett —',
+          option1: 'Lei en komiker',
+          option2: 'Lei lokalet',
+          option3: 'Arranger noe på Fliring',
+          option4: 'Sponsor',
+          option5: 'Bli en del av oss',
+          option6: 'Frivillig eller jobb hos oss',
+          variableOption: 'Annet',
+        },
+        videoPrompt: 'Send oss en opptaksvideo',
+      },
+      button: 'Send Melding',
+      statusMessage: {
+        success: 'Takk! Vi tar kontakt.',
+        error: 'Noe gikk galt. Vennligst prøv igjen.',
+      },
+       "errors": {
+          "name": "Vennligst fyll inn navnet ditt.",
+          "email": "Vennligst skriv inn en gyldig e-postadresse.",
+          "topic": "Vennligst velg et emne.",
+          "otherMessage": "Vennligst beskriv emnet ditt."
+        }
+    },
+  },
+},
   gallery: {
     meta: {
       title:
@@ -132,6 +173,9 @@ export const dictionary: Dictionary = {
         'Gjenopplev energien fra våre komedikvelder og opptredener – sjekk ut Fliring Scene-galleriet.',
       images:
         'https://fliringscene.tinyglobalvillage.com/images/fliring-scene-logo-square.jpg',
+    },
+      galleryAboveFold: {
+      sectionTitle: 'some',
     },
   },
   shows: {

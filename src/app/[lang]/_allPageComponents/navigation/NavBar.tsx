@@ -9,11 +9,11 @@ import { NavbarContainer, NavWrapper, LogoLink, LogoWrapper, Links, MenuToggle, 
 import NavLinks from './NavLinks';
 import useResponsiveResize from '@/hook-utils/useResponsiveResize';
 import { scaleMap } from '@/styles/scaleMap/_scaleMap';
-import { NavBarContent } from '@/data/i18n/types';
+import type { Dictionary } from '@/data/i18n/types';
 import LangToggle from '../toggle/LangToggle';
 
 type NavBarProps = {
-  dict: NavBarContent
+  dict: Dictionary['navigation'];
   lang: string;
 };
 

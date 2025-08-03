@@ -137,7 +137,15 @@ interface ContactAboveFoldContent {
       success: string;
       error: string;
     };
+    errors: ContactFormErrors;
   };
+}
+
+interface ContactFormErrors {
+  name: string;
+  email: string;
+  topic: string;
+  otherMessage: string;
 }
 
 // ALL PAGE COMPONENTS

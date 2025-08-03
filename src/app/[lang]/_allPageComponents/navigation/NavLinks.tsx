@@ -2,12 +2,12 @@
 'use client';
 
 import { NavItem } from './navStyles';
-import { NavLinksContent, SocialLink } from '@/data/i18n/types';
+import type { Dictionary } from '@/data/i18n/types';
 import { getSocialIcon } from '@/hook-utils/getSocialIcon';
 
 type NavLinkProps = {
-  dict: NavLinksContent;
-  socialMedia: SocialLink[];
+  dict: Dictionary['navigation']['links'];
+  socialMedia: Dictionary['navigation']['socialMedia'];
   showHome?: boolean;
   lang: string;
 }

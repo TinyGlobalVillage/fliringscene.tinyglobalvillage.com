@@ -4,12 +4,12 @@ import Link from 'next/link';
 import { scaleMap } from '@/styles/scaleMap/_scaleMap';
 import useResponsiveResize from '@/hook-utils/useResponsiveResize';
 import { FooterSection, FooterGrid, Column, Form, Input, Button, List, StatusMessage, SignupHeader, IconLink, Trademark } from './FooterWrapper';
-import { FooterContent } from '@/data/i18n/types';
+import type { Dictionary } from '@/data/i18n/types';
 import { getSocialIcon } from '@/hook-utils/getSocialIcon';
 
 interface FooterProps {
   lang: string;
-  dict: FooterContent;
+  dict: Dictionary['footer'];
 };
 
 

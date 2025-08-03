@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import HeaderPlaceholder from './HeaderPlaceholder';
 import AboveTheFold from '@/app/[lang]/(public)/(home)/components/01_AboveTheFold';
-
+import type { Dictionary } from '@/data/i18n/types';
 
 // only the mobile variant is dynamically loaded
 const MobileHeader = dynamic(
@@ -17,12 +17,9 @@ const MobileHeader = dynamic(
 );
 
 type HeaderLoaderProps = {
-  dict: {
-    title: string;
-    subtitle: string;
-    ctaLabel: string;
-    // add other localized strings as needed
-  };
+  dict:
+  Dictionary['home']['aboveTheFold'];
+
 };
 
 export default function HeaderLoader({ dict }: HeaderLoaderProps) {

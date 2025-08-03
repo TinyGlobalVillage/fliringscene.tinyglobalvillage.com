@@ -44,8 +44,8 @@ export const dictionary: Dictionary = {
       ctaLabel: 'See Events',
       comedySign: {
         title: 'COMEDY',
-        subtitle: 'CLUB'
-      }
+        subtitle: 'CLUB',
+      },
     },
     upcomingShows: {
       title: 'Upcoming Shows',
@@ -79,30 +79,13 @@ export const dictionary: Dictionary = {
       images:
         'https://fliringscene.tinyglobalvillage.com/images/fliring-scene-logo-square.jpg',
     },
-  },
-  contact: {
-    meta: {
-      title: 'Contact Us | Fliring Scene – Get in Touch',
-      description:
-        'Want to perform, book the venue, or ask a question? Contact Fliring Scene – Steinkjer’s home for comedy and creativity.',
-      keywords: [
-        'contact Fliring Scene',
-        'venue booking Steinkjer',
-        'comedy inquiries',
-        'Fliring Scene address',
-        'Steinkjer cultural scene',
-      ],
-      ogTitle: 'Contact Us | Fliring Scene – Get in Touch',
-      ogDescription:
-        'Reach out to Fliring Scene for bookings, questions, or to join our community of performers in Steinkjer.',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: 'Contact Us | Fliring Scene – Get in Touch',
-      description:
-        'Send us a message or ask about performing. Fliring Scene welcomes fresh talent and curious minds.',
-      images:
-        'https://fliringscene.tinyglobalvillage.com/images/fliring-scene-logo-square.jpg',
+    aboutAboveFold: {
+      sectionTitle: 'some',
+      para1: 'some',
+      para2: 'some',
+      para3: 'some',
+      para4: 'some',
+      para5: 'some',
     },
   },
   gallery: {
@@ -133,6 +116,9 @@ export const dictionary: Dictionary = {
       images:
         'https://fliringscene.tinyglobalvillage.com/images/fliring-scene-logo-square.jpg',
     },
+    galleryAboveFold: {
+      sectionTitle: 'some',
+    },
   },
   shows: {
     meta: {
@@ -162,9 +148,67 @@ export const dictionary: Dictionary = {
       images:
         'https://fliringscene.tinyglobalvillage.com/images/fliring-scene-logo-square.jpg',
     },
-     showsAboveFold: {
-      sectionTitle: "kommende show"
-    }
+    showsAboveFold: {
+      sectionTitle: 'kommende show',
+    },
+  },
+  contact: {
+    meta: {
+      title: 'Contact Us | Fliring Scene – Get in Touch',
+      description:
+        'Want to perform, book the venue, or ask a question? Contact Fliring Scene – Steinkjer’s home for comedy and creativity.',
+      keywords: [
+        'contact Fliring Scene',
+        'venue booking Steinkjer',
+        'comedy inquiries',
+        'Fliring Scene address',
+        'Steinkjer cultural scene',
+      ],
+      ogTitle: 'Contact Us | Fliring Scene – Get in Touch',
+      ogDescription:
+        'Reach out to Fliring Scene for bookings, questions, or to join our community of performers in Steinkjer.',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'Contact Us | Fliring Scene – Get in Touch',
+      description:
+        'Send us a message or ask about performing. Fliring Scene welcomes fresh talent and curious minds.',
+      images:
+        'https://fliringscene.tinyglobalvillage.com/images/fliring-scene-logo-square.jpg',
+    },
+    contentAboveFold: {
+      form: {
+        title: 'Contact Us',
+        fields: {
+          name: 'Name',
+          email: 'Email',
+          phone: 'Phone Number',
+          topic: 'Topic',
+          dropdown: {
+            placeholder: '— select one —',
+            option1: 'Rent a comedian',
+            option2: 'Rent the venue',
+            option3: 'Arrange something on Fliring',
+            option4: 'Sponsor',
+            option5: 'Become a part of us',
+            option6: 'Volunteer or join staff',
+            variableOption: 'Other',
+          },
+          videoPrompt: 'Send Us A Performance Video',
+        },
+        button: 'Send Message',
+        statusMessage: {
+          success: 'Thank you! We’ll be in touch.',
+          error: 'Something went wrong. Please try again.',
+        },
+        errors: {
+          name: 'Please enter your name.',
+          email: 'Please enter a valid email address.',
+          topic: 'Please select a topic.',
+          otherMessage: 'Please describe your request.',
+        },
+      },
+    },
   },
   // ALL COMPONENTS SECTION
   navigation: {

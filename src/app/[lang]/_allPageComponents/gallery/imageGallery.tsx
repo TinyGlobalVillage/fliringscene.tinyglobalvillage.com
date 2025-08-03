@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
-import { slides } from '../../gallery/data/data';
+import { slides } from './data/data';
 
 type AnimationKey = keyof typeof animationMap;
 
@@ -168,12 +168,12 @@ export default function ImageGallery(): React.ReactElement {
           />
         </MainImageWrapper>
 
-       {(slides[current].title || slides[current].description) && (
-  <Overlay>
-    {slides[current].title && <h2>{slides[current].title}</h2>}
-    {slides[current].description && <p>{slides[current].description}</p>}
-  </Overlay>
-)}
+        {(slides[current].title || slides[current].description) && (
+          <Overlay>
+            {slides[current].title && <h2>{slides[current].title}</h2>}
+            {slides[current].description && <p>{slides[current].description}</p>}
+          </Overlay>
+        )}
         <NavButtonLeft onClick={prevSlide} aria-label="Previous slide">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
             <path d="M15 6L9 12L15 18" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />

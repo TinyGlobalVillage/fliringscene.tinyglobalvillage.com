@@ -1,6 +1,6 @@
 'use client';
 import styled from 'styled-components';
-import ImageGallery from '../_allPageComponents/gallery/imageGallery'; // Update the path if it's different
+import ImageGallery from '../../_allPageComponents/gallery/imageGallery';
 
 const GallerySection = styled.div`
   width: 100%;

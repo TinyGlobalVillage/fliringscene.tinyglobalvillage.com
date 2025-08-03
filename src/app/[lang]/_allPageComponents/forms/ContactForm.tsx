@@ -3,8 +3,15 @@ import { useState, useEffect } from 'react';
 import NeonContactPageTitle from '../headers/NeonContactPageTitle';
 import { FormWrapper, Form, Field, Button, Status } from './ContactFormWrapper';
 
-// ── Component ────────────────────────────────────────────────────────────────
-export default function ContactForm() {
+//import Dictionary
+import type { Dictionary } from '@/data/i18n/types';
+
+//create Props to pass params
+type ContactFormProps = {
+  dict: Dictionary['contact']['contentAboveFold']['form'];
+}
+
+export default function ContactForm({ dict }: ContactFormProps) {
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -73,90 +80,97 @@ export default function ContactForm() {
     }
   };
 
+  // helper: clear any custom message on input
+  const handleInput = (
+    e: React.FormEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.currentTarget;
+    e.currentTarget.setCustomValidity('');
+    setForm(f => ({ ...f, [name]: value }));
+  };
+
+  // factory to produce onInvalid for each field
+  const handleInvalid =
+    (field: keyof typeof dict.errors) =>
+      (e: React.FormEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+        e.currentTarget.setCustomValidity(dict.errors[field]);
+      };
+
   return (
     <FormWrapper>
-
-      <NeonContactPageTitle>Contact Us</NeonContactPageTitle>
-
+      <NeonContactPageTitle>{dict.title}</NeonContactPageTitle>
 
       <Form onSubmit={handleSubmit}>
-        {/* Name */}
         <Field>
-          <label htmlFor="name">Name *</label>
+          <label htmlFor="name">{dict.fields.name} *</label>
           <input
             id="name"
             name="name"
             type="text"
             value={form.name}
-            onChange={handleChange}
+            onInput={handleInput}
+            onInvalid={handleInvalid('name')}
             required
           />
         </Field>
 
-        {/* Email */}
         <Field>
-          <label htmlFor="email">Email *</label>
+          <label htmlFor="email">{dict.fields.email} *</label>
           <input
             id="email"
             name="email"
             type="email"
             value={form.email}
-            onChange={handleChange}
+            onInput={handleInput}
+            onInvalid={handleInvalid('email')}
             required
           />
         </Field>
 
-        {/* Phone */}
         <Field>
-          <label htmlFor="number">Phone Number</label>
-          <input
-            id="number"
-            name="number"
-            type="tel"
-            value={form.number}
-            onChange={handleChange}
-          />
+          <label htmlFor="number">{dict.fields.phone}</label>
+          <input id="number" name="number" type="tel" value={form.number} onChange={handleChange} />
         </Field>
 
-        {/* Topic */}
         <Field>
-          <label htmlFor="topic">Topic *</label>
+          <label htmlFor="topic">{dict.fields.topic} *</label>
           <select
             id="topic"
             name="topic"
             value={form.topic}
-            onChange={handleChange}
+            onInput={handleInput}
+            onInvalid={handleInvalid('topic')}
             required
           >
-            <option value="" disabled>— select one —</option>
-            <option>Rent a comedian</option>
-            <option>Rent the venue</option>
-            <option>Arrange something on Fliring</option>
-            <option>Sponsor</option>
-            <option>Become a part of us</option>
-            <option>Other</option>
+            <option value="" disabled>{dict.fields.dropdown.placeholder}</option>
+            <option>{dict.fields.dropdown.option1}</option>
+            <option>{dict.fields.dropdown.option2}</option>
+            <option>{dict.fields.dropdown.option3}</option>
+            <option>{dict.fields.dropdown.option4}</option>
+            <option>{dict.fields.dropdown.option5}</option>
+            <option>{dict.fields.dropdown.option6}</option>
+            <option>{dict.fields.dropdown.variableOption}</option>
           </select>
         </Field>
 
-        {/* Other message */}
-        {form.topic === 'Other' && (
+        {form.topic === dict.fields.dropdown.variableOption && (
           <Field>
-            <label htmlFor="otherMessage">Please describe *</label>
+            <label htmlFor="otherMessage">
+              {dict.fields.videoPrompt} *
+            </label>
             <textarea
               id="otherMessage"
               name="otherMessage"
-              aria-describedby="other-desc"
-              rows={4}
               value={form.otherMessage}
-              onChange={handleChange}
+              onInput={handleInput}
+              onInvalid={handleInvalid('otherMessage')}
               required
             />
           </Field>
         )}
 
-        {/* Video link */}
         <Field>
-          <label htmlFor="videoLink">Send Us A Performance Video</label>
+          <label htmlFor="videoLink">{dict.fields.videoPrompt}</label>
           <input
             id="videoLink"
             name="videoLink"
@@ -167,33 +181,19 @@ export default function ContactForm() {
           />
         </Field>
 
-        {/* Honeypot (invisible to real users) */}
-        <input
-          type="text"
-          name="website"
-          autoComplete="off"
-          style={{ display: 'none' }}
-          value={form.website}
-          onChange={handleChange}
-        />
-
-        {/* Timestamp */}
-        <input
-          type="hidden"
-          name="ts"
-          value={form.ts}
-        />
+        <input type="text" name="website" autoComplete="off" style={{ display: 'none' }} value={form.website} onChange={handleChange} />
+        <input type="hidden" name="ts" value={form.ts} />
 
         <Button type="submit" disabled={status === 'sending'}>
-          {status === 'sending' ? 'Sending…' : 'Send Message'}
+          {status === 'sending' ? 'Sending…' : dict.button}
         </Button>
       </Form>
 
       {status === 'success' && (
-        <Status variant="success" role="status" aria-live="polite">Thank you! We’ll be in touch.</Status>
+        <Status variant="success" role="status" aria-live="polite">{dict.statusMessage.success}</Status>
       )}
       {status === 'error' && (
-        <Status variant="error" role="status" aria-live="polite">Something went wrong. Please try again.</Status>
+        <Status variant="error" role="status" aria-live="polite">{dict.statusMessage.error}</Status>
       )}
     </FormWrapper>
   );
