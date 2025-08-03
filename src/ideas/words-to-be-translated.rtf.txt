@@ -1,0 +1,32 @@
+﻿Shows - show
+Contact - kontakt
+Scene - scene
+Comedy - komedie (depends a bit on context)
+Club - klubb (though “komedie klubb” isn’t something we say.. So leave it at comedy club for now. I don’t know what term they want.)
+upcoming shows -  kommende show
+singup for our newsletter - Abonner på nyhetsbrev
+quick links - hurtiglinker
+get in touch - ta kontakt
+Subscribe - abonner
+contact us - kontakt oss
+All rights reserved - Alt innhold er opphavsrettslig beskyttet
+powered by - drevet av
+Name - Navn
+Email - E-post
+phone number - telefon
+Topic - tema
+select one - velg en
+Rent a comedian - lei en komiker
+Rent the venue - lei lokale
+Arrange something on Fliring - Arranger på Fliring Scene
+Sponsor - Sponsor - maybe “become a sponsor” and “bli en sponsor”? 
+Become a part of us (is this good English?) - Bli en del av oss
+Other -  Annet
+Please describe * - Vennligst beskriv
+Send us a performance video - Send oss en kort video (send us a short video)
+send message - send (that’s sufficient)
+Enter your email here - skriv e-post her
+Thank you for subscribing - takk for at du abonnerer
+You’re already on the list! - du er allerede abonnent
+Thank you! We’ll be in touch. - Takk! Vi tar kontakt.
+Something went wrong. Please try again. -  Noe gikk feil. Prøv igjen.

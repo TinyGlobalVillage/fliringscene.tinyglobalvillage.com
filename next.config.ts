@@ -1,10 +1,11 @@
-import path from 'path';
+// import path from 'path';
 import { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   compiler: {
     styledComponents: true, // ✅ Enables built-in SSR for styled-components
   },
+  trailingSlash: true,
   // webpack: (config) => {
   //   config.resolve.alias = {
   //     ...(config.resolve.alias || {}),
@@ -12,7 +13,7 @@ const nextConfig: NextConfig = {
   //   };
   //   return config;
   // },
-  
+
 };
 
 export default nextConfig;
