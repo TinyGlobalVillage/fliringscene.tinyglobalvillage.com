@@ -80,12 +80,25 @@ export const dictionary: Dictionary = {
         'https://fliringscene.tinyglobalvillage.com/images/fliring-scene-logo-square.jpg',
     },
     aboutAboveFold: {
-      sectionTitle: 'some',
-      para1: 'some',
-      para2: 'some',
-      para3: 'some',
-      para4: 'some',
-      para5: 'some',
+      aboutTitle: '',
+      textArray: [
+        {
+          id: 1,
+          text: `Velkommen til Fliring Scene – Steinkjer sitt nye, intime og inkluderende kulturhus i Breidablikkgården!
+Her vil lokal stand-up, taler, revyer, improvisasjon, sang og musikk få rom til å blomstre, enten du er en erfaren proff eller helt fersk.
+Dette er stedet der latter, historier og gode opplevelser står i sentrum.
+Bak Fliring Scene står de lidenskapelige gründerne Johan Halseth og Andreas Trætli, som har slått seg sammen for å skape en arena for det fulle mangfoldet i kulturlivet.`,
+          alt: 'Bilde av Johan Halseth og Andreas Trætli',
+          captions: 'Johan Halseth & Andreas Trætli',
+        },
+        {
+          id: 2,
+          text: `Er du fra Steinkjer eller nærområdene og har lyst til å prøve deg på scenen?
+Send oss en kort videoklipp til hei@fliring.no – vi gleder oss til å oppdage nye ansikter og høre ferske vitser!
+For kun 200 NOK kan du bli medlem i Fliring Scene, støtte byens nye kulturscene, få rabatter på alle våre arrangementer – og kanskje en overraskelse eller to.
+Meld deg på ved å sende 200 NOK via Vipps til 961768. Vi ses i Breidablikkgården!`,
+        },
+      ],
     },
   },
   contact: {
@@ -330,12 +343,22 @@ export const dictionary: Dictionary = {
       links: {
         shows: {
           label: 'SHOW',
-          ariaLabel: 'Se kommende show',
+          ariaLabel: 'Se kommende arrangementer',
           href: '/shows',
+        },
+        about: {
+          label: 'OM OSS',
+          ariaLabel: 'Lær mer om oss',
+          href: '/about',
+        },
+        gallery: {
+          label: 'GALLERI',
+          ariaLabel: 'Se vårt galleri',
+          href: '/gallery',
         },
         contact: {
           label: 'KONTAKT',
-          ariaLabel: 'kontakt oss',
+          ariaLabel: 'Ta kontakt med oss',
           href: '/contact',
         },
       },

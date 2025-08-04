@@ -85,16 +85,19 @@ interface ShowsAboveFoldContent {
 // ABOUT PAGE DATA
 
 interface AboutPage extends PageMeta {
-  aboutAboveFold: AboutAboveFoldContent;
+  aboutAboveFold: AboutContent;
 }
 
-interface AboutAboveFoldContent {
-  sectionTitle: string;
-  para1: string;
-  para2: string;
-  para3: string;
-  para4: string;
-  para5: string;
+export interface AboutContent {
+  aboutTitle: string;
+  textArray: AboutSectionText[];
+}
+
+export interface AboutSectionText {
+  id: number;
+  text: string;
+  alt?: string;
+  captions?: string;
 }
 
 // GALLERY PAGE DATA
@@ -214,6 +217,8 @@ interface FooterContent {
     title: string;
     links: {
       shows: Link;
+      about: Link;
+      gallery: Link;
       contact: Link;
     };
   };

@@ -80,12 +80,25 @@ export const dictionary: Dictionary = {
         'https://fliringscene.tinyglobalvillage.com/images/fliring-scene-logo-square.jpg',
     },
     aboutAboveFold: {
-      sectionTitle: 'some',
-      para1: 'some',
-      para2: 'some',
-      para3: 'some',
-      para4: 'some',
-      para5: 'some',
+      aboutTitle: '',
+      textArray: [
+        {
+          id: 1,
+          text: `Welcome to Fliring Scene – Steinkjer’s new, intimate, and inclusive cultural stage in Breidablikkgården!
+          Here, local stand‑up, speeches, revues, improv, singing, and music will have room to flourish, whether you’re a seasoned pro or a complete beginner.
+          This is the place where laughter, stories, and great experiences take center stage.
+          Behind Fliring Scene are the passionate founders Johan Halseth and Andreas Trætli, who have joined forces to create an arena for the full breadth of cultural life.`,
+          alt: 'Image of them',
+          captions: 'Johan Halseth & Andreas Trætli',
+        },
+        {
+          id: 2,
+          text: `Are you from Steinkjer or the surrounding area and eager to try your hand on stage?
+          Send us a short video clip at hei@fliring.no – we can’t wait to discover new faces and hear fresh jokes!
+          For just NOK 200 you can become a member of Fliring Scene, support the city’s new cultural hub, enjoy discounts on all our events – and perhaps receive a surprise or two.
+          Sign up by sending NOK 200 via Vipps to 961768. See you at Breidablikkgården!`,
+        },
+      ],
     },
   },
   gallery: {
@@ -330,6 +343,16 @@ export const dictionary: Dictionary = {
           label: 'SHOWS',
           ariaLabel: 'View upcoming shows',
           href: '/shows',
+        },
+        about: {
+          label: 'ABOUT',
+          ariaLabel: 'Learn more about us',
+          href: '/about',
+        },
+        gallery: {
+          label: 'GALLERY',
+          ariaLabel: 'View our gallery',
+          href: '/gallery',
         },
         contact: {
           label: 'CONTACT',

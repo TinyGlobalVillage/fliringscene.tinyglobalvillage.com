@@ -1,106 +1,40 @@
-'use client';
-import styled from "styled-components";
+// src/app/[lang]/(public)/about/page.tsx
+
 import TextImageSplit from '../../_allPageComponents/textSections/textContent';
-import { aboutContent } from '../../../../data/about/aboutPageData';
-import NeonSectionTitleFontSize from '../../_allPageComponents/headers/NeonSectionTitleFontSize';
-import { glowPulse } from '../../_allPageComponents/animations/glowPulse';
-import { media } from '@/styles/breakpoints';
-import GoogleMapEmbed from "../../_allPageComponents/google/GoogleMapEmbed";
-import ContactArrowButton from '../../_allPageComponents/buttons/contactArrowButton';
+import GoogleMapEmbed from '../../_allPageComponents/google/GoogleMapEmbed';
+import NeonSectionTitle from '../../_allPageComponents/headers/NeonSectionTitleFontSize';
+import { AboutSection, HeadingWrapper } from './AboutWrapper';
 
-const AboutSection = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.7);
+import { getDictionary } from '@/data/i18n/getDictionary';
+import { getAboutContent, type AboutSectionContent } from '@/hook-utils/getAboutContent';
+import type { AboutContent } from '@/data/i18n/types';
 
-  width: 90%;
-  max-width: 900px;
-  margin: 70px auto 100px;
+interface AboutPageProps {
+  params: Promise<{ lang: string }>;
+}
 
-  padding: 0.25rem 1.3rem 20px;
-  border: 8px solid #f7b700;
-  border-radius: 50px;
-  animation: ${glowPulse} 2s infinite;
-  box-shadow: 0 0 10px #f7b700, 0 0 25px #f7b700;
+export default async function AboutPage({ params }: AboutPageProps) {
+  const { lang } = await params;
+  const dict = await getDictionary(lang);
+  const content: AboutContent = dict.about.aboutAboveFold;
 
-  @media ${media.mobileM} {
-    padding: 0.25rem 2rem 40px;
-    margin: 90px auto 80px;
-  }
+  // merge static images + localized text
+  const sections: AboutSectionContent[] = getAboutContent(content);
 
-  @media ${media.mobileL} {
-    scroll-margin-top: 65px;
-    padding: 0.25rem 2rem 50px;
-    margin: 90px auto 90px;
-  }
-
-  @media ${media.tablet} {
-    margin-top: 150px;
-    margin-bottom: 200px;
-  }
-
-  @media ${media.laptop} {
-    height: auto;
-    margin-top: 150px;
-    margin-bottom: 200px;
-    padding: 0.25rem 5rem 35px;
-  }
-
-  @media ${media.laptopL} {
-    margin-top: 150px;
-    padding: 1rem 5rem 3rem;
-  }
-
-  @media ${media.fourK} {
-    margin-top: 210px;
-    padding: 3rem;
-  }
-`;
-
-const HeadingWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: 10px;
-  padding-bottom: 5px;
-  margin-bottom: 10px;
-
-  @media ${media.mobileM} {
-    padding-top: 15px;
-    margin-bottom: 15px;
-  }
-
-  @media ${media.laptop} {
-    padding-top: 15px;
-    padding-bottom: 10px;
-  }
-
-  @media ${media.laptopL} {
-    padding-top: 15px;
-    padding-bottom: 10px;
-  }
-
-  @media ${media.fourK} {
-    padding-top: 0px;
-    padding-bottom: 25px;
-  }
-`;
-
-export default function AboutPage() {
   return (
     <AboutSection>
       <HeadingWrapper>
-        <NeonSectionTitleFontSize>ABOUT US</NeonSectionTitleFontSize>
+        <NeonSectionTitle>{content.aboutTitle}</NeonSectionTitle>
       </HeadingWrapper>
-      {aboutContent.map((section, index) => (
+
+      {sections.map((section, idx) => (
         <TextImageSplit
-          key={index}
+          key={section.id}
           sectionData={section}
-          reverse={index % 2 !== 0}
+          reverse={idx % 2 === 1}
         />
       ))}
-      {/* <ContactArrowButton /> */}
+
       <GoogleMapEmbed />
     </AboutSection>
   );

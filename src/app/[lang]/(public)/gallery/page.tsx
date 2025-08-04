@@ -22,7 +22,7 @@ export default async function GalleryPage({ params }: GalleryPageProps) {
 
   return (
     <GalleryWrapper>
-      <h1>{aboveFold.sectionTitle}</h1>
+      {/* <h1>{aboveFold.sectionTitle}</h1> */}
       <ImageGallery slides={slides} />
     </GalleryWrapper>
   );

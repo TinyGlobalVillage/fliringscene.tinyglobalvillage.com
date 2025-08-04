@@ -84,6 +84,8 @@ export default function Footer({ lang, dict }: FooterProps) {
           <h3>{dict.linksColumn.title}</h3>
           <List>
             <li><Link href={`/${lang}${dict.linksColumn.links.shows.href}`}>{dict.linksColumn.links.shows.label}</Link></li>
+            <li><Link href={`/${lang}${dict.linksColumn.links.about.href}`}>{dict.linksColumn.links.about.label}</Link></li>
+            <li><Link href={`/${lang}${dict.linksColumn.links.gallery.href}`}>{dict.linksColumn.links.gallery.label}</Link></li>
             <li><Link href={`/${lang}${dict.linksColumn.links.contact.href}`}>{dict.linksColumn.links.contact.label}</Link></li>
           </List>
           {dict.socialMedia.map((link) => (
