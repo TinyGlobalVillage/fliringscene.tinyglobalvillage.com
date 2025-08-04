@@ -89,8 +89,8 @@ export default function NavBar({ dict, lang }: NavBarProps) {
             lang={lang}
             showHome={false}
           />
+          <LangToggle dict={dict.langToggle} />
         </Links>
-        <LangToggle dict={dict.langToggle} />
 
         {/* mobile dropdown */}
         <DropDownMenu $open={menuOpen}
@@ -102,6 +102,7 @@ export default function NavBar({ dict, lang }: NavBarProps) {
             lang={lang}
             showHome={true}
           />
+          <LangToggle dict={dict.langToggle} />
         </DropDownMenu>
       </NavWrapper>
 

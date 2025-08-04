@@ -184,8 +184,11 @@ position: fixed;
 top: ${({ $open }) => ($open ? '0px' : '-10px')};
 right: ${({ $open }) => ($open ? '-70px' : '0px')};
 
-width: 250px;
-height: 290px;
+width: 80%;
+  max-width: 320px;
+  height: auto;
+  max-height: 100vh;
+  // overflow-y: auto;
 
 margin: 1rem;
 padding: 1rem 2rem;
@@ -205,12 +208,12 @@ font - size: 1.5rem;
 text - decoration: none;
 }
 
-@media ${media.mobileL}{
-width: 300px;
-height: 300px;
-top: ${({ $open }) => ($open ? '0px' : '-10px')};
-right: ${({ $open }) => ($open ? '-70px' : '0px')};
-}
+// @media ${media.mobileL}{
+// // width: 300px;
+// // height: 300px;
+// top: ${({ $open }) => ($open ? '0px' : '-10px')};
+// right: ${({ $open }) => ($open ? '-70px' : '0px')};
+// }
 
 
 `;

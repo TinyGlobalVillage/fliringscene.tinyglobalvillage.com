@@ -79,7 +79,8 @@ const dir = isNorwegian ? -1 : 1;
   const [animating, setAnimating] = useState(false);
 
   // Handler kicks off the two-step animation
-  const handleClick = () => {
+  const handleClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
     if (animating) return;
     setAnimating(true);
     setHideLabel(true);    // fade out the old text
