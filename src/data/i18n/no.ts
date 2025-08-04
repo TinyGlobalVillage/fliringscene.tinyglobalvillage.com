@@ -44,8 +44,8 @@ export const dictionary: Dictionary = {
       ctaLabel: 'Se arrangementer',
       comedySign: {
         title: 'KOMEDIE',
-        subtitle: 'KLUBB'
-      }
+        subtitle: 'KLUBB',
+      },
     },
     upcomingShows: {
       title: 'kommende show',
@@ -79,7 +79,7 @@ export const dictionary: Dictionary = {
       images:
         'https://fliringscene.tinyglobalvillage.com/images/fliring-scene-logo-square.jpg',
     },
-      aboutAboveFold: {
+    aboutAboveFold: {
       sectionTitle: 'some',
       para1: 'some',
       para2: 'some',
@@ -88,64 +88,66 @@ export const dictionary: Dictionary = {
       para5: 'some',
     },
   },
-contact: {
-  meta: {
-    title: 'Kontakt Oss | Fliring Scene – Kom i Kontakt',
-    description:
-      'Vil du opptre, leie lokalet eller stille et spørsmål? Kontakt Fliring Scene – Steinkjers hjem for humor og kreativitet.',
-    keywords: [
-      'kontakt Fliring Scene',
-      'leie lokale Steinkjer',
-      'henvendelser humor',
-      'adresse Fliring Scene',
-      'kulturscene Steinkjer',
-    ],
-    ogTitle: 'Kontakt Oss | Fliring Scene – Kom i Kontakt',
-    ogDescription:
-      'Ta kontakt med Fliring Scene for booking, spørsmål eller for å bli med i vårt fellesskap av artister i Steinkjer.',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Kontakt Oss | Fliring Scene – Kom i Kontakt',
-    description:
-      'Send oss en melding eller spør om å opptre. Fliring Scene ønsker nye talenter og nysgjerrige sjeler velkommen.',
-    images:
-      'https://fliringscene.tinyglobalvillage.com/images/fliring-scene-logo-square.jpg',
-  },
-  contentAboveFold: {
-    form: {
-      title: 'Kontakt Oss',
-      fields: {
-        name: 'Navn',
-        email: 'E-post',
-        phone: 'Telefonnummer',
-        topic: 'Emne',
-        dropdown: {
-          placeholder: '— velg ett —',
-          option1: 'Lei en komiker',
-          option2: 'Lei lokalet',
-          option3: 'Arranger noe på Fliring',
-          option4: 'Sponsor',
-          option5: 'Bli en del av oss',
-          option6: 'Frivillig eller jobb hos oss',
-          variableOption: 'Annet',
+  contact: {
+    meta: {
+      title: 'Kontakt Oss | Fliring Scene – Kom i Kontakt',
+      description:
+        'Vil du opptre, leie lokalet eller stille et spørsmål? Kontakt Fliring Scene – Steinkjers hjem for humor og kreativitet.',
+      keywords: [
+        'kontakt Fliring Scene',
+        'leie lokale Steinkjer',
+        'henvendelser humor',
+        'adresse Fliring Scene',
+        'kulturscene Steinkjer',
+      ],
+      ogTitle:
+        'Kontakt Oss | Fliring Scene – Kom i Kontakt',
+      ogDescription:
+        'Ta kontakt med Fliring Scene for booking, spørsmål eller for å bli med i vårt fellesskap av artister i Steinkjer.',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'Kontakt Oss | Fliring Scene – Kom i Kontakt',
+      description:
+        'Send oss en melding eller spør om å opptre. Fliring Scene ønsker nye talenter og nysgjerrige sjeler velkommen.',
+      images:
+        'https://fliringscene.tinyglobalvillage.com/images/fliring-scene-logo-square.jpg',
+    },
+    contentAboveFold: {
+      form: {
+        title: 'Kontakt Oss',
+        fields: {
+          name: 'Navn',
+          email: 'E-post',
+          phone: 'Telefonnummer',
+          topic: 'Emne',
+          dropdown: {
+            placeholder: '— velg ett —',
+            option1: 'Lei en komiker',
+            option2: 'Lei lokalet',
+            option3: 'Arranger noe på Fliring',
+            option4: 'Sponsor',
+            option5: 'Bli en del av oss',
+            option6: 'Frivillig eller jobb hos oss',
+            variableOption: 'Annet',
+          },
+          videoPrompt: 'Send oss en opptaksvideo',
         },
-        videoPrompt: 'Send oss en opptaksvideo',
+        button: 'Send Melding',
+        statusMessage: {
+          success: 'Takk! Vi tar kontakt.',
+          error: 'Noe gikk galt. Vennligst prøv igjen.',
+        },
+        errors: {
+          name: 'Vennligst fyll inn navnet ditt.',
+          email:
+            'Vennligst skriv inn en gyldig e-postadresse.',
+          topic: 'Vennligst velg et emne.',
+          otherMessage: 'Vennligst beskriv emnet ditt.',
+        },
       },
-      button: 'Send Melding',
-      statusMessage: {
-        success: 'Takk! Vi tar kontakt.',
-        error: 'Noe gikk galt. Vennligst prøv igjen.',
-      },
-       "errors": {
-          "name": "Vennligst fyll inn navnet ditt.",
-          "email": "Vennligst skriv inn en gyldig e-postadresse.",
-          "topic": "Vennligst velg et emne.",
-          "otherMessage": "Vennligst beskriv emnet ditt."
-        }
     },
   },
-},
   gallery: {
     meta: {
       title:
@@ -174,8 +176,60 @@ contact: {
       images:
         'https://fliringscene.tinyglobalvillage.com/images/fliring-scene-logo-square.jpg',
     },
-      galleryAboveFold: {
+    galleryAboveFold: {
       sectionTitle: 'some',
+      gallery: [
+        {
+          id: 1,
+          caption: 'Kevin Kildal',
+          alt: 'Komiker Kevin Kildal står foran en grå bakgrunn',
+        },
+        {
+          id: 2,
+          caption: 'Andreas på scenen',
+          alt: 'Andreas fremfører standup på scenen.',
+        },
+        {
+          id: 3,
+          caption: '',
+          alt: 'Johan fremfører standup på scenen',
+        },
+        {
+          id: 4,
+          caption: '',
+          alt: 'Standup-komiker på en lilla-opplyst scene',
+        },
+        {
+          id: 5,
+          caption: '',
+          alt: 'Standup-komiker som snakker i mikrofonen på scenen',
+        },
+        {
+          id: 6,
+          caption: '',
+          alt: 'Artist som underholder publikum på standup-scenen',
+        },
+        {
+          id: 7,
+          caption: '',
+          alt: 'Komiker midt i en setning under en live standup-opptreden',
+        },
+        {
+          id: 8,
+          caption: '',
+          alt: 'Tommy Berntsen fremfører',
+        },
+        {
+          id: 9,
+          caption: '',
+          alt: 'Tommy Berntsen på scenen i strålkastelys',
+        },
+        {
+          id: 10,
+          caption: '',
+          alt: 'Kevin Kildal fremfører standup med publikum i forgrunnen',
+        },
+      ],
     },
   },
   shows: {
@@ -207,8 +261,8 @@ contact: {
         'https://fliringscene.tinyglobalvillage.com/images/fliring-scene-logo-square.jpg',
     },
     showsAboveFold: {
-      sectionTitle: "kommende show"
-    }
+      sectionTitle: 'kommende show',
+    },
   },
   // ALL COMPONENTS SECTION
   navigation: {

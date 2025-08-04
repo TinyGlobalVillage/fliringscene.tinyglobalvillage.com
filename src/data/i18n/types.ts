@@ -103,8 +103,14 @@ interface GalleryPage extends PageMeta {
   galleryAboveFold: GalleryAboveFoldContent;
 }
 
-interface GalleryAboveFoldContent {
-  sectionTitle: string;
+export interface GalleryAboveFoldContent {
+  sectionTitle?: string;
+  // now an array of per-slide text, keyed by id:
+  gallery: Array<{
+    id: number;
+    caption: string;
+    alt: string;
+  }>;
 }
 
 // CONTACT PAGE DATA

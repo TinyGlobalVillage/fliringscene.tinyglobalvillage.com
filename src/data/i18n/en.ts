@@ -118,6 +118,58 @@ export const dictionary: Dictionary = {
     },
     galleryAboveFold: {
       sectionTitle: 'some',
+      gallery: [
+        {
+          id: 1,
+          caption: 'Kevin Kildal',
+          alt: 'Comedian Kevin Kildal standing against a grey background',
+        },
+        {
+          id: 2,
+          caption: 'Andreas on stage',
+          alt: 'Andreas performing stand-up on stage.',
+        },
+        {
+          id: 3,
+          caption: '',
+          alt: 'Johan performing standup on stage',
+        },
+        {
+          id: 4,
+          caption: '',
+          alt: 'Standup comedian on a purple-lit stage',
+        },
+        {
+          id: 5,
+          caption: '',
+          alt: 'Standup comedian speaking into microphone on stage',
+        },
+        {
+          id: 6,
+          caption: '',
+          alt: 'Performer entertaining crowd on standup stage',
+        },
+        {
+          id: 7,
+          caption: '',
+          alt: 'Comedian mid-sentence during live standup event',
+        },
+        {
+          id: 8,
+          caption: '',
+          alt: 'Tommy Berntsen performing',
+        },
+        {
+          id: 9,
+          caption: '',
+          alt: 'Tommy Berntsen on stage in spotlight',
+        },
+        {
+          id: 10,
+          caption: '',
+          alt: 'Kevin Kildal performing standup, with audience in foreground',
+        },
+      ],
     },
   },
   shows: {

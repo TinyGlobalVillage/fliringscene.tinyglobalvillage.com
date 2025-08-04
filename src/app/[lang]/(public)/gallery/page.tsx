@@ -1,38 +1,29 @@
-'use client';
-import styled from 'styled-components';
-import ImageGallery from '../../_allPageComponents/gallery/imageGallery';
+// src/app/[lang]/(public)/gallery/page.tsx
+import ImageGallery from '../../_allPageComponents/gallery/ImageGallery';
+import { getDictionary } from '@/data/i18n/getDictionary';
+import { getLocalizedSlides } from '@/hook-utils/getGalleryContent';
+import { GalleryWrapper } from './GalleryWrapper';
 
-const GallerySection = styled.div`
-  width: 100%;
-  margin: 0 auto;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: white;
-  z-index: 20;
-  min-height: 100vh;
-  gap: 2rem;
-  box-sizing: border-box;
-`;
+interface GalleryPageProps {
+  params: Promise<{ lang: string }>;
+}
 
-const Heading = styled.h1`
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-`;
+export default async function GalleryPage({ params }: GalleryPageProps) {
+  const { lang } = await params;
 
-const Description = styled.p`
-  font-size: 1.25rem;
-  max-width: 600px;
-  text-align: center;
-`;
+  // fetch your dict
+  const dict = await getDictionary(lang);
 
-export default function GalleryPage(): React.ReactElement {
+  // pull out the above‐fold block
+  const aboveFold = dict.gallery.galleryAboveFold;
+
+  // server‐side merge into your Slide[] shape
+  const slides = getLocalizedSlides(aboveFold.gallery);
+
   return (
-    <GallerySection>
-      {/* <Heading>Gallery</Heading> */}
-      {/* <Description>This is the gallery page. Explore our images below.</Description> */}
-      <ImageGallery />
-    </GallerySection>
+    <GalleryWrapper>
+      <h1>{aboveFold.sectionTitle}</h1>
+      <ImageGallery slides={slides} />
+    </GalleryWrapper>
   );
 }
