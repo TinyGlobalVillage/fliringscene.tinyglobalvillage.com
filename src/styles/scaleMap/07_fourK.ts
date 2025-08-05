@@ -7,8 +7,8 @@ export const fourK = {
   NeonSectionTitleFontSize: '6.5rem',
   NeonSectionTitleViewBoxMinX: '0',
   NeonSectionTitleViewBoxMinY: '-20',
-  NeonSectionTitleViewBoxWidth: '1050',
-  NeonSectionTitleViewBoxHeight: '100',
+  NeonSectionTitleViewBoxWidth: '1100',
+  NeonSectionTitleViewBoxHeight: '150',
 
   //__SECTION___ABOVE FOLD
 

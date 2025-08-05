@@ -17,7 +17,7 @@ max-width: 900px;
 height: auto;
 margin: 0 auto;
 margin-bottom: 100px;
-padding: .25rem 1.3rem 20px;
+padding: 0rem 1.3rem 25px;
 
 border: 8px solid #f7b700;
 border-radius: 50px;
@@ -37,19 +37,19 @@ scroll-margin-top: 100px;
 
 @media ${media.tablet}{
 scroll-margin-top: 110px;
-padding: .25rem 8rem 35px;
+padding: 0rem 8rem 40px;
 margin-bottom: 150px;
 }
 
 @media ${media.laptop}{
-height: 675px;
+height: 650px;
 scroll-margin-top: 120px;
-padding: .25rem 11rem 35px;
+padding: 0rem 11rem 35px;
 }
 @media ${media.laptopL}{
-height: 700px;
+height: 750px;
 scroll-margin-top: 120px;
-padding: 2rem 8rem 4rem;
+padding: 1.2rem 6rem 3rem;
 }
 // @media ${media.fourK}{
 // height: auto;
@@ -69,13 +69,14 @@ margin-bottom: 10px;
 padding-top: 15px;
 padding-bottom: 5px;
 }
+
 @media ${media.laptop}{
 padding-top: 15px;
 padding-top: 0;
 padding-bottom: 0;
 }
 @media ${media.laptopL}{
-padding-top: 10px;
+// padding-top: 10px;
 padding-bottom: 0px;
 }
 
@@ -87,6 +88,8 @@ border-radius: 25px;
 
 @media ${media.laptopL}{
 max-height: 600px;
+margin-top: 10px;
+padding: 2rem;
 }
 
 /* target the injected widget container and its cards */

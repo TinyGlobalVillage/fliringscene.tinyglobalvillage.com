@@ -6,7 +6,7 @@ export const laptopL = {
 
   NeonSectionTitleFontSize: '9rem',
   NeonSectionTitleViewBoxMinX: '0',
-  NeonSectionTitleViewBoxMinY: '-20',
+  NeonSectionTitleViewBoxMinY: '-10',
   NeonSectionTitleViewBoxWidth: '1550',
   NeonSectionTitleViewBoxHeight: '300',
 

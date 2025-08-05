@@ -9,7 +9,7 @@ export const mobileL = {
   NeonSectionTitleViewBoxMinX: '0',
   NeonSectionTitleViewBoxMinY: '-20',
   NeonSectionTitleViewBoxWidth: '1050',
-  NeonSectionTitleViewBoxHeight: '100',
+  NeonSectionTitleViewBoxHeight: '150',
 
   //__SECTION___ABOVE FOLD
 
