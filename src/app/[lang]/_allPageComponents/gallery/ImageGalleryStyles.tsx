@@ -114,10 +114,11 @@ export const ZoomContent = styled.div`
 display: flex;
 flex-direction: column;
 gap: 1rem;
-max-width: 95vw;
-max-height: 95vh;
-overflow: auto;           /* scroll if caption overflows */
-padding: 1rem;
+margin 0 auto;
+max-width: 100vw;
+max-height: 100vh;
+overflow: hidden;           /* scroll if caption overflows */
+// padding: 1rem;
 background: #000;         /* optional inner background */
 border-radius: 0.5rem;
 `;
