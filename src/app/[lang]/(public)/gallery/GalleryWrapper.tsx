@@ -5,7 +5,7 @@ import { media } from '@/styles/breakpoints';
 export const GalleryWrapper = styled.div`
   width: 100%;
   margin: 0 auto;
-  margin-top: 70px;
+  margin-top: 40px;
   margin-bottom: 100px;
   padding: 1.5rem;
   display: flex;
@@ -17,8 +17,12 @@ export const GalleryWrapper = styled.div`
   gap: 1rem;
   box-sizing: border-box;
 
+  @media ${media.tablet}{
+  margin-top: 75px;
+}
+
   @media ${media.laptop}{
-  margin-top: 65px;
+
 }
 
 `;

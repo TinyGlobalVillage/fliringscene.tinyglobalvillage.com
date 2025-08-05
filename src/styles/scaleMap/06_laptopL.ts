@@ -22,7 +22,7 @@ export const laptopL = {
   NeonTitleViewBoxHeight: 105,
 
   // MICROPHONE
-  micWidth: '55px',
+  micWidth: '50px',
 
   micViewBoxMinX: '-220',
   micViewBoxMinY: '-370',
@@ -30,7 +30,7 @@ export const laptopL = {
   micViewBoxHeight: '615',
 
   // FACE
-  faceWidth: '130px',
+  faceWidth: '120px',
 
   faceViewBoxMinX: '150',
   faceViewBoxMinY: '20',
@@ -49,7 +49,7 @@ export const laptopL = {
   // COMEDY SIGN
   comedyClubBulbSize: '20px',
   NeonTextFontSize: '6.5rem',
-  boxWidth: '355px',
+  boxWidth: '325px',
 
   //other LightbulbFrame
   bulbSize: '12px',

@@ -30,7 +30,7 @@ margin-top: 110px;
 margin-bottom: 300px;
 }
 @media ${media.laptopL} {
-margin-top: 180px;
+margin-top: 130px;
 margin-bottom: 300px;
 }
 
@@ -66,7 +66,7 @@ margin-bottom: 0px;
 margin-right: 50px;
 }
 @media ${media.laptopL}{
-margin-top: 25px;
+margin-top: 20px;
 margin-right: 50px;
 }
 
@@ -87,4 +87,10 @@ margin-right: 70px;
 export const ComedyClubSignArrowWrapper = styled.div`
 display: flex;
 flex-direction: column;
+@media ${media.laptop}{
+margin-top: -20px;
+}
+@media ${media.laptopL}{
+
+}
 `;

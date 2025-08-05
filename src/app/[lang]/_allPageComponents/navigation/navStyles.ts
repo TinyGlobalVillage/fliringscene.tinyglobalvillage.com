@@ -27,9 +27,7 @@ export const NavbarContainer = styled.nav<{
   @media ${media.laptop}{
   padding: 1rem
   }
-  @media ${media.fourK}{
-  padding: 2.5rem
-  }
+
 `;
 
 export const NavWrapper = styled.div`
@@ -43,7 +41,7 @@ export const NavWrapper = styled.div`
   gap: 5rem;
   }
   @media ${media.laptopL} {
-  gap: 9rem;
+  gap: 6rem;
   }
 `;
 
@@ -76,6 +74,12 @@ export const LogoWrapper = styled.div<{
 
   @media ${media.tablet}{
   margin: 0;
+  }
+  @media ${media.laptop}{
+  margin-right: -40px;
+  }
+  @media ${media.laptopL}{
+  margin-right: -10px;
   }
 `;
 
@@ -139,7 +143,7 @@ export const NavItem = styled(Link)`
     font-size: 1rem;
   }
   @media ${media.laptop} {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
   }
     svg {
     height: 2em;

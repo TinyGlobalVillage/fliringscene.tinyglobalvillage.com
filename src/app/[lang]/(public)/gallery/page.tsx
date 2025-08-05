@@ -1,5 +1,5 @@
 // src/app/[lang]/(public)/gallery/page.tsx
-import ImageGallery from '../../_allPageComponents/gallery/ImageGallery';
+import ImageGallery from '../../_allPageComponents/gallery/imageGallery';
 import { getDictionary } from '@/data/i18n/getDictionary';
 import { getLocalizedSlides } from '@/hook-utils/getGalleryContent';
 import { GalleryWrapper } from './GalleryWrapper';
@@ -24,10 +24,10 @@ export default async function GalleryPage({ params }: GalleryPageProps) {
     <GalleryWrapper>
       <h1>{galObj.sectionTitle}</h1>
       <ImageGallery
-      slides={slides}
-      prevLabel={galObj.prevLabel}
-      nextLabel={galObj.nextLabel}
-       />
+        slides={slides}
+        prevLabel={galObj.prevLabel}
+        nextLabel={galObj.nextLabel}
+      />
     </GalleryWrapper>
   );
 }

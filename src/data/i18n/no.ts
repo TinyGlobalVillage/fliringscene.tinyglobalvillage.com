@@ -48,7 +48,7 @@ export const dictionary: Dictionary = {
       },
     },
     upcomingShows: {
-      title: 'kommende show',
+      title: 'Kommende Show',
       ctaLabel: 'Se arrangementer',
     },
   },
