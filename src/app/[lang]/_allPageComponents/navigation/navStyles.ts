@@ -199,7 +199,7 @@ width: 80%;
   overflow-y: auto;
 
 margin: 1rem;
-padding: 1rem 2rem;
+padding: 2rem 2rem;
 
 gap: 1.5rem;
 z-index: 9997;

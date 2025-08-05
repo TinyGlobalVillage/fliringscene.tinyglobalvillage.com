@@ -58,6 +58,7 @@ text-align: left;
 font-size: .875rem;
 }
 @media ${media.tablet} {
+
 text-align: left;
 font-size: 1rem;
 }
