@@ -5,7 +5,8 @@ import styled from 'styled-components';
 export const GalleryWrapper = styled.div`
   width: 100%;
   margin: 0 auto;
-  margin-top: 40px;
+  margin-top: 70px;
+  margin-bottom: 100px;
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -17,6 +18,6 @@ export const GalleryWrapper = styled.div`
   box-sizing: border-box;
 
   h1 {
-  
+
   }
 `;

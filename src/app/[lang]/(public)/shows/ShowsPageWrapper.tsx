@@ -31,10 +31,11 @@ margin: 90px auto 80px;
 scroll-margin-top: 65px;
 padding: .25rem 2rem 50px;
 margin: 90px auto 90px;
-  }
+}
 
 @media ${media.tablet}{
-margin-top: 150px;
+margin-top: 120px;
+padding: .25rem 2rem 30px;
 margin-bottom: 200px;
 }
 

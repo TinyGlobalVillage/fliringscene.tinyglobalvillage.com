@@ -21,11 +21,7 @@ export const Container = styled.div<{
   flex-direction: ${({ $mobileReverse }) =>
     $mobileReverse ? 'column-reverse' : 'column'};
 
-  @media ${media.tablet} {
-    /* desktop: horizontal, maybe reversed */
-    flex-direction: ${({ $reverse }) =>
-    $reverse ? 'row-reverse' : 'row'};
-  }
+  
 `;
 
 /* unified figure & caption */

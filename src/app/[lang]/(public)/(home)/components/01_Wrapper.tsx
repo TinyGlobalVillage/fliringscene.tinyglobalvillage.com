@@ -21,7 +21,7 @@ margin-top: 160px;
 }
 
 @media ${media.tablet} {
-margin-top: 180px;
+margin-top: 120px;
 margin-bottom: 300px;
 }
 

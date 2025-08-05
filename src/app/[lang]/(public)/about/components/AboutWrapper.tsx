@@ -21,14 +21,13 @@ export const AboutSection = styled.div`
   box-shadow: 0 0 10px #f7b700, 0 0 25px #f7b700;
 
   @media ${media.mobileM} {
-    padding: 0.25rem 2rem 40px;
-    margin: 90px auto 80px;
+    margin: 90px auto 100px;
   }
 
   @media ${media.mobileL} {
-    scroll-margin-top: 65px;
-    padding: 0.25rem 2rem 50px;
-    margin: 90px auto 90px;
+    // scroll-margin-top: 65px;
+    // padding: 0.25rem 2rem 50px;
+    // margin: 90px auto 90px;
   }
 
   @media ${media.tablet} {
