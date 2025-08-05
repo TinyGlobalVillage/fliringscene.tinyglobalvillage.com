@@ -58,6 +58,7 @@ margin-bottom: -20px;
 @media ${media.tablet}{
 margin-top: 5px;
 margin-bottom: -10px;
+gap: 1rem;
 }
 @media ${media.laptop}{
 margin-top: 15px;
@@ -66,7 +67,6 @@ margin-right: 50px;
 }
 @media ${media.laptopL}{
 margin-top: 25px;
-gap: 0rem;
 margin-right: 50px;
 }
 

@@ -24,7 +24,7 @@ export const laptop = {
   // MICROPHONE
   micWidth: '50px',
 
-  micViewBoxMinX: '-120',
+  micViewBoxMinX: '-50',
   micViewBoxMinY: '-370',
   micViewBoxWidth: '200',
   micViewBoxHeight: '615',
@@ -32,13 +32,13 @@ export const laptop = {
   // FACE
   faceWidth: '110px',
 
-  faceViewBoxMinX: '250',
+  faceViewBoxMinX: '300',
   faceViewBoxMinY: '20',
   faceViewBoxWidth: '400',
   faceViewBoxHeight: '500',
 
   // "SCENE"
-  NeonSubtitleFontSize: '2.8rem',
+  NeonSubtitleFontSize: '3.3rem',
   NeonSubtitleStrokeWidth: '1.25',
 
   NeonSubtitleViewBoxMinX: '0',

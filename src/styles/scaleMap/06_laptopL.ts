@@ -41,7 +41,7 @@ export const laptopL = {
   NeonSubtitleFontSize: '3.5rem',
   NeonSubtitleStrokeWidth: '1.5',
 
-  NeonSubtitleViewBoxMinX: '0',
+  NeonSubtitleViewBoxMinX: '5',
   NeonSubtitleViewBoxMinY: '10',
   NeonSubtitleViewBoxWidth: '170',
   NeonSubtitleViewBoxHeight: 90,
