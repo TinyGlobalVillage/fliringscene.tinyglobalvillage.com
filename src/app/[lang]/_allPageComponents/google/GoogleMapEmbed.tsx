@@ -1,17 +1,22 @@
 'use client';
 
 import styled from 'styled-components';
+import { media } from '@/styles/breakpoints';
 
 const MapWrapper = styled.div`
   position: relative;
   width: 100%;
+  max-width: 700px;
   padding-bottom: 56.25%; /* 16:9 aspect ratio */
   overflow: hidden;
   box-shadow: 0 0 15px #00bfff, 0 0 15px #00bfff;
     border-radius: 25px;
   border: 2px solid #00bfff;
   margin: 1rem auto 1.5rem;
-  
+
+@media ${media.laptopL}{
+max-width: 750px;
+}
 
   iframe {
     position: absolute;

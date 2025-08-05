@@ -37,6 +37,10 @@ gap: 2rem;
 @media ${media.tablet}{
 max-width: 600px;
 }
+@media ${media.laptop}{
+margin-top: 5px;
+}
+
 `;
 
 export const Slider = styled.div`
@@ -57,6 +61,13 @@ box-shadow:
 0 0 10px #fe9e17,
 0 0 20px #fe9e17,
 0 0 30px #fe9e17;
+
+@media ${media.laptop}{
+max-width: 355px;
+}
+@media ${media.laptopL}{
+max-width: 470px;
+}
 `;
 
 export const MainImageWrapper = styled.div`
@@ -73,6 +84,10 @@ height: 61vh;
 }
 @media ${media.mobileL}{
 height: 57vh;
+}
+@media ${media.laptop}{
+max-width: 355px;
+margin: 0 auto;
 }
 
 `;
@@ -154,6 +169,15 @@ box-shadow: inset 0 1px 2px rgba(0,0,0,0.5);
 @media ${media.mobileL}{
 margin-top: -7px;
 }
+@media ${media.laptop}{
+margin-top: -4px;
+max-width: 345px;
+}
+
+@media ${media.laptopL}{
+margin-top: -5px;
+max-width: 470px;
+}
 `;
 
 // new Caption element for styling the text
@@ -223,6 +247,7 @@ scrollbar-width: none;
   padding-bottom: 0.5rem;
   cursor: initial;
 }
+
 `;
 
 export const Thumbnail = styled.img<{ $active: boolean }>`

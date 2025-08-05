@@ -22,29 +22,47 @@ font-size: .9rem;
 text-align: center;
 
 @media ${media.tablet}{
-font-size: 1.25rem;
+font-size: 1rem;
 margin-bottom: 5px;
 }
-@media ${media.laptop}{
-font-size: 1.5rem;
-margin-bottom: 5px;
-}
-@media ${media.fourK}{
-font-size: 2rem;
-margin-bottom: 5px;
-}
+
 }
 
 @media ${media.tablet}{
 padding: 2rem;
 }
-
   svg {
     height: 2em;
     width: 2em;
   }
-
 `;
+
+export const Trademark = styled.div`
+margin-top: 10px;
+font-size: 0.75rem;
+text-align: center;
+color: #00bfff;
+
+a {
+color: inherit;
+text-decoration: underline;
+
+&:hover {
+text-decoration: none;
+color: #fff;
+}
+}
+
+@media ${media.mobileM} {
+text-align: left;
+font-size: .875rem;
+}
+@media ${media.tablet} {
+text-align: left;
+font-size: 1rem;
+}
+`;
+
 
 export const FooterGrid = styled.div`
 /* ─── Base: mobile first ─── */
@@ -229,38 +247,4 @@ export const IconLink = styled.a`
 font-size: 1.5rem;
 display: inline-flex;
 align-items: center;
-`;
-
-export const Trademark = styled.div`
-margin-top: 10px;
-font-size: 0.75rem;
-text-align: center;
-color: #00bfff;
-
-a {
-color: inherit;
-text-decoration: underline;
-
-&:hover {
-text-decoration: none;
-color: #fff;
-}
-}
-
-@media ${media.mobileM} {
-text-align: left;
-font-size: .875rem;
-}
-@media ${media.tablet} {
-text-align: left;
-font-size: 1rem;
-}
-@media ${media.laptop} {
-text-align: left;
-font-size: 1.5rem;
-}
-@media ${media.fourK} {
-text-align: left;
-font-size: 2rem;
-}
 `;

@@ -1,7 +1,6 @@
 'use client';
 import styled from "styled-components";
 import { media } from "@/styles/breakpoints";
-
 export const SectionWrapper = styled.section`
 
 `;
@@ -21,7 +20,9 @@ export const Container = styled.div<{
   flex-direction: ${({ $mobileReverse }) =>
     $mobileReverse ? 'column-reverse' : 'column'};
 
-  
+ h1 {
+ margin-top: 100px;
+ }
 `;
 
 /* unified figure & caption */
@@ -31,7 +32,7 @@ export const Figure = styled.figure`
   flex-direction: column;
   align-items: center;
   margin: 0;
-  margin-top: -25px;
+  margin-top: -40px;
   margin-bottom: -20px;
   gap: 0.5rem;
 
@@ -61,14 +62,19 @@ export const TextBlock = styled.div`
   flex: 1 1 0;
   min-width: 0;
   width: 100%;
+  max-width: 900px;
   color: white;
   overflow-wrap: break-word;
   word-break: break-word;
-  padding: 0 1rem 0 1rem;
+
 
   /* small helper to keep JSX clean */
   & > p {
     line-height: 1.4;
     margin-bottom: 1rem;
+  }
+
+  @media ${media.laptopL}{
+  max-width: 800px;
   }
 `;

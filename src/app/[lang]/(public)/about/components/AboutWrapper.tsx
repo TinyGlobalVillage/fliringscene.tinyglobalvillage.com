@@ -11,9 +11,9 @@ export const AboutSection = styled.div`
   background: rgba(0, 0, 0, 0.7);
 
   width: min(90vw, 900px);
-  margin: 70px auto 100px;
+  margin: 70px auto 40px;
 
-  padding: 0.25rem 1.3rem 0px;
+  padding: 0.25rem 1rem 0px;
 
   border: 8px solid #f7b700;
   border-radius: 50px;
@@ -39,17 +39,12 @@ export const AboutSection = styled.div`
     height: auto;
     margin-top: 150px;
     margin-bottom: 200px;
-    padding: 0.25rem 5rem 35px;
+    padding: 0.25rem 4rem 35px;
   }
 
   @media ${media.laptopL} {
     margin-top: 150px;
     padding: 1rem 5rem 3rem;
-  }
-
-  @media ${media.fourK} {
-    margin-top: 210px;
-    padding: 3rem;
   }
 `;
 

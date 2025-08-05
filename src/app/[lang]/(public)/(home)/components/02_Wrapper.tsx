@@ -48,7 +48,7 @@ padding: .25rem 11rem 35px;
 @media ${media.laptopL}{
 height: 700px;
 scroll-margin-top: 150px;
-padding: 1rem 8rem 3rem;
+padding: 2rem 8rem 4rem;
 }
 @media ${media.fourK}{
 height: auto;

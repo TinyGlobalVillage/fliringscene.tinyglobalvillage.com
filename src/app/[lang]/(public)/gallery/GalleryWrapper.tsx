@@ -1,6 +1,6 @@
 'use client';
 import styled from 'styled-components';
-
+import { media } from '@/styles/breakpoints';
 
 export const GalleryWrapper = styled.div`
   width: 100%;
@@ -17,7 +17,8 @@ export const GalleryWrapper = styled.div`
   gap: 1rem;
   box-sizing: border-box;
 
-  h1 {
+  @media ${media.laptop}{
+  margin-top: 65px;
+}
 
-  }
 `;
