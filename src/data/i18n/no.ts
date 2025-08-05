@@ -8,7 +8,7 @@ export const dictionary: Dictionary = {
     meta: {
       title: 'Velkommen til Fliring Scene',
       description:
-        'Steinkjers intime scene for stand-up, musikk og kultur. Oppdag kommende show, open mics og community-arrangementer.',
+        'Steinkjers intime scene for stand-up, musikk og kultur. Oppdag kommende show, open mics og lokale arrangement.',
       keywords: [
         'Fliring Scene',
         'komedie Steinkjer',
@@ -27,7 +27,7 @@ export const dictionary: Dictionary = {
       title:
         'Fliring Scene | Steinkjers scene for latter og kultur',
       description:
-        'komedie, musikk og kultur i Steinkjer – oppdag Fliring Scenes kommende show og community-arrangementer.',
+        'komedie, musikk og kultur i Steinkjer – oppdag Fliring Scenes kommende show og lokale arrangement.',
       images: [
         {
           url: 'https://fliringscene.tinyglobalvillage.com/images/fliring-scene-logo-square.jpg',
@@ -43,12 +43,12 @@ export const dictionary: Dictionary = {
       subtitle: 'SCENE',
       ctaLabel: 'Se arrangementer',
       comedySign: {
-        title: 'KOMEDIE',
+        title: 'HUMOR',
         subtitle: 'KLUBB',
       },
     },
     upcomingShows: {
-      title: 'Kommende Show',
+      title: 'kommende show',
       ctaLabel: 'Se arrangementer',
     },
   },
@@ -85,16 +85,16 @@ export const dictionary: Dictionary = {
         {
           id: 1,
           text: `Velkommen til Fliring Scene – Steinkjer sitt nye, intime og inkluderende kulturhus i Breidablikkgården!
-Her vil lokal stand-up, taler, revyer, improvisasjon, sang og musikk få rom til å blomstre, enten du er en erfaren proff eller helt fersk.
+Her vil lokal stand-up, taler, revyer, impro, sang og musikk få rom til å blomstre, enten du er en erfaren proff eller helt fersk.
 Dette er stedet der latter, historier og gode opplevelser står i sentrum.
-Bak Fliring Scene står de lidenskapelige gründerne Johan Halseth og Andreas Trætli, som har slått seg sammen for å skape en arena for det fulle mangfoldet i kulturlivet.`,
-          alt: 'Bilde av Johan Halseth og Andreas Trætli',
+Bak Fliring Scene står ildsjelene Johan Halseth og Andreas Trætli, som sammen vil skape en arena for hele bredden av kulturlivet.`,
+          alt: 'Illustrasjon av Johan Halseth og Andreas Trætli som et neon skilt',
           captions: 'Johan Halseth & Andreas Trætli',
         },
         {
           id: 2,
-          text: `Er du fra Steinkjer eller nærområdene og har lyst til å prøve deg på scenen?
-Send oss en kort videoklipp til hei@fliring.no – vi gleder oss til å oppdage nye ansikter og høre ferske vitser!
+          text: `Er du fra Steinkjer og omegn, og har lyst til å prøve deg på scenen?
+Send oss en kort videosnutt til hei@fliring.no – vi gleder oss til å oppdage nye fjes og høre nye vitser!
 For kun 200 NOK kan du bli medlem i Fliring Scene, støtte byens nye kulturscene, få rabatter på alle våre arrangementer – og kanskje en overraskelse eller to.
 Meld deg på ved å sende 200 NOK via Vipps til 961768. Vi ses i Breidablikkgården!`,
         },
@@ -105,7 +105,7 @@ Meld deg på ved å sende 200 NOK via Vipps til 961768. Vi ses i Breidablikkgår
     meta: {
       title: 'Kontakt Oss | Fliring Scene – Kom i Kontakt',
       description:
-        'Vil du opptre, leie lokalet eller stille et spørsmål? Kontakt Fliring Scene – Steinkjers hjem for humor og kreativitet.',
+        'Vil du opptre, leie lokalet eller har du et spørsmål? Kontakt Fliring Scene – Steinkjers hjem for humor og kreativitet.',
       keywords: [
         'kontakt Fliring Scene',
         'leie lokale Steinkjer',
@@ -114,7 +114,7 @@ Meld deg på ved å sende 200 NOK via Vipps til 961768. Vi ses i Breidablikkgår
         'kulturscene Steinkjer',
       ],
       ogTitle:
-        'Kontakt Oss | Fliring Scene – Kom i Kontakt',
+        'Kontakt Oss | Fliring Scene – Ta Kontakt',
       ogDescription:
         'Ta kontakt med Fliring Scene for booking, spørsmål eller for å bli med i vårt fellesskap av artister i Steinkjer.',
     },
@@ -140,11 +140,11 @@ Meld deg på ved å sende 200 NOK via Vipps til 961768. Vi ses i Breidablikkgår
             option2: 'Lei lokalet',
             option3: 'Arranger noe på Fliring',
             option4: 'Sponsor',
-            option5: 'Bli en del av oss',
+            option5: 'Bli medlem',
             option6: 'Frivillig eller jobb hos oss',
             variableOption: 'Annet',
           },
-          videoPrompt: 'Send oss en opptaksvideo',
+          videoPrompt: 'Send oss en video',
         },
         button: 'Send Melding',
         statusMessage: {
@@ -154,9 +154,9 @@ Meld deg på ved å sende 200 NOK via Vipps til 961768. Vi ses i Breidablikkgår
         errors: {
           name: 'Vennligst fyll inn navnet ditt.',
           email:
-            'Vennligst skriv inn en gyldig e-postadresse.',
+            'Vennligst bruk en gyldig e-postadresse.',
           topic: 'Vennligst velg et emne.',
-          otherMessage: 'Vennligst beskriv emnet ditt.',
+          otherMessage: 'Vennligst beskriv nærmere.',
         },
       },
     },
@@ -166,7 +166,7 @@ Meld deg på ved å sende 200 NOK via Vipps til 961768. Vi ses i Breidablikkgår
       title:
         'Galleri | Fliring Scene – øyeblikk av latter og live opptredener',
       description:
-        'Utforsk bilder fra Fliring Scenes livlige arrangementer – standup-kvelder, musikkshow og community-øyeblikk i Steinkjer.',
+        'Utforsk bilder fra Fliring Scenes livlige arrangementer – standup-kvelder, musikkshow og lokale øyeblikk i Steinkjer.',
       keywords: [
         'Fliring Scene galleri',
         'Steinkjer arrangementbilder',
@@ -191,9 +191,9 @@ Meld deg på ved å sende 200 NOK via Vipps til 961768. Vi ses i Breidablikkgår
     },
     galleryAboveFold: {
       sectionTitle: 'Galleri',
-      prevLabel: 'Forrige lysbilde',
-      nextLabel: 'Neste lysbilde',
-      thumbPrefix: 'Gå til lysbilde',
+      prevLabel: 'Forrige bilde',
+      nextLabel: 'Neste bilde',
+      thumbPrefix: 'Gå til bilde',
       gallery: [
         {
           id: 1,
@@ -203,7 +203,7 @@ Meld deg på ved å sende 200 NOK via Vipps til 961768. Vi ses i Breidablikkgår
         {
           id: 2,
           caption: 'Andreas på scenen',
-          alt: 'Andreas fremfører standup på scenen.',
+          alt: 'Andreas fremfører standup på scenen',
         },
         {
           id: 3,
@@ -238,7 +238,7 @@ Meld deg på ved å sende 200 NOK via Vipps til 961768. Vi ses i Breidablikkgår
         {
           id: 9,
           caption: '',
-          alt: 'Tommy Berntsen på scenen i strålkastelys',
+          alt: 'Tommy Berntsen på scenen',
         },
         {
           id: 10,
@@ -253,7 +253,7 @@ Meld deg på ved å sende 200 NOK via Vipps til 961768. Vi ses i Breidablikkgår
       title:
         'show | Fliring Scene – kommende arrangementer og opptredener',
       description:
-        'Sjekk ut kommende standup show, musikkinnslag og live opptredener på Fliring Scene i Steinkjer. Ditt sete venter!',
+        'Sjekk ut kommende standup show, musikkinnslag og live opptredener på Fliring Scene i Steinkjer.',
       keywords: [
         'Fliring Scene show',
         'Steinkjer live arrangementer',
@@ -265,7 +265,7 @@ Meld deg på ved å sende 200 NOK via Vipps til 961768. Vi ses i Breidablikkgår
       ogTitle:
         'show | Fliring Scene – kommende arrangementer og opptredener',
       ogDescription:
-        'Oppdag hva som skjer på Fliring Scene – fra standup og musikk til community-opptredener. Ikke gå glipp av neste show!',
+        'Oppdag hva som skjer på Fliring Scene – fra standup og musikk til andre opptredener. Ikke gå glipp av neste show!',
     },
     twitter: {
       card: 'summary_large_image',
@@ -306,7 +306,7 @@ Meld deg på ved å sende 200 NOK via Vipps til 961768. Vi ses i Breidablikkgår
       },
       contact: {
         label: 'KONTAKT',
-        ariaLabel: 'kontakt oss',
+        ariaLabel: 'Kontakt oss',
         href: '/contact',
       },
     },
@@ -329,24 +329,24 @@ Meld deg på ved å sende 200 NOK via Vipps til 961768. Vi ses i Breidablikkgår
     newsletter: {
       title: 'Abonner på nyhetsbrev',
       formAriaLabelledBy: 'newsletter-header',
-      subscribe: 'abonner',
+      subscribe: 'Abonner',
     },
     input: {
       name: 'newsletterEmail',
       ariaLabel: 'E-postadresse',
-      placeholder: 'skriv e-post her',
+      placeholder: 'Skriv e-post her',
     },
     statusMessage: {
       success: 'takk for at du abonnerer',
-      error: 'Noe gikk feil. Prøv igjen.',
-      duplicate: 'du er allerede abonnent',
+      error: 'Noe gikk galt. Prøv igjen.',
+      duplicate: 'Du er allerede abonnent!',
     },
     linksColumn: {
-      title: 'hurtiglinker',
+      title: 'Hurtiglinker',
       links: {
         shows: {
           label: 'SHOW',
-          ariaLabel: 'Se kommende arrangementer',
+          ariaLabel: 'Se kommende arrangement',
           href: '/shows',
         },
         about: {
@@ -361,14 +361,14 @@ Meld deg på ved å sende 200 NOK via Vipps til 961768. Vi ses i Breidablikkgår
         },
         contact: {
           label: 'KONTAKT',
-          ariaLabel: 'Ta kontakt med oss',
+          ariaLabel: 'Ta kontakt',
           href: '/contact',
         },
       },
     },
     contactColumn: {
-      title: 'ta kontakt',
-      buttonTitle: 'kontakt oss',
+      title: 'Ta kontakt',
+      buttonTitle: 'Kontakt Oss',
       buttonAriaLabel: 'Gå til kontaktsiden',
     },
     socialMedia: [
@@ -382,10 +382,10 @@ Meld deg på ved å sende 200 NOK via Vipps til 961768. Vi ses i Breidablikkgår
     ],
     trademark: {
       title:
-        '© 2025 Fliring Scene. Alt innhold er opphavsrettslig beskyttet',
+        '© 2025 Fliring Scene. Alt innhold er opphavsrettslig beskyttet.',
     },
     advert: {
-      message: 'drevet av Tiny Global Village LLC™',
+      message: 'Drevet av Tiny Global Village LLC™',
     },
   },
 };
