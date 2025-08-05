@@ -68,7 +68,7 @@ box-shadow:
 0 0 30px #fe9e17;
 
 @media ${media.mobileM}{
-max-width: 295px;
+max-width: 330px;
 }
 @media ${media.mobileL}{
 max-width: 415px;
@@ -163,7 +163,7 @@ border-bottom-right-radius: 0.75rem;
 box-shadow: inset 0 1px 2px rgba(0,0,0,0.5);
 
 @media ${media.mobileM}{
-max-width: 283px;
+max-width: 315px;
 margin-top: -8px;
 }
 @media ${media.mobileL}{
