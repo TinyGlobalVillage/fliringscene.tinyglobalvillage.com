@@ -35,6 +35,8 @@ export const Figure = styled.figure`
   flex-direction: column;
   align-items: center;
   margin: 0;
+  margin-top: -25px;
+  margin-bottom: -20px;
   gap: 0.5rem;
 
   /* applies equally to svg (NeonGuys) or <img> */
@@ -49,6 +51,7 @@ export const Figure = styled.figure`
 
 export const FigCaption = styled.figcaption`
   font-size: 0.95rem;
+  margin-top: -20px;
   color: #00bfff;
   text-align: center;
   font-style: italic;

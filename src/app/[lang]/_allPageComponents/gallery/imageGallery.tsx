@@ -2,8 +2,9 @@
 
 import * as React from 'react';
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
-import { ImageGalleryWrapper, Slider, SlideContainer, MainImageWrapper, MainImage, ZoomOverlay, Overlay, Caption, NavButtonLeft, NavButtonRight, ThumbnailRow, Thumbnail, ZoomContent,CaptionZoom } from './ImageGalleryStyles';
+import { ImageGalleryWrapper, Slider, SlideContainer, MainImageWrapper, MainImage, ZoomOverlay, Overlay, Caption, NavButtonLeft, NavButtonRight, ThumbnailRow, Thumbnail, ZoomContent, CaptionZoom } from './ImageGalleryStyles';
 
 
 import type { GallerySlideContent } from '@/hook-utils/getGalleryContent';
@@ -116,7 +117,18 @@ export default function ImageGallery({ slides, prevLabel, nextLabel }: ImageGall
       {zoomed && (
         <ZoomOverlay onClick={() => setZoomed(false)}>
           <ZoomContent >
-            <img src={slides[current].image} alt={slides[current].alt} />
+            <Image
+              src={slides[current].image}
+              alt={slides[current].alt}
+              width={1200}                  // or whatever max you expect
+              height={800}
+              style={{
+                maxWidth: '100vw',
+                maxHeight: '100vh',
+                objectFit: 'contain',
+              }}
+              priority
+            />
             {slides[current].caption && (
               <CaptionZoom>{slides[current].caption}</CaptionZoom>
             )}
