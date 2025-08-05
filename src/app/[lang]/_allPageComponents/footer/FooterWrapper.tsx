@@ -54,11 +54,12 @@ color: #fff;
 }
 
 @media ${media.mobileM} {
-text-align: left;
+text-align: center;
 font-size: .875rem;
+max-width: 200px;
 }
 @media ${media.tablet} {
-
+max-width: 500px;
 text-align: left;
 font-size: 1rem;
 }
