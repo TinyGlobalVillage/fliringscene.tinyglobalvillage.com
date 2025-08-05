@@ -8,7 +8,6 @@ import { usePathname, useRouter } from 'next/navigation';
 const ToggleContainer = styled.div`
   display: flex;
   align-items: center;
-  margin-top: 5px;
   padding: 3px;
   border-radius: 30px;
   border: 1px solid #fcb24aff;

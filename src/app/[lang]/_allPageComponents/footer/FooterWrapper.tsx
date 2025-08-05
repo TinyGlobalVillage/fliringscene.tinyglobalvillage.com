@@ -18,7 +18,8 @@ border-radius: 25px;
 background: rgba(0, 0, 0, 0.9);
 
 p {
-font-size: .7rem;
+font-size: .9rem;
+text-align: center;
 
 @media ${media.tablet}{
 font-size: 1.25rem;
@@ -37,6 +38,12 @@ margin-bottom: 5px;
 @media ${media.tablet}{
 padding: 2rem;
 }
+
+  svg {
+    height: 2em;
+    width: 2em;
+  }
+
 `;
 
 export const FooterGrid = styled.div`
@@ -179,9 +186,9 @@ color: #ff4ecb;
 text-decoration: none;
 transition: color 0.2s;
 
-&:hover {
-color: #00bfff;
-}
+    &:hover {
+    color: #00bfff;
+    }
 }
 
 @media ${media.laptop}{

@@ -6,7 +6,7 @@ import { ShowsSection, HeadingWrapper, WidgetWrapper } from "./ShowsPageWrapper"
 // import type { ShowsPage } from "@/data/i18n/types";
 
 type ShowPageProps = {
-params: Promise<{lang: string}>;
+  params: Promise<{ lang: string }>;
 };
 
 export default async function HomePage({ params }: ShowPageProps) {

@@ -10,7 +10,8 @@ const MapWrapper = styled.div`
   box-shadow: 0 0 15px #00bfff, 0 0 15px #00bfff;
     border-radius: 25px;
   border: 2px solid #00bfff;
-  margin: 2rem auto;
+  margin: 1rem auto 1.5rem;
+  
 
   iframe {
     position: absolute;

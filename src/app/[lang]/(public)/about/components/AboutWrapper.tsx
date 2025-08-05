@@ -1,19 +1,20 @@
 'use client';
 import styled from "styled-components";
 import { media } from "@/styles/breakpoints";
-import { glowPulse } from '../../_allPageComponents/animations/glowPulse';
+import { glowPulse } from '../../../_allPageComponents/animations/glowPulse';
 
 export const AboutSection = styled.div`
+
   display: flex;
   flex-direction: column;
   align-items: center;
   background: rgba(0, 0, 0, 0.7);
 
-  width: 90%;
-  max-width: 900px;
+  width: min(90vw, 900px);
   margin: 70px auto 100px;
 
-  padding: 0.25rem 1.3rem 20px;
+  padding: 0.25rem 1.3rem 0px;
+
   border: 8px solid #f7b700;
   border-radius: 50px;
   animation: ${glowPulse} 2s infinite;
@@ -80,4 +81,17 @@ export const HeadingWrapper = styled.div`
     padding-top: 0px;
     padding-bottom: 25px;
   }
+`;
+
+export const AboutTextWrapper = styled.div`
+// display: flex;
+// flex-direction: column;
+// justify-content: center;
+// align-items: center;
+
+// @media ${media.mobileM}{
+// max-width: 100%;
+// }
+
+
 `;

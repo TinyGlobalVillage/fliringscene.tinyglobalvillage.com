@@ -109,6 +109,9 @@ interface GalleryPage extends PageMeta {
 export interface GalleryAboveFoldContent {
   sectionTitle?: string;
   // now an array of per-slide text, keyed by id:
+  prevLabel: string;
+  nextLabel: string;
+  thumbPrefix: string;
   gallery: Array<{
     id: number;
     caption: string;

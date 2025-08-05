@@ -6,7 +6,8 @@ import FacebookIcon from '@/app/[lang]/_allPageComponents/facebook/FacebookIcon'
 export function getSocialIcon(platform: string) {
   switch (platform.toLowerCase()) {
     case 'facebook':
-      return <FacebookIcon />;
+      return <FacebookIcon 
+      />;
     default:
       return null;
   }

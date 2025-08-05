@@ -15,15 +15,19 @@ export default async function GalleryPage({ params }: GalleryPageProps) {
   const dict = await getDictionary(lang);
 
   // pull out the above‐fold block
-  const aboveFold = dict.gallery.galleryAboveFold;
+  const galObj = dict.gallery.galleryAboveFold;
 
   // server‐side merge into your Slide[] shape
-  const slides = getLocalizedSlides(aboveFold.gallery);
+  const slides = getLocalizedSlides(galObj.gallery);
 
   return (
     <GalleryWrapper>
-      {/* <h1>{aboveFold.sectionTitle}</h1> */}
-      <ImageGallery slides={slides} />
+      <h1>{galObj.sectionTitle}</h1>
+      <ImageGallery
+      slides={slides}
+      prevLabel={galObj.prevLabel}
+      nextLabel={galObj.nextLabel}
+       />
     </GalleryWrapper>
   );
 }

@@ -80,7 +80,7 @@ export const dictionary: Dictionary = {
         'https://fliringscene.tinyglobalvillage.com/images/fliring-scene-logo-square.jpg',
     },
     aboutAboveFold: {
-      aboutTitle: '',
+      aboutTitle: 'About Us',
       textArray: [
         {
           id: 1,
@@ -130,7 +130,10 @@ export const dictionary: Dictionary = {
         'https://fliringscene.tinyglobalvillage.com/images/fliring-scene-logo-square.jpg',
     },
     galleryAboveFold: {
-      sectionTitle: 'some',
+      sectionTitle: 'Gallery',
+      prevLabel: 'Previous slide',
+      nextLabel: 'Next slide',
+      thumbPrefix: 'Go to slide',
       gallery: [
         {
           id: 1,

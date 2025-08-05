@@ -122,7 +122,7 @@ export const Links = styled.div`
 export const NavItem = styled(Link)`
   color: #ff4ecb;
   text-decoration: none;
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: bold;
   letter-spacing: 1px;
   transition: transform 0.2s, color 0.2s;
@@ -133,13 +133,17 @@ export const NavItem = styled(Link)`
   }
 
   @media ${media.mobileL} {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
   @media ${media.tablet} {
-    font-size: 2rem;
+    font-size: 1rem;
   }
-  @media ${media.fourK} {
-    font-size: 2.5rem;
+  @media ${media.laptop} {
+    font-size: 1.25rem;
+  }
+    svg {
+    height: 2em;
+    width: 2em;
   }
 
 `;
@@ -188,12 +192,12 @@ width: 80%;
   max-width: 320px;
   height: auto;
   max-height: 100vh;
-  // overflow-y: auto;
+  overflow-y: auto;
 
 margin: 1rem;
 padding: 1rem 2rem;
 
-gap: 2rem;
+gap: 1.5rem;
 z-index: 9997;
 
 background: rgba(0, 0, 0, 0.85);
@@ -202,11 +206,6 @@ box-shadow: 0 0 10px #ff4ecb, 0 0 25px #ff4ecb;
 
 animation: ${glowPulse} 2.5s infinite;
 
-a {
-color: #ff4ecb;
-font - size: 1.5rem;
-text - decoration: none;
-}
 
 // @media ${media.mobileL}{
 // // width: 300px;
@@ -214,6 +213,5 @@ text - decoration: none;
 // top: ${({ $open }) => ($open ? '0px' : '-10px')};
 // right: ${({ $open }) => ($open ? '-70px' : '0px')};
 // }
-
 
 `;

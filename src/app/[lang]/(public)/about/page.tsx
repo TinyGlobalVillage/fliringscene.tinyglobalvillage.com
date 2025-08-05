@@ -1,13 +1,15 @@
 // src/app/[lang]/(public)/about/page.tsx
 
-import TextImageSplit from '../../_allPageComponents/textSections/textContent';
+import TextImageSplit from './components/textContent';
 import GoogleMapEmbed from '../../_allPageComponents/google/GoogleMapEmbed';
-import NeonSectionTitle from '../../_allPageComponents/headers/NeonSectionTitleFontSize';
-import { AboutSection, HeadingWrapper } from './AboutWrapper';
+
+
+import { AboutSection, HeadingWrapper, AboutTextWrapper } from './components/AboutWrapper';
 
 import { getDictionary } from '@/data/i18n/getDictionary';
 import { getAboutContent, type AboutSectionContent } from '@/hook-utils/getAboutContent';
 import type { AboutContent } from '@/data/i18n/types';
+import NeonSectionTitleFontSize from '../../_allPageComponents/headers/NeonSectionTitleFontSize';
 
 interface AboutPageProps {
   params: Promise<{ lang: string }>;
@@ -24,16 +26,19 @@ export default async function AboutPage({ params }: AboutPageProps) {
   return (
     <AboutSection>
       <HeadingWrapper>
-        <NeonSectionTitle>{content.aboutTitle}</NeonSectionTitle>
+        <NeonSectionTitleFontSize>{content.aboutTitle}</NeonSectionTitleFontSize>
       </HeadingWrapper>
 
-      {sections.map((section, idx) => (
-        <TextImageSplit
-          key={section.id}
-          sectionData={section}
-          reverse={idx % 2 === 1}
-        />
-      ))}
+      <AboutTextWrapper>
+        {sections.map((section, idx) => (
+          <TextImageSplit
+            key={section.id}
+            sectionData={section}
+            reverse={idx % 2 === 1}
+            mobileReverse={idx === 0}
+          />
+        ))}
+      </AboutTextWrapper>
 
       <GoogleMapEmbed />
     </AboutSection>

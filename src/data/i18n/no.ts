@@ -80,7 +80,7 @@ export const dictionary: Dictionary = {
         'https://fliringscene.tinyglobalvillage.com/images/fliring-scene-logo-square.jpg',
     },
     aboutAboveFold: {
-      aboutTitle: '',
+      aboutTitle: 'Om Oss',
       textArray: [
         {
           id: 1,
@@ -190,7 +190,10 @@ Meld deg på ved å sende 200 NOK via Vipps til 961768. Vi ses i Breidablikkgår
         'https://fliringscene.tinyglobalvillage.com/images/fliring-scene-logo-square.jpg',
     },
     galleryAboveFold: {
-      sectionTitle: 'some',
+      sectionTitle: 'Galleri',
+      prevLabel: 'Forrige lysbilde',
+      nextLabel: 'Neste lysbilde',
+      thumbPrefix: 'Gå til lysbilde',
       gallery: [
         {
           id: 1,
@@ -274,7 +277,7 @@ Meld deg på ved å sende 200 NOK via Vipps til 961768. Vi ses i Breidablikkgår
         'https://fliringscene.tinyglobalvillage.com/images/fliring-scene-logo-square.jpg',
     },
     showsAboveFold: {
-      sectionTitle: 'kommende show',
+      sectionTitle: 'Kommende Show',
     },
   },
   // ALL COMPONENTS SECTION
