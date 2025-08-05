@@ -21,7 +21,7 @@ export const laptop = {
   NeonTitleViewBoxWidth: '600',
   NeonTitleViewBoxHeight: 105,
 
-   // MICROPHONE
+  // MICROPHONE
   micWidth: '50px',
 
   micViewBoxMinX: '-120',
@@ -75,6 +75,14 @@ export const laptop = {
   inputWidth: '200px',
 
   // ABOUT Page
+
+  //Neon Guys
+  guysWidth: '300px',
+
+  guysViewBoxMinX: '0',
+  guysViewBoxMinY: '0',
+  guysViewBoxWidth: '1920',
+  guysViewBoxHeight: '1920',
 
   // SHOW PAGE
 

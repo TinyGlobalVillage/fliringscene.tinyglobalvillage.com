@@ -11,12 +11,6 @@ export const mobileM = {
   NeonSectionTitleViewBoxWidth: '1050',
   NeonSectionTitleViewBoxHeight: '100',
 
-
-  // **** up for deletion ****
-  // fontSize: '6.5rem',
-  // viewBoxHeight: 105,
-  // svgViewBoxHeight: 90,
-
   //__SECTION___ABOVE FOLD
 
   // "FLIRING"
@@ -28,7 +22,7 @@ export const mobileM = {
   NeonTitleViewBoxWidth: '600',
   NeonTitleViewBoxHeight: 105,
 
-    // MICROPHONE
+  // MICROPHONE
   micWidth: '40px',
 
   micViewBoxMinX: '-120',
@@ -83,12 +77,17 @@ export const mobileM = {
 
   // ABOUT Page
 
+  //Neon Guys
+  guysWidth: '300px',
+
+  guysViewBoxMinX: '0',
+  guysViewBoxMinY: '0',
+  guysViewBoxWidth: '1920',
+  guysViewBoxHeight: '1920',
 
   // SHOW PAGE
 
-
   // GALLERY PAGE
-
 
   // CONTACT PAGE
 

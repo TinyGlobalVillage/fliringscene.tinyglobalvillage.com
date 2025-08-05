@@ -77,12 +77,17 @@ export const mobileS = {
 
   // ABOUT Page
 
+  //Neon Guys
+  guysWidth: '270px',
+
+  guysViewBoxMinX: '0',
+  guysViewBoxMinY: '0',
+  guysViewBoxWidth: '1920',
+  guysViewBoxHeight: '1920',
 
   // SHOW PAGE
 
-
   // GALLERY PAGE
-
 
   // CONTACT PAGE
 

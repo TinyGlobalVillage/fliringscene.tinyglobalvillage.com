@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { media } from "@/styles/breakpoints";
 
 export const SectionWrapper = styled.section`
-  
+
 `;
 
 export const Container = styled.div<{
@@ -65,6 +65,7 @@ export const TextBlock = styled.div`
   color: white;
   overflow-wrap: break-word;
   word-break: break-word;
+  padding: 0 1rem 0 1rem;
 
   /* small helper to keep JSX clean */
   & > p {
