@@ -11,6 +11,8 @@ export const mobileS = {
   NeonSectionTitleViewBoxWidth: '1050',
   NeonSectionTitleViewBoxHeight: '150',
 
+  // HOMEPAGE
+
   //__SECTION___ABOVE FOLD
 
   // "FLIRING"

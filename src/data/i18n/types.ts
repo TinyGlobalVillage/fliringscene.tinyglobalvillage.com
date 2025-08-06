@@ -68,6 +68,7 @@ interface AboveTheFoldContent {
     subtitle: string;
   };
 }
+
 interface UpcomingShowsContent {
   title: string;
   ctaLabel: string;

@@ -86,10 +86,9 @@ export const dictionary: Dictionary = {
           id: 1,
           text: `Velkommen til Fliring Scene – Steinkjer sitt nye, intime og inkluderende kulturhus i Breidablikkgården!
 Her vil lokal stand-up, taler, revyer, impro, sang og musikk få rom til å blomstre, enten du er en erfaren proff eller helt fersk.
-Dette er stedet der latter, historier og gode opplevelser står i sentrum.
-Bak Fliring Scene står ildsjelene Johan Halseth og Andreas Trætli, som sammen vil skape en arena for hele bredden av kulturlivet.`,
+Dette er stedet der latter, historier og gode opplevelser står i sentrum.`,
           alt: 'Illustrasjon av Johan Halseth og Andreas Trætli som et neon skilt',
-          captions: 'Johan Halseth & Andreas Trætli',
+          // captions: 'Johan Halseth & Andreas Trætli',
         },
         {
           id: 2,

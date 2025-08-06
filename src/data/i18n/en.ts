@@ -86,10 +86,9 @@ export const dictionary: Dictionary = {
           id: 1,
           text: `Welcome to Fliring Scene – Steinkjer’s new, intimate, and inclusive cultural stage in Breidablikkgården!
           Here, local stand‑up, speeches, revues, improv, singing, and music will have room to flourish, whether you’re a seasoned pro or a complete beginner.
-          This is the place where laughter, stories, and great experiences take center stage.
-          Behind Fliring Scene are the passionate founders Johan Halseth and Andreas Trætli, who have joined forces to create an arena for the full breadth of cultural life.`,
-          alt: 'Image of them',
-          captions: 'Johan Halseth & Andreas Trætli',
+          This is the place where laughter, stories, and great experiences take center stage.`,
+          alt: 'Image of Neon Guys',
+          // captions: 'Johan Halseth & Andreas Trætli',
         },
         {
           id: 2,
@@ -217,7 +216,7 @@ export const dictionary: Dictionary = {
         'https://fliringscene.tinyglobalvillage.com/images/fliring-scene-logo-square.jpg',
     },
     showsAboveFold: {
-      sectionTitle: 'kommende show',
+      sectionTitle: 'Upcoming Shows',
     },
   },
   contact: {
