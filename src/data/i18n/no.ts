@@ -84,15 +84,17 @@ export const dictionary: Dictionary = {
       textArray: [
         {
           id: 1,
-          text: `Velkommen til Fliring Scene – Steinkjer sitt nye, intime og inkluderende kulturhus i Breidablikkgården!
-Her vil lokal stand-up, taler, revyer, impro, sang og musikk få rom til å blomstre, enten du er en erfaren proff eller helt fersk.
-Dette er stedet der latter, historier og gode opplevelser står i sentrum.`,
+          text: ``,
           alt: 'Illustrasjon av Johan Halseth og Andreas Trætli som et neon skilt',
           // captions: 'Johan Halseth & Andreas Trætli',
         },
         {
           id: 2,
-          text: `Er du fra Steinkjer og omegn, og har lyst til å prøve deg på scenen?
+          text: `Velkommen til Fliring Scene – Steinkjer sitt nye, intime og inkluderende kulturhus i Breidablikkgården!
+Her vil lokal stand-up, taler, revyer, impro, sang og musikk få rom til å blomstre, enten du er en erfaren proff eller helt fersk.
+Dette er stedet der latter, historier og gode opplevelser står i sentrum.
+
+          Er du fra Steinkjer og omegn, og har lyst til å prøve deg på scenen?
 Send oss en kort videosnutt til hei@fliring.no – vi gleder oss til å oppdage nye fjes og høre nye vitser!
 For kun 200 NOK kan du bli medlem i Fliring Scene, støtte byens nye kulturscene, få rabatter på alle våre arrangementer – og kanskje en overraskelse eller to.
 Meld deg på ved å sende 200 NOK via Vipps til 961768. Vi ses i Breidablikkgården!`,

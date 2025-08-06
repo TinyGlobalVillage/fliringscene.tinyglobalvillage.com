@@ -98,7 +98,9 @@ export default function ContactForm({ dict }: ContactFormProps) {
 
   return (
     <FormWrapper>
-      <NeonContactPageTitle>{dict.title}</NeonContactPageTitle>
+      <h1>
+        <NeonContactPageTitle>{dict.title}</NeonContactPageTitle>
+      </h1>
 
       <Form onSubmit={handleSubmit}>
         <Field>

@@ -78,14 +78,8 @@ export const HeadingWrapper = styled.div`
 `;
 
 export const AboutTextWrapper = styled.div`
-// display: flex;
-// flex-direction: column;
-// justify-content: center;
-// align-items: center;
-
-// @media ${media.mobileM}{
-// max-width: 100%;
-// }
-
-
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
 `;

@@ -16,7 +16,9 @@ export default async function HomePage({ params }: ShowPageProps) {
   return (
     <ShowsSection>
       <HeadingWrapper>
-        <NeonSectionTitleFontSize>{dict.shows.showsAboveFold.sectionTitle}</NeonSectionTitleFontSize>
+        <h1>
+          <NeonSectionTitleFontSize>{dict.shows.showsAboveFold.sectionTitle}</NeonSectionTitleFontSize>
+        </h1>
       </HeadingWrapper>
       <WidgetWrapper>
         <TikkioWidget strategy="afterInteractive" />

@@ -8,8 +8,6 @@ import { SectionWrapper, Container, Figure, FigCaption, TextBlock } from './text
 
 export interface TextImageSplitProps {
   sectionData: AboutSectionContent;
-  reverse?: boolean;
-  mobileReverse?: boolean;
 }
 
 /**
@@ -23,24 +21,12 @@ const renderers: Record<string, React.FC> = {
 
 export default function TextImageSplit({
   sectionData,
-  reverse = false,
-  mobileReverse = false,
 }: TextImageSplitProps) {
   const { images, alt, imageCaptions, text } = sectionData;
 
   return (
     <SectionWrapper>
-      <Container $reverse={reverse} $mobileReverse={mobileReverse}>
-        <TextBlock>
-          {text.split('\n').map((line, i) => (
-            <p key={i}>{line}</p>
-          ))}
-        </TextBlock>
-
-        {/*
-          Now we loop *all* the images*, pick a renderer by key,
-          or fall back to Next.js <Image> if it’s a URL.
-        */}
+      <Container>
         {images.map((imgKey, i) => {
           const Renderer = renderers[imgKey];
           return (
@@ -62,6 +48,17 @@ export default function TextImageSplit({
             </Figure>
           );
         })}
+        <TextBlock>
+          {text.split('\n').map((line, i) => (
+            <p key={i}>{line}</p>
+          ))}
+        </TextBlock>
+
+        {/*
+          Now we loop *all* the images*, pick a renderer by key,
+          or fall back to Next.js <Image> if it’s a URL.
+        */}
+
       </Container>
     </SectionWrapper>
   );

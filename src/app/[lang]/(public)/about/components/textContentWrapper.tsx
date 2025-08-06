@@ -6,19 +6,14 @@ export const SectionWrapper = styled.section`
 `;
 
 export const Container = styled.div<{
-  $reverse: boolean;
-  $mobileReverse: boolean;
+
 }>`
   display: flex;
-  flex-wrap: nowrap;
-  width: 100%;
+  flex-direction: 'column';
   align-items: center;
   justify-content: center;
   gap: 3rem;
-
-  /* mobile first: vertical stack, maybe reversed */
-  flex-direction: ${({ $mobileReverse }) =>
-    $mobileReverse ? 'column-reverse' : 'column'};
+  width: 100%;
 
  h1 {
  margin-top: 100px;

@@ -29,16 +29,16 @@ export default async function AboutPage({ params }: AboutPageProps) {
   return (
     <AboutSection>
       <HeadingWrapper>
-        <NeonSectionTitleFontSize>{content.aboutTitle}</NeonSectionTitleFontSize>
+        <h1>
+          <NeonSectionTitleFontSize>{content.aboutTitle}</NeonSectionTitleFontSize>
+        </h1>
       </HeadingWrapper>
 
       <AboutTextWrapper>
-        {sections.map((section, idx) => (
+        {sections.map((section) => (
           <TextImageSplit
             key={section.id}
             sectionData={section}
-            reverse={idx % 2 === 1}
-            mobileReverse={idx === 0}
           />
         ))}
       </AboutTextWrapper>
