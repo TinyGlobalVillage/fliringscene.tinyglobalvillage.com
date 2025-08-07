@@ -3,7 +3,7 @@
 import GoogleMapEmbed from '../../_allPageComponents/google/GoogleMapEmbed';
 import TextContent from './components/TextContent';
 
-import { AboutSection, HeadingWrapper, AboutTextWrapper } from './components/AboutWrapper';
+import { AboutSection, HeadingWrapper } from './components/AboutWrapper';
 
 import { getDictionary } from '@/data/i18n/getDictionary';
 import type { AboutContent } from '@/data/i18n/types';
@@ -24,7 +24,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
 
   return (
     <AboutSection>
-      
+
       <HeadingWrapper>
         <NeonSectionTitleFontSize>
           {content.aboutTitle}

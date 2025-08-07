@@ -255,10 +255,24 @@ scrollbar-width: none;
 }
 
 @media ${media.tablet} {
-
   overflow-x: auto;
   padding-bottom: 0.5rem;
   cursor: initial;
+
+  scrollbar-width: thin;
+  scrollbar-color: #f7b700 rgba(0,0,0,0.1);
+
+  &::-webkit-scrollbar {
+    height: 8px;
+  }
+  &::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.1);
+    border-radius: 4px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #f7b700;
+    border-radius: 4px;
+  }
 }
 
 `;

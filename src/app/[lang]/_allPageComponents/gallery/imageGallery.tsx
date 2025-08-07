@@ -22,8 +22,6 @@ export default function ImageGallery({ slides, prevLabel, nextLabel }: ImageGall
   const [direction, setDir] = useState<'left' | 'right'>('right');
   const [zoomed, setZoomed] = useState(false);
   const [touchStartX, setTouchStartX] = useState(0);
-  const [dragStartX, setDragStartX] = useState(0);
-  const [dragging, setDragging] = useState(false);
 
   const threshold = 50; // px
   const hasCaption = Boolean(slides[current].caption);
@@ -62,53 +60,12 @@ export default function ImageGallery({ slides, prevLabel, nextLabel }: ImageGall
     }
   }
 
-  // ** NEW: mouse drag handlers **
-  function handleMouseDown(e: React.MouseEvent) {
-    setDragStartX(e.clientX);
-    setDragging(true);
-  }
-
-  function handleMouseUp(e: React.MouseEvent) {
-    if (!dragging) return;
-    const deltaX = e.clientX - dragStartX;
-    if (deltaX > threshold) {
-      prevSlide();
-    } else if (deltaX < -threshold) {
-      nextSlide();
-    }
-    setDragging(false);
-  }
-
-  // If they drag out of the slider, treat it as mouse up
-  function handleMouseLeave(e: React.MouseEvent) {
-    if (dragging) handleMouseUp(e);
-  }
-
   return (
     <>
       <ImageGalleryWrapper>
         <Slider
-          onPointerDown={(e) => {
-            setDragStartX(e.clientX);
-            setDragging(true);
-          }}
-          onPointerUp={(e) => {
-            if (!dragging) return;
-            const deltaX = e.clientX - dragStartX;
-            if (deltaX > threshold) prevSlide();
-            else if (deltaX < -threshold) nextSlide();
-            setDragging(false);
-          }}
-          onPointerLeave={(e) => {
-            // cover the case they release outside
-            if (dragging) {
-              const deltaX = e.clientX - dragStartX;
-              if (deltaX > threshold) prevSlide();
-              else if (deltaX < -threshold) nextSlide();
-              setDragging(false);
-            }
-          }}
-          style={{ cursor: dragging ? 'grabbing' : 'grab', userSelect: 'none' }}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
         >
           <SlideContainer>
             <MainImageWrapper>
@@ -119,7 +76,6 @@ export default function ImageGallery({ slides, prevLabel, nextLabel }: ImageGall
                   alt={slides[prev].alt}
                   $animation={direction === 'right' ? 'slideOutLeft' : 'slideOutRight'}
                   onClick={() => setZoomed(true)}
-                  draggable={true}
                 />
               )}
               <MainImage
