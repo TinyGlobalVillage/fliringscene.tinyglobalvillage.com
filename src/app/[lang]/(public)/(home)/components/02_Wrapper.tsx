@@ -43,19 +43,16 @@ margin-bottom: 150px;
 
 @media ${media.laptop}{
 height: 650px;
-scroll-margin-top: 120px;
-padding: 0rem 11rem 35px;
+margin-top: 110px;
+margin-bottom: 200px;
+padding: .25rem 11rem 35px;
 }
+
 @media ${media.laptopL}{
-height: 750px;
-scroll-margin-top: 120px;
-padding: 1.2rem 6rem 3rem;
+height: 700px;
+padding: 1rem 9rem 35px;
 }
-// @media ${media.fourK}{
-// height: auto;
-// scroll-margin-top: 250px;
-// padding: 3rem;
-// }
+
 `;
 
 export const HeadingWrapper = styled.div`
@@ -72,12 +69,14 @@ padding-bottom: 5px;
 
 @media ${media.laptop}{
 padding-top: 15px;
-padding-top: 0;
-padding-bottom: 0;
+padding-bottom: 10px;
+margin-top: -10px;
+margin-bottom: 0px;
 }
+
 @media ${media.laptopL}{
-// padding-top: 10px;
-padding-bottom: 0px;
+margin-top: -20px;
+margin-bottom: 10px;
 }
 
 `;
@@ -86,11 +85,6 @@ export const TikkioWrapper = styled.div`
 box-shadow: 0 0 15px #00bfff, 0 0 15px #00bfff;
 border-radius: 25px;
 
-@media ${media.laptopL}{
-max-height: 600px;
-margin-top: 10px;
-padding: 2rem;
-}
 
 /* target the injected widget container and its cards */
 

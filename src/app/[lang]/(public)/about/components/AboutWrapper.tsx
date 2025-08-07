@@ -48,33 +48,12 @@ export const AboutSection = styled.div`
   }
 `;
 
-export const HeadingWrapper = styled.div`
+export const HeadingWrapper = styled.h1`
   display: flex;
   align-items: center;
   justify-content: center;
   padding-top: 10px;
-  padding-bottom: 5px;
-  margin-bottom: 10px;
-
-  @media ${media.mobileM} {
-    padding-top: 15px;
-    margin-bottom: 15px;
-  }
-
-  @media ${media.laptop} {
-    padding-top: 15px;
-    padding-bottom: 10px;
-  }
-
-  @media ${media.laptopL} {
-    padding-top: 15px;
-    padding-bottom: 10px;
-  }
-
-  @media ${media.fourK} {
-    padding-top: 0px;
-    padding-bottom: 25px;
-  }
+  margin-bottom: -30px;
 `;
 
 export const AboutTextWrapper = styled.div`

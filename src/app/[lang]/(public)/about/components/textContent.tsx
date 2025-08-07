@@ -1,65 +1,26 @@
-// src/app/[lang]/_allPageComponents/textSections/TextImageSplit.tsx
+// src/app/[lang]/_allPageComponents/textSections/TextContent.tsx
 'use client';
-import NeonGuys from '../../../_allPageComponents/svg/NeonGuysSVG';
-import Image from 'next/image';
-import type { AboutSectionContent } from '@/hook-utils/getAboutContent';
-import { SectionWrapper, Container, Figure, FigCaption, TextBlock } from './textContentWrapper';
+import React from 'react';
+import { TextBlock } from './TextContentWrapper';
+import type { AboutSectionText } from '@/data/i18n/types';
 
-
-export interface TextImageSplitProps {
-  sectionData: AboutSectionContent;
+export interface TextContentProps {
+  /**
+   * Array of objects containing id and paragraph text.
+   * Images and captions should be rendered separately in the page layout.
+   */
+  textArray: AboutSectionText[];
 }
 
 /**
- * A little registry so we can look up
- * special SVGs by a string key,
- * and fall back to <Image> for URLs.
+ * Renders a series of text paragraphs using the provided dictionary entries.
  */
-const renderers: Record<string, React.FC> = {
-  'neon-guys': () => <NeonGuys />,
-};
-
-export default function TextImageSplit({
-  sectionData,
-}: TextImageSplitProps) {
-  const { images, alt, imageCaptions, text } = sectionData;
-
+export default function TextContent({ textArray }: TextContentProps) {
   return (
-    <SectionWrapper>
-      <Container>
-        {images.map((imgKey, i) => {
-          const Renderer = renderers[imgKey];
-          return (
-            <Figure key={i}>
-              {Renderer ? (
-                <Renderer />
-              ) : (
-                <Image
-                  src={imgKey}
-                  alt={alt[i] || ''}
-                  width={400}
-                  height={400}
-                  priority
-                />
-              )}
-              {imageCaptions[i] && (
-                <FigCaption>{imageCaptions[i]}</FigCaption>
-              )}
-            </Figure>
-          );
-        })}
         <TextBlock>
-          {text.split('\n').map((line, i) => (
-            <p key={i}>{line}</p>
+          {textArray.map(({ id, text }) => (
+            <p key={id}>{text}</p>
           ))}
         </TextBlock>
-
-        {/*
-          Now we loop *all* the images*, pick a renderer by key,
-          or fall back to Next.js <Image> if it’s a URL.
-        */}
-
-      </Container>
-    </SectionWrapper>
   );
 }

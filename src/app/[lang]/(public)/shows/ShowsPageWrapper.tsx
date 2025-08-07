@@ -41,15 +41,14 @@ margin-bottom: 200px;
 
 @media ${media.laptop}{
 height: 650px;
-margin-top: 110px;
+margin-top: 150px;
 margin-bottom: 200px;
 padding: .25rem 11rem 35px;
 }
 
 @media ${media.laptopL}{
-height: 725px;
-margin-top: 150px;
-padding: 1rem 9rem 10rem;
+height: 700px;
+padding: 1rem 9rem 35px;
 }
 `;
 
@@ -69,11 +68,13 @@ margin-bottom: 15px;
 @media ${media.laptop}{
 padding-top: 15px;
 padding-bottom: 10px;
+margin-top: -10px;
+margin-bottom: -10px;
 }
 
 @media ${media.laptopL}{
-padding-top: 0px;
-padding-bottom: 0px;
+margin-bottom: 0;
+margin-top: -15px;
 }
 
 `;
