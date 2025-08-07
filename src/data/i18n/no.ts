@@ -146,6 +146,7 @@ Meld deg på ved å sende 200 NOK via Vipps til 961768. Vi ses i Breidablikkgår
             variableOption: 'Annet',
           },
           videoPrompt: 'Send oss en video',
+          otherMessage: 'Vennligst beskriv nærmere.',
         },
         button: 'Send Melding',
         statusMessage: {
@@ -155,9 +156,9 @@ Meld deg på ved å sende 200 NOK via Vipps til 961768. Vi ses i Breidablikkgår
         errors: {
           name: 'Vennligst fyll inn navnet ditt.',
           email:
-            'Vennligst bruk en gyldig e-postadresse.',
+          'Vennligst bruk en gyldig e-postadresse.',
           topic: 'Vennligst velg et emne.',
-          otherMessage: 'Vennligst beskriv nærmere.',
+          otherMessage: 'Vennligst beskriv',
         },
       },
     },

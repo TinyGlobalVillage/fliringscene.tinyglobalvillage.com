@@ -144,6 +144,7 @@ interface ContactAboveFoldContent {
         variableOption: string;
       };
       videoPrompt: string;
+      otherMessage: string;
     };
     button: string;
     statusMessage: {

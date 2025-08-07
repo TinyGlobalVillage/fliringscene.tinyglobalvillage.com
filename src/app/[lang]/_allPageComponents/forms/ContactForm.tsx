@@ -1,15 +1,14 @@
-'use client';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import NeonContactPageTitle from '../headers/NeonContactPageTitle';
 import { FormWrapper, Form, Field, Button, Status } from './ContactFormWrapper';
 
-//import Dictionary
+// import Dictionary type
 import type { Dictionary } from '@/data/i18n/types';
 
-//create Props to pass params
+// Props for the form component
 type ContactFormProps = {
   dict: Dictionary['contact']['contentAboveFold']['form'];
-}
+};
 
 export default function ContactForm({ dict }: ContactFormProps) {
   const [form, setForm] = useState({
@@ -19,12 +18,12 @@ export default function ContactForm({ dict }: ContactFormProps) {
     topic: '',
     otherMessage: '',
     videoLink: '',
-    website: '',   // honeypot
-    ts: '',        // timestamp
+    website: '', // honeypot
+    ts: '',      // timestamp
   });
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
 
-  // on mount, record the timestamp
+  // Record timestamp on mount
   useEffect(() => {
     setForm(f => ({ ...f, ts: String(Date.now()) }));
   }, []);
@@ -36,14 +35,26 @@ export default function ContactForm({ dict }: ContactFormProps) {
     setForm(f => ({ ...f, [name]: value }));
   };
 
+  const handleInput = (
+    e: React.FormEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+  ) => {
+    e.currentTarget.setCustomValidity('');
+    const { name, value } = e.currentTarget;
+    setForm(f => ({ ...f, [name]: value }));
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Basic validation: require name, email, topic, and if "Other" then otherMessage
     if (
       !form.name ||
       !form.email ||
       !form.topic ||
-      (form.topic === 'Other' && !form.otherMessage)
-    ) return;
+      (form.topic === dict.fields.dropdown.variableOption && !form.otherMessage)
+    ) {
+      return;
+    }
 
     setStatus('sending');
     try {
@@ -52,8 +63,6 @@ export default function ContactForm({ dict }: ContactFormProps) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       });
-
-      // read the JSON even on errors:
       const payload = await res.json();
 
       if (!res.ok) {
@@ -62,7 +71,7 @@ export default function ContactForm({ dict }: ContactFormProps) {
         return;
       }
 
-      // success
+      // on success, reset form
       setStatus('success');
       setForm({
         name: '',
@@ -80,21 +89,12 @@ export default function ContactForm({ dict }: ContactFormProps) {
     }
   };
 
-  // helper: clear any custom message on input
-  const handleInput = (
-    e: React.FormEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.currentTarget;
-    e.currentTarget.setCustomValidity('');
-    setForm(f => ({ ...f, [name]: value }));
-  };
-
-  // factory to produce onInvalid for each field
+  // on invalid, show custom message from dict.errors
   const handleInvalid =
     (field: keyof typeof dict.errors) =>
-      (e: React.FormEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-        e.currentTarget.setCustomValidity(dict.errors[field]);
-      };
+    (e: React.FormEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+      e.currentTarget.setCustomValidity(dict.errors[field]);
+    };
 
   return (
     <FormWrapper>
@@ -103,6 +103,7 @@ export default function ContactForm({ dict }: ContactFormProps) {
       </h1>
 
       <Form onSubmit={handleSubmit}>
+        {/* Name */}
         <Field>
           <label htmlFor="name">{dict.fields.name} *</label>
           <input
@@ -116,6 +117,7 @@ export default function ContactForm({ dict }: ContactFormProps) {
           />
         </Field>
 
+        {/* Email */}
         <Field>
           <label htmlFor="email">{dict.fields.email} *</label>
           <input
@@ -129,11 +131,19 @@ export default function ContactForm({ dict }: ContactFormProps) {
           />
         </Field>
 
+        {/* Phone */}
         <Field>
           <label htmlFor="number">{dict.fields.phone}</label>
-          <input id="number" name="number" type="tel" value={form.number} onChange={handleChange} />
+          <input
+            id="number"
+            name="number"
+            type="tel"
+            value={form.number}
+            onChange={handleChange}
+          />
         </Field>
 
+        {/* Topic dropdown */}
         <Field>
           <label htmlFor="topic">{dict.fields.topic} *</label>
           <select
@@ -144,7 +154,9 @@ export default function ContactForm({ dict }: ContactFormProps) {
             onInvalid={handleInvalid('topic')}
             required
           >
-            <option value="" disabled>{dict.fields.dropdown.placeholder}</option>
+            <option value="" disabled>
+              {dict.fields.dropdown.placeholder}
+            </option>
             <option>{dict.fields.dropdown.option1}</option>
             <option>{dict.fields.dropdown.option2}</option>
             <option>{dict.fields.dropdown.option3}</option>
@@ -155,10 +167,11 @@ export default function ContactForm({ dict }: ContactFormProps) {
           </select>
         </Field>
 
+        {/* Other message when "Other" chosen */}
         {form.topic === dict.fields.dropdown.variableOption && (
           <Field>
             <label htmlFor="otherMessage">
-              {dict.fields.videoPrompt} *
+              {dict.fields.otherMessage} *
             </label>
             <textarea
               id="otherMessage"
@@ -171,6 +184,7 @@ export default function ContactForm({ dict }: ContactFormProps) {
           </Field>
         )}
 
+        {/* Video prompt */}
         <Field>
           <label htmlFor="videoLink">{dict.fields.videoPrompt}</label>
           <input
@@ -183,7 +197,15 @@ export default function ContactForm({ dict }: ContactFormProps) {
           />
         </Field>
 
-        <input type="text" name="website" autoComplete="off" style={{ display: 'none' }} value={form.website} onChange={handleChange} />
+        {/* honeypot and timestamp */}
+        <input
+          type="text"
+          name="website"
+          autoComplete="off"
+          style={{ display: 'none' }}
+          value={form.website}
+          onChange={handleChange}
+        />
         <input type="hidden" name="ts" value={form.ts} />
 
         <Button type="submit" disabled={status === 'sending'}>
@@ -192,10 +214,15 @@ export default function ContactForm({ dict }: ContactFormProps) {
       </Form>
 
       {status === 'success' && (
-        <Status variant="success" role="status" aria-live="polite">{dict.statusMessage.success}</Status>
+        <Status variant="success" role="status" aria-live="polite">
+          {dict.statusMessage.success}
+        </Status>
       )}
+
       {status === 'error' && (
-        <Status variant="error" role="status" aria-live="polite">{dict.statusMessage.error}</Status>
+        <Status variant="error" role="status" aria-live="polite">
+          {dict.statusMessage.error}
+        </Status>
       )}
     </FormWrapper>
   );

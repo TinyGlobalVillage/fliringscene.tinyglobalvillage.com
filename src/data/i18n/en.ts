@@ -262,6 +262,7 @@ export const dictionary: Dictionary = {
             variableOption: 'Other',
           },
           videoPrompt: 'Send Us A Performance Video',
+          otherMessage: 'Please describe your request.',
         },
         button: 'Send Message',
         statusMessage: {
@@ -272,7 +273,7 @@ export const dictionary: Dictionary = {
           name: 'Please enter your name.',
           email: 'Please enter a valid email address.',
           topic: 'Please select a topic.',
-          otherMessage: 'Please describe your request.',
+          otherMessage: 'Please provide a description.',
         },
       },
     },
