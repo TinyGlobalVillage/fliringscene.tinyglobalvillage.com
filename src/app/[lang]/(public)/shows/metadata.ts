@@ -11,7 +11,7 @@ export async function generateMetadata({
 
   const baseUrl =
     'https://fliringscene.tinyglobalvillage.com';
-  const image = `${baseUrl}/images/icons/fliring-scene-logo-square.jpg`;
+  const image = `${baseUrl}/images/icons/fliring-scene-logo-square.jpeg`;
 
   return {
     title: page.meta.title,
