@@ -248,20 +248,12 @@ flex-wrap: nowrap;
 touch-action: pan-x;
 cursor: grab;
 -webkit-overflow-scrolling: touch;
-scrollbar-width: none;
 
-&::-webkit-scrollbar {
-  display: none;
-}
-
-@media ${media.tablet} {
-  overflow-x: auto;
-  padding-bottom: 0.5rem;
-  cursor: initial;
-
+  /* Firefox */
   scrollbar-width: thin;
   scrollbar-color: #f7b700 rgba(0,0,0,0.1);
 
+  /* WebKit (Chrome/Edge/Safari on macOS) */
   &::-webkit-scrollbar {
     height: 8px;
   }
@@ -273,8 +265,15 @@ scrollbar-width: none;
     background: #f7b700;
     border-radius: 4px;
   }
-}
 
+@media ${media.tablet} {
+  overflow-x: scroll;
+  padding-bottom: 0.5rem;
+  cursor: initial;
+
+  scrollbar-width: thin;
+  scrollbar-color: #f7b700 rgba(0,0,0,0.1);
+}
 `;
 
 export const Thumbnail = styled.img<{ $active: boolean }>`
