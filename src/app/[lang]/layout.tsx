@@ -12,7 +12,7 @@ export async function generateMetadata(
   const { lang } = await params;
   const dict = await getDictionary(lang);
 
-  return buildPageMetadata({ dictPage: dict.shows, lang, route: '/shows' });
+  return buildPageMetadata({ dictPage: dict.home, lang, route: '/' });
 }
 
 interface LangLayoutProps {
