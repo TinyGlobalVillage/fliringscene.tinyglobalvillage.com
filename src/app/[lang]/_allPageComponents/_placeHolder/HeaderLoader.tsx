@@ -26,12 +26,15 @@ export default function HeaderLoader({ dict }: HeaderLoaderProps) {
   const [isMobile, setIsMobile] = useState(false);
   const MOBILE_BREAKPOINT = 768;
 
-  useEffect(() => {
-    const onResize = () => setIsMobile(window.innerWidth <= MOBILE_BREAKPOINT);
-    onResize();
-    window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
-  }, []);
+ useEffect(() => {
+  const mql = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT}px)`);
+  const apply = (mq: MediaQueryList | MediaQueryListEvent) =>
+    setIsMobile('matches' in mq ? mq.matches : (mq as MediaQueryList).matches);
+
+  apply(mql); // set initial state
+  mql.addEventListener?.('change', apply);
+  return () => mql.removeEventListener?.('change', apply);
+}, []);
 
   return isMobile ? <MobileHeader dict={dict} /> : <AboveTheFold dict={dict} />;
 }
