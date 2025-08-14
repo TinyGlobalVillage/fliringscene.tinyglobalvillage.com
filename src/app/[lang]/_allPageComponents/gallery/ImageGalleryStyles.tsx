@@ -2,6 +2,7 @@
 
 import styled, { keyframes } from "styled-components";
 import { media } from "@/styles/breakpoints";
+import { useRef, useState, useCallback } from 'react';
 
 type AnimationKey = keyof typeof animationMap;
 
@@ -87,7 +88,6 @@ overflow: visible;
 
 `;
 
-
 export const MainImage = styled.img<{ $animation: AnimationKey }>`
 position: absolute;
 max-height: 53vh;
@@ -105,13 +105,13 @@ height: 56vh;
 
 export const ZoomOverlay = styled.div`
 position: fixed;
-inset: 0;                           /* top:0; left:0; right:0; bottom:0 */
+inset: 0;
 background: rgba(0,0,0,0.85);
 display: flex;
 align-items: center;
 justify-content: center;
-cursor: zoom-out;                   /* indicates “click to close” */
-z-index: 10000;                     /* above everything else */
+cursor: zoom-out;
+z-index: 10000;
 
 img {
 max-width: 100vw;
@@ -127,9 +127,8 @@ gap: 1rem;
 margin 0 auto;
 max-width: 100vw;
 max-height: 100vh;
-overflow: hidden;           /* scroll if caption overflows */
-// padding: 1rem;
-background: #000;         /* optional inner background */
+overflow: hidden;
+background: #000;
 border-radius: 0.5rem;
 `;
 
@@ -139,7 +138,6 @@ font-size: 1.1rem;
 text-align: center;
 line-height: 1.4;
 `;
-
 
 export const Overlay = styled.div<{ $hasCaption: boolean }>`
 width: 100%;
@@ -151,13 +149,8 @@ gap: 1rem;
 display: flex;
 align-items: center;
 justify-content: ${({ $hasCaption }) => $hasCaption ? 'center' : 'space-between'};
-
-/* a little padding, and a semi-opaque background */
 padding: 0.5rem 1rem;
 background: rgba(0, 0, 0, 0.6);
-// background: rgba(236, 230, 230, 0.6);
-
-/* match your image’s bottom corners */
 border-bottom-left-radius: 0.75rem;
 border-bottom-right-radius: 0.75rem;
 box-shadow: inset 0 1px 2px rgba(0,0,0,0.5);
@@ -177,14 +170,12 @@ margin-top: -10px;
 margin-top: -9px;
 max-width: 398px;
 }
-
 @media ${media.laptopL}{
 margin-top: -10px;
 max-width: 397px;
 }
 `;
 
-// new Caption element for styling the text
 export const Caption = styled.span`
 flex: 1;
 text-align: center;
@@ -202,7 +193,6 @@ font-size: 1rem;
 @media ${media.tablet}{
 font-size: 1.75rem;
 }
-
 `;
 
 export const NavButton = styled.button`
@@ -226,16 +216,11 @@ filter: drop-shadow(0 0 3px #fe9e17);
 background: rgba(255, 255, 255, 0.9);
 filter: drop-shadow(0 0 15px #fe9e17);
 }
-@media ${media.tablet}{
-}
+@media ${media.tablet}{}
 `;
 
-export const NavButtonLeft = styled(NavButton)`
-bottom: -.5em;
-`;
-export const NavButtonRight = styled(NavButton)`
-bottom: -.5em;
-`;
+export const NavButtonLeft = styled(NavButton)` bottom: -.5em; `;
+export const NavButtonRight = styled(NavButton)` bottom: -.5em; `;
 
 export const ThumbnailRow = styled.div`
 margin-top: -20px;
@@ -248,35 +233,39 @@ flex-wrap: nowrap;
 touch-action: pan-x;
 cursor: grab;
 -webkit-overflow-scrolling: touch;
+touch-action: pan-x;
+
+  & * { cursor: inherit; }
+
+  &.dragging {
+    cursor: grabbing;
+    user-select: none;
+  }
+  
+  &.dragging img { 
+  pointer-events: none; 
+  }
 
   /* Firefox */
   scrollbar-width: thin;
   scrollbar-color: #f7b700 rgba(0,0,0,0.1);
 
-  /* WebKit (Chrome/Edge/Safari on macOS) */
-  &::-webkit-scrollbar {
-    height: 8px;
-  }
-  &::-webkit-scrollbar-track {
-    background: rgba(0,0,0,0.1);
-    border-radius: 4px;
-  }
-  &::-webkit-scrollbar-thumb {
-    background: #f7b700;
-    border-radius: 4px;
-  }
+  /* WebKit */
+  &::-webkit-scrollbar { height: 8px; }
+  &::-webkit-scrollbar-track { background: rgba(0,0,0,0.1); border-radius: 4px; }
+  &::-webkit-scrollbar-thumb { background: #f7b700; border-radius: 4px; }
 
 @media ${media.tablet} {
   overflow-x: scroll;
   padding-bottom: 0.5rem;
   cursor: initial;
-
   scrollbar-width: thin;
   scrollbar-color: #f7b700 rgba(0,0,0,0.1);
 }
 `;
 
-export const Thumbnail = styled.img<{ $active: boolean }>`
+/* keep your existing props, plus stop native drag */
+export const Thumbnail = styled.img.attrs({ draggable: false })<{ $active: boolean }>`
 width: 40px;
 height: 60px;
 object-fit: cover;
@@ -284,18 +273,84 @@ border: 2px solid ${({ $active }) => ($active ? '#f7b700' : 'transparent')};
 border-radius: 6px;
 cursor: pointer;
 transition: border 0.2s;
+pointer-events: auto;
+
+user-drag: none;
+-webkit-user-drag: none;
 
 box-shadow:
 0 0 1px #fe9e17,
 0 0 2px #fe9e17,
 0 0 3px #fe9e17;
 
-&:hover {
-border-color: #f7b700;
-}
+&:hover { border-color: #f7b700; }
 
 @media ${media.tablet} {
-flex: 0 0 75px;   /* never grow or shrink, always 75px wide */
-height: 75px;
+  flex: 0 0 75px;
+  height: 75px;
 }
 `;
+
+export default function ThumbnailDragScroll({ children }: { children: React.ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [dragging, setDragging] = useState(false);
+  const startClientX = useRef(0);
+  const startScrollLeft = useRef(0);
+  const pointerIdRef = useRef<number | null>(null);
+  const movedPx = useRef(0);
+
+  const onPointerDownCapture = (e: React.PointerEvent) => {
+    if (!ref.current) return;
+    if (e.pointerType === 'mouse' && e.button !== 0) return; // left button only
+
+    // Own this pointer stream even if children stop propagation later
+    pointerIdRef.current = e.pointerId;
+    ref.current.setPointerCapture?.(e.pointerId);
+
+    setDragging(true);
+    movedPx.current = 0;
+    startClientX.current = e.clientX;
+    startScrollLeft.current = ref.current.scrollLeft;
+
+    e.preventDefault(); // stop text/image selection & ghost drag
+  };
+
+  const onPointerMove = (e: React.PointerEvent) => {
+    if (!dragging || !ref.current) return;
+    const dx = e.clientX - startClientX.current;
+    movedPx.current = Math.max(movedPx.current, Math.abs(dx));
+    ref.current.scrollLeft = startScrollLeft.current - dx;
+    e.preventDefault();
+  };
+
+  const onPointerUp = (e: React.PointerEvent) => {
+    setDragging(false);
+    if (ref.current && pointerIdRef.current != null) {
+      try { ref.current.releasePointerCapture?.(pointerIdRef.current); } catch {}
+      pointerIdRef.current = null;
+    }
+  };
+
+  // If the user dragged, kill the click (prevents thumb onClick firing)
+  const onClickCapture = (e: React.MouseEvent) => {
+    if (movedPx.current > 6) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  };
+
+  return (
+    <ThumbnailRow
+      ref={ref}
+      className={dragging ? 'dragging' : ''}
+      onPointerDownCapture={onPointerDownCapture}
+      onPointerMove={onPointerMove}
+      onPointerUp={onPointerUp}
+      onPointerCancel={onPointerUp}
+      onDragStart={(e) => e.preventDefault()}
+      onClickCapture={onClickCapture}
+    >
+      {children}
+    </ThumbnailRow>
+  );
+}
