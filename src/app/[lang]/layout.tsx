@@ -3,11 +3,23 @@ import Script from 'next/script';
 import { ReactNode } from 'react';
 import LayoutClient from './layout.client';
 import { getDictionary } from '@/data/i18n/getDictionary';
+import { buildPageMetadata } from '@/hook-utils/buildPageMetadata';
+import { LangParams } from '@/data/i18n/types';
+
+export async function generateMetadata(
+  { params }: { params: LangParams }
+) {
+  const { lang } = await params;
+  const dict = await getDictionary(lang);
+
+  return buildPageMetadata({ dictPage: dict.shows, lang, route: '/shows' });
+}
 
 interface LangLayoutProps {
   children: ReactNode;
   // tell TS that params really is a promise
-  params: Promise<{ lang: string }>;
+  // params: { lang: string };
+  params: LangParams; // params is now a Promise
 }
 
 export default async function RootLayout({

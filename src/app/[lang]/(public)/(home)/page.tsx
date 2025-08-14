@@ -9,11 +9,13 @@ import { getDictionary } from '@/data/i18n/getDictionary';
 
 interface HomePageProps {
   params: Promise<{ lang: string }>; // params is now a Promise
+  // params: { lang: string }; // params is now a Promise
 }
 
 export default async function HomePage({ params }: HomePageProps) {
   const resolvedParams = await params;
   const dict = await getDictionary(resolvedParams.lang);
+  // const dict = await getDictionary(params.lang);
 
   return (
     <>

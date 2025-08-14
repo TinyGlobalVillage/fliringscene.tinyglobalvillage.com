@@ -4,8 +4,9 @@ import { NextRequest, NextResponse } from 'next/server';
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   if (pathname === '/') {
-    // rewrite so that "/" serves the /no page (with its metadata)
-    return NextResponse.rewrite(new URL('/no', request.url));
+    const url = request.nextUrl.clone();
+    url.pathname = '/no';
+    return NextResponse.redirect(url, 308); // permanent
   }
   return NextResponse.next();
 }

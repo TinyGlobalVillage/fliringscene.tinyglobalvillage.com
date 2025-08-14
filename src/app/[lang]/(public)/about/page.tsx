@@ -10,14 +10,31 @@ import type { AboutContent } from '@/data/i18n/types';
 
 import NeonSectionTitleFontSize from '../../_allPageComponents/headers/NeonSectionTitleFontSize';
 import NeonGuys from '../../_allPageComponents/svg/NeonGuysSVG';
+import { buildPageMetadata } from '@/hook-utils/buildPageMetadata';
+
+type LangParams = Promise<{ lang: 'en' | 'no' }>;
 
 interface AboutPageProps {
-  params: Promise<{ lang: string }>;
+  params: LangParams;
+  // params: Promise<{ lang: string }>
+  // params: { lang: string }; // params is now a Promise
 }
+
+
+export async function generateMetadata(
+  { params }: { params: LangParams }
+) {
+  const { lang } = await params;
+  const dict = await getDictionary(lang);
+
+  return buildPageMetadata({ dictPage: dict.about, lang, route: '/about' });
+}
+
 
 export default async function AboutPage({ params }: AboutPageProps) {
 
   const { lang } = await params;
+  // const { lang } = params;
   const dict = await getDictionary(lang);
 
   const content: AboutContent = dict.about.aboutAboveFold;

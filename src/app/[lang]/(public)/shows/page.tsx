@@ -5,9 +5,25 @@ import TikkioWidget from "../../_allPageComponents/tikkio/TikkoWidget";
 import { ShowsSection, HeadingWrapper, WidgetWrapper } from "./ShowsPageWrapper";
 // import type { ShowsPage } from "@/data/i18n/types";
 
+import { buildPageMetadata } from '@/hook-utils/buildPageMetadata';
+import { LangParams } from '@/data/i18n/types';
+
+
 type ShowPageProps = {
-  params: Promise<{ lang: string }>;
+  params: LangParams;
 };
+
+export async function generateMetadata(
+  { params }: { params: LangParams }
+) {
+  const { lang } = await params;
+  const dict = await getDictionary(lang);
+
+  return buildPageMetadata({ dictPage: dict.shows, lang, route: '/shows' });
+}
+
+
+
 
 export default async function HomePage({ params }: ShowPageProps) {
   const resolvedParams = await params;

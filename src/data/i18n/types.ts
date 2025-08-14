@@ -18,6 +18,8 @@ export interface Dictionary {
 
 // SEO METADATA TYPES
 
+export type LangParams = Promise<{ lang: 'en' | 'no' }>;
+
 interface PageMeta {
   meta: {
     title: string;
@@ -26,15 +28,15 @@ interface PageMeta {
     ogTitle: string;
     ogDescription: string;
   };
-  twitter: {
-    card:
+  twitter?: {
+    card?:
       | 'summary'
       | 'summary_large_image'
       | 'player'
       | 'app';
-    title: string;
-    description: string;
-    images:
+    title?: string;
+    description?: string;
+    images?:
       | string
       | URL
       | TwitterImage

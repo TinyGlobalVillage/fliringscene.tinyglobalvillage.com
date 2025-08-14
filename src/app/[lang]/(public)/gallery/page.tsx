@@ -4,9 +4,24 @@ import { getDictionary } from '@/data/i18n/getDictionary';
 import { getLocalizedSlides } from '@/hook-utils/getGalleryContent';
 import { GalleryWrapper } from './GalleryWrapper';
 
+import { buildPageMetadata } from '@/hook-utils/buildPageMetadata';
+
+import { LangParams } from '@/data/i18n/types';
+
 interface GalleryPageProps {
-  params: Promise<{ lang: string }>;
+  params: LangParams;
 }
+
+export async function generateMetadata(
+  { params }: { params: LangParams }
+) {
+  const { lang } = await params;
+  const dict = await getDictionary(lang);
+
+  return buildPageMetadata({ dictPage: dict.gallery, lang, route: '/gallery' });
+}
+
+
 
 export default async function GalleryPage({ params }: GalleryPageProps) {
   const { lang } = await params;
