@@ -45,10 +45,9 @@ padding: 2rem;
  /* readable pill */
   color: #ffffff;                         /* readable on dark */
   background: rgba(0, 0, 0, 0.72);        /* darken behind text */
-  border: 1px solid #ff4ecb;              /* keep brand accent */
-  border-radius: 999px;                   /* pill */
-  box-shadow:
-    0 0 8px rgba(0,191,255,0.35),         /* soft cyan halo (subtle) */
+//   border: 1px solid #ff4ecb;              /* keep brand accent */
+  border-radius: 16px;                   /* pill */
+  box-shadow: 0 0 15px #00bfff, 0 0 15px #00bfff;       /* soft cyan halo (subtle) */
     inset 0 0 0 1px rgba(255,255,255,0.05);
 
   font-weight: 700;
@@ -79,8 +78,10 @@ export const EmptyState = styled.div`
   /* readable panel */
   color: #ffffff;
   background: rgba(0, 0, 0, 0.72);
-  border: 1px solid rgba(255, 78, 203, 0.6);
-  box-shadow: 0 0 10px rgba(255, 78, 203, 0.25);
+
+border-radius: 25px;
+//   border: 1px solid rgba(255, 78, 203, 0.6);
+  box-shadow: 0 0 15px #00bfff, 0 0 15px #00bfff;
 
     h3 {
     margin: 0 0 .5rem;
@@ -169,9 +170,6 @@ margin-bottom: 10px;
 `;
 
 export const TikkioWrapper = styled.div`
-box-shadow: 0 0 15px #00bfff, 0 0 15px #00bfff;
-border-radius: 25px;
-
 
 /* target the injected widget container and its cards */
 
