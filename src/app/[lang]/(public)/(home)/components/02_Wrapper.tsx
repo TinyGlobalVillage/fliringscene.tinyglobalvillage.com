@@ -1,9 +1,59 @@
 'use client';
 
-import styled from "styled-components";
+import styled,  { keyframes } from "styled-components";
 import { media } from "@/styles/breakpoints";
 
 import { glowPulse } from "@/app/[lang]/_allPageComponents/animations/glowPulse";
+
+
+/* ---- Loading placeholder (shimmer) ---- */
+const upcomingShimmer = keyframes`
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+`;
+
+export const LoadingPlaceholder = styled.div`
+  min-height: 260px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.06) 25%,
+    rgba(255,255,255,0.15) 37%,
+    rgba(255,255,255,0.06) 63%
+  );
+  background-size: 400% 100%;
+  animation: ${upcomingShimmer} 1.2s linear infinite;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+`;
+
+/* ---- If you prefer simple text-only loading ---- */
+export const LoadingText = styled.p`
+  text-align: center;
+  padding: 1rem 0;
+  margin: 0;
+  color: #ff4ecb;           /* pick your brand color */
+  font-weight: 600;
+`;
+
+/* ---- Empty state wrapper ---- */
+export const EmptyState = styled.div`
+  text-align: center;
+  color: #ff4ecb; 
+  padding: 1rem 0 2rem;
+
+  h3 {
+    margin: 0 0 .5rem;
+  }
+  p {
+    margin: 0 0 1rem;
+    opacity: 0.9;
+  }
+`;
+
 
 export const UpcomingShowsSection = styled.section`
 display: flex;

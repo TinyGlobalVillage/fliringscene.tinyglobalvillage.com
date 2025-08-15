@@ -47,9 +47,12 @@ export const dictionary: Dictionary = {
         subtitle: 'CLUB',
       },
     },
-    upcomingShows: {
+      upcomingShows: {
       title: 'Upcoming Shows',
-      ctaLabel: 'See Events',
+      loadingEvents: 'Loading events…',
+      noShowsTitle: 'No shows right now',
+      noShowsBody: 'Join the newsletter to hear about the next date.',
+
     },
   },
   about: {
@@ -290,7 +293,7 @@ export const dictionary: Dictionary = {
       shows: {
         label: 'SHOWS',
         ariaLabel: 'View upcoming shows',
-        href: '/shows',
+        href: '/#upcoming-show',
       },
       about: {
         label: 'ABOUT',

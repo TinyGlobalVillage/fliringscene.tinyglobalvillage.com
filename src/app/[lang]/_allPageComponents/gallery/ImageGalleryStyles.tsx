@@ -56,51 +56,81 @@ border-radius: 1rem;
 `;
 
 export const SlideContainer = styled.div`
-position: relative;
-width: 100%;
-max-width: 250px;
-margin: 0 auto;
-border-radius: 1rem;
-overflow: hidden;
-box-shadow:
-0 0 10px #fe9e17,
-0 0 20px #fe9e17,
-0 0 30px #fe9e17;
-
-@media ${media.mobileM}{
-max-width: 330px;
-}
-@media ${media.mobileL}{
-max-width: 415px;
-padding-bottom: 5px;
-}
+  --pad: 12px;                       /* inner gap to glow */
+  position: relative;
+  width: 100%;
+  max-width: clamp(260px, 92vw, 415px);
+  padding: var(--pad);
+  margin: 0 auto;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px #fe9e17, 0 0 20px #fe9e17, 0 0 30px #fe9e17;
+  background: rgba(0,0,0,0.35);      /* frame behind image */
+  overflow: hidden;
 `;
+
+// export const SlideContainer = styled.div`
+// position: relative;
+// width: 100%;
+// max-width: 250px;
+// margin: 0 auto;
+// border-radius: 1rem;
+// overflow: hidden;
+// box-shadow:
+// 0 0 10px #fe9e17,
+// 0 0 20px #fe9e17,
+// 0 0 30px #fe9e17;
+
+// @media ${media.mobileM}{
+// max-width: 330px;
+// }
+// @media ${media.mobileL}{
+// max-width: 415px;
+// padding-bottom: 5px;
+// }
+// `;
+
+// export const MainImageWrapper = styled.div`
+// position: relative;
+// margin: 0 auto;
+// height: 55vh;
+// display: flex;
+// align-items: center;
+// justify-content: center;
+// overflow: visible;
+// `;
 
 export const MainImageWrapper = styled.div`
-position: relative;
-margin: 0 auto;
-height: 55vh;
-display: flex;
-align-items: center;
-justify-content: center;
-overflow: visible;
+  position: relative;
+  width: 100%;
+  // aspect-ratio: 3 / 4;
+  border-radius: 0.75rem 0.75rem 0 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
 
 `;
 
+// export const MainImage = styled.img<{ $animation: AnimationKey }>`
+// position: absolute;
+// max-height: 53vh;
+// width: auto;
+// height: auto;
+// border-radius: 0.75rem 0.75rem 0 0;
+// object-fit: contain;
+// animation: ${({ $animation }) => animationMap[$animation]} 0.5s ease;
+// opacity: 1;
+
+// @media ${media.tablet}{
+// height: 56vh;
+// }
+// `;
 
 export const MainImage = styled.img<{ $animation: AnimationKey }>`
-position: absolute;
-max-height: 53vh;
-width: auto;
-height: auto;
-border-radius: 0.75rem 0.75rem 0 0;
-object-fit: contain;
-animation: ${({ $animation }) => animationMap[$animation]} 0.5s ease;
-opacity: 1;
-
-@media ${media.tablet}{
-height: 56vh;
-}
+  border-radius: 0.75rem 0.75rem 0 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;                /* keeps even gap */
+  animation: ${({ $animation }) => animationMap[$animation]} 0.5s ease;
 `;
 
 export const ZoomOverlay = styled.div`
@@ -110,8 +140,8 @@ background: rgba(0,0,0,0.85);
 display: flex;
 align-items: center;
 justify-content: center;
-cursor: zoom-out;                   /* indicates “click to close” */
-z-index: 10000;                     /* above everything else */
+cursor: zoom-out;
+z-index: 10000;
 
 img {
 max-width: 100vw;
@@ -140,20 +170,18 @@ text-align: center;
 line-height: 1.4;
 `;
 
-
+// the caption and arrow box container
 export const Overlay = styled.div<{ $hasCaption: boolean }>`
+// border: 5px solid red;
 width: 100%;
-max-width: 240px;
-margin: 0 auto;
-margin-top: -5px;
-margin-bottom: 5px;
+margin: 0px auto 0px;
+// margin-top: -5px;
 gap: 1rem;
 display: flex;
 align-items: center;
 justify-content: ${({ $hasCaption }) => $hasCaption ? 'center' : 'space-between'};
 
-/* a little padding, and a semi-opaque background */
-padding: 0.5rem 1rem;
+padding: 0.65rem 1rem;
 background: rgba(0, 0, 0, 0.6);
 // background: rgba(236, 230, 230, 0.6);
 
@@ -162,26 +190,26 @@ border-bottom-left-radius: 0.75rem;
 border-bottom-right-radius: 0.75rem;
 box-shadow: inset 0 1px 2px rgba(0,0,0,0.5);
 
-@media ${media.mobileM}{
-max-width: 315px;
-margin-top: -8px;
-}
-@media ${media.mobileL}{
-margin-top: -9px;
-max-width: 397px;
-}
-@media ${media.tablet}{
-margin-top: -10px;
-}
-@media ${media.laptop}{
-margin-top: -9px;
-max-width: 398px;
-}
+// @media ${media.mobileM}{
+// max-width: 315px;
+// margin-top: -8px;
+// }
+// @media ${media.mobileL}{
+// margin-top: -9px;
+// max-width: 397px;
+// }
+// @media ${media.tablet}{
+// margin-top: -10px;
+// }
+// @media ${media.laptop}{
+// margin-top: -9px;
+// max-width: 398px;
+// }
 
-@media ${media.laptopL}{
-margin-top: -10px;
-max-width: 397px;
-}
+// @media ${media.laptopL}{
+// margin-top: -10px;
+// max-width: 397px;
+// }
 `;
 
 // new Caption element for styling the text

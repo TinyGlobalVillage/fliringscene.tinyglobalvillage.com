@@ -49,7 +49,10 @@ export const dictionary: Dictionary = {
     },
     upcomingShows: {
       title: 'Kommende Show',
-      ctaLabel: 'Se arrangementer',
+      loadingEvents: 'Laster arrangementer…',
+      noShowsTitle: 'Ingen show akkurat nå',
+      noShowsBody: 'Meld deg på nyhetsbrevet for å få beskjed om neste dato.',
+
     },
   },
   about: {
@@ -294,7 +297,7 @@ Meld deg på ved å sende 200 NOK via Vipps til 961768. Vi ses i Breidablikkgår
       shows: {
         label: 'SHOW',
         ariaLabel: 'Se kommende show',
-        href: '/shows',
+        href: '/#upcoming-show',
       },
       about: {
         label: 'OM OSS',

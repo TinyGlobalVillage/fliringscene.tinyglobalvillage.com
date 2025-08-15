@@ -73,8 +73,11 @@ interface AboveTheFoldContent {
 
 interface UpcomingShowsContent {
   title: string;
-  ctaLabel: string;
-}
+  loadingEvents: string;
+  noShowsTitle: string;
+  noShowsBody: string;
+
+    };
 
 // SHOW PAGE DATA
 interface ShowsPage extends PageMeta {

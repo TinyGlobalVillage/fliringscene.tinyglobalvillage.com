@@ -1,70 +1,70 @@
+// TikkioWidget.tsx
 'use client';
 import { useRef, useEffect } from 'react';
 
 declare global {
-  interface Window {
-    Tikkio?: {
-      widgets?: {
-        init?: (element: HTMLElement) => void;
-      };
-    };
-  }
+  interface Window { Tikkio?: { widgets?: { init?: (el: HTMLElement)=>void } } }
 }
 
-export default function TikkioWidget({ strategy = 'lazyOnload' }: {
+type Status = 'loading' | 'ready' | 'empty';
+
+export default function TikkioWidget({
+  strategy = 'lazyOnload',
+  onStatus,
+}: {
   strategy?: 'afterInteractive' | 'lazyOnload';
+  onStatus?: (s: Status) => void;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const once = useRef(false);
 
-  function mount(el: HTMLDivElement) {
+  useEffect(() => {
+
+     function mount(el: HTMLDivElement) {
     if (once.current) return;
     once.current = true;
+    onStatus?.('loading');
 
-    // Preconnect
+    // preconnect + css + script (unchanged) …
     const pc = document.createElement('link');
-    pc.rel = 'preconnect';
-    pc.href = 'https://tikkio.com';
-    pc.crossOrigin = 'anonymous';
+    pc.rel = 'preconnect'; pc.href = 'https://tikkio.com'; pc.crossOrigin = 'anonymous';
     document.head.appendChild(pc);
 
-    // Stylesheet
     const css = document.createElement('link');
-    css.rel = 'stylesheet';
-    css.href = 'https://tikkio.com/css/widgets.min.css';
+    css.rel = 'stylesheet'; css.href = 'https://tikkio.com/css/widgets.min.css';
     document.head.appendChild(css);
 
-    // Script
     const s = document.createElement('script');
-    s.src = 'https://tikkio.com/js/widgets.js';
-    s.async = true;
-    s.defer = true;
-    s.onload = () => window.Tikkio?.widgets?.init?.(el);
+    s.src = 'https://tikkio.com/js/widgets.js'; s.async = true; s.defer = true;
+    s.onload = () => {
+      const host = el.querySelector('.tikkio-event-widget') as HTMLElement;
+      const decide = () =>
+        onStatus?.(host && host.childElementCount > 0 ? 'ready' : 'empty');
+
+      // Tikkio will mutate host; observe and decide once content arrives
+      const mo = new MutationObserver(() => { mo.disconnect(); decide(); });
+      mo.observe(host, { childList: true, subtree: true });
+
+      // safety timeout if nothing arrives
+      setTimeout(() => { mo.disconnect(); decide(); }, 4000);
+
+      window.Tikkio?.widgets?.init?.(el);
+    };
     document.body.appendChild(s);
 
-    // Widget markup
+    // mount node
     el.innerHTML = '<div class="tikkio-event-widget" data-organizer="fliring"></div>';
   }
 
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
+    const el = ref.current; if (!el) return;
 
-    if (strategy === 'afterInteractive') {
-      mount(el);
-      return;
-    }
+    if (strategy === 'afterInteractive') { mount(el); return; }
 
-    const io = new IntersectionObserver((entries, obs) => {
-      if (entries.some(e => e.isIntersecting)) {
-        mount(el);
-        obs.disconnect();
-      }
+    const io = new IntersectionObserver((es, obs) => {
+      if (es.some(e => e.isIntersecting)) { mount(el); obs.disconnect(); }
     }, { rootMargin: '0px 0px 200px 0px' });
-
-    io.observe(el);
-    return () => io.disconnect();
-  }, [strategy]);
+    io.observe(el); return () => io.disconnect();
+  }, [strategy, onStatus]);
 
   return <div ref={ref} />;
 }
