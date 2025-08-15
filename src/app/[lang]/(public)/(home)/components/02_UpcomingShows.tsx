@@ -8,7 +8,7 @@ import {
   UpcomingShowsSection,
   HeadingWrapper,
   TikkioWrapper,
-  LoadingPlaceholder,   // ⬅️ new
+  // LoadingPlaceholder,   // ⬅️ new
   LoadingText,          // ⬅️ new (if you want text-only)
   EmptyState,           // ⬅️ new
 } from './02_Wrapper';
