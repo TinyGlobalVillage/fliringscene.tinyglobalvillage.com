@@ -1,6 +1,6 @@
 'use client';
 
-import styled,  { keyframes } from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { media } from "@/styles/breakpoints";
 
 import { glowPulse } from "@/app/[lang]/_allPageComponents/animations/glowPulse";
@@ -8,70 +8,87 @@ import { glowPulse } from "@/app/[lang]/_allPageComponents/animations/glowPulse"
 
 /* ---- Loading placeholder (shimmer) ---- */
 const upcomingShimmer = keyframes`
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+0% { background-position: 200% 0; }
+100% { background-position: -200% 0; }
 `;
 
 export const LoadingPlaceholder = styled.div`
-  min-height: 260px;
-  border-radius: 16px;
-  overflow: hidden;
-  background: linear-gradient(
-    90deg,
-    rgba(255,255,255,0.06) 25%,
-    rgba(255,255,255,0.15) 37%,
-    rgba(255,255,255,0.06) 63%
-  );
-  background-size: 400% 100%;
-  animation: ${upcomingShimmer} 1.2s linear infinite;
+min-height: 260px;
+border-radius: 16px;
+overflow: hidden;
+background: linear-gradient(
+90deg,
+rgba(255,255,255,0.06) 25%,
+rgba(255,255,255,0.15) 37%,
+rgba(255,255,255,0.06) 63%
+);
+background-size: 400% 100%;
+animation: ${upcomingShimmer} 1.2s linear infinite;
 
-  @media (prefers-reduced-motion: reduce) {
-    animation: none;
-  }
+@media (prefers-reduced-motion: reduce) {
+animation: none;
+}
 `;
 
 /* ---- If you prefer simple text-only loading ---- */
 const pulse = keyframes`
-  0%   { transform: scale(1);   opacity: .75; }
-  50%  { transform: scale(1.06); opacity: 1;   }
-  100% { transform: scale(1);   opacity: .75; }
+0%   { transform: scale(1);   opacity: .75; }
+50%  { transform: scale(1.06); opacity: 1;   }
+100% { transform: scale(1);   opacity: .75; }
 `;
 
 export const LoadingText = styled.p`
-  text-align: center;
-  margin: 14px 0 12px;          /* ↔ extra space from outline */
-  font-weight: 700;
-  color: #ff4ecb;
-  letter-spacing: .02em;
-  padding: 2rem;
-  animation: ${pulse} 1.1s ease-in-out infinite;
-  will-change: transform;
+text-align: center;
+margin: 14px 0 12px;
+padding: 2rem;
 
-  @media (prefers-reduced-motion: reduce) {
+ /* readable pill */
+  color: #ffffff;                         /* readable on dark */
+  background: rgba(0, 0, 0, 0.72);        /* darken behind text */
+  border: 1px solid #ff4ecb;              /* keep brand accent */
+  border-radius: 999px;                   /* pill */
+  box-shadow:
+    0 0 8px rgba(0,191,255,0.35),         /* soft cyan halo (subtle) */
+    inset 0 0 0 1px rgba(255,255,255,0.05);
+
+  font-weight: 700;
+  letter-spacing: .02em;
+
+animation: ${pulse} 1.1s ease-in-out infinite;
+will-change: transform;
+
+    @media (prefers-reduced-motion: reduce) {
     animation: none;
-  }
+    }
+
+    /* accessibility: boost contrast when requested */
+    @media (prefers-contrast: more) {
+    background: #000;                     /* solid */
+    box-shadow: none;
+    border-color: #fff;
+    color: #fff;
+    }
 `;
 
 /* ---- Empty state wrapper ---- */
 export const EmptyState = styled.div`
   text-align: center;
-  color: #ff4ecb;
-  padding: 2rem 2rem;
-  border-radius: 25px;
-    background: linear-gradient(
-    90deg,
-    rgba(255,255,255,0.06) 25%,
-    rgba(255,255,255,0.15) 37%,
-    rgba(255,255,255,0.06) 63%
-  );
+  padding: 18px 16px;
+  border-radius: 16px;
 
-  h3 {
+  /* readable panel */
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.72);
+  border: 1px solid rgba(255, 78, 203, 0.6);
+  box-shadow: 0 0 10px rgba(255, 78, 203, 0.25);
+
+    h3 {
     margin: 0 0 .5rem;
-  }
-  p {
+    }
+    p {
     margin: 0 0 1rem;
-    opacity: 0.9;
-  }
+    opacity: 0.95;
+    }
 `;
 
 
