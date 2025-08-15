@@ -43,7 +43,7 @@ export default function ImageGallery({ slides, prevLabel, nextLabel }: ImageGall
     else if (deltaX < -threshold) nextSlide();
   }
 
-  /* ---------- DRAG SCROLL for ThumbnailRow (minimal add) ---------- */
+  /* ---------- DRAG SCROLL for ThumbnailRow ---------- */
   const rowRef = useRef<HTMLDivElement>(null);
   const [dragging, setDragging] = useState(false);
   const pointerIdRef = useRef<number | null>(null);

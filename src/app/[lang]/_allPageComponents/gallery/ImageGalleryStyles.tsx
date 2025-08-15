@@ -245,7 +245,24 @@ touch-action: pan-x;
   &.dragging img { 
   pointer-events: none; 
   }
-
+  
+ &::-webkit-scrollbar {
+    height: 8px;            /* horizontal bar height */
+  }
+  &::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.1);
+    border-radius: 4px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #f7b700;
+    border-radius: 6px;
+    /* make thumb appear thicker without widening track */
+    border: 4px solid transparent;
+    background-clip: content-box;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #ffcc33;
+  }
 
 @media ${media.tablet} {
   overflow-x: scroll;
