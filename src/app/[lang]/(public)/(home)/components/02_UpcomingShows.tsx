@@ -9,7 +9,7 @@ import {
   HeadingWrapper,
   TikkioWrapper,
   LoadingPlaceholder,   // ⬅️ new
-  // LoadingText,          // ⬅️ new (if you want text-only)
+  LoadingText,          // ⬅️ new (if you want text-only)
   EmptyState,           // ⬅️ new
 } from './02_Wrapper';
 import type { Dictionary } from '@/data/i18n/types';
@@ -39,14 +39,14 @@ export default function UpcomingShows({ dict }: UpcomingShowProps) {
           {/* Pick ONE of these two loading UIs: */}
 
           {/* A) Shimmer block */}
-          {status === 'loading' && <LoadingPlaceholder aria-hidden="true" />}
+          {/* {status === 'loading' && <LoadingPlaceholder aria-hidden="true" />} */}
 
           {/* B) Text-only loading (uncomment if you prefer) */}
-          {/* {status === 'loading' && (
+          {status === 'loading' && (
             <LoadingText role="status" aria-live="polite">
               {dict.loadingEvents ?? 'Loading events…'}
             </LoadingText>
-          )} */}
+          )}
 
           <TikkioWidget strategy="lazyOnload" onStatus={setStatus} />
         </TikkioWrapper>

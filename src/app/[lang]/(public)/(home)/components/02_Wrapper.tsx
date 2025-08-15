@@ -31,19 +31,39 @@ export const LoadingPlaceholder = styled.div`
 `;
 
 /* ---- If you prefer simple text-only loading ---- */
+const pulse = keyframes`
+  0%   { transform: scale(1);   opacity: .75; }
+  50%  { transform: scale(1.06); opacity: 1;   }
+  100% { transform: scale(1);   opacity: .75; }
+`;
+
 export const LoadingText = styled.p`
   text-align: center;
-  padding: 1rem 0;
-  margin: 0;
-  color: #ff4ecb;           /* pick your brand color */
-  font-weight: 600;
+  margin: 14px 0 12px;          /* ↔ extra space from outline */
+  font-weight: 700;
+  color: #ff4ecb;
+  letter-spacing: .02em;
+  padding: 2rem;
+  animation: ${pulse} 1.1s ease-in-out infinite;
+  will-change: transform;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
 `;
 
 /* ---- Empty state wrapper ---- */
 export const EmptyState = styled.div`
   text-align: center;
-  color: #ff4ecb; 
-  padding: 1rem 0 2rem;
+  color: #ff4ecb;
+  padding: 2rem 2rem;
+  border-radius: 25px;
+    background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.06) 25%,
+    rgba(255,255,255,0.15) 37%,
+    rgba(255,255,255,0.06) 63%
+  );
 
   h3 {
     margin: 0 0 .5rem;
