@@ -246,14 +246,6 @@ touch-action: pan-x;
   pointer-events: none; 
   }
 
-  /* Firefox */
-  scrollbar-width: thin;
-  scrollbar-color: #f7b700 rgba(0,0,0,0.1);
-
-  /* WebKit */
-  &::-webkit-scrollbar { height: 8px; }
-  &::-webkit-scrollbar-track { background: rgba(0,0,0,0.1); border-radius: 4px; }
-  &::-webkit-scrollbar-thumb { background: #f7b700; border-radius: 4px; }
 
 @media ${media.tablet} {
   overflow-x: scroll;
