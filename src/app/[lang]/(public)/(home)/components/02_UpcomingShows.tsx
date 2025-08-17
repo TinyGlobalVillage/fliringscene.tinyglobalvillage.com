@@ -8,6 +8,7 @@ import {
   UpcomingShowsSection,
   HeadingWrapper,
   TikkioWrapper,
+  ShowsWrapper,
   // LoadingPlaceholder,   // ⬅️ new
   // LoadingText,          // ⬅️ new (if you want text-only)
   EmptyState,           // ⬅️ new
@@ -25,6 +26,8 @@ export default function UpcomingShows({ dict }: UpcomingShowProps) {
 
   return (
     <UpcomingShowsSection id="upcoming-show" aria-live="polite">
+      <ShowsWrapper>
+
       <HeadingWrapper>
         <NeonSectionTitleFontSize>{dict.title}</NeonSectionTitleFontSize>
       </HeadingWrapper>
@@ -44,14 +47,15 @@ export default function UpcomingShows({ dict }: UpcomingShowProps) {
           {/* B) Text-only loading (uncomment if you prefer) */}
           {/* {status === 'loading' && (
             <LoadingText role="status" aria-live="polite">
-              {dict.loadingEvents ?? 'Loading events…'}
+            {dict.loadingEvents ?? 'Loading events…'}
             </LoadingText>
-          )} */}
+            )} */}
 
           <TikkioWidget strategy="lazyOnload" onStatus={setStatus} />
           {/* <TikkioWidget strategy="lazyOnload" /> */}
         </TikkioWrapper>
       )}
+      </ShowsWrapper>
     </UpcomingShowsSection>
   );
 }
