@@ -98,9 +98,9 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-scroll-margin-top: 100px;
+scroll-margin-top: 120px;
 
-border: 2px solid red;
+// border: 2px solid red;
 width: 100%;
 margin-bottom: 110px;
 
@@ -114,7 +114,7 @@ box-shadow: 0 0 10px #f7b700, 0 0 25px #f7b700;
 background: rgba(0, 0, 0, 0.2);
 
 padding: 0rem 2rem 25px;
-scroll-margin-top: 75px;
+// scroll-margin-top: 75px;
 
 @media ${media.mobileM}{
 
@@ -153,22 +153,6 @@ justify-content: center;
 padding-top: 10px;
 margin-bottom: 10px;
 
-@media ${media.mobileM}{
-padding-top: 15px;
-padding-bottom: 5px;
-}
-
-@media ${media.laptop}{
-padding-top: 15px;
-padding-bottom: 10px;
-margin-top: -10px;
-margin-bottom: 0px;
-}
-
-@media ${media.laptopL}{
-margin-top: -20px;
-margin-bottom: 10px;
-}
 
 `;
 
