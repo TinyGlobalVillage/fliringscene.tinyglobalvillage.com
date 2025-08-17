@@ -6,15 +6,18 @@ declare global {
   interface Window { Tikkio?: { widgets?: { init?: (el: HTMLElement)=>void } } }
 }
 
+type TikkioWidgetProps = {
+  strategy?: 'afterInteractive' | 'lazyOnload';
+  onStatus?: (s: Status) => void;
+}
+
 type Status = 'loading' | 'ready' | 'empty';
 
 export default function TikkioWidget({
   strategy = 'lazyOnload',
   onStatus,
-}: {
-  strategy?: 'afterInteractive' | 'lazyOnload';
-  onStatus?: (s: Status) => void;
-}) {
+}: TikkioWidgetProps) {
+
   const ref = useRef<HTMLDivElement>(null);
   const once = useRef(false);
 

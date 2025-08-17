@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import TikkioWidget from '../../_allPageComponents/tikkio/TikkoWidget';
+import TikkioWidget from '../../_allPageComponents/tikkio/TikkioWidget';
 import { WidgetWrapper } from './ShowsPageWrapper';
 
 type Status = 'loading' | 'ready' | 'empty';

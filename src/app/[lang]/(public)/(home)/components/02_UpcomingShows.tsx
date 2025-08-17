@@ -3,13 +3,13 @@
 
 import { useState } from 'react';
 import NeonSectionTitleFontSize from '../../../_allPageComponents/headers/NeonSectionTitleFontSize';
-import TikkioWidget from '../../../_allPageComponents/tikkio/TikkoWidget';
+import TikkioWidget from '../../../_allPageComponents/tikkio/TikkioWidget';
 import {
   UpcomingShowsSection,
   HeadingWrapper,
   TikkioWrapper,
   // LoadingPlaceholder,   // ⬅️ new
-  LoadingText,          // ⬅️ new (if you want text-only)
+  // LoadingText,          // ⬅️ new (if you want text-only)
   EmptyState,           // ⬅️ new
 } from './02_Wrapper';
 import type { Dictionary } from '@/data/i18n/types';
@@ -42,13 +42,14 @@ export default function UpcomingShows({ dict }: UpcomingShowProps) {
           {/* {status === 'loading' && <LoadingPlaceholder aria-hidden="true" />} */}
 
           {/* B) Text-only loading (uncomment if you prefer) */}
-          {status === 'loading' && (
+          {/* {status === 'loading' && (
             <LoadingText role="status" aria-live="polite">
               {dict.loadingEvents ?? 'Loading events…'}
             </LoadingText>
-          )}
+          )} */}
 
           <TikkioWidget strategy="lazyOnload" onStatus={setStatus} />
+          {/* <TikkioWidget strategy="lazyOnload" /> */}
         </TikkioWrapper>
       )}
     </UpcomingShowsSection>

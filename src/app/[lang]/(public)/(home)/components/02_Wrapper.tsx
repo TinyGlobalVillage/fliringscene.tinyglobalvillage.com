@@ -97,11 +97,11 @@ export const UpcomingShowsSection = styled.section`
 display: flex;
 flex-direction: column;
 align-items: center;
-justify-content: center;
+// justify-content: center;
 
 scroll-margin-top: 75px;
 width: 90%;
-max-width: 900px;
+max-width: 700px;
 height: auto;
 margin: 0 auto;
 margin-bottom: 100px;
@@ -130,14 +130,14 @@ margin-bottom: 150px;
 }
 
 @media ${media.laptop}{
-height: 650px;
+// height: 650px;
 margin-top: 110px;
 margin-bottom: 200px;
 padding: .25rem 11rem 35px;
 }
 
 @media ${media.laptopL}{
-height: 700px;
+// height: 700px;
 padding: 1rem 9rem 35px;
 }
 
@@ -170,6 +170,8 @@ margin-bottom: 10px;
 `;
 
 export const TikkioWrapper = styled.div`
+  box-shadow: 0 0 15px #00bfff, 0 0 15px #00bfff;
+  border-radius: 25px;
 
 /* target the injected widget container and its cards */
 
