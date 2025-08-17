@@ -5,12 +5,12 @@ import TextContent from './components/TextContent';
 
 import { AboutSection, HeadingWrapper } from './components/AboutWrapper';
 
-import { getDictionary } from '@/data/i18n/getDictionary';
 import type { AboutContent } from '@/data/i18n/types';
 
 import NeonSectionTitleFontSize from '../../_allPageComponents/headers/NeonSectionTitleFontSize';
 import NeonGuys from '../../_allPageComponents/svg/NeonGuysSVG';
 import { buildPageMetadata } from '@/hook-utils/buildPageMetadata';
+import { getDictionary } from '@/data/i18n/getDictionary';
 
 type LangParams = Promise<{ lang: 'en' | 'no' }>;
 
