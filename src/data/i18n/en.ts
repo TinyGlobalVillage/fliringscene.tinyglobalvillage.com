@@ -348,7 +348,7 @@ export const dictionary: Dictionary = {
         shows: {
           label: 'SHOWS',
           ariaLabel: 'View upcoming shows',
-          href: '/shows',
+          href: '/#upcoming-show',
         },
         about: {
           label: 'ABOUT',

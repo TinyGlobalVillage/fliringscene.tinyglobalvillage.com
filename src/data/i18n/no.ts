@@ -352,7 +352,7 @@ Meld deg på ved å sende 200 NOK via Vipps til 961768. Vi ses i Breidablikkgår
         shows: {
           label: 'SHOW',
           ariaLabel: 'Se kommende arrangement',
-          href: '/shows',
+          href: '/#upcoming-show',
         },
         about: {
           label: 'OM OSS',
