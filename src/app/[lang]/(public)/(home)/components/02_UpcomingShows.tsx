@@ -4,6 +4,7 @@
 import { useState } from 'react';
 import NeonSectionTitleFontSize from '../../../_allPageComponents/headers/NeonSectionTitleFontSize';
 import TikkioWidget from '../../../_allPageComponents/tikkio/TikkioWidget';
+// import TikkioGallery from '@/app/[lang]/_allPageComponents/tikkio/TikkioGallery';
 import {
   UpcomingShowsSection,
   HeadingWrapper,
@@ -52,6 +53,7 @@ export default function UpcomingShows({ dict }: UpcomingShowProps) {
             )} */}
 
           <TikkioWidget strategy="lazyOnload" onStatus={setStatus} />
+          {/* <TikkioGallery onStatus={setStatus} /> */}
           {/* <TikkioWidget strategy="lazyOnload" /> */}
         </TikkioWrapper>
       )}

@@ -107,6 +107,7 @@ margin-bottom: 110px;
 `;
 
 export const ShowsWrapper = styled.div`
+// width: 100%;
 border: 8px solid #f7b700;
 border-radius: 50px;
 animation: ${glowPulse} 2.5s infinite;

@@ -36,5 +36,6 @@ export default async function ShowsPage({ params }: ShowPageProps) {
         emptyBody={emptyBody}
       />
     </ShowsSection>
+  
   );
 }

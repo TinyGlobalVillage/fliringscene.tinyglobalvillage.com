@@ -1,5 +1,5 @@
 // src/app/[lang]/(public)/gallery/page.tsx
-import ImageGallery from '../../_allPageComponents/gallery/imageGallery';
+import ImageGallery from '../../_allPageComponents/gallery/ImageGallery';
 import { getDictionary } from '@/data/i18n/getDictionary';
 import { getLocalizedSlides } from '@/hook-utils/getGalleryContent';
 import { GalleryWrapper } from './GalleryWrapper';

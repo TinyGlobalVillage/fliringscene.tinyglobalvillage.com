@@ -58,6 +58,7 @@ export default async function RootLayout({
       </head>
       <body>
         <LayoutClient lang={lang} dict={dict}>
+          
           {children}
         </LayoutClient>
       </body>

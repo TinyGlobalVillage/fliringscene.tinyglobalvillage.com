@@ -4,7 +4,7 @@ import { slides, type SlideData } from '@/data/gallery/galleryData';
 import type { GalleryAboveFoldContent } from '@/data/i18n/types';
 
 export interface GallerySlideContent extends SlideData {
-  caption: string;
+  caption?: string;
   alt:     string;
 }
 
