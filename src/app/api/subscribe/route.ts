@@ -1,57 +1,31 @@
-// app/api/subscribe/route.ts
 import { NextResponse } from 'next/server';
-import { promises as fs } from 'fs';
-import path from 'path';
+import crypto from 'crypto';
 
-export async function POST(request: Request) {
-  const { email: rawEmail } = await request.json();
-  const email = rawEmail?.trim().toLowerCase();
+export async function POST(req: Request) {
+  const { email: raw } = await req.json();
+  const email = String(raw ?? '').trim().toLowerCase();
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
+    return NextResponse.json({ error: 'Invalid email' }, { status: 400 });
 
-  // 1️⃣ validate
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(email)) {
-    return NextResponse.json(
-      { error: 'A valid email address is required' },
-      { status: 400 }
-    );
-  }
+  const dc = process.env.MC_SERVER_PREFIX!;
+  const listId = process.env.MC_AUDIENCE_ID!;
+  const apiKey = process.env.MC_API_KEY!;
+  const auth = Buffer.from(`anystring:${apiKey}`).toString('base64');
+  const hash = crypto.createHash('md5').update(email).digest('hex');
 
-  // 2️⃣ locate file
-  const filePath = path.join(process.cwd(), 'src', 'data', 'subscribers.json');
+  const body = { email_address: email, status_if_new: 'pending' }; // use 'subscribed' to auto-subscribe
+  const r = await fetch(`https://${dc}.api.mailchimp.com/3.0/lists/${listId}/members/${hash}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json', Authorization: `Basic ${auth}` },
+    body: JSON.stringify(body),
+    cache: 'no-store',
+  });
 
-  // 3️⃣ read or init
-  let list: string[] = [];
-  try {
-    const text = await fs.readFile(filePath, 'utf-8');
-    list = JSON.parse(text);
-  } catch (err: unknown) {
-    // narrow to Node error to inspect `.code`
-    if (
-      typeof err === 'object' &&
-      err !== null &&
-      'code' in err &&
-      (err as NodeJS.ErrnoException).code === 'ENOENT'
-    ) {
-      // file doesn’t exist → create it
-      await fs.writeFile(filePath, '[]', 'utf-8');
-    } else {
-      console.error('Corrupt JSON, resetting…', err);
-      await fs.writeFile(filePath, '[]', 'utf-8');
-    }
-    list = [];
-  }
-
-  // 4️⃣ duplicate check
-  if (list.includes(email)) {
-    return NextResponse.json(
-      { error: 'This email is already subscribed.' },
-      { status: 409 }
-    );
-  }
-
-  // 5️⃣ append + save
-  list.push(email);
-  await fs.writeFile(filePath, JSON.stringify(list, null, 2), 'utf-8');
-
-  return NextResponse.json({ success: true });
+  if (r.ok) return NextResponse.json({ success: true });
+  const err = await r.json().catch(() => ({}));
+  const title = (err as any)?.title;
+  const detail = (err as any)?.detail;
+  const already = title === 'Member Exists';
+  return NextResponse.json({ error: already ? 'Already subscribed' : detail || 'Mailchimp error' },
+    { status: already ? 409 : r.status || 500 });
 }
