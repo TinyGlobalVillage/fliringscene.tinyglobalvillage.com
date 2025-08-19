@@ -20,7 +20,7 @@ export async function POST(req: Request) {
   const auth = Buffer.from(`anystring:${apiKey}`).toString('base64');
   const hash = crypto.createHash('md5').update(email).digest('hex');
 
-  const body = { email_address: email, status_if_new: 'pending' }; // or 'subscribed'
+  const body = { email_address: email, status_if_new: 'subscribed' }; // or 'pending' for double opt-in
   const r = await fetch(
     `https://${dc}.api.mailchimp.com/3.0/lists/${listId}/members/${hash}`,
     {
